@@ -33,8 +33,6 @@ namespace ModdingTutorial.Content.Items.Armor
             return bodyMatch && legsMatch;
         }
 
-        // ctrl + shirt + * to remove comment
-
         public override void UpdateArmorSet(Player player)
         {
             player.setBonus = "Set bonus: 6 defense";

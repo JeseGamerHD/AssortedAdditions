@@ -19,7 +19,8 @@ namespace ModdingTutorial.Content.Items.Placeables
             Item.height = 12;
             Item.maxStack = 999;
             Item.consumable = true;
-            Item.value = Item.buyPrice(silver: 2);
+            Item.value = Item.buyPrice(silver: 5);
+            Item.rare = ItemRarityID.Green;
 
             Item.useStyle = ItemUseStyleID.Swing;
             Item.useAnimation = 15;
