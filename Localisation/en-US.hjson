@@ -1,0 +1,145 @@
+
+Mods: {
+	ModdingTutorial: {
+		Buffs: {
+			DragonStaffBuff: {
+				DisplayName: It's a dragon!
+				Description: The dragon will protect you.
+			}
+		}
+
+		Items: {
+			SteelBreastplate: {
+				DisplayName: Steel Breastplate
+				Tooltip: A breastplate made out of steel
+			}
+
+			SteelGreaves: {
+				DisplayName: Steel Greaves
+				Tooltip: Greaves made out of steel
+			}
+
+			SteelHelmet: {
+				DisplayName: Steel Helmet
+				Tooltip: A helmet made out of steel
+			}
+
+			ControlChip: {
+				DisplayName: Control Chip
+				Tooltip: Used for manufacturing weapons
+			}
+
+			CoalChunk: {
+				DisplayName: Coal Chunk
+				Tooltip: It's a chunk of coal.
+			}
+
+			SteelBar: {
+				DisplayName: Steel Bar
+			}
+
+			SteelHamaxe: {
+				DisplayName: Steel Hamaxe
+			}
+
+			SteelPickaxe: {
+				DisplayName: Steel Pickaxe
+				Tooltip: Can mine Meteorite
+			}
+
+			GuidedMissile: {
+				DisplayName: Guided Missile
+				Tooltip: Small blast radius. Will not destroy tiles
+			}
+
+			BouncingConcoction: {
+				DisplayName: Bouncing Concoction
+				Tooltip: Filled with cursed inferno
+			}
+
+			CrazyConcoction: {
+				DisplayName: Crazy Concoction
+				Tooltip: What could go wrong...
+			}
+
+			ExplosiveConcoction: {
+				DisplayName: Volatile Concoction
+				Tooltip: Will burst into flames
+			}
+
+			FrozenConcoction: {
+				DisplayName: Frozen Concoction
+				Tooltip: Causes frostbite
+			}
+
+			IchorConcoction: {
+				DisplayName: Ichor Concoction
+				Tooltip: Decreases target's defence
+			}
+
+			LightConcoction: {
+				DisplayName: Luminous Concoction
+				Tooltip: Creates a damaging ring
+			}
+
+			ShadowConcoction: {
+				DisplayName: Shadow Concoction
+				Tooltip: Set your enemies ablaze in shadowflames
+			}
+
+			SteelSword: {
+				DisplayName: Steel Sword
+			}
+
+			GuidedMissileLauncher: {
+				DisplayName: Guided Missile Launcher
+				Tooltip: Launches controllable missiles
+			}
+
+			SteelBow: {
+				DisplayName: Steel Bow
+			}
+
+			DragonStaff: {
+				DisplayName: Dragon Staff
+				Tooltip: Summons a dragon to fight for you.
+			}
+		}
+
+		Projectiles: {
+			BouncingConcoctionProj: {
+				DisplayName: Bouncing Concoction Proj
+			}
+
+			ExplosiveConcoctionProj: {
+				DisplayName: Explosive Concoction Proj
+			}
+
+			FrozenConcoctionProj: {
+				DisplayName: Frozen Concoction Proj
+			}
+
+			IchorConcoctionProj: {
+				DisplayName: Ichor Concoction Proj
+			}
+
+			LightConcoctionProj: {
+				DisplayName: Light Concoction Proj
+			}
+
+			ShadowConcoctionProj: {
+				DisplayName: Shadow Concoction Proj
+			}
+
+			GuidedMissileProj: {
+				DisplayName: Guided Missile Proj
+			}
+
+			DragonMinionProj: {
+				DisplayName: Dragon Minion Proj
+			}
+		}
+
+		Tiles.CoalChunk.MapEntry: Coal
+	}
+}
