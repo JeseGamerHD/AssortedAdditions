@@ -21,7 +21,7 @@ internal class ExplosiveConcoction : ModItem
         Item.damage = 35;
         Item.channel = true;
         Item.mana = 6;
-        Item.rare = ItemRarityID.LightRed;
+        Item.rare = ItemRarityID.Green;
         Item.useTime = 27;
         Item.useAnimation = 27;
         Item.UseSound = SoundID.Item18;
