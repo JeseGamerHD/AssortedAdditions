@@ -33,13 +33,13 @@ namespace ModdingTutorial.Common.Systems.GenPasses
                 int y = WorldGen.genRand.Next((int)WorldGen.worldSurface - 50, Main.maxTilesY - 300);
                 // -50 from surface so ore doesn't spawn in small ponds etc.
 
-                Tile tile = Framing.GetTileSafely(x, y); // This ore only spawns in the desert underground
+                Tile tile = Framing.GetTileSafely(x, y); // This ore only spawns in the desert underground (mostly)
                 if (tile.TileType == TileID.Sand || 
                     tile.TileType == TileID.Sandstone ||
                     tile.TileType == TileID.HardenedSand ||
-                    tile.TileType == TileID.FossilOre)
+                    tile.TileType == TileID.DesertFossil)
                 {
-                    WorldGen.TileRunner(x, y, WorldGen.genRand.Next(2, 7), WorldGen.genRand.Next(3, 6), ModContent.TileType<DuneOre>());
+                    WorldGen.TileRunner(x, y, WorldGen.genRand.Next(2, 7), WorldGen.genRand.Next(3, 10), ModContent.TileType<DuneOre>());
                 }
                 
             }

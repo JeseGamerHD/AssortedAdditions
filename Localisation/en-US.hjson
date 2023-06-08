@@ -104,6 +104,29 @@ Mods: {
 				DisplayName: Dragon Staff
 				Tooltip: Summons a dragon to fight for you.
 			}
+
+			DuneChestplate: {
+				DisplayName: Dune Chestplate
+				Tooltip: 7% increased ranged critical strike chance
+			}
+
+			DuneGreaves: {
+				DisplayName: Dune Greaves
+				Tooltip: 7% increased ranged speed
+			}
+
+			DuneHelmet: {
+				DisplayName: Dune Helmet
+				Tooltip: 7% increased ranged damage
+			}
+
+			DuneBar.DisplayName: Dune Bar
+			DuneOre.DisplayName: Dune Ore
+
+			DuneMattock: {
+				DisplayName: Dune Mattock
+				Tooltip: Can be used for mining and chopping wood
+			}
 		}
 
 		Projectiles: {
@@ -140,6 +163,12 @@ Mods: {
 			}
 		}
 
-		Tiles.CoalChunk.MapEntry: Coal
+		Tiles: {
+			CoalChunk: {
+				MapEntry: Coal
+			}
+
+			DuneOre.MapEntry: Dune Ore
+		}
 	}
 }
