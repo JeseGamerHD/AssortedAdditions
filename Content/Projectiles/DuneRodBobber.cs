@@ -10,7 +10,7 @@ public class DuneRodBobber : ModProjectile // Bobber for the Dune Rod item
     public override void SetDefaults()
     {
         Projectile.CloneDefaults(ProjectileID.BobberWooden);
-        DrawOriginOffsetY = -8; // So that 
+        DrawOriginOffsetY = -8;
     }
 
     public override void ModifyFishingLine(ref Vector2 lineOriginOffset, ref Color lineColor)
