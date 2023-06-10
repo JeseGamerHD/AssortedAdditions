@@ -26,7 +26,7 @@ namespace ModdingTutorial.Content.Projectiles.SummonProj
             Projectile.friendly = true;
             Projectile.minion = true;
             Projectile.DamageType = DamageClass.Summon;
-            Projectile.minionSlots = 1; // Only one can exist at once
+            Projectile.minionSlots = 1; // Takes one slot
             Projectile.penetrate = -1; // Minion won't despawn upon collision with enemies/tiles
         }
 
@@ -56,7 +56,6 @@ namespace ModdingTutorial.Content.Projectiles.SummonProj
         }
 
         // Basically checks if the player is alive
-        // Should probably be moved to its own file
         private bool CheckActive(Player owner) 
                                               
         {
