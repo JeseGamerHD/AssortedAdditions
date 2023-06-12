@@ -41,14 +41,16 @@ public class DragonStaff : ModItem
 
     public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
     {
-
-        Projectile proj = Main.projectile[0];
-        if(proj.active && proj.type == Item.shoot && proj.owner == player.whoAmI)
-        {  // Only one of this minion can exist
-           // This section despawns the first minion when summoning another
-            proj.active = false; // Without this the new minion won't spawn at the cursor, but at the previous minion's location
+        for(int i = 0; i < Main.projectile.Length; i++)
+        {
+            Projectile proj = Main.projectile[i];
+            if (proj.active && proj.type == ModContent.ProjectileType<DragonMinionProj>() && proj.owner == player.whoAmI)
+            {  // Only one of this minion can exist
+               // This section despawns the first minion when summoning another
+                proj.active = false; // Without this the new minion won't spawn at the cursor, but at the previous minion's location
+            }
         }
-
+        
         player.AddBuff(Item.buffType, 2);
 
         var projectile = Projectile.NewProjectileDirect(source, position, velocity, type, damage, knockback, Main.myPlayer);
