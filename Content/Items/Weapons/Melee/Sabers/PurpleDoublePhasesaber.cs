@@ -1,5 +1,6 @@
 ﻿using ModdingTutorial.Content.Projectiles.MeleeProj.DoublePhasesaberProj;
 using Terraria;
+using Terraria.GameContent.Creative;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -7,12 +8,18 @@ namespace ModdingTutorial.Content.Items.Weapons.Melee.Sabers
 {
     internal class PurpleDoublePhasesaber : ModItem
     {
+        public override void SetStaticDefaults()
+        {
+            Tooltip.SetDefault("Right click to throw the weapon");
+            CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
+        }
         public override void SetDefaults()
         {
             Item.width = 40;
             Item.height = 40;
             Item.useAnimation = 30;
             Item.useTime = 30;
+            Item.value = Item.sellPrice(gold: 2);
 
             Item.DamageType = DamageClass.Melee;
             Item.damage = 60;
