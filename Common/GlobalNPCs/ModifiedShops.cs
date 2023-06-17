@@ -18,6 +18,9 @@ namespace ModdingTutorial.Common.GlobalNPCs
 
                 shop.item[nextSlot].SetDefaults(ModContent.ItemType<ControlChip>());
                 nextSlot++;
+
+                shop.item[nextSlot].SetDefaults(ModContent.ItemType<Battery>());
+                nextSlot++;
             }
         }
     }
