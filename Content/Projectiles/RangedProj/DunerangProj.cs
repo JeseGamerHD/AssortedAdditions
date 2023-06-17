@@ -25,7 +25,7 @@ namespace ModdingTutorial.Content.Projectiles.RangedProj
 
         public override void AI()
         { 
-            Player player = Main.player[Projectile.owner]; // Used for returning the boomerang
+            Player player = Main.player[Projectile.owner];
 
             // Projectile will rotate when thrown
             Projectile.rotation += 0.4f;
@@ -50,10 +50,10 @@ namespace ModdingTutorial.Content.Projectiles.RangedProj
             }
 
             // Gradually slow down the projectile after 0.5 seconds in the air
-            if (Projectile.timeLeft < 2970)
+            if (Projectile.timeLeft < 2970 && Projectile.tileCollide == true)
             {
                 Projectile.ai[0] += 1f;
-                if (Projectile.ai[0] > 5f)
+                if (Projectile.ai[0] > 15f)
                 {
                     Projectile.velocity *= 0.97f;
                     Projectile.tileCollide = false;
@@ -69,7 +69,7 @@ namespace ModdingTutorial.Content.Projectiles.RangedProj
 
                 // Timer that slowly accelerates and curves the boomerang back
                 Projectile.ai[0] += 1f;
-                if (Projectile.ai[0] > 5f)
+                if (Projectile.ai[0] > 15f)
                 {
                     Projectile.velocity *= 8f; // Speed looks alright with this
                 }
