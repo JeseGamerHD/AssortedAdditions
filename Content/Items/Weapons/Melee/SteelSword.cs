@@ -16,6 +16,7 @@ namespace ModdingTutorial.Content.Items.Weapons.Melee
             Item.useTime = 25;
             Item.useAnimation = 25;
             Item.autoReuse = true;
+            Item.useTurn = true;
 
             Item.DamageType = DamageClass.Melee;
             Item.damage = 35;
