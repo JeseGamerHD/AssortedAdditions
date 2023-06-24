@@ -14,13 +14,13 @@ namespace ModdingTutorial.Common.GlobalNPCs
         {
             if(npc.type == NPCID.TombCrawlerHead)
             {
-                // 33% chance to drop 3-7 dune ores after killing crimson/corruption boss
+                // 33% chance to drop 4-7 dune ores aftercrimson/corruption boss has been defeated
                 npcLoot.Add(new ItemDropWithConditionRule(ModContent.ItemType<DuneOre>(), 3, 4, 7, new WormOrBrainDefeated(), 1));
             }
 
             if (npc.type == NPCID.Antlion)
             {
-                // ~15% chance to drop 2-4 dune ores after killing crimson/corruption boss
+                // ~15% chance to drop 2-4 dune ores after crimson/corruption boss has been defeated
                 npcLoot.Add(new ItemDropWithConditionRule(ModContent.ItemType<DuneOre>(), 7, 2, 4, new WormOrBrainDefeated(), 1));
             }
         }
