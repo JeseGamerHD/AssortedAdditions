@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using System;
+using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
@@ -23,12 +24,35 @@ namespace ModdingTutorial.Content.Projectiles.RangedProj
             Projectile.aiStyle = 0; 
         }
 
+
+        private bool turnBack = false; // Once true, boomerang will return
+        private bool setValues = false; // Once true, values have been set
+        private float speed;
+        private float speedLimit;
+        private float slowDown = 0.2f;
+        private float rotationDirection;
         public override void AI()
         { 
             Player player = Main.player[Projectile.owner];
 
+
+            // Set the speed depending on vector's length
+            if(setValues == false)
+            {
+                speed = Projectile.velocity.Length();
+                speedLimit = speed;
+
+                // Rotates right/left depending on which direction it was thrown
+                if(player.direction == 1)
+                    rotationDirection = 0.4f;
+                else
+                    rotationDirection = -0.4f;
+
+                setValues = true; // Values are set only once
+            }
+
             // Projectile will rotate when thrown
-            Projectile.rotation += 0.4f;
+            Projectile.rotation += rotationDirection;
 
             // Spawn some dust particles
             if (Main.rand.NextBool(4))
@@ -49,29 +73,20 @@ namespace ModdingTutorial.Content.Projectiles.RangedProj
                 SoundEngine.PlaySound(SoundID.Item7, Projectile.position);
             }
 
-            // Gradually slow down the projectile after 0.5 seconds in the air
-            if (Projectile.timeLeft < 2970 && Projectile.tileCollide == true)
+            // Start returning
+            if (turnBack == true)
             {
-                Projectile.ai[0] += 1f;
-                if (Projectile.ai[0] > 15f)
-                {
-                    Projectile.velocity *= 0.97f;
-                    Projectile.tileCollide = false;
-                }
-            }
+                Projectile.tileCollide = false; // Returns through tiles
+                
+                // Code that directs the boomerang back to the player (Polar Vector)
+                Projectile.velocity = new Vector2((float)Math.Cos((player.Center - Projectile.Center).ToRotation()), 
+                                                 (float)Math.Sin((player.Center - Projectile.Center).ToRotation())) * speed;
+                speed += slowDown; // Needs to be accelerated since it has been slowed down first
 
-            // Projectile will begin to ignore tiles once it hits something or after some time
-            // Once that happens it should return to the player
-            if (Projectile.tileCollide == false)
-            {
-                // Code that directs the boomerang back to the player
-                Projectile.velocity = Projectile.DirectionTo(player.Center);
-
-                // Timer that slowly accelerates and curves the boomerang back
-                Projectile.ai[0] += 1f;
-                if (Projectile.ai[0] > 15f)
+                // Limit to how much it can accelerate
+                if (speed > speedLimit)
                 {
-                    Projectile.velocity *= 8f; // Speed looks alright with this
+                    speed = speedLimit;
                 }
 
                 // Once the projectile reaches the player, it will disappear
@@ -80,25 +95,32 @@ namespace ModdingTutorial.Content.Projectiles.RangedProj
                     Projectile.Kill();
                 }
             }
+            else // Begin to slow down after not hitting anything
+            {
+                Projectile.velocity = Projectile.velocity.SafeNormalize(-Vector2.UnitY) * speed;
+                speed -= slowDown;
+            }
+            if(speed < 1f) // Once it has slowed down enough...
+            {
+                turnBack = true; // ...turn back
+            }
         }
 
-        // When the boomerang hits something, set tileCollide to false
-        // This will make it return to the player in AI()
         public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
         {
-            Projectile.tileCollide = false;
+            turnBack = true;
         }
 
         public override void OnHitPvp(Player target, int damage, bool crit)
         {
-            Projectile.tileCollide = false;
+            turnBack = true;
         }
 
         public override bool OnTileCollide(Vector2 oldVelocity)
         {
-            Projectile.tileCollide = false;
-            Collision.HitTiles(Projectile.position, Projectile.velocity, Projectile.width, Projectile.height);
-            SoundEngine.PlaySound(SoundID.Dig, Projectile.Center);
+            turnBack = true;
+            Collision.HitTiles(Projectile.position, Projectile.velocity, Projectile.width, Projectile.height); // Dust from tile when hit
+            SoundEngine.PlaySound(SoundID.Dig, Projectile.Center); // Tile hit sound
             return false;
         }
     }
