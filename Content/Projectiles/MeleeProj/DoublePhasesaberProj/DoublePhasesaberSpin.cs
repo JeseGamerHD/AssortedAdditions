@@ -5,8 +5,6 @@ using Terraria.Audio;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using ModdingTutorial.Content.Items.Weapons.Melee.Sabers;
-using Microsoft.Xna.Framework.Graphics;
-using ReLogic.Content;
 
 namespace ModdingTutorial.Content.Projectiles.MeleeProj.DoublePhasesaberProj
 {

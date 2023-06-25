@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using ModdingTutorial.Content.Projectiles.MeleeProj;
 using Terraria;
 using Terraria.GameContent.Creative;
 using Terraria.ID;
@@ -32,6 +33,8 @@ namespace ModdingTutorial.Content.Items.Weapons.Melee
             Item.value = Item.buyPrice(gold: 5);
             Item.rare = ItemRarityID.Orange;
             Item.UseSound = SoundID.Item1;
+            Item.shootSpeed = 10f;
+            Item.shoot = ModContent.ProjectileType<DragonicBladeProj>();
         }
 
         public override void MeleeEffects(Player player, Rectangle hitbox)
@@ -62,11 +65,10 @@ namespace ModdingTutorial.Content.Items.Weapons.Melee
             }
         }
 
-        // Sets enemies on fire and make them bleed
+        // Sets enemies on fire
         public override void OnHitNPC(Player player, NPC target, int damage, float knockBack, bool crit)
         {
             target.AddBuff(BuffID.OnFire, 120);
-            target.AddBuff(BuffID.Bleeding, 120);
         }
     }
 }
