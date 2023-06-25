@@ -9,8 +9,8 @@ namespace ModdingTutorial.Content.Items.Weapons.Melee
     {
         public override void SetDefaults()
         {
-            Item.width = 40;
-            Item.height = 40;
+            Item.width = 48;
+            Item.height = 52;
 
             Item.useStyle = ItemUseStyleID.Swing;
             Item.useTime = 25;
