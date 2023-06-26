@@ -12,7 +12,7 @@ namespace ModdingTutorial.Content.Projectiles.MeleeProj
         public override void SetStaticDefaults()
         {
             ProjectileID.Sets.TrailCacheLength[Projectile.type] = 5; // The length of old position to be recorded
-            ProjectileID.Sets.TrailingMode[Projectile.type] = 0; // The recording mode
+            ProjectileID.Sets.TrailingMode[Projectile.type] = 3; // The recording mode
             // Actual trail is drawn in PreDraw()
         }
         public override void SetDefaults()
