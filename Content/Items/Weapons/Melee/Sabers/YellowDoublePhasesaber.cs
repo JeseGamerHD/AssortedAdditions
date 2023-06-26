@@ -67,9 +67,9 @@ namespace ModdingTutorial.Content.Items.Weapons.Melee.Sabers
         {
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ItemID.YellowPhasesaber, 1);
-            recipe.AddIngredient(ItemID.WirePipe, 1); // Junction Box from Mechanic NPC
+            recipe.AddIngredient(ItemID.HallowedBar, 10);
             recipe.AddIngredient(ItemID.Lens, 3);
-            recipe.AddTile(TileID.Anvils);
+            recipe.AddTile(TileID.MythrilAnvil);
             recipe.Register();
         }
     }
