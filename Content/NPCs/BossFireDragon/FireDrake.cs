@@ -147,8 +147,13 @@ namespace ModdingTutorial.Content.NPCs.BossFireDragon
         {
             if(NPC.life <= 0)
             {
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("FireDrakeWing").Type, 1f);
-                Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("FireDrakeHead").Type, 1f);
+                // Mod.Find can't run on servers, it will crash
+                if(Main.netMode != NetmodeID.Server)
+                {
+                    Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("FireDrakeWing").Type, 1f);
+                    Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("FireDrakeHead").Type, 1f);
+                }
+
             }
         }
     }
