@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using ModdingTutorial.Content.Items.Misc;
 using ModdingTutorial.Content.Items.Weapons.Magic;
 using ModdingTutorial.Content.Items.Weapons.Melee;
 using ModdingTutorial.Content.Items.Weapons.Summon;
@@ -50,6 +51,7 @@ namespace ModdingTutorial.Content.Items.Consumables.TreasureBags
 
             // Always drops these:
             itemLoot.Add(ItemDropRule.CoinsBasedOnNPCValue(ModContent.NPCType<FireDragonHead>()));
+            itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<DragonScale>(), 1, 30, 50)); // Always 30 - 50 scales
         }
 
         public override Color? GetAlpha(Color lightColor)
