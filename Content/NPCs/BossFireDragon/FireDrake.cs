@@ -18,7 +18,7 @@ namespace ModdingTutorial.Content.NPCs.BossFireDragon
             NPCID.Sets.NPCBestiaryDrawModifiers drawModifiers = new NPCID.Sets.NPCBestiaryDrawModifiers(0)
             {
                 Velocity = 1f, // Draws the NPC in the bestiary as if its moving +1 tiles in the x direction
-                Direction = -1 // -1 is left and 1 is right.
+                Direction = 1 // -1 is left and 1 is right.
             };
 
             NPCID.Sets.NPCBestiaryDrawOffset.Add(Type, drawModifiers);
