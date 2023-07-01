@@ -4,7 +4,7 @@ using Terraria.ModLoader;
 
 namespace ModdingTutorial.Content.Projectiles.MagicProj
 {
-    internal class DragonicTomeProj : ModProjectile
+    internal class DraconicTomeProj : ModProjectile
     {
         public override void SetStaticDefaults()
         {

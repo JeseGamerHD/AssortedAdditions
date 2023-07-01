@@ -7,7 +7,7 @@ using Terraria.ModLoader;
 
 namespace ModdingTutorial.Content.Projectiles.MeleeProj
 {
-    internal class DragonicBladeProj : ModProjectile
+    internal class DraconicBladeProj : ModProjectile
     {
         public override void SetStaticDefaults()
         {

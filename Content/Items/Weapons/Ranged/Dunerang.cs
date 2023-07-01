@@ -2,11 +2,16 @@
 using Terraria.ID;
 using Terraria.ModLoader;
 using ModdingTutorial.Content.Projectiles.RangedProj;
+using Terraria.GameContent.Creative;
 
 namespace ModdingTutorial.Content.Items.Weapons.Ranged
 {
     internal class Dunerang : ModItem
     {
+        public override void SetStaticDefaults()
+        {
+            CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
+        }
         public override void SetDefaults()
         {
             Item.width = 28;

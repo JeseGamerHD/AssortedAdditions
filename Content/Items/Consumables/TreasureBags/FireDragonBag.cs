@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using ModdingTutorial.Content.Items.Misc;
 using ModdingTutorial.Content.Items.Weapons.Magic;
 using ModdingTutorial.Content.Items.Weapons.Melee;
+using ModdingTutorial.Content.Items.Weapons.Ranged;
 using ModdingTutorial.Content.Items.Weapons.Summon;
 using ModdingTutorial.Content.NPCs.BossFireDragon;
 using Terraria;
@@ -44,10 +45,10 @@ namespace ModdingTutorial.Content.Items.Consumables.TreasureBags
         {
             // Drops 1 of these:
             itemLoot.Add(ItemDropRule.OneFromOptions(1, 
-                ModContent.ItemType<DragonicBlade>(),
-                ModContent.ItemType<DragonicTome>(),
-                ModContent.ItemType<DragonStaff>() ) );
-            // Add a ranged weapon
+                ModContent.ItemType<DraconicBlade>(),
+                ModContent.ItemType<DraconicTome>(),
+                ModContent.ItemType<DragonStaff>(),
+                ModContent.ItemType<DraconicBow>()) );
 
             // Always drops these:
             itemLoot.Add(ItemDropRule.CoinsBasedOnNPCValue(ModContent.NPCType<FireDragonHead>()));

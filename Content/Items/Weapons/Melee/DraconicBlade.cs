@@ -7,7 +7,7 @@ using Terraria.ModLoader;
 
 namespace ModdingTutorial.Content.Items.Weapons.Melee
 {
-    internal class DragonicBlade : ModItem
+    internal class DraconicBlade : ModItem
     {
         public override void SetStaticDefaults()
         {
@@ -31,10 +31,10 @@ namespace ModdingTutorial.Content.Items.Weapons.Melee
             Item.crit = 5;
 
             Item.value = Item.buyPrice(gold: 5);
-            Item.rare = ItemRarityID.Orange;
+            Item.rare = ItemRarityID.LightRed;
             Item.UseSound = SoundID.Item1;
             Item.shootSpeed = 10f;
-            Item.shoot = ModContent.ProjectileType<DragonicBladeProj>();
+            Item.shoot = ModContent.ProjectileType<DraconicBladeProj>();
         }
 
         public override void MeleeEffects(Player player, Rectangle hitbox)

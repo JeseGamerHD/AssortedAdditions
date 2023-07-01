@@ -7,7 +7,7 @@ using ModdingTutorial.Content.Projectiles.MagicProj;
 
 namespace ModdingTutorial.Content.Items.Weapons.Magic
 {
-    internal class DragonicTome : ModItem
+    internal class DraconicTome : ModItem
     {
         public override void SetStaticDefaults()
         {
@@ -35,7 +35,7 @@ namespace ModdingTutorial.Content.Items.Weapons.Magic
             Item.rare = ItemRarityID.LightRed;
             Item.value = Item.sellPrice(gold: 5);
 
-            Item.shoot = ModContent.ProjectileType<DragonicTomeProj>();
+            Item.shoot = ModContent.ProjectileType<DraconicTomeProj>();
             Item.shootSpeed = 0; // Won't move
             Item.mana = 20;
         }
@@ -51,7 +51,7 @@ namespace ModdingTutorial.Content.Items.Weapons.Magic
             // Removes previous projectiles, only one of this can exist
             for (int i = 0; i < Main.projectile.Length; i++)
             {
-                if (Main.projectile[i].type == ModContent.ProjectileType<DragonicTomeProj>())
+                if (Main.projectile[i].type == ModContent.ProjectileType<DraconicTomeProj>())
                 {
                     Main.projectile[i].Kill();
                 }
