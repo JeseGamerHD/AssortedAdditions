@@ -3,7 +3,6 @@ using Terraria.ModLoader;
 using Terraria;
 using Terraria.ID;
 using ModdingTutorial.Content.Items.Misc;
-using ModdingTutorial.Content.Items.Placeables;
 
 namespace ModdingTutorial.Content.Items.Armor
 {
@@ -12,7 +11,6 @@ namespace ModdingTutorial.Content.Items.Armor
     {
         public override void SetStaticDefaults()
         {
-            Tooltip.SetDefault("7% increased damage");
             CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
         }
 

@@ -11,7 +11,7 @@ namespace ModdingTutorial.Content.Items.Weapons.Magic
     {
         public override void SetStaticDefaults()
         {
-            Tooltip.SetDefault("Summons a flaming circle");
+            // Tooltip.SetDefault("Summons a flaming circle");
             CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
         }
 

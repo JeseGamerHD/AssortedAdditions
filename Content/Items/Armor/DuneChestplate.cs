@@ -11,7 +11,7 @@ namespace ModdingTutorial.Content.Items.Armor
     {
         public override void SetStaticDefaults()
         {
-            Tooltip.SetDefault("7% increased ranged critical strike chance");
+            // Tooltip.SetDefault("7% increased ranged critical strike chance");
             CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
         }
 

@@ -1,4 +1,5 @@
 ﻿using Terraria;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ID;
 using Microsoft.Xna.Framework;
@@ -15,12 +16,11 @@ namespace ModdingTutorial.Content.Tiles
             Main.tileSpelunker[Type] = true;
             Main.tileOreFinderPriority[Type] = 200;
 
-            ModTranslation name = CreateMapEntryName();
-            name.SetDefault("Coal");
+            LocalizedText name = CreateMapEntryName();
+            // name.SetDefault("Coal");
             AddMapEntry(new Color(55, 52, 52), name);
 
             DustType = DustID.Asphalt;
-            ItemDrop = ModContent.ItemType<Items.Placeables.CoalChunk>();
             HitSound = SoundID.Tink;
 
             MineResist = 1.3f;

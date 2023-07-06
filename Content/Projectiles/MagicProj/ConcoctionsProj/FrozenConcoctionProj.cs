@@ -49,7 +49,7 @@ internal class FrozenConcoctionProj : ModProjectile
         }
     }
 
-    public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+    public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
     {
         target.AddBuff(BuffID.Frostburn, 120);
         Projectile.Kill(); // Projectile will break once it hits an enemy

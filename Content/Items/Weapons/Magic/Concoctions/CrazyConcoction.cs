@@ -10,7 +10,7 @@ internal class CrazyConcoction : ModItem
 {
     public override void SetStaticDefaults()
     {
-        Tooltip.SetDefault("What could go wrong...");
+        // Tooltip.SetDefault("What could go wrong...");
     }
     public override void SetDefaults()
     {

@@ -3,6 +3,7 @@ using ModdingTutorial.Content.Items.Placeables.Trophies;
 using Terraria;
 using Terraria.GameContent.Creative;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
@@ -23,8 +24,8 @@ namespace ModdingTutorial.Content.Tiles
             DustType = 7;
             TileID.Sets.DisableSmartCursor[Type] = true;
 
-            ModTranslation name = CreateMapEntryName();
-            name.SetDefault("Trophy");
+            LocalizedText name = CreateMapEntryName();
+            // name.SetDefault("Trophy");
             AddMapEntry(new Color(120, 85, 60), name);
         }
 

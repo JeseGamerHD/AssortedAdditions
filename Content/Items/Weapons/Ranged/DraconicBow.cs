@@ -12,7 +12,7 @@ namespace ModdingTutorial.Content.Items.Weapons.Ranged
     {
         public override void SetStaticDefaults()
         {
-            Tooltip.SetDefault("Shoots a fire bolt");
+            // Tooltip.SetDefault("Shoots a fire bolt");
             CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
         }
 

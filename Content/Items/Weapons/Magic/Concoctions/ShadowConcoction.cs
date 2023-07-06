@@ -9,7 +9,7 @@ internal class ShadowConcoction : ModItem
 {
     public override void SetStaticDefaults()
     {
-        Tooltip.SetDefault("Set your enemies ablaze in shadowflames");
+        // Tooltip.SetDefault("Set your enemies ablaze in shadowflames");
     }
     public override void SetDefaults()
     {

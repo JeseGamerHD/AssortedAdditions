@@ -10,7 +10,7 @@ namespace ModdingTutorial.Content.Items.Weapons.Melee.Sabers
     {
         public override void SetStaticDefaults()
         {
-            Tooltip.SetDefault("Right click to throw the weapon");
+            // Tooltip.SetDefault("Right click to throw the weapon");
             CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
         }
         public override void SetDefaults()

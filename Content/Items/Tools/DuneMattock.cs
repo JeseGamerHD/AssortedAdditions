@@ -9,7 +9,7 @@ namespace ModdingTutorial.Content.Items.Tools
     {
         public override void SetStaticDefaults()
         {
-            Tooltip.SetDefault("Can be used for mining and chopping wood");
+            // Tooltip.SetDefault("Can be used for mining and chopping wood");
         }
         public override void SetDefaults()
         {

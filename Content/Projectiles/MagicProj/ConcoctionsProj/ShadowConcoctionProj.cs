@@ -51,7 +51,7 @@ internal class ShadowConcoctionProj : ModProjectile
         }
     }
 
-    public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+    public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
     {
         target.AddBuff(BuffID.ShadowFlame, 300);
         Projectile.Kill(); // Projectile will break once it hits an enemy

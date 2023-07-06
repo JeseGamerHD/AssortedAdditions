@@ -3,7 +3,6 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria;
 using ModdingTutorial.Content.Items.Misc;
-using ModdingTutorial.Content.Items.Placeables;
 
 namespace ModdingTutorial.Content.Items.Armor
 {
@@ -12,8 +11,6 @@ namespace ModdingTutorial.Content.Items.Armor
     {
         public override void SetStaticDefaults()
         {
-            Tooltip.SetDefault("12% increased melee damage and speed" +
-                "\n7% increased melee critical strike chance");
             CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
             ArmorIDs.Head.Sets.DrawHead[Item.headSlot] = true;
         }

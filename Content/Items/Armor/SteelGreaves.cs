@@ -11,7 +11,7 @@ namespace ModdingTutorial.Content.Items.Armor
     {
         public override void SetStaticDefaults()
         {
-            Tooltip.SetDefault("Greaves made out of steel");
+            // Tooltip.SetDefault("Greaves made out of steel");
             CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
         }
         public override void SetDefaults()

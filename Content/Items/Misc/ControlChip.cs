@@ -8,7 +8,7 @@ namespace ModdingTutorial.Content.Items.Misc
     {
         public override void SetStaticDefaults()
         {
-            Tooltip.SetDefault("Used for manufacturing weapons");
+            // Tooltip.SetDefault("Used for manufacturing weapons");
         }
         public override void SetDefaults()
         {

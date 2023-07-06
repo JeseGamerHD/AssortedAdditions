@@ -12,7 +12,7 @@ namespace ModdingTutorial.Content.Items.Placeables
         {
             CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 100;
             ItemID.Sets.SortingPriorityMaterials[Type] = 58;
-            Tooltip.SetDefault("It's a chunk of coal.");
+            // Tooltip.SetDefault("It's a chunk of coal.");
 
         }
 

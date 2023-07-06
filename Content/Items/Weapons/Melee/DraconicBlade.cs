@@ -66,7 +66,7 @@ namespace ModdingTutorial.Content.Items.Weapons.Melee
         }
 
         // Sets enemies on fire
-        public override void OnHitNPC(Player player, NPC target, int damage, float knockBack, bool crit)
+        public override void OnHitNPC(Player player, NPC target, NPC.HitInfo hit, int damageDone)
         {
             target.AddBuff(BuffID.OnFire, 120);
         }

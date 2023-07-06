@@ -11,7 +11,7 @@ namespace ModdingTutorial.Content.Items.Armor
     {
         public override void SetStaticDefaults()
         {
-            Tooltip.SetDefault("7% increased ranged speed");
+            // Tooltip.SetDefault("7% increased ranged speed");
             CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
         }
         public override void SetDefaults()

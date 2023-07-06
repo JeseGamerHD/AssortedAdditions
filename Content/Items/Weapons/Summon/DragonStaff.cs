@@ -12,7 +12,7 @@ public class DragonStaff : ModItem
 {
     public override void SetStaticDefaults()
     {
-        Tooltip.SetDefault("Summons a dragon to fight for you.");
+        // Tooltip.SetDefault("Summons a dragon to fight for you.");
         ItemID.Sets.LockOnIgnoresCollision[Item.type] = true;
     }
     public override void SetDefaults()

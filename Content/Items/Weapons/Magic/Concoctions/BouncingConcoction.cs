@@ -9,7 +9,7 @@ internal class BouncingConcoction : ModItem
 {
     public override void SetStaticDefaults()
     {
-        Tooltip.SetDefault("Filled with cursed inferno");
+        // Tooltip.SetDefault("Filled with cursed inferno");
     }
     public override void SetDefaults()
     {

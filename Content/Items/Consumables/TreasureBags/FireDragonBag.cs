@@ -19,8 +19,8 @@ namespace ModdingTutorial.Content.Items.Consumables.TreasureBags
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Treasure Bag (Fire Dragon)");
-            Tooltip.SetDefault("Right click to open");
+            // DisplayName.SetDefault("Treasure Bag (Fire Dragon)");
+            // Tooltip.SetDefault("Right click to open");
 
             ItemID.Sets.BossBag[Type] = true;
             CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 3;

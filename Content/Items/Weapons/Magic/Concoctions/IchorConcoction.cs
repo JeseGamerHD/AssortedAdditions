@@ -9,7 +9,7 @@ internal class IchorConcoction : ModItem
 {
     public override void SetStaticDefaults()
     {
-        Tooltip.SetDefault("Decreases target's defence");
+        // Tooltip.SetDefault("Decreases target's defence");
     }
     public override void SetDefaults()
     {

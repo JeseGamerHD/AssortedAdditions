@@ -9,8 +9,8 @@ internal class LightConcoction : ModItem
 {
     public override void SetStaticDefaults()
     {
-        DisplayName.SetDefault("Luminous Concoction");
-        Tooltip.SetDefault("Creates a damaging ring");
+        // DisplayName.SetDefault("Luminous Concoction");
+        // Tooltip.SetDefault("Creates a damaging ring");
     }
     public override void SetDefaults()
     {

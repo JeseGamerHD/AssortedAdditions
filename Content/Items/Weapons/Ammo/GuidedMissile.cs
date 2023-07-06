@@ -9,7 +9,7 @@ namespace ModdingTutorial.Content.Items.Weapons.Ammo
     {
         public override void SetStaticDefaults()
         {
-            Tooltip.SetDefault("Small blast radius. Will not destroy tiles");
+            // Tooltip.SetDefault("Small blast radius. Will not destroy tiles");
         }
         public override void SetDefaults()
         {

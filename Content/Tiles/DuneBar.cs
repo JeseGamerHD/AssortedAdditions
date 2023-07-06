@@ -24,24 +24,5 @@ namespace ModdingTutorial.Content.Tiles
             AddMapEntry(new Color(200, 200, 200), Language.GetText("MapObject.DuneBar"));
         }
 
-        public override bool Drop(int x, int y)
-        {
-            Tile t = Main.tile[x, y];
-            int style = t.TileFrameX / 18;
-
-            switch (style)
-            {
-                case 0:
-                    Item.NewItem(new EntitySource_TileBreak(x, y),
-                    x * 16,
-                    y * 16, 16, 16,
-                    ModContent.ItemType<Items.Placeables.DuneBar>());
-                    break;
-
-                    //case x: if want to create multiple in same file
-            }
-
-            return base.Drop(x, y);
-        }
     }
 }

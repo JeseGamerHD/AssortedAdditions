@@ -1,7 +1,6 @@
 ﻿using Terraria;
 using Terraria.ModLoader;
 using ModdingTutorial.Content.Projectiles.SummonProj;
-using Mono.Cecil;
 
 namespace ModdingTutorial.Content.Buffs;
 
@@ -9,8 +8,6 @@ public class DragonStaffBuff : ModBuff
 {
     public override void SetStaticDefaults()
     {
-        DisplayName.SetDefault("It's a dragon!");
-        Description.SetDefault("The dragon will protect you.");
         Main.buffNoSave[Type] = true;
         Main.buffNoTimeDisplay[Type] = true;
     }

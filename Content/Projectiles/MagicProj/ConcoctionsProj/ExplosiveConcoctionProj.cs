@@ -25,7 +25,7 @@ internal class ExplosiveConcoctionProj : ModProjectile // Projectile for the Exp
         Projectile.aiStyle = 2; // Thrown style
     }
 
-    public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+    public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
     {
         target.AddBuff(BuffID.OnFire, 180);
         Projectile.Kill(); // Projectile will break once it hits an enemy

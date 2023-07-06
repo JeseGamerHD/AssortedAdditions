@@ -9,7 +9,7 @@ namespace ModdingTutorial.Content.Items.Tools
     {
         public override void SetStaticDefaults()
         {
-            Tooltip.SetDefault("Can mine Meteorite");
+            // Tooltip.SetDefault("Can mine Meteorite");
         }
         public override void SetDefaults()
         {

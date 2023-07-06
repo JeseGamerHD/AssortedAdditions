@@ -13,7 +13,7 @@ internal class GuidedMissileLauncher : ModItem
 {
     public override void SetStaticDefaults()
     {
-        Tooltip.SetDefault("Launches controllable missiles");
+        // Tooltip.SetDefault("Launches controllable missiles");
     }
 
     public override void SetDefaults()

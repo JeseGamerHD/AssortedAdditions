@@ -9,7 +9,7 @@ internal class FrozenConcoction : ModItem
 {
     public override void SetStaticDefaults()
     {
-        Tooltip.SetDefault("Causes frostbite");
+        // Tooltip.SetDefault("Causes frostbite");
     }
     public override void SetDefaults()
     {

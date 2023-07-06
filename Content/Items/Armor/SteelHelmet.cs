@@ -11,7 +11,7 @@ namespace ModdingTutorial.Content.Items.Armor
     {
         public override void SetStaticDefaults() {
 
-            Tooltip.SetDefault("A helmet made out of steel");
+            // Tooltip.SetDefault("A helmet made out of steel");
             CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
             ArmorIDs.Head.Sets.DrawHead[Item.headSlot] = false;
         }

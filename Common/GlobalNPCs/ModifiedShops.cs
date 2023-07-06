@@ -8,19 +8,19 @@ namespace ModdingTutorial.Common.GlobalNPCs
 {
     internal class ModifiedShops : GlobalNPC
     {
-        public override void SetupShop(int type, Chest shop, ref int nextSlot)
+        public override void ModifyShop(NPCShop shop)
         {
-            if (type == NPCID.Cyborg)
+            if(shop.NpcType == NPCID.Cyborg)
             {
-                shop.item[nextSlot].SetDefaults(ModContent.ItemType<GuidedMissile>());
-                shop.item[nextSlot].value = 100;
-                nextSlot++;
+                // Add item with custom price
+                shop.Add(new Item(ModContent.ItemType<GuidedMissile>())
+                {
+                    shopCustomPrice = 100,
+                });
 
-                shop.item[nextSlot].SetDefaults(ModContent.ItemType<ControlChip>());
-                nextSlot++;
-
-                shop.item[nextSlot].SetDefaults(ModContent.ItemType<Battery>());
-                nextSlot++;
+                // Add just item (its value determines price)
+                shop.Add<ControlChip>();
+                shop.Add<Battery>();
             }
         }
     }

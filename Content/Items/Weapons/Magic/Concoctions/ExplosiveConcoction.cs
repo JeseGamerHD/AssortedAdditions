@@ -9,8 +9,8 @@ internal class ExplosiveConcoction : ModItem
 {
     public override void SetStaticDefaults()
     {
-        Tooltip.SetDefault("Will burst into flames");
-        DisplayName.SetDefault("Volatile Concoction");
+        // Tooltip.SetDefault("Will burst into flames");
+        // DisplayName.SetDefault("Volatile Concoction");
     }
     public override void SetDefaults()
     {

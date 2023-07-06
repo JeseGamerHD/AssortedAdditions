@@ -77,7 +77,7 @@ internal class BouncingConcoctionProj : ModProjectile
     }
 
     // Gives cursed inferno debuff to enemies
-    public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+    public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
     {
         target.AddBuff(BuffID.CursedInferno, 120);
         Projectile.Kill(); // Projectile will break once it hits an enemy
