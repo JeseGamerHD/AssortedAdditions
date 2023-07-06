@@ -120,12 +120,89 @@ Mods: {
 				Tooltip: 7% increased ranged damage
 			}
 
-			DuneBar.DisplayName: Dune Bar
-			DuneOre.DisplayName: Dune Ore
+			DuneBar: {
+				DisplayName: Dune Bar
+			}
+
+			DuneOre: {
+				DisplayName: Dune Ore
+			}
 
 			DuneMattock: {
 				DisplayName: Dune Mattock
 				Tooltip: Can be used for mining and chopping wood
+			}
+
+			AncientToken: {
+				DisplayName: Ancient Token
+				Tooltip: Summons the Fire Dragon
+			}
+
+			FireDragonBag: {
+				DisplayName: Treasure Bag (Fire Dragon)
+				Tooltip: Right click to open
+			}
+
+			DragonScale.DisplayName: Dragon Scale
+			FireDragonTrophy.DisplayName: Fire Dragon Trophy
+			DuneHammer.DisplayName: Dune Hammer
+			DuneRod.DisplayName: Dune Rod
+			Battery.DisplayName: Battery
+
+			DraconicTome: {
+				DisplayName: Draconic Tome
+				Tooltip: Summons a flaming circle
+			}
+
+			DraconicBlade.DisplayName: Draconic Blade
+			DuneSpear.DisplayName: Dune Spear
+			DuneSword.DisplayName: Dune Sword
+
+			BlueDoublePhasesaber: {
+				DisplayName: Blue Double Phasesaber
+				Tooltip: Right click to throw the weapon
+			}
+
+			GreenDoublePhasesaber: {
+				DisplayName: Green Double Phasesaber
+				Tooltip: Right click to throw the weapon
+			}
+
+			OrangeDoublePhasesaber: {
+				DisplayName: Orange Double Phasesaber
+				Tooltip: Right click to throw the weapon
+			}
+
+			PurpleDoublePhasesaber: {
+				DisplayName: Purple Double Phasesaber
+				Tooltip: Right click to throw the weapon
+			}
+
+			RedDoublePhasesaber: {
+				DisplayName: Red Double Phasesaber
+				Tooltip: Right click to throw the weapon
+			}
+
+			WhiteDoublePhasesaber: {
+				DisplayName: White Double Phasesaber
+				Tooltip: Right click to throw the weapon
+			}
+
+			YellowDoublePhasesaber: {
+				DisplayName: Yellow Double Phasesaber
+				Tooltip: Right click to throw the weapon
+			}
+
+			DraconicBow: {
+				DisplayName: Draconic Bow
+				Tooltip: Shoots a fire bolt
+			}
+
+			Dunerang.DisplayName: Dunerang
+
+			PlasmaCarbine: {
+				DisplayName: Plasma Carbine
+				Tooltip: Battery powered
 			}
 		}
 
@@ -161,6 +238,17 @@ Mods: {
 			DragonMinionProj: {
 				DisplayName: Dragon Minion Proj
 			}
+
+			DuneRodBobber.DisplayName: Dune Rod Bobber
+			DraconicTomeProj.DisplayName: Draconic Tome Proj
+			DoublePhasesaberSpin.DisplayName: Double Phasesaber Spin
+			DoublePhasesaberThrow.DisplayName: Double Phasesaber Throw
+			DraconicBladeProj.DisplayName: Draconic Blade Proj
+			DuneSpearProj.DisplayName: Dune Spear Proj
+			FireDrakeProj.DisplayName: Fire Drake Proj
+			DraconicBowProj.DisplayName: Draconic Bow Proj
+			DunerangProj.DisplayName: Dunerang Proj
+			PlasmaCarbineProj.DisplayName: Plasma Carbine Proj
 		}
 
 		Tiles: {
@@ -168,7 +256,18 @@ Mods: {
 				MapEntry: Coal
 			}
 
-			DuneOre.MapEntry: Dune Ore
+			DuneOre: {
+				MapEntry: Dune Ore
+			}
+
+			BossTrophies.MapEntry: Trophy
+		}
+
+		NPCs: {
+			FireDragonBody.DisplayName: Fire Dragon Body
+			FireDragonHead.DisplayName: Fire Dragon
+			FireDragonTail.DisplayName: Fire Dragon Tail
+			FireDrake.DisplayName: Fire Drake
 		}
 	}
 }

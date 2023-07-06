@@ -74,6 +74,11 @@ namespace ModdingTutorial.Content.NPCs.BossFireDragon // This Boss NPC is built 
 
             NPC.aiStyle = -1;
 
+            // Music doesnt fit, needs to be changed TODO
+/*            if (!Main.dedServ)
+            {
+                Music = MusicLoader.GetMusicSlot(Mod, "Assets/Music/TheMissingConnection");
+            }*/
         }
 
         public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)

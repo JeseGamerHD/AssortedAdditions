@@ -10,8 +10,8 @@ namespace ModdingTutorial.Content.Projectiles.RangedProj
     {
         public override void SetDefaults()
         {
-            Projectile.width = 18;
-            Projectile.height = 34;
+            Projectile.width = 4;
+            Projectile.height = 4;
             Projectile.damage = 0;
             Projectile.DamageType = DamageClass.Ranged;
             Projectile.friendly = true;
