@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework;
 using ModdingTutorial.Content.Items.Consumables.TreasureBags;
 using ModdingTutorial.Content.Items.Misc;
+using ModdingTutorial.Content.Items.Placeables.Relics;
 using ModdingTutorial.Content.Items.Placeables.Trophies;
 using ModdingTutorial.Content.Items.Weapons.Magic;
 using ModdingTutorial.Content.Items.Weapons.Melee;
@@ -14,8 +15,6 @@ using Terraria.GameContent.Bestiary;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
-
-// TODO
 
 namespace ModdingTutorial.Content.NPCs.BossFireDragon // This Boss NPC is built using FireDragonBuilder.cs
 {
@@ -74,17 +73,17 @@ namespace ModdingTutorial.Content.NPCs.BossFireDragon // This Boss NPC is built 
 
             NPC.aiStyle = -1;
 
-            // Music doesnt fit, needs to be changed TODO
-/*            if (!Main.dedServ)
+            // TODO find some custom track
+            if (!Main.dedServ)
             {
-                Music = MusicLoader.GetMusicSlot(Mod, "Assets/Music/TheMissingConnection");
-            }*/
+                Music = MusicID.OtherworldlyInvasion;
+            }
         }
 
         public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
         {
             bestiaryEntry.Info.AddRange(new List<IBestiaryInfoElement> {
-                BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.TheUnderworld,
+                BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.TheUnderworld, // sets the background image
                 new FlavorTextBestiaryInfoElement("It answers the call of the Ancient Token, however, it does not like being disturbed.")
             });
         }
@@ -93,7 +92,7 @@ namespace ModdingTutorial.Content.NPCs.BossFireDragon // This Boss NPC is built 
         {
             npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<FireDragonBag>())); // Treasure bag
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<FireDragonTrophy>(), 10)); // 10% chance for trophy
-            //npcLoot.Add(ItemDropRule.MasterModeCommonDrop(ModContent.ItemType<FireDragonRelic>()));
+            npcLoot.Add(ItemDropRule.MasterModeCommonDrop(ModContent.ItemType<FireDragonRelic>())); // Master mode relic
 
             // If the player is not playing one expert/master, treasure bag loot drops by itself
             LeadingConditionRule notExpert = new LeadingConditionRule(new Conditions.NotExpert());
@@ -114,33 +113,39 @@ namespace ModdingTutorial.Content.NPCs.BossFireDragon // This Boss NPC is built 
 
         public override void BossLoot(ref string name, ref int potionType)
         {
-            potionType = ItemID.HealingPotion; // Drop healing potions
+            potionType = ItemID.HealingPotion; // Drop healing potions (default is lesser healing)
         }
 
         public override void Init()
         {
-            // Basically how long the Dragon will be
+            // How long the Dragon will be
             MinSegmentLength = 40;
             MaxSegmentLength = 40;
-            
             CommonWormInit(this); // Segments spawn in FireDragonBuilder.cs
         }
 
+        // These control the speed/acceleration inside FireDragonBuilder.cs
         internal static void CommonWormInit(FireDragonBuilder worm)
         {
             worm.MoveSpeed = 6f;
             worm.Acceleration = 0.7f;
         }
 
-        // Timer for AI
+        // Timers for AI
         public float Timer
         {
             get => NPC.ai[0];
             set => NPC.ai[0] = value;
         }
 
+        public float flyPastTimer
+        {
+            get => NPC.ai[1];
+            set => NPC.ai[1] = value;
+        }
+
         bool hasDied = false; // Used for despawning the boss
-        int npcCount = 0;
+        int npcCount = 0; // Used for limiting spawned minion enemies
 
         // Since the Head controls the body and the tail, all AI stuff happens here
         public override void AI()
@@ -177,6 +182,37 @@ namespace ModdingTutorial.Content.NPCs.BossFireDragon // This Boss NPC is built 
 
             // Then dragon chases the player
             NPC.velocity = (target.Center - NPC.Center).SafeNormalize(Vector2.Zero) * MoveSpeed;
+
+            // When the head hits the target...
+            if(NPC.Hitbox.Intersects(target.Hitbox))
+            {
+                flyPastTimer = 1;
+            }
+
+            // Start counting up flyPastTimer and set boss to fly to the right of the player
+            if(flyPastTimer >= 1 && flyPastTimer <= 180)
+            {
+                flyPastTimer++;
+
+                // Choose direction depending on head direction
+                // Basically will target the top left/right of the screen for the flyPast duration
+                if(NPC.direction == -1)
+                {
+                    NPC.velocity = (new Vector2((int)Main.screenPosition.X + Main.screenWidth, (int)Main.screenPosition.Y) - NPC.Center).SafeNormalize(Vector2.Zero) * (MoveSpeed * 1.4f);
+                }
+
+                if (NPC.direction == 1) 
+                {
+                    NPC.velocity = (new Vector2((int)Main.screenPosition.X, (int)Main.screenPosition.Y) - NPC.Center).SafeNormalize(Vector2.Zero) * (MoveSpeed * 1.4f);
+                }
+
+            }
+            else // Return to chasing
+            {
+                flyPastTimer = 0;
+                NPC.velocity = (target.Center - NPC.Center).SafeNormalize(Vector2.Zero) * MoveSpeed;
+            }
+
 
             // Summons minions after 15 seconds
             if(Timer >= 900)
