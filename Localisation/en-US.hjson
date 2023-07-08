@@ -5,6 +5,11 @@ Mods: {
 				DisplayName: It's a dragon!
 				Description: The dragon will protect you.
 			}
+
+			DraconicArmorBuff: {
+				DisplayName: Draconic protection
+				Description: Orbiting flame shields protect you
+			}
 		}
 
 		Items: {
@@ -302,6 +307,7 @@ Mods: {
 			DunerangProj.DisplayName: Dunerang Proj
 			PlasmaCarbineProj.DisplayName: Plasma Carbine Proj
 			DuneArrowProj.DisplayName: Dune Arrow Proj
+			DraconicArmorProj.DisplayName: Draconic Armor Proj
 		}
 
 		Tiles: {

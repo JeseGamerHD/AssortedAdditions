@@ -3,6 +3,8 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria;
 using ModdingTutorial.Content.Items.Misc;
+using ModdingTutorial.Content.Buffs;
+using ModdingTutorial.Content.Projectiles;
 
 namespace ModdingTutorial.Content.Items.Armor
 {
@@ -22,6 +24,9 @@ namespace ModdingTutorial.Content.Items.Armor
             Item.value = Item.sellPrice(gold: 2, silver: 40);
             Item.rare = ItemRarityID.LightRed;
             Item.defense = 8;
+
+            Item.shoot = ModContent.ProjectileType<DraconicArmorProj>();
+            Item.buffType = ModContent.BuffType<DraconicArmorBuff>();
         }
 
         public override void UpdateEquip(Player player)
@@ -39,11 +44,10 @@ namespace ModdingTutorial.Content.Items.Armor
             return bodyMatch && legsMatch;
         }
 
-        // TODO
         public override void UpdateArmorSet(Player player)
         {
-            player.setBonus = "WIP";
-            player.statDefense += 1;
+            player.setBonus = "Summons protective flames";
+            player.AddBuff(ModContent.BuffType<DraconicArmorBuff>(), 2);
         }
 
         public override void AddRecipes()
