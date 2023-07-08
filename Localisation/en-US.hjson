@@ -8,7 +8,7 @@ Mods: {
 
 			DraconicArmorBuff: {
 				DisplayName: Draconic protection
-				Description: Orbiting flame shields protect you
+				Description: Orbiting flames protect you
 			}
 		}
 
@@ -284,6 +284,16 @@ Mods: {
 			DuneBow: {
 				DisplayName: Dune Bow
 				Tooltip: ""
+			}
+
+			DraconicHood: {
+				DisplayName: Draconic Hood
+				Tooltip:
+					'''
+					12% increased summon damage
+					increases max minion slots by 1
+					7% increased summon crit chance
+					'''
 			}
 		}
 

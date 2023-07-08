@@ -20,7 +20,8 @@ namespace ModdingTutorial.Content.Buffs
         {
             // If not wearing the full set, remove the set bonus buff
             // There is probably a better way to do this but this works for now
-            if (player.armor[0].type != ModContent.ItemType<DraconicHelmet>() 
+            if ((player.armor[0].type != ModContent.ItemType<DraconicHelmet>() 
+                && player.armor[0].type != ModContent.ItemType<DraconicHood>())
                 || player.armor[1].type != ModContent.ItemType<DraconicChestplate>()
                 || player.armor[2].type != ModContent.ItemType<DraconicGreaves>())
             {

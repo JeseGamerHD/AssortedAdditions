@@ -58,8 +58,6 @@ namespace ModdingTutorial.Content.Projectiles.NPCProj
                     Projectile.frame = 0;
                 }
             }
-
-            Projectile.alpha++; // Fades out since alpha is initially 75 it will be 255 once timeLeft reaches 0
         }
     }
 }
