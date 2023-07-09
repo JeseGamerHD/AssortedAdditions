@@ -291,8 +291,17 @@ Mods: {
 				Tooltip:
 					'''
 					12% increased summon damage
-					increases max minion slots by 1
+					Increases your max number of minions by 2
 					7% increased summon crit chance
+					'''
+			}
+
+			DraconicHat: {
+				DisplayName: Draconic Hat
+				Tooltip:
+					'''
+					12% increased ranged damage and speed
+					7% increased ranged crit chance
 					'''
 			}
 		}

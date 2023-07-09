@@ -9,7 +9,7 @@ using ModdingTutorial.Content.Items.Misc;
 namespace ModdingTutorial.Content.Items.Armor
 {
     [AutoloadEquip(EquipType.Head)]
-    internal class DraconicHood : ModItem
+    internal class DraconicHat : ModItem
     {
         public override void SetStaticDefaults()
         {
@@ -29,14 +29,13 @@ namespace ModdingTutorial.Content.Items.Armor
             Item.buffType = ModContent.BuffType<DraconicArmorBuff>();
         }
 
-        // 12% increased summon damage
-        // increased max number of minions by 2
-        // 7% increased summon crit chance
+        // 12% increased randged damage and speed
+        // 7% increased ranged crit chance
         public override void UpdateEquip(Player player)
         {
-            player.GetDamage(DamageClass.Summon) += 0.12f;
-            player.maxMinions += 2;
-            player.GetCritChance(DamageClass.Summon) += 0.07f;
+            player.GetDamage(DamageClass.Ranged) += 0.12f;
+            player.GetAttackSpeed(DamageClass.Ranged) += 0.12f;
+            player.GetCritChance(DamageClass.Ranged) += 0.07f;
         }
 
         public override bool IsArmorSet(Item head, Item body, Item legs)
@@ -52,6 +51,7 @@ namespace ModdingTutorial.Content.Items.Armor
             player.setBonus = "Summons protective flames";
             player.AddBuff(ModContent.BuffType<DraconicArmorBuff>(), 2);
         }
+
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
