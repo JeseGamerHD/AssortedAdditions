@@ -1,20 +1,20 @@
 ﻿using ModdingTutorial.Content.Buffs;
+using ModdingTutorial.Content.Items.Misc;
 using ModdingTutorial.Content.Projectiles;
 using Terraria.GameContent.Creative;
 using Terraria.ID;
-using Terraria.ModLoader;
 using Terraria;
-using ModdingTutorial.Content.Items.Misc;
+using Terraria.ModLoader;
 
 namespace ModdingTutorial.Content.Items.Armor
 {
     [AutoloadEquip(EquipType.Head)]
-    internal class DraconicHat : ModItem
+    internal class DraconicMask : ModItem
     {
         public override void SetStaticDefaults()
         {
             CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-            ArmorIDs.Head.Sets.DrawHead[Item.headSlot] = true;
+            ArmorIDs.Head.Sets.DrawHead[Item.headSlot] = false;
         }
 
         public override void SetDefaults()
@@ -29,13 +29,13 @@ namespace ModdingTutorial.Content.Items.Armor
             Item.buffType = ModContent.BuffType<DraconicArmorBuff>();
         }
 
-        // 12% increased randged damage and speed
-        // 7% increased ranged crit chance
+        // 12% increased magic damage and speed
+        // 80 more maximum mana
         public override void UpdateEquip(Player player)
         {
-            player.GetDamage(DamageClass.Ranged) += 0.12f;
-            player.GetAttackSpeed(DamageClass.Ranged) += 0.12f;
-            player.GetCritChance(DamageClass.Ranged) += 0.07f;
+            player.GetDamage(DamageClass.Magic) += 0.12f;
+            player.GetAttackSpeed(DamageClass.Magic) += 0.12f;
+            player.statManaMax2 += 80;
         }
 
         public override bool IsArmorSet(Item head, Item body, Item legs)

@@ -23,7 +23,7 @@ namespace ModdingTutorial.Content.Items.Armor
             Item.height = 32;
             Item.value = Item.sellPrice(gold: 2, silver: 40);
             Item.rare = ItemRarityID.LightRed;
-            Item.defense = 8;
+            Item.defense = 20;
 
             Item.shoot = ModContent.ProjectileType<DraconicArmorProj>();
             Item.buffType = ModContent.BuffType<DraconicArmorBuff>();

@@ -304,6 +304,15 @@ Mods: {
 					7% increased ranged crit chance
 					'''
 			}
+
+			DraconicMask: {
+				DisplayName: Draconic Mask
+				Tooltip:
+					'''
+					12% increased magic damage and speed
+					Increases maximum mana by 80
+					'''
+			}
 		}
 
 		Projectiles: {
