@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using ModdingTutorial.Content.Projectiles.MeleeProj;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.GameContent.Creative;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -26,7 +27,7 @@ namespace ModdingTutorial.Content.Items.Weapons.Melee
             Item.autoReuse = true;
 
             Item.DamageType = DamageClass.Melee;
-            Item.damage = 55;
+            Item.damage = 50;
             Item.knockBack = 6;
             Item.crit = 5;
 
@@ -35,6 +36,18 @@ namespace ModdingTutorial.Content.Items.Weapons.Melee
             Item.UseSound = SoundID.Item1;
             Item.shootSpeed = 10f;
             Item.shoot = ModContent.ProjectileType<DraconicBladeProj>();
+        }
+
+        // Shoot a projectile every 2 swings
+        int shoot;
+        public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
+        {
+            shoot++;
+            if(shoot % 2 == 0)
+            {
+                return true;
+            }
+            return false;
         }
 
         public override void MeleeEffects(Player player, Rectangle hitbox)
