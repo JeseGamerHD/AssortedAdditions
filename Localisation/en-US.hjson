@@ -10,6 +10,11 @@ Mods: {
 				DisplayName: Draconic protection
 				Description: Orbiting flames protect you
 			}
+
+			BabyFireDragonBuff: {
+				DisplayName: Baby Fire Dragon
+				Description: Your own baby dragon
+			}
 		}
 
 		Items: {
@@ -313,6 +318,11 @@ Mods: {
 					Increases maximum mana by 80
 					'''
 			}
+
+			FireDragonEgg: {
+				DisplayName: Fire Dragon Egg
+				Tooltip: Summons the Baby Fire Dragon pet
+			}
 		}
 
 		Projectiles: {
@@ -336,6 +346,7 @@ Mods: {
 			PlasmaCarbineProj.DisplayName: Plasma Carbine Proj
 			DuneArrowProj.DisplayName: Dune Arrow Proj
 			DraconicArmorProj.DisplayName: Draconic Armor Proj
+			BabyFireDragon.DisplayName: Baby Fire Dragon
 		}
 
 		Tiles: {

@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework;
 using ModdingTutorial.Content.Items.Consumables.TreasureBags;
 using ModdingTutorial.Content.Items.Misc;
+using ModdingTutorial.Content.Items.Pets;
 using ModdingTutorial.Content.Items.Placeables.Relics;
 using ModdingTutorial.Content.Items.Placeables.Trophies;
 using ModdingTutorial.Content.Items.Weapons.Magic;
@@ -93,6 +94,7 @@ namespace ModdingTutorial.Content.NPCs.BossFireDragon // This Boss NPC is built 
             npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<FireDragonBag>())); // Treasure bag
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<FireDragonTrophy>(), 10)); // 10% chance for trophy
             npcLoot.Add(ItemDropRule.MasterModeCommonDrop(ModContent.ItemType<FireDragonRelic>())); // Master mode relic
+            npcLoot.Add(ItemDropRule.MasterModeDropOnAllPlayers(ModContent.ItemType<FireDragonEgg>(), 4)); // 25% chance to drop a pet on master mode
 
             // If the player is not playing one expert/master, treasure bag loot drops by itself
             LeadingConditionRule notExpert = new LeadingConditionRule(new Conditions.NotExpert());
