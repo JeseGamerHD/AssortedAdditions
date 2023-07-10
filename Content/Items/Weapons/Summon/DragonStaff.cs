@@ -16,16 +16,16 @@ public class DragonStaff : ModItem
     }
     public override void SetDefaults()
     {
-        Item.damage = 40;
-        Item.knockBack = 1f;
+        Item.damage = 30;
+        Item.knockBack = 2f;
         Item.mana = 20;
-        Item.width = 42;
-        Item.height = 42;
+        Item.width = 60;
+        Item.height = 60;
         Item.useTime = 36;
         Item.useAnimation = 36;
         Item.useStyle = ItemUseStyleID.Swing;
-        Item.value = Item.sellPrice(gold: 30);
-        Item.rare = ItemRarityID.Orange;
+        Item.value = Item.sellPrice(gold: 3);
+        Item.rare = ItemRarityID.LightRed;
         Item.UseSound = SoundID.Item44;
         Item.noMelee = true;
         Item.DamageType = DamageClass.Summon;

@@ -11,7 +11,7 @@ namespace ModdingTutorial.Content.Buffs
     {
         public override void SetStaticDefaults()
         {
-            Main.buffNoSave[Type] = false;
+            Main.buffNoSave[Type] = true;
             Main.buffNoTimeDisplay[Type] = true;
         }
 

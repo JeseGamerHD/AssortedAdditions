@@ -179,7 +179,7 @@ namespace ModdingTutorial.Content.Projectiles.SummonProj
                     if (Main.rand.NextBool(5)) // 20% Chance to breathe fire
                     {
                         Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.position, 
-                            Projectile.velocity, ProjectileID.Flames, 60, 4, Projectile.owner);
+                            Projectile.velocity, ProjectileID.Flames, 55, 4, Projectile.owner);
                     }
                 }
 
