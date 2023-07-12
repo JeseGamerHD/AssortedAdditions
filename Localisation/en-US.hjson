@@ -323,6 +323,11 @@ Mods: {
 				DisplayName: Fire Dragon Egg
 				Tooltip: Summons the Baby Fire Dragon pet
 			}
+
+			NightSlimeBanner: {
+				DisplayName: Night Slime Banner
+				Tooltip: ""
+			}
 		}
 
 		Projectiles: {
@@ -353,6 +358,8 @@ Mods: {
 			CoalChunk.MapEntry: Coal
 			DuneOre.MapEntry: Dune Ore
 			BossTrophies.MapEntry: Trophy
+			BannerTiles.MapEntry: Night Slime banner
+			NightSlimeBannerTile.MapEntry: Banner
 		}
 
 		NPCs: {

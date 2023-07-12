@@ -6,6 +6,7 @@ using Terraria.GameContent.ItemDropRules;
 using Terraria.GameContent.Bestiary;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
+using ModdingTutorial.Content.Items.Placeables.Banners;
 
 namespace ModdingTutorial.Content.NPCs
 {
@@ -31,8 +32,8 @@ namespace ModdingTutorial.Content.NPCs
             NPC.aiStyle = 1; // Copy behaviour and animation from basic slimes
             AIType = NPCID.BlueSlime;
 
-            //Banner = Item.NPCtoBanner(NPCID.PurpleSlime); // Change to custom one later TODO
-            //BannerItem = Item.BannerToItem(Banner);
+            Banner = NPC.type; // Each enemy has their own banner
+            BannerItem = ModContent.ItemType<NightSlimeBanner>();
         }
 
         // Spawns at night with slightly lessened chance
