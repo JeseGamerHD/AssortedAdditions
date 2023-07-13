@@ -333,6 +333,61 @@ Mods: {
 				DisplayName: Starry Wand
 				Tooltip: ""
 			}
+
+			BoStaff: {
+				DisplayName: Bo Staff
+				Tooltip: ""
+			}
+
+			BoStaffTest: {
+				DisplayName: Bo Staff Test
+				Tooltip: ""
+			}
+
+			MahoganyBoStaff: {
+				DisplayName: Mahogany Bo Staff
+				Tooltip: ""
+			}
+
+			AshBoStaff: {
+				DisplayName: Ash Bo Staff
+				Tooltip: ""
+			}
+
+			BorealBoStaff: {
+				DisplayName: Boreal Bo Staff
+				Tooltip: ""
+			}
+
+			DynastyBoStaff: {
+				DisplayName: Dynasty Bo Staff
+				Tooltip: ""
+			}
+
+			EbonWoodBoStaff: {
+				DisplayName: Ebon Wood Bo Staff
+				Tooltip: ""
+			}
+
+			PalmBoStaff: {
+				DisplayName: Palm Bo Staff
+				Tooltip: ""
+			}
+
+			PearlWoodBoStaff: {
+				DisplayName: Pearl Wood Bo Staff
+				Tooltip: ""
+			}
+
+			ShadeWoodBoStaff: {
+				DisplayName: Shade Wood Bo Staff
+				Tooltip: ""
+			}
+
+			SpookyBoStaff: {
+				DisplayName: Spooky Bo Staff
+				Tooltip: ""
+			}
 		}
 
 		Projectiles: {
@@ -358,6 +413,7 @@ Mods: {
 			DraconicArmorProj.DisplayName: Draconic Armor Proj
 			BabyFireDragon.DisplayName: Baby Fire Dragon
 			StarryWandProj.DisplayName: Starry Wand Proj
+			BoStaffSpin.DisplayName: Bo Staff Spin
 		}
 
 		Tiles: {
