@@ -328,6 +328,11 @@ Mods: {
 				DisplayName: Night Slime Banner
 				Tooltip: ""
 			}
+
+			StarryWand: {
+				DisplayName: Starry Wand
+				Tooltip: ""
+			}
 		}
 
 		Projectiles: {
@@ -352,6 +357,7 @@ Mods: {
 			DuneArrowProj.DisplayName: Dune Arrow Proj
 			DraconicArmorProj.DisplayName: Draconic Armor Proj
 			BabyFireDragon.DisplayName: Baby Fire Dragon
+			StarryWandProj.DisplayName: Starry Wand Proj
 		}
 
 		Tiles: {

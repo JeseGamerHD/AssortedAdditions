@@ -7,6 +7,7 @@ using Terraria.GameContent.Bestiary;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
 using ModdingTutorial.Content.Items.Placeables.Banners;
+using ModdingTutorial.Content.Items.Weapons.Magic;
 
 namespace ModdingTutorial.Content.NPCs
 {
@@ -45,7 +46,7 @@ namespace ModdingTutorial.Content.NPCs
         public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
             npcLoot.Add(ItemDropRule.Common(ItemID.Gel, 1, 1, 5));
-            // add some custom loot item later TODO
+            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<StarryWand>(), 20, 1)); // 5% chance to drop
         }
 
         public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
