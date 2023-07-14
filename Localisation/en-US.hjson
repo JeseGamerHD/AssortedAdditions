@@ -339,11 +339,6 @@ Mods: {
 				Tooltip: ""
 			}
 
-			BoStaffTest: {
-				DisplayName: Bo Staff Test
-				Tooltip: ""
-			}
-
 			MahoganyBoStaff: {
 				DisplayName: Mahogany Bo Staff
 				Tooltip: ""
