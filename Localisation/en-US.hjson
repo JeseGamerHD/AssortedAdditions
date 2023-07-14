@@ -365,7 +365,7 @@ Mods: {
 			}
 
 			EbonWoodBoStaff: {
-				DisplayName: Ebon Wood Bo Staff
+				DisplayName: Ebonwood Bo Staff
 				Tooltip: ""
 			}
 
@@ -375,12 +375,12 @@ Mods: {
 			}
 
 			PearlWoodBoStaff: {
-				DisplayName: Pearl Wood Bo Staff
+				DisplayName: Pearlwood Bo Staff
 				Tooltip: ""
 			}
 
 			ShadeWoodBoStaff: {
-				DisplayName: Shade Wood Bo Staff
+				DisplayName: Shadewood Bo Staff
 				Tooltip: ""
 			}
 
