@@ -425,6 +425,7 @@ Mods: {
 			FireDragonTail.DisplayName: Fire Dragon Tail
 			FireDrake.DisplayName: Fire Drake
 			NightSlime.DisplayName: Night Slime
+			SandstoneMimic.DisplayName: Sandstone Mimic
 		}
 	}
 }

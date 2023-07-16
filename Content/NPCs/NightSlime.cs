@@ -37,10 +37,12 @@ namespace ModdingTutorial.Content.NPCs
             BannerItem = ModContent.ItemType<NightSlimeBanner>();
         }
 
-        // Spawns at night with slightly lessened chance
+        // Spawns at night
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            return SpawnCondition.OverworldNightMonster.Chance * 0.9f; // 10% less likely to spawn than zombies, for example
+            // Modders Toolkit is an excellent tool for checking the spawn % and balancing it
+            // It can be found on the tModLoader workshop
+            return SpawnCondition.OverworldNightMonster.Chance * 0.3f; // Now its slightly more common than a zombie
         }
 
         public override void ModifyNPCLoot(NPCLoot npcLoot)
