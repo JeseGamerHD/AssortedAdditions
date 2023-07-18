@@ -383,6 +383,11 @@ Mods: {
 				DisplayName: Spooky Bo Staff
 				Tooltip: ""
 			}
+
+			DesertsFury: {
+				DisplayName: Desert's Fury
+				Tooltip: ""
+			}
 		}
 
 		Projectiles: {
@@ -409,6 +414,7 @@ Mods: {
 			BabyFireDragon.DisplayName: Baby Fire Dragon
 			StarryWandProj.DisplayName: Starry Wand Proj
 			BoStaffSpin.DisplayName: Bo Staff Spin
+			DesertsFuryProj.DisplayName: Deserts Fury Proj
 		}
 
 		Tiles: {

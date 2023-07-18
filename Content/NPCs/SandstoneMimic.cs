@@ -1,9 +1,15 @@
-﻿using Terraria;
+﻿using ModdingTutorial.Content.Items.Weapons.Magic;
+using ModdingTutorial.Content.Items.Weapons.Melee;
+using ModdingTutorial.Content.Items.Weapons.Ranged;
+using ModdingTutorial.Content.Items.Weapons.Summon;
+using Terraria;
 using Terraria.DataStructures;
 using Terraria.GameContent.Bestiary;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ModLoader.Utilities;
+using Terraria.UI;
 
 namespace ModdingTutorial.Content.NPCs
 {
@@ -61,7 +67,9 @@ namespace ModdingTutorial.Content.NPCs
 
         public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
-            // TODO loot items
+            npcLoot.Add(ItemDropRule.OneFromOptions(1,
+                        ModContent.ItemType<DesertsFury>()
+                        ));
         }
 
         // Spawns cloud gores upon death
