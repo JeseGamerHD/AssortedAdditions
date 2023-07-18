@@ -30,6 +30,7 @@ namespace ModdingTutorial.Content.Items.Weapons.Melee.Sabers
             Item.channel = true;
             Item.autoReuse = true;
             Item.useStyle = ItemUseStyleID.Swing;
+            Item.rare = ItemRarityID.Pink;
 
             Item.shoot = ModContent.ProjectileType<DoublePhasesaberSpin>();
             Item.shootSpeed = 5f;
