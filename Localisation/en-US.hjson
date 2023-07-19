@@ -393,6 +393,11 @@ Mods: {
 				DisplayName: Dustbringer Staff
 				Tooltip: Shoots small tornadoes
 			}
+
+			MinersRing: {
+				DisplayName: Miner's Ring
+				Tooltip: Increases mining speed by 25%
+			}
 		}
 
 		Projectiles: {
