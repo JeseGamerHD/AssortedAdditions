@@ -388,6 +388,11 @@ Mods: {
 				DisplayName: Desert's Fury
 				Tooltip: ""
 			}
+
+			DustbringerStaff: {
+				DisplayName: Dustbringer Staff
+				Tooltip: Shoots small tornadoes
+			}
 		}
 
 		Projectiles: {
@@ -415,6 +420,7 @@ Mods: {
 			StarryWandProj.DisplayName: Starry Wand Proj
 			BoStaffSpin.DisplayName: Bo Staff Spin
 			DesertsFuryProj.DisplayName: Deserts Fury Proj
+			DustbringerStaffProj.DisplayName: Dustbringer Staff Proj
 		}
 
 		Tiles: {

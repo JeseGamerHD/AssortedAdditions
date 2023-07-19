@@ -1,8 +1,6 @@
 ﻿using Terraria.ID;
 using Terraria;
 using Terraria.ModLoader;
-using Microsoft.Xna.Framework;
-using Terraria.Audio;
 
 namespace ModdingTutorial.Content.Projectiles.MagicProj
 {

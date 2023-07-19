@@ -222,7 +222,7 @@ namespace ModdingTutorial.Content.NPCs.BossFireDragon // This Boss NPC is built 
                 // Do a rumbling sound when summoning begins / ends
                 if (Timer == 900 || Timer == 1320)
                 {
-                    SoundEngine.PlaySound(new SoundStyle("ModdingTutorial/Assets/Sounds/FireDragonSounds"), NPC.position);
+                    SoundEngine.PlaySound(new SoundStyle("ModdingTutorial/Assets/Sounds/NPCSound/FireDragonSounds"), NPC.position);
                 }
 
                 // Spawn one every second for 7 seconds (spawns 7 minions)
