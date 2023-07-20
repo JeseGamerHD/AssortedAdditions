@@ -1,5 +1,6 @@
 ﻿using ModdingTutorial.Content.Items.Weapons.Magic;
 using ModdingTutorial.Content.Items.Weapons.Melee;
+using ModdingTutorial.Content.Items.Weapons.Ranged;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.GameContent.Bestiary;
@@ -66,7 +67,8 @@ namespace ModdingTutorial.Content.NPCs
         {
             npcLoot.Add(ItemDropRule.OneFromOptions(1,
                         ModContent.ItemType<DesertsFury>(),
-                        ModContent.ItemType<DustbringerStaff>()
+                        ModContent.ItemType<DustbringerStaff>(),
+                        ModContent.ItemType<DesertBlaster>()
                         ));
         }
 

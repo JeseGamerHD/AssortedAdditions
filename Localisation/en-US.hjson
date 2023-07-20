@@ -398,6 +398,11 @@ Mods: {
 				DisplayName: Miner's Ring
 				Tooltip: Increases mining speed by 25%
 			}
+
+			DesertBlaster: {
+				DisplayName: Desert Blaster
+				Tooltip: Right click to use rockets
+			}
 		}
 
 		Projectiles: {
