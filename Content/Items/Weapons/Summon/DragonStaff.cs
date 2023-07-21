@@ -38,8 +38,6 @@ public class DragonStaff : ModItem
         position = Main.MouseWorld; // Spawns at cursor position
     }
 
-
-
     public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
     {
         for (int i = 0; i < Main.projectile.Length; i++) // Looking through player's summons
@@ -73,6 +71,4 @@ public class DragonStaff : ModItem
         return false;
 
     }
-
-    // Needs a recipe or a source...
 }

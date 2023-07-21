@@ -15,6 +15,11 @@ Mods: {
 				DisplayName: Baby Fire Dragon
 				Description: Your own baby dragon
 			}
+
+			SunScepterBuff: {
+				DisplayName: Small Sun
+				Description: Don't stare at it
+			}
 		}
 
 		Items: {
@@ -403,6 +408,11 @@ Mods: {
 				DisplayName: Desert Blaster
 				Tooltip: Right click to use rockets
 			}
+
+			SunScepter: {
+				DisplayName: Sun Scepter
+				Tooltip: Summons a small Sun
+			}
 		}
 
 		Projectiles: {
@@ -431,6 +441,7 @@ Mods: {
 			BoStaffSpin.DisplayName: Bo Staff Spin
 			DesertsFuryProj.DisplayName: Deserts Fury Proj
 			DustbringerStaffProj.DisplayName: Dustbringer Staff Proj
+			SunScepterMinion.DisplayName: Sun Scepter Minion
 		}
 
 		Tiles: {
