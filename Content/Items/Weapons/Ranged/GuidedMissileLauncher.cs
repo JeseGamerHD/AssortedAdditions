@@ -1,6 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using ModdingTutorial.Content.Items.Misc;
-using ModdingTutorial.Content.Items.Placeables;
+using ModdingTutorial.Content.Items.Placeables.Ores;
 using ModdingTutorial.Content.Items.Weapons.Ammo;
 using ModdingTutorial.Content.Projectiles.RangedProj;
 using Terraria;

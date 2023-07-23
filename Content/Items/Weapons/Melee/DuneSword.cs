@@ -2,8 +2,8 @@
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria;
-using ModdingTutorial.Content.Items.Placeables;
 using Microsoft.Xna.Framework;
+using ModdingTutorial.Content.Items.Placeables.Ores;
 
 namespace ModdingTutorial.Content.Items.Weapons.Melee
 {

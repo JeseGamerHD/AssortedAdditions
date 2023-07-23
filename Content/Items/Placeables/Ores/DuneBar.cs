@@ -3,9 +3,9 @@ using Terraria.GameContent.Creative;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace ModdingTutorial.Content.Items.Placeables
+namespace ModdingTutorial.Content.Items.Placeables.Ores
 {
-    internal class SteelBar : ModItem
+    internal class DuneBar : ModItem
     {
         public override void SetStaticDefaults()
         {
@@ -19,7 +19,8 @@ namespace ModdingTutorial.Content.Items.Placeables
             Item.height = 20;
             Item.maxStack = 999;
             Item.consumable = true;
-            Item.value = Item.buyPrice(silver: 19);
+            Item.value = Item.buyPrice(silver: 55);
+            Item.rare = ItemRarityID.Green;
 
             Item.useStyle = ItemUseStyleID.Swing;
             Item.useTurn = true;
@@ -27,25 +28,17 @@ namespace ModdingTutorial.Content.Items.Placeables
             Item.useTime = 10;
             Item.autoReuse = true;
 
-            Item.createTile = ModContent.TileType<Tiles.SteelBar>();
+            Item.createTile = ModContent.TileType<Tiles.DuneBar>();
             Item.placeStyle = 0;
 
         }
 
-        // 2 recipes because lead sometimes replaces iron
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ItemID.IronOre, 3);
-            recipe.AddIngredient(ModContent.ItemType<CoalChunk>(), 2);
+            recipe.AddIngredient(ModContent.ItemType<DuneOre>(), 3);
             recipe.AddTile(TileID.Furnaces);
             recipe.Register();
-
-            Recipe recipe_alt = CreateRecipe();
-            recipe_alt.AddIngredient(ItemID.LeadOre, 3);
-            recipe_alt.AddIngredient(ModContent.ItemType<CoalChunk>(), 2);
-            recipe_alt.AddTile(TileID.Furnaces);
-            recipe_alt.Register();
         }
     }
 }

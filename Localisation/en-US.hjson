@@ -413,6 +413,16 @@ Mods: {
 				DisplayName: Sun Scepter
 				Tooltip: Summons a small Sun
 			}
+
+			PaintBlock: {
+				DisplayName: Paint Block
+				Tooltip: Works with deep paints
+			}
+
+			ArtDecoBlock: {
+				DisplayName: Art Deco Block
+				Tooltip: ""
+			}
 		}
 
 		Projectiles: {

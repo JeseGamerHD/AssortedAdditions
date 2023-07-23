@@ -2,7 +2,7 @@
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.GameContent.Creative;
-using ModdingTutorial.Content.Items.Placeables;
+using ModdingTutorial.Content.Items.Placeables.Ores;
 
 namespace ModdingTutorial.Content.Items.Tools;
 

@@ -2,7 +2,7 @@
 using Terraria.ModLoader;
 using Terraria;
 using Terraria.ID;
-using ModdingTutorial.Content.Items.Placeables;
+using ModdingTutorial.Content.Items.Placeables.Ores;
 
 namespace ModdingTutorial.Content.Items.Weapons.Ranged
 {

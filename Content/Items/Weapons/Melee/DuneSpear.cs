@@ -4,7 +4,7 @@ using Terraria.ModLoader;
 using Terraria;
 using ModdingTutorial.Content.Projectiles.MeleeProj;
 using Terraria.Audio;
-using ModdingTutorial.Content.Items.Placeables;
+using ModdingTutorial.Content.Items.Placeables.Ores;
 
 namespace ModdingTutorial.Content.Items.Weapons.Melee
 {

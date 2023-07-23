@@ -1,0 +1,21 @@
+﻿using Terraria.ID;
+using Terraria;
+using Terraria.ModLoader;
+using Microsoft.Xna.Framework;
+
+namespace ModdingTutorial.Content.Tiles.Blocks
+{
+    internal class ArtDecoBlockTile : ModTile
+    {
+        public override void SetStaticDefaults()
+        {
+            Main.tileSolid[Type] = true;
+            Main.tileMergeDirt[Type] = false;
+            Main.tileBlockLight[Type] = true;
+
+            AddMapEntry(new Color(38, 38, 24));
+            DustType = DustID.Silt;
+            HitSound = SoundID.Tink;
+        }
+    }
+}

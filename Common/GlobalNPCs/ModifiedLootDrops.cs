@@ -2,9 +2,9 @@
 using Terraria;
 using Terraria.ModLoader;
 using Terraria.GameContent.ItemDropRules;
-using ModdingTutorial.Content.Items.Placeables;
 using ModdingTutorial.Common.ItemDropRules;
 using ModdingTutorial.Content.Items.Consumables;
+using ModdingTutorial.Content.Items.Placeables.Ores;
 
 namespace ModdingTutorial.Common.GlobalNPCs
 {

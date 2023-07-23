@@ -1,4 +1,4 @@
-﻿using ModdingTutorial.Content.Items.Placeables;
+﻿using ModdingTutorial.Content.Items.Placeables.Ores;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;

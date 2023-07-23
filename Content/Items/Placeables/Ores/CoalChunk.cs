@@ -1,16 +1,19 @@
-﻿using Terraria;
+﻿
+using Terraria;
 using Terraria.ModLoader;
 using Terraria.GameContent.Creative;
 using Terraria.ID;
 
-namespace ModdingTutorial.Content.Items.Placeables
+namespace ModdingTutorial.Content.Items.Placeables.Ores
 {
-    internal class DuneOre : ModItem
+    internal class CoalChunk : ModItem
     {
         public override void SetStaticDefaults()
         {
             CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 100;
             ItemID.Sets.SortingPriorityMaterials[Type] = 58;
+            // Tooltip.SetDefault("It's a chunk of coal.");
+
         }
 
         public override void SetDefaults()
@@ -19,8 +22,7 @@ namespace ModdingTutorial.Content.Items.Placeables
             Item.height = 12;
             Item.maxStack = 999;
             Item.consumable = true;
-            Item.value = Item.buyPrice(silver: 5);
-            Item.rare = ItemRarityID.Green;
+            Item.value = Item.buyPrice(silver: 1);
 
             Item.useStyle = ItemUseStyleID.Swing;
             Item.useAnimation = 15;
@@ -28,7 +30,7 @@ namespace ModdingTutorial.Content.Items.Placeables
             Item.useTurn = true;
             Item.autoReuse = true;
 
-            Item.createTile = ModContent.TileType<Tiles.DuneOre>();
+            Item.createTile = ModContent.TileType<Tiles.CoalChunk>();
         }
     }
 }
