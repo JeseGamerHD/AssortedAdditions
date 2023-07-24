@@ -423,6 +423,16 @@ Mods: {
 				DisplayName: Art Deco Block
 				Tooltip: ""
 			}
+
+			CheckerBlock: {
+				DisplayName: Checker Block
+				Tooltip: ""
+			}
+
+			RedCarpet: {
+				DisplayName: Red Carpet
+				Tooltip: ""
+			}
 		}
 
 		Projectiles: {

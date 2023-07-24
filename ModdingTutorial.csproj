@@ -9,9 +9,13 @@
   </PropertyGroup>
   <ItemGroup>
     <None Remove="Content\Buffs\SunScepterBuff.png" />
+    <None Remove="Content\Items\Placeables\Blocks\ArtDecoBlock.png" />
+    <None Remove="Content\Items\Placeables\Blocks\CheckerBlock.png" />
     <None Remove="Content\Items\Placeables\PaintBlock.png" />
     <None Remove="Content\Items\Weapons\Summon\SunScepter.png" />
     <None Remove="Content\Projectiles\SummonProj\SunScepterMinion.png" />
+    <None Remove="Content\Tiles\Blocks\ArtDecoBlockTile.png" />
+    <None Remove="Content\Tiles\Blocks\CheckerBlockTile.png" />
     <None Remove="Content\Tiles\PaintBlockTile.png" />
   </ItemGroup>
   <ItemGroup>
