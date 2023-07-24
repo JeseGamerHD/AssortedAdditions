@@ -433,6 +433,16 @@ Mods: {
 				DisplayName: Red Carpet
 				Tooltip: ""
 			}
+
+			BlueCarpet: {
+				DisplayName: Blue Carpet
+				Tooltip: ""
+			}
+
+			GreenCarpet: {
+				DisplayName: Green Carpet
+				Tooltip: ""
+			}
 		}
 
 		Projectiles: {
