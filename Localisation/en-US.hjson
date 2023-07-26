@@ -448,6 +448,11 @@ Mods: {
 				DisplayName: Hazard Block
 				Tooltip: ""
 			}
+
+			HiVisVest: {
+				DisplayName: Builder Vest
+				Tooltip: ""
+			}
 		}
 
 		Projectiles: {

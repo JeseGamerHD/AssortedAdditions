@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using ModdingTutorial.Content.Items.Placeables.Blocks;
+using ModdingTutorial.Content.Items.Vanity;
 using Terraria;
 using Terraria.GameContent.Bestiary;
 using Terraria.GameContent.Personalities;
@@ -142,8 +143,9 @@ namespace ModdingTutorial.Content.NPCs.Town
                 .Add<HazardBlock>()
                 .Add<RedCarpet>()
                 .Add<BlueCarpet>()
-                .Add<GreenCarpet>();
-
+                .Add<GreenCarpet>()
+                
+                .Add<HiVisVest>();
             npcShop.Register();
         }
 
