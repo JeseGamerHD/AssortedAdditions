@@ -5,7 +5,7 @@ using Terraria;
 
 namespace ModdingTutorial.Content.Items.Placeables.Blocks
 {
-    internal class ArtDecoBlock : ModItem
+    internal class HazardBlock : ModItem
     {
         public override void SetDefaults()
         {
@@ -21,7 +21,7 @@ namespace ModdingTutorial.Content.Items.Placeables.Blocks
             Item.useTurn = true;
             Item.autoReuse = true;
 
-            Item.createTile = ModContent.TileType<ArtDecoBlockTile>();
+            Item.createTile = ModContent.TileType<HazardBlockTile>();
         }
     }
 }

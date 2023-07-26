@@ -13,7 +13,7 @@ namespace ModdingTutorial.Content.Items.Placeables.Blocks
             Item.height = 16;
             Item.maxStack = 999;
             Item.consumable = true;
-            Item.value = Item.sellPrice(copper: 75);
+            Item.value = Item.sellPrice(copper: 20);
 
             Item.useStyle = ItemUseStyleID.Swing;
             Item.useAnimation = 15;

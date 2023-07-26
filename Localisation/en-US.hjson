@@ -443,6 +443,11 @@ Mods: {
 				DisplayName: Green Carpet
 				Tooltip: ""
 			}
+
+			HazardBlock: {
+				DisplayName: Hazard Block
+				Tooltip: ""
+			}
 		}
 
 		Projectiles: {
@@ -489,6 +494,26 @@ Mods: {
 			FireDrake.DisplayName: Fire Drake
 			NightSlime.DisplayName: Night Slime
 			SandstoneMimic.DisplayName: Sandstone Mimic
+
+			Builder: {
+				DisplayName: Builder
+
+				TownNPCMood: {
+					Content: I am content.
+					NoHome: I hate not having a home.
+					FarFromHome: I am too far from home.
+					LoveSpace: I love having so much space.
+					DislikeCrowded: I dislike how crowded I am.
+					HateCrowded: I hate how crowded I am.
+					LoveBiome: I love {BiomeName}.
+					HateBiome: I hate {BiomeName}.
+					LoveNPC: I love {NPCName}.
+					LikeNPC: I like {NPCName}.
+					HateNPC: I hate {NPCName}.
+					LikeNPC_Princess: I like {NPCName}.
+					Princess_LovesNPC: I like {NPCName}.
+				}
+			}
 		}
 	}
 }
