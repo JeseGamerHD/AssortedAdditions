@@ -123,6 +123,7 @@ namespace ModdingTutorial.Content.NPCs.Town
         public override void SetChatButtons(ref string button, ref string button2)
         {
             button = "Shop";
+            button2 = "Vanilla Blocks";
         }
 
         public override void OnChatButtonClicked(bool firstButton, ref string shopName)
@@ -130,13 +131,19 @@ namespace ModdingTutorial.Content.NPCs.Town
             if(firstButton)
             {
                 shopName = "Shop";
-            }  
+            }
+            else
+            {
+                shopName = "Vanilla Shop";
+            }
         }
 
-        // What the NPC sells (10/39 slots used)
+        // What the NPC sells
+        // Currently 2 different shops
         public override void AddShops()
         {
-            var npcShop = new NPCShop(Type, "Shop")
+            // Modded items get the price from their Item.value
+            var moddedShop = new NPCShop(Type, "Shop")
                 .Add<PaintBlock>()
                 .Add<CheckerBlock>()
                 .Add<ArtDecoBlock>()
@@ -148,7 +155,46 @@ namespace ModdingTutorial.Content.NPCs.Town
                 .Add<BuilderHelmet>()
                 .Add<BuilderJacket>()
                 .Add<BuilderPants>();
-            npcShop.Register();
+            moddedShop.Register();
+
+            // Shop for vanilla blocks
+            var vanillaShop = new NPCShop(Type, "Vanilla Shop")
+                .Add(new Item(ItemID.Wood) { shopCustomPrice = Item.buyPrice(copper: 75) })
+                .Add(new Item(ItemID.RichMahogany) { shopCustomPrice = Item.buyPrice(copper: 75) })
+                .Add(new Item(ItemID.Ebonwood) { shopCustomPrice = Item.buyPrice(copper: 75) })
+                .Add(new Item(ItemID.Shadewood) { shopCustomPrice = Item.buyPrice(copper: 75) })
+                .Add(new Item(ItemID.Pearlwood) { shopCustomPrice = Item.buyPrice(copper: 75) }, condition: Condition.Hardmode)
+                .Add(new Item(ItemID.BorealWood) { shopCustomPrice = Item.buyPrice(copper: 75) })
+                .Add(new Item(ItemID.PalmWood) { shopCustomPrice = Item.buyPrice(copper: 75) })
+                .Add(new Item(ItemID.DynastyWood) { shopCustomPrice = Item.buyPrice(copper: 75) })
+                .Add(new Item(ItemID.AshWood) { shopCustomPrice = Item.buyPrice(copper: 75) })
+
+                .Add(new Item(ItemID.StoneBlock) { shopCustomPrice = Item.buyPrice(copper: 75) })
+                .Add(new Item(ItemID.EbonstoneBlock) { shopCustomPrice = Item.buyPrice(copper: 75) })
+                .Add(new Item(ItemID.CrimstoneBlock) { shopCustomPrice = Item.buyPrice(copper: 75) })
+                .Add(new Item(ItemID.PearlstoneBlock) { shopCustomPrice = Item.buyPrice(copper: 75) }, condition: Condition.Hardmode)
+                .Add(new Item(ItemID.Granite) { shopCustomPrice = Item.buyPrice(copper: 75) })
+                .Add(new Item(ItemID.Marble) { shopCustomPrice = Item.buyPrice(copper: 75) })
+                .Add(new Item(ItemID.Sandstone) { shopCustomPrice = Item.buyPrice(copper: 75) })
+
+                .Add(new Item(ItemID.BlueBrick) { shopCustomPrice = Item.buyPrice(copper: 75) }, condition: Condition.DownedSkeletron)
+                .Add(new Item(ItemID.GreenBrick) { shopCustomPrice = Item.buyPrice(copper: 75) }, condition: Condition.DownedSkeletron)
+                .Add(new Item(ItemID.PinkBrick) { shopCustomPrice = Item.buyPrice(copper: 75) }, condition: Condition.DownedSkeletron)
+                .Add(new Item(ItemID.LihzahrdBrick) { shopCustomPrice = Item.buyPrice(copper: 75) }, condition: Condition.DownedGolem)
+
+                .Add(new Item(ItemID.DirtBlock) { shopCustomPrice = Item.buyPrice(copper: 75) })
+                .Add(new Item(ItemID.SandBlock) { shopCustomPrice = Item.buyPrice(copper: 75) })
+                .Add(new Item(ItemID.ClayBlock) { shopCustomPrice = Item.buyPrice(copper: 75) })
+                .Add(new Item(ItemID.MudBlock) { shopCustomPrice = Item.buyPrice(copper: 75) })
+                .Add(new Item(ItemID.SnowBlock) { shopCustomPrice = Item.buyPrice(copper: 75) })
+                .Add(new Item(ItemID.IceBlock) { shopCustomPrice = Item.buyPrice(copper: 75) })
+
+                .Add(new Item(ItemID.Cloud) { shopCustomPrice = Item.buyPrice(copper: 75) })
+                .Add(new Item(ItemID.SunplateBlock) { shopCustomPrice = Item.buyPrice(copper: 75) })
+                .Add(new Item(ItemID.LivingFireBlock) { shopCustomPrice = Item.buyPrice(copper: 75) }, condition: Condition.Hardmode)
+                .Add(new Item(ItemID.RainbowBrick) { shopCustomPrice = Item.buyPrice(copper: 75) }, condition: Condition.Hardmode)
+                ; // <-- Important remeber this
+            vanillaShop.Register();
         }
 
         public override void TownNPCAttackStrength(ref int damage, ref float knockback)
@@ -171,7 +217,7 @@ namespace ModdingTutorial.Content.NPCs.Town
 
         public override void TownNPCAttackProjSpeed(ref float multiplier, ref float gravityCorrection, ref float randomOffset)
         {
-            multiplier = 2f;
+            multiplier = 15f;
         }
     }
 }
