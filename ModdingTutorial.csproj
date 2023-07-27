@@ -16,6 +16,12 @@
     <None Remove="Content\Items\Placeables\Blocks\HazardBlock.png" />
     <None Remove="Content\Items\Placeables\Blocks\RedCarpet.png" />
     <None Remove="Content\Items\Placeables\PaintBlock.png" />
+    <None Remove="Content\Items\Vanity\BuilderHelmet.png" />
+    <None Remove="Content\Items\Vanity\BuilderHelmet_Head.png" />
+    <None Remove="Content\Items\Vanity\BuilderJacket.png" />
+    <None Remove="Content\Items\Vanity\BuilderJacket_Body.png" />
+    <None Remove="Content\Items\Vanity\BuilderPants.png" />
+    <None Remove="Content\Items\Vanity\BuilderPants_Legs.png" />
     <None Remove="Content\Items\Weapons\Summon\SunScepter.png" />
     <None Remove="Content\NPCs\Gores\BuilderGore1.png" />
     <None Remove="Content\NPCs\Gores\BuilderGore2.png" />

@@ -133,7 +133,7 @@ namespace ModdingTutorial.Content.NPCs.Town
             }  
         }
 
-        // What the NPC sells
+        // What the NPC sells (10/39 slots used)
         public override void AddShops()
         {
             var npcShop = new NPCShop(Type, "Shop")
@@ -145,7 +145,9 @@ namespace ModdingTutorial.Content.NPCs.Town
                 .Add<BlueCarpet>()
                 .Add<GreenCarpet>()
                 
-                .Add<HiVisVest>();
+                .Add<BuilderHelmet>()
+                .Add<BuilderJacket>()
+                .Add<BuilderPants>();
             npcShop.Register();
         }
 

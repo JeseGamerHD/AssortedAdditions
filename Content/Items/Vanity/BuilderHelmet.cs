@@ -4,13 +4,13 @@ using Terraria;
 
 namespace ModdingTutorial.Content.Items.Vanity
 {
-    [AutoloadEquip(EquipType.Body)]
-    internal class HiVisVest : ModItem
+    [AutoloadEquip(EquipType.Head)]
+    internal class BuilderHelmet : ModItem
     {
         public override void SetDefaults()
         {
-            Item.width = 30;
-            Item.height = 20;
+            Item.width = 24;
+            Item.height = 18;
             Item.rare = ItemRarityID.Blue;
             Item.value = Item.sellPrice(silver: 25);
             Item.vanity = true;

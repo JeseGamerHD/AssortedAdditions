@@ -453,6 +453,21 @@ Mods: {
 				DisplayName: Builder Vest
 				Tooltip: ""
 			}
+
+			BuilderHelmet: {
+				DisplayName: Builder Helmet
+				Tooltip: ""
+			}
+
+			BuilderJacket: {
+				DisplayName: Builder Jacket
+				Tooltip: ""
+			}
+
+			BuilderPants: {
+				DisplayName: Builder Pants
+				Tooltip: ""
+			}
 		}
 
 		Projectiles: {
