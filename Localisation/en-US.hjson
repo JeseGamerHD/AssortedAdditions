@@ -468,6 +468,11 @@ Mods: {
 				DisplayName: Builder Pants
 				Tooltip: ""
 			}
+
+			IceBlaster: {
+				DisplayName: Ice Blaster
+				Tooltip: Turns all bullets into Crystal Bullets
+			}
 		}
 
 		Projectiles: {
