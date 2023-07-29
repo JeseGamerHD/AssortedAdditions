@@ -473,6 +473,11 @@ Mods: {
 				DisplayName: Ice Blaster
 				Tooltip: Turns all bullets into Crystal Bullets
 			}
+
+			IcyStaff: {
+				DisplayName: Icy Staff
+				Tooltip: Shoots deadly snowflakes
+			}
 		}
 
 		Projectiles: {
@@ -502,6 +507,7 @@ Mods: {
 			DesertsFuryProj.DisplayName: Deserts Fury Proj
 			DustbringerStaffProj.DisplayName: Dustbringer Staff Proj
 			SunScepterMinion.DisplayName: Sun Scepter Minion
+			IcyWandProj.DisplayName: Icy Wand Proj
 		}
 
 		Tiles: {

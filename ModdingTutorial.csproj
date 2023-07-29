@@ -22,6 +22,7 @@
     <None Remove="Content\Items\Vanity\BuilderJacket_Body.png" />
     <None Remove="Content\Items\Vanity\BuilderPants.png" />
     <None Remove="Content\Items\Vanity\BuilderPants_Legs.png" />
+    <None Remove="Content\Items\Weapons\Magic\IcyStaff.png" />
     <None Remove="Content\Items\Weapons\Ranged\IceBlaster.png" />
     <None Remove="Content\Items\Weapons\Summon\SunScepter.png" />
     <None Remove="Content\NPCs\Gores\BuilderGore1.png" />
