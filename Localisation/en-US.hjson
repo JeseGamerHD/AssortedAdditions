@@ -483,6 +483,11 @@ Mods: {
 				DisplayName: Permafrost
 				Tooltip: ""
 			}
+
+			FrostBar: {
+				DisplayName: Frost Bar
+				Tooltip: ""
+			}
 		}
 
 		Projectiles: {
