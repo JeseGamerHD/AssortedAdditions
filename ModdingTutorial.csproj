@@ -15,6 +15,7 @@
     <None Remove="Content\Items\Placeables\Blocks\GreenCarpet.png" />
     <None Remove="Content\Items\Placeables\Blocks\HazardBlock.png" />
     <None Remove="Content\Items\Placeables\Blocks\RedCarpet.png" />
+    <None Remove="Content\Items\Placeables\Ores\Permafrost.png" />
     <None Remove="Content\Items\Placeables\PaintBlock.png" />
     <None Remove="Content\Items\Vanity\BuilderHelmet.png" />
     <None Remove="Content\Items\Vanity\BuilderHelmet_Head.png" />
@@ -30,6 +31,7 @@
     <None Remove="Content\NPCs\Gores\BuilderGore3.png" />
     <None Remove="Content\NPCs\Town\Builder.png" />
     <None Remove="Content\NPCs\Town\Builder_Head.png" />
+    <None Remove="Content\Projectiles\MagicProj\IcyWandProj.png" />
     <None Remove="Content\Projectiles\SummonProj\SunScepterMinion.png" />
     <None Remove="Content\Tiles\Blocks\ArtDecoBlockTile.png" />
     <None Remove="Content\Tiles\Blocks\BlueCarpetTile.png" />
@@ -38,6 +40,7 @@
     <None Remove="Content\Tiles\Blocks\HazardBlockTile.png" />
     <None Remove="Content\Tiles\Blocks\RedCarpetTile.png" />
     <None Remove="Content\Tiles\PaintBlockTile.png" />
+    <None Remove="Content\Tiles\PermafrostTile.png" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="tModLoader.CodeAssist" Version="0.1.*" />

@@ -478,6 +478,11 @@ Mods: {
 				DisplayName: Icy Staff
 				Tooltip: Shoots deadly snowflakes
 			}
+
+			Permafrost: {
+				DisplayName: Permafrost
+				Tooltip: ""
+			}
 		}
 
 		Projectiles: {
@@ -516,6 +521,7 @@ Mods: {
 			BossTrophies.MapEntry: Trophy
 			BannerTiles.MapEntry: Night Slime banner
 			NightSlimeBannerTile.MapEntry: Banner
+			PermafrostTile.MapEntry: Permafrost
 		}
 
 		NPCs: {
