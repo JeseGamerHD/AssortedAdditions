@@ -498,6 +498,11 @@ Mods: {
 				DisplayName: Art Deco Wall
 				Tooltip: ""
 			}
+
+			CheckerWall: {
+				DisplayName: Checker Wall
+				Tooltip: ""
+			}
 		}
 
 		Projectiles: {

@@ -19,6 +19,8 @@
     <None Remove="Content\Items\Placeables\Ores\FrostBar.png" />
     <None Remove="Content\Items\Placeables\Ores\Permafrost.png" />
     <None Remove="Content\Items\Placeables\PaintBlock.png" />
+    <None Remove="Content\Items\Placeables\Walls\ArtDecoWall.png" />
+    <None Remove="Content\Items\Placeables\Walls\ExampleWall.png" />
     <None Remove="Content\Items\Vanity\BuilderHelmet.png" />
     <None Remove="Content\Items\Vanity\BuilderHelmet_Head.png" />
     <None Remove="Content\Items\Vanity\BuilderJacket.png" />
