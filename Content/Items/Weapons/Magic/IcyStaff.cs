@@ -40,5 +40,6 @@ namespace ModdingTutorial.Content.Items.Weapons.Magic
         }
 
         // TODO Source/Recipe?
+        // Frost bars + smth
     }
 }

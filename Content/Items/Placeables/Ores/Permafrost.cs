@@ -27,7 +27,7 @@ namespace ModdingTutorial.Content.Items.Placeables.Ores
             Item.autoReuse = true;
 
             Item.value = Item.sellPrice(silver: 15);
-            Item.rare = ItemRarityID.Green;
+            Item.rare = ItemRarityID.Orange;
             Item.useStyle = ItemUseStyleID.Swing;
             Item.createTile = ModContent.TileType<PermafrostTile>();
         }

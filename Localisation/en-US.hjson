@@ -488,6 +488,16 @@ Mods: {
 				DisplayName: Frost Bar
 				Tooltip: ""
 			}
+
+			FrostBrick: {
+				DisplayName: Frost Brick
+				Tooltip: ""
+			}
+
+			ArtDecoWall: {
+				DisplayName: Art Deco Wall
+				Tooltip: ""
+			}
 		}
 
 		Projectiles: {
