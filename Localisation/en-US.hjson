@@ -415,7 +415,7 @@ Mods: {
 			}
 
 			PaintBlock: {
-				DisplayName: Paint Block
+				DisplayName: Paint Block (light)
 				Tooltip: Works with deep paints
 			}
 
@@ -502,6 +502,26 @@ Mods: {
 			CheckerWall: {
 				DisplayName: Checker Wall
 				Tooltip: ""
+			}
+
+			HazardWall: {
+				DisplayName: Hazard Wall
+				Tooltip: ""
+			}
+
+			PaintWall: {
+				DisplayName: Paint Wall (light)
+				Tooltip: Works with deep paints
+			}
+
+			PaintBlock2: {
+				DisplayName: Paint Block (dark)
+				Tooltip: Works with deep paints
+			}
+
+			PaintWall2: {
+				DisplayName: Paint Wall (dark)
+				Tooltip: Works with deep paints
 			}
 		}
 

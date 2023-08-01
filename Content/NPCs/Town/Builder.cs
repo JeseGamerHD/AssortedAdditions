@@ -145,6 +145,7 @@ namespace ModdingTutorial.Content.NPCs.Town
             // Modded items get the price from their Item.value
             var moddedShop = new NPCShop(Type, "Shop")
                 .Add<PaintBlock>()
+                .Add<PaintBlock2>()
                 .Add<CheckerBlock>()
                 .Add<ArtDecoBlock>()
                 .Add<HazardBlock>()
