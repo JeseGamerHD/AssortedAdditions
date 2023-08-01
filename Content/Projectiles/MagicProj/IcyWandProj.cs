@@ -19,6 +19,7 @@ namespace ModdingTutorial.Content.Projectiles.MagicProj
             Projectile.penetrate = -1;
             Projectile.aiStyle = 0;
             Projectile.scale = 0.5f;
+            Projectile.timeLeft = 120;
 
             Projectile.DamageType = DamageClass.Magic;
 

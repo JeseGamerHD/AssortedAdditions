@@ -3,6 +3,8 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria;
 using Microsoft.Xna.Framework;
+using ModdingTutorial.Content.Items.Misc;
+using ModdingTutorial.Content.Items.Placeables.Ores;
 
 namespace ModdingTutorial.Content.Items.Weapons.Magic
 {
@@ -39,7 +41,13 @@ namespace ModdingTutorial.Content.Items.Weapons.Magic
             velocity = velocity.RotatedByRandom(MathHelper.ToRadians(8));
         }
 
-        // TODO Source/Recipe?
-        // Frost bars + smth
+        public override void AddRecipes()
+        {
+            Recipe recipe = CreateRecipe();
+            recipe.AddIngredient(ModContent.ItemType<FrostBar>(), 12);
+            recipe.AddIngredient(ModContent.ItemType<IceEssence>(), 8);
+            recipe.AddTile(TileID.IceMachine);
+            recipe.Register();
+        }
     }
 }

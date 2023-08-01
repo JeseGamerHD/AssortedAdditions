@@ -523,6 +523,11 @@ Mods: {
 				DisplayName: Paint Wall (dark)
 				Tooltip: Works with deep paints
 			}
+
+			IceEssence: {
+				DisplayName: Ice Essence
+				Tooltip: The essence of frost creatures
+			}
 		}
 
 		Projectiles: {
