@@ -9,6 +9,7 @@
   </PropertyGroup>
   <ItemGroup>
     <None Remove="Content\Buffs\SunScepterBuff.png" />
+    <None Remove="Content\Items\Misc\IceEssence.png" />
     <None Remove="Content\Items\Placeables\Blocks\ArtDecoBlock.png" />
     <None Remove="Content\Items\Placeables\Blocks\BlueCarpet.png" />
     <None Remove="Content\Items\Placeables\Blocks\CheckerBlock.png" />

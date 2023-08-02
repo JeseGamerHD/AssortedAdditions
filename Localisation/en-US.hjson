@@ -528,6 +528,11 @@ Mods: {
 				DisplayName: Ice Essence
 				Tooltip: The essence of frost creatures
 			}
+
+			AuroraBlade: {
+				DisplayName: Aurora Blade
+				Tooltip: ""
+			}
 		}
 
 		Projectiles: {
@@ -558,6 +563,7 @@ Mods: {
 			DustbringerStaffProj.DisplayName: Dustbringer Staff Proj
 			SunScepterMinion.DisplayName: Sun Scepter Minion
 			IcyWandProj.DisplayName: Icy Wand Proj
+			AuroraBladeProj.DisplayName: Aurora Blade Proj
 		}
 
 		Tiles: {
