@@ -27,7 +27,7 @@ public class AuroraBlade : ModItem
         Item.shootsEveryUse = true; // This makes sure Player.ItemAnimationJustStarted is set when swinging.
         Item.autoReuse = true;
 
-        Item.value = Item.sellPrice(gold: 8);
+        Item.value = Item.sellPrice(gold: 5);
         Item.UseSound = SoundID.Item1;
         Item.rare = ItemRarityID.Pink;
         Item.DamageType = DamageClass.Melee;
@@ -50,7 +50,7 @@ public class AuroraBlade : ModItem
         Recipe recipe = CreateRecipe();
         recipe.AddIngredient(ModContent.ItemType<FrostBar>(), 15);
         recipe.AddIngredient(ModContent.ItemType<IceEssence>(), 8);
-        recipe.AddTile(TileID.Anvils);
+        recipe.AddTile(TileID.IceMachine);
         recipe.Register();
     }
 }

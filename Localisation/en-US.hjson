@@ -533,6 +533,11 @@ Mods: {
 				DisplayName: Aurora Blade
 				Tooltip: ""
 			}
+
+			FrostBow: {
+				DisplayName: Frost Bow
+				Tooltip: Shoots an ice bolt
+			}
 		}
 
 		Projectiles: {
@@ -564,6 +569,7 @@ Mods: {
 			SunScepterMinion.DisplayName: Sun Scepter Minion
 			IcyWandProj.DisplayName: Icy Wand Proj
 			AuroraBladeProj.DisplayName: Aurora Blade Proj
+			FrostBowProj.DisplayName: Frost Bow Proj
 		}
 
 		Tiles: {
