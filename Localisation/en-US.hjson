@@ -538,6 +538,11 @@ Mods: {
 				DisplayName: Frost Bow
 				Tooltip: Shoots an ice bolt
 			}
+
+			CursedPickaxeBanner: {
+				DisplayName: Cursed Pickaxe Banner
+				Tooltip: ""
+			}
 		}
 
 		Projectiles: {
@@ -579,6 +584,7 @@ Mods: {
 			BannerTiles.MapEntry: Night Slime banner
 			NightSlimeBannerTile.MapEntry: Banner
 			PermafrostTile.MapEntry: Permafrost
+			CursedPickaxeBannerTile.MapEntry: Cursed Pickaxe Banner Tile
 		}
 
 		NPCs: {
@@ -608,6 +614,8 @@ Mods: {
 					Princess_LovesNPC: I like {NPCName}.
 				}
 			}
+
+			CursedPickaxe.DisplayName: Cursed Pickaxe
 		}
 	}
 }

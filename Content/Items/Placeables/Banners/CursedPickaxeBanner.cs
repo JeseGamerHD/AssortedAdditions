@@ -1,11 +1,11 @@
-﻿using Terraria.ID;
-using Terraria;
+﻿using ModdingTutorial.Content.Tiles.Banners;
+using Terraria.ID;
 using Terraria.ModLoader;
-using ModdingTutorial.Content.Tiles.Banners;
+using Terraria;
 
 namespace ModdingTutorial.Content.Items.Placeables.Banners
 {
-    internal class NightSlimeBanner : ModItem
+    internal class CursedPickaxeBanner : ModItem
     {
         public override void SetDefaults()
         {
@@ -18,11 +18,11 @@ namespace ModdingTutorial.Content.Items.Placeables.Banners
             Item.useTurn = true;
             Item.autoReuse = true;
             Item.consumable = true;
-            
+
             Item.useStyle = ItemUseStyleID.Swing;
             Item.rare = ItemRarityID.Blue; // All banners are blue and sell for 2 silver
             Item.value = Item.sellPrice(silver: 2);
-            Item.createTile = ModContent.TileType<NightSlimeBannerTile>();
+            Item.createTile = ModContent.TileType<CursedPickaxeBannerTile>();
         }
     }
 }

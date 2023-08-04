@@ -42,7 +42,12 @@ namespace ModdingTutorial.Content.NPCs
         {
             // Modders Toolkit is an excellent tool for checking the spawn % and balancing it
             // It can be found on the tModLoader workshop
-            return SpawnCondition.OverworldNightMonster.Chance * 0.3f; // Now its slightly more common than a zombie
+            if (!Main.hardMode)
+            {
+                return SpawnCondition.OverworldNightMonster.Chance * 0.3f; // chance during prehardmode
+            }
+
+            return SpawnCondition.OverworldNightMonster.Chance * 0.075f; // chance during hardmode (less likely to spawn)
         }
 
         public override void ModifyNPCLoot(NPCLoot npcLoot)

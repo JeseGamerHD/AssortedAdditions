@@ -7,7 +7,7 @@ using Terraria.Localization;
 using Microsoft.Xna.Framework;
 using Terraria.Enums;
 
-namespace ModdingTutorial.Content.Tiles
+namespace ModdingTutorial.Content.Tiles.Banners
 {
     internal class NightSlimeBannerTile : ModTile
     {
@@ -19,7 +19,7 @@ namespace ModdingTutorial.Content.Tiles
             TileID.Sets.DisableSmartCursor[Type] = true;
             TileID.Sets.SwaysInWindBasic[Type] = true; // TODO add better effect once TML supports banner movement, now it uses foliage sway...
             TileObjectData.newTile.StyleHorizontal = true;
-            
+
             TileObjectData.newTile.CopyFrom(TileObjectData.Style1x2Top);
             TileObjectData.newTile.Height = 3;
             TileObjectData.newTile.CoordinateHeights = new int[] { 16, 16, 16 };
