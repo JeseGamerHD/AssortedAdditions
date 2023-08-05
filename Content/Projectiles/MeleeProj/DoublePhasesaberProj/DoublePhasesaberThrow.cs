@@ -27,7 +27,7 @@ namespace ModdingTutorial.Content.Projectiles.MeleeProj.DoublePhasesaberProj
 
         public override void AI()
         {
-            Player player = Main.player[Projectile.owner]; // Used for returning the boomerang
+            Player player = Main.player[Projectile.owner];
             bool returnProjectile = false; // Used for returning the projectile back
 
             // Projectile will rotate when thrown
@@ -40,9 +40,13 @@ namespace ModdingTutorial.Content.Projectiles.MeleeProj.DoublePhasesaberProj
                 SoundEngine.PlaySound(SoundID.Item15, Projectile.position);
             }
 
+            // Custom method for choosing sprite and light color
             Visuals();
 
-            // Gradually slow down the projectile after 0.5 seconds in the air
+            // Slow down the projectile
+            // NOTE: this is a dumb way to slow and later accelerate something
+            // Could have had a longer timer and just subtracted and later added X from the velocity...
+            // ...or done it like in DunerangProj.cs
             if (Projectile.timeLeft < 2970)
             {
                 Projectile.ai[0] += 1f;

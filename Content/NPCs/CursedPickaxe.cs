@@ -2,11 +2,11 @@
 using Terraria.ID;
 using Terraria;
 using Terraria.ModLoader;
-using Terraria.ModLoader.Utilities;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.GameContent.Bestiary;
 using ModdingTutorial.Content.Items.Placeables.Banners;
 using ModdingTutorial.Content.Items.Misc;
+using Microsoft.Xna.Framework;
 
 namespace ModdingTutorial.Content.NPCs
 {
@@ -86,6 +86,11 @@ namespace ModdingTutorial.Content.NPCs
             {
                 target.AddBuff(BuffID.Cursed, 360);
             }
+        }
+
+        public override Color? GetAlpha(Color lightColor)
+        {
+            return Color.White; // the npc is visible even without light
         }
 
         public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)

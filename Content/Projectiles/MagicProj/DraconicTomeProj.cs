@@ -15,7 +15,7 @@ namespace ModdingTutorial.Content.Projectiles.MagicProj
         {
             Projectile.width = 50;
             Projectile.height = 50;
-            Projectile.timeLeft = 3000;
+            Projectile.timeLeft = 3600;
             Projectile.alpha = 0;
             Projectile.light = 0.5f;
             Projectile.scale = 2f;
@@ -55,13 +55,12 @@ namespace ModdingTutorial.Content.Projectiles.MagicProj
             }
             
 
-            Lighting.AddLight(Projectile.Center, TorchID.Torch); // Emits some orange light
+            Lighting.AddLight(Projectile.position, TorchID.Torch); // Emits some orange light
 
-            // Fade out projectile once player dies
-            if (Main.player[Projectile.owner].dead)
+            // Fade out projectile once player dies, or when reaching the end of its lifetime
+            if (Main.player[Projectile.owner].dead || Projectile.timeLeft == 130)
             {
                 Projectile.timeLeft = 127;
-                Main.NewText("testing once");
 
                 if(Projectile.timeLeft <= 127)
                 {

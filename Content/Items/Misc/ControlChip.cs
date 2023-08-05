@@ -16,7 +16,7 @@ namespace ModdingTutorial.Content.Items.Misc
             Item.height = 32;
             Item.maxStack = 999;
             Item.value = Item.buyPrice(0, 20, 0, 0);
-            Item.rare = ItemRarityID.Blue;
+            Item.rare = ItemRarityID.Lime;
         }
     }
 }

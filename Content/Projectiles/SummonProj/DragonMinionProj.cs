@@ -12,7 +12,7 @@ namespace ModdingTutorial.Content.Projectiles.SummonProj
         public override void SetStaticDefaults()
         {
             Main.projFrames[Projectile.type] = 5; // How many frames the minion has in its animation/sprite
-            Main.projPet[Projectile.type] = false; // Not a pet
+            Main.projPet[Projectile.type] = true; // If the projectile is a pet or a minion
             
             ProjectileID.Sets.MinionSacrificable[Projectile.type] = true; // Minion will spawn properly if another one is already summoned
             ProjectileID.Sets.CultistIsResistantTo[Projectile.type] = true; // Doesn't target the cultists

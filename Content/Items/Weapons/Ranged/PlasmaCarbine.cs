@@ -28,7 +28,7 @@ namespace ModdingTutorial.Content.Items.Weapons.Ranged
             Item.knockBack = 4;
             Item.noMelee = true;
 
-            Item.rare = ItemRarityID.LightRed;
+            Item.rare = ItemRarityID.Yellow;
             Item.value = Item.sellPrice(gold: 5);
 
             Item.shootSpeed = 10;
