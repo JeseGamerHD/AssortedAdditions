@@ -19,7 +19,7 @@ namespace ModdingTutorial.Content.Items.Weapons.Magic
             Item.width = 50;
             Item.height = 40;
             Item.useTime = 20;
-            Item.UseSound = SoundID.Item13;
+            Item.UseSound = SoundID.Item113;
             Item.useStyle = ItemUseStyleID.Shoot;
             Item.shootSpeed = 14f;
             Item.useAnimation = 20;

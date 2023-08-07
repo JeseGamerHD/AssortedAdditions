@@ -7,6 +7,7 @@ using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
 using Terraria.ID;
 using Terraria.Audio;
+using ReLogic.Utilities;
 
 namespace ModdingTutorial.Content.Projectiles.MagicProj
 {
@@ -18,6 +19,8 @@ namespace ModdingTutorial.Content.Projectiles.MagicProj
         private const float MOVE_DISTANCE = 60f; //The distance charge particle from the player center
         private const int FRAME_COUNT = 14; // The amount of frames in the animation (minus one since counting begins from zero)
         private int laserFrame = 0; // Used for selecting correct frame for animation
+        
+        SoundStyle laserSound = new("ModdingTutorial/Assets/Sounds/ProjectileSound/DeathRayFire"); // Sound effect for the laser beam
 
         // The actual distance is stored in the ai0 field
         // By making a property to handle this it makes our life easier, and the accessibility more readable
@@ -39,13 +42,6 @@ namespace ModdingTutorial.Content.Projectiles.MagicProj
         {
             get => Projectile.localAI[0];
             set => Projectile.localAI[0] = value;
-        }
-
-        // Used for timing the laser sound
-        public float SoundTimer
-        {
-            get => Projectile.localAI[1];
-            set => Projectile.localAI[1] = value;
         }
 
         // Are we at max charge? With c#6 you can simply use => which indicates this is a get only property
@@ -131,19 +127,17 @@ namespace ModdingTutorial.Content.Projectiles.MagicProj
             target.immune[Projectile.owner] = 5;
         }
 
-        // The AI of the Projectile
         public override void AI()
         {
             Player player = Main.player[Projectile.owner];
             Projectile.position = player.Center + Projectile.velocity * MOVE_DISTANCE;
             Projectile.timeLeft = 2;
-            SoundTimer++;
 
             // By separating large AI into methods it becomes very easy to see the flow of the AI in a broader sense
             // First we update player variables that are needed to channel the laser
             // Then we run our charging laser logic
             // If we are fully charged, we proceed to update the laser's position
-            // Finally we spawn some effects like dusts and light
+            // Finally we spawn some effects: dusts, sound and light
 
             UpdatePlayer(player);
             ChargeLaser(player);
@@ -151,16 +145,31 @@ namespace ModdingTutorial.Content.Projectiles.MagicProj
             // If laser is not charged yet, stop the AI here.
             if (Charge < MAX_CHARGE) return;
 
-            // Laser sound effect
-            // Gets played every 25 ticks, sounding about the same as last prism
-            if (player.channel == true && SoundTimer % 25 == 0)
-            {
-                SoundEngine.PlaySound(SoundID.Item15);
-            }
-
             SetLaserPosition(player);
             SpawnDusts(player);
+            PlaySoundEffect(player);
             CastLights();
+        }
+
+        private void PlaySoundEffect(Player player)
+        {
+            // Laser sound effect
+            if (player.channel == true)
+            {
+                laserSound = laserSound with
+                {
+                    Volume = 0.75f,
+                    MaxInstances = 1,
+                    SoundLimitBehavior = SoundLimitBehavior.IgnoreNew
+                };
+                SoundEngine.PlaySound(laserSound);
+            }
+            // The sound effect has a long duration so it needs to be stopped once the player stops using the laser
+            // Without this the sound would play until it ends
+            if (!player.channel)
+            {
+                SoundEngine.FindActiveSound(laserSound).Stop();
+            }
         }
 
         private void SpawnDusts(Player player)
