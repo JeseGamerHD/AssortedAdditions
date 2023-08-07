@@ -70,7 +70,7 @@ namespace ModdingTutorial.Content.Projectiles.MagicProj
             if (IsAtMaxCharge)
             {
                 DrawLaser(Main.spriteBatch, TextureAssets.Projectile[Projectile.type].Value, Main.player[Projectile.owner].Center,
-            Projectile.velocity, 10, Projectile.damage, -1.57f, 1f, 1000f, Color.White, (int)MOVE_DISTANCE);
+            Projectile.velocity, 5, Projectile.damage, -1.57f, 1f, 1000f, Color.White, (int)MOVE_DISTANCE);
             }
             return false;
         }
