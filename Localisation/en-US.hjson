@@ -543,6 +543,11 @@ Mods: {
 				DisplayName: Cursed Pickaxe Banner
 				Tooltip: ""
 			}
+
+			DeathRay: {
+				DisplayName: Death Ray
+				Tooltip: Fires a powerful laser beam
+			}
 		}
 
 		Projectiles: {
@@ -575,6 +580,7 @@ Mods: {
 			IcyWandProj.DisplayName: Icy Wand Proj
 			AuroraBladeProj.DisplayName: Aurora Blade Proj
 			FrostBowProj.DisplayName: Frost Bow Proj
+			DeathRayProj.DisplayName: Death Ray Proj
 		}
 
 		Tiles: {
@@ -584,7 +590,7 @@ Mods: {
 			BannerTiles.MapEntry: Night Slime banner
 			NightSlimeBannerTile.MapEntry: Banner
 			PermafrostTile.MapEntry: Permafrost
-			CursedPickaxeBannerTile.MapEntry: Cursed Pickaxe Banner Tile
+			CursedPickaxeBannerTile.MapEntry: Banner
 		}
 
 		NPCs: {

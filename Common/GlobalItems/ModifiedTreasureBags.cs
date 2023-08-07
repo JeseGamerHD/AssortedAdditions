@@ -3,18 +3,26 @@ using Terraria;
 using Terraria.ModLoader;
 using Terraria.GameContent.ItemDropRules;
 using ModdingTutorial.Content.Items.Consumables;
+using ModdingTutorial.Content.Items.Weapons.Magic;
 
 namespace ModdingTutorial.Common.GlobalItems
 {
     // Class is used for modifying existing treasure bag loot
     internal class ModifiedTreasureBags : GlobalItem
     {
+        // These items also drop from the bosses when not in expert. This is set in ModifiedLootDrops.cs
         public override void ModifyItemLoot(Item item, ItemLoot itemLoot)
         {
             if(item.type == ItemID.WallOfFleshBossBag)
             {
-                // This also drops if the player is on normal/journey, but directly from the boss (Added in GlobalNPCS -> ModifiedLootDrops.cs)
                 itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<AncientToken>(), 1, 1));
+            }
+
+            if(item.type == ItemID.CultistBossBag)
+            {
+                itemLoot.Add(ItemDropRule.OneFromOptions(ModContent.ItemType<DeathRay>()
+                    /*,Additional items*/
+                    ));
             }
         }
     }

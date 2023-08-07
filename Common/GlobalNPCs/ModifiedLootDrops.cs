@@ -6,6 +6,7 @@ using ModdingTutorial.Common.ItemDropRules;
 using ModdingTutorial.Content.Items.Consumables;
 using ModdingTutorial.Content.Items.Placeables.Ores;
 using ModdingTutorial.Content.Items.Misc;
+using ModdingTutorial.Content.Items.Weapons.Magic;
 
 namespace ModdingTutorial.Common.GlobalNPCs
 {
@@ -15,11 +16,13 @@ namespace ModdingTutorial.Common.GlobalNPCs
         public override void ModifyNPCLoot(NPC npc, NPCLoot npcLoot)
         {
             /* DROP CONDITIONS HERE: */
+            /* -------------------------------------------------------------------------------------------------- */
             LeadingConditionRule notExpert = new LeadingConditionRule(new Conditions.NotExpert());
             LeadingConditionRule WormOrBrainDefeated = new LeadingConditionRule(new WormOrBrainDefeated());
             LeadingConditionRule AnyMechBossDefeated = new LeadingConditionRule(new AnyMechBossDefeated());
-            
+
             /* BOSSES HERE: */
+            /* -------------------------------------------------------------------------------------------------- */
             if (npc.type == NPCID.WallofFlesh)
             {
                 // Drops if playing on normal mode / Journey mode otherwise obtained from treasure bag
@@ -27,7 +30,16 @@ namespace ModdingTutorial.Common.GlobalNPCs
                 npcLoot.Add(notExpert);
             }
 
+            if(npc.type == NPCID.CultistBoss)
+            {
+                npcLoot.Add(ItemDropRule.Common(ItemID.CultistBossBag, 1)); // The cultist boss now drops its treasure bag since this mod adds some items to it
+
+                notExpert.OnSuccess(ItemDropRule.OneFromOptions(ModContent.ItemType<DeathRay>())); // <- These would drop from the treasure bag on expert mode
+                npcLoot.Add(notExpert);
+            }
+
             /* REGULAR ENEMIES UNDER HERE: */
+            /* -------------------------------------------------------------------------------------------------- */
             if (npc.type == NPCID.TombCrawlerHead)
             {
                 // 33% chance to drop 4-7 dune ores after crimson/corruption boss has been defeated

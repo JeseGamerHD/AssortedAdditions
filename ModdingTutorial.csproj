@@ -34,6 +34,7 @@
     <None Remove="Content\Items\Vanity\BuilderJacket_Body.png" />
     <None Remove="Content\Items\Vanity\BuilderPants.png" />
     <None Remove="Content\Items\Vanity\BuilderPants_Legs.png" />
+    <None Remove="Content\Items\Weapons\Magic\DeathRay.png" />
     <None Remove="Content\Items\Weapons\Magic\IcyStaff.png" />
     <None Remove="Content\Items\Weapons\Melee\AuroraBlade.png" />
     <None Remove="Content\Items\Weapons\Ranged\FrostBow.png" />
@@ -45,6 +46,7 @@
     <None Remove="Content\NPCs\Gores\BuilderGore3.png" />
     <None Remove="Content\NPCs\Town\Builder.png" />
     <None Remove="Content\NPCs\Town\Builder_Head.png" />
+    <None Remove="Content\Projectiles\MagicProj\DeathRayProj.png" />
     <None Remove="Content\Projectiles\MagicProj\IcyWandProj.png" />
     <None Remove="Content\Projectiles\MeleeProj\AuroraBladeProj.png" />
     <None Remove="Content\Projectiles\RangedProj\FrostBowProj.png" />
