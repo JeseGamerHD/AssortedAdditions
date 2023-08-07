@@ -7,7 +7,7 @@ using ModdingTutorial.Content.Items.Weapons.Magic;
 
 namespace ModdingTutorial.Common.GlobalItems
 {
-    // Class is used for modifying existing treasure bag loot
+    // Class is (mostly) used for modifying existing treasure bag loot
     internal class ModifiedTreasureBags : GlobalItem
     {
         // These items also drop from the bosses when not in expert. This is set in ModifiedLootDrops.cs
@@ -20,10 +20,19 @@ namespace ModdingTutorial.Common.GlobalItems
 
             if(item.type == ItemID.CultistBossBag)
             {
-                itemLoot.Add(ItemDropRule.OneFromOptions(ModContent.ItemType<DeathRay>()
+                itemLoot.Add(ItemDropRule.OneFromOptions(1, ModContent.ItemType<DeathRay>()
                     /*,Additional items*/
                     ));
             }
+        }
+
+        public override void SetDefaults(Item entity)
+        {
+            // Since cultist bag is normally not obtainable, journey mode research count needs to be added
+            if(entity.type == ItemID.CultistBossBag)
+            {
+                entity.ResearchUnlockCount = 3;
+            }  
         }
     }
 }

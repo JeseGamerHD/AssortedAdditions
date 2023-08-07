@@ -74,7 +74,6 @@ namespace ModdingTutorial.Content.NPCs.BossFireDragon // This Boss NPC is built 
 
             NPC.aiStyle = -1;
 
-            // TODO find some custom track
             if (!Main.dedServ)
             {
                 Music = MusicID.OtherworldlyInvasion;
