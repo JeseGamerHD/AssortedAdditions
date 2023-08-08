@@ -548,6 +548,15 @@ Mods: {
 				DisplayName: Death Ray
 				Tooltip: Fires a powerful laser beam
 			}
+
+			ScifiBlaster: {
+				DisplayName: Sci-fi Blaster
+				Tooltip: 
+				     '''
+					 Shoots homing projectiles
+					 Battery powered
+					 '''
+			}
 		}
 
 		Projectiles: {
@@ -581,6 +590,8 @@ Mods: {
 			AuroraBladeProj.DisplayName: Aurora Blade Proj
 			FrostBowProj.DisplayName: Frost Bow Proj
 			DeathRayProj.DisplayName: Death Ray Proj
+			ScifiBlasterProj.DisplayName: Scifi Blaster Proj
+			ScifiBlasterHoming.DisplayName: Scifi Blaster Homing
 		}
 
 		Tiles: {

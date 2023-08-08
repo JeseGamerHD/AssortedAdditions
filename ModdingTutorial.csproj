@@ -39,6 +39,7 @@
     <None Remove="Content\Items\Weapons\Melee\AuroraBlade.png" />
     <None Remove="Content\Items\Weapons\Ranged\FrostBow.png" />
     <None Remove="Content\Items\Weapons\Ranged\IceBlaster.png" />
+    <None Remove="Content\Items\Weapons\Ranged\ScifiBlaster.png" />
     <None Remove="Content\Items\Weapons\Summon\SunScepter.png" />
     <None Remove="Content\NPCs\CursedPickaxe.png" />
     <None Remove="Content\NPCs\Gores\BuilderGore1.png" />
@@ -50,6 +51,7 @@
     <None Remove="Content\Projectiles\MagicProj\IcyWandProj.png" />
     <None Remove="Content\Projectiles\MeleeProj\AuroraBladeProj.png" />
     <None Remove="Content\Projectiles\RangedProj\FrostBowProj.png" />
+    <None Remove="Content\Projectiles\RangedProj\ScifiBlasterProj.png" />
     <None Remove="Content\Projectiles\SummonProj\SunScepterMinion.png" />
     <None Remove="Content\Tiles\Banners\CursedPickaxeBannerTile.png" />
     <None Remove="Content\Tiles\Blocks\ArtDecoBlockTile.png" />

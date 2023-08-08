@@ -55,7 +55,7 @@ namespace ModdingTutorial.Content.Items.Weapons.Ranged
 
         public override bool CanConsumeAmmo(Item ammo, Player player)
         {
-            return Main.rand.NextFloat() >= 0.98f; // Small chance to consume ammo
+            return Main.rand.NextBool(2, 10);
         }
 
         public override void AddRecipes()
