@@ -7,6 +7,7 @@ using ModdingTutorial.Content.Items.Consumables;
 using ModdingTutorial.Content.Items.Placeables.Ores;
 using ModdingTutorial.Content.Items.Misc;
 using ModdingTutorial.Content.Items.Weapons.Magic;
+using ModdingTutorial.Content.Items.Weapons.Ranged;
 
 namespace ModdingTutorial.Common.GlobalNPCs
 {
@@ -34,7 +35,9 @@ namespace ModdingTutorial.Common.GlobalNPCs
             {
                 npcLoot.Add(ItemDropRule.Common(ItemID.CultistBossBag, 1)); // The cultist boss now drops its treasure bag since this mod adds some items to it
 
-                notExpert.OnSuccess(ItemDropRule.OneFromOptions(1, ModContent.ItemType<DeathRay>())); // <- These would drop from the treasure bag on expert mode
+                // These would drop from the treasure bag on expert mode
+                notExpert.OnSuccess(ItemDropRule.OneFromOptions(1, ModContent.ItemType<DeathRay>(),
+                    ModContent.ItemType<ScifiBlaster>())); 
                 npcLoot.Add(notExpert);
             }
 

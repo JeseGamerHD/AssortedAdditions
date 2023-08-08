@@ -4,6 +4,7 @@ using Terraria.ModLoader;
 using Terraria.GameContent.ItemDropRules;
 using ModdingTutorial.Content.Items.Consumables;
 using ModdingTutorial.Content.Items.Weapons.Magic;
+using ModdingTutorial.Content.Items.Weapons.Ranged;
 
 namespace ModdingTutorial.Common.GlobalItems
 {
@@ -20,8 +21,8 @@ namespace ModdingTutorial.Common.GlobalItems
 
             if(item.type == ItemID.CultistBossBag)
             {
-                itemLoot.Add(ItemDropRule.OneFromOptions(1, ModContent.ItemType<DeathRay>()
-                    /*,Additional items*/
+                itemLoot.Add(ItemDropRule.OneFromOptions(1, ModContent.ItemType<DeathRay>(),
+                    ModContent.ItemType<ScifiBlaster>()
                     ));
             }
         }
