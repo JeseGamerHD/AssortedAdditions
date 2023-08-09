@@ -8,6 +8,7 @@ using ModdingTutorial.Content.Items.Placeables.Ores;
 using ModdingTutorial.Content.Items.Misc;
 using ModdingTutorial.Content.Items.Weapons.Magic;
 using ModdingTutorial.Content.Items.Weapons.Ranged;
+using ModdingTutorial.Content.Items.Weapons.Melee;
 
 namespace ModdingTutorial.Common.GlobalNPCs
 {
@@ -37,7 +38,8 @@ namespace ModdingTutorial.Common.GlobalNPCs
 
                 // These would drop from the treasure bag on expert mode
                 notExpert.OnSuccess(ItemDropRule.OneFromOptions(1, ModContent.ItemType<DeathRay>(),
-                    ModContent.ItemType<ScifiBlaster>())); 
+                    ModContent.ItemType<ScifiBlaster>(),
+                    ModContent.ItemType<CultClassic>())); 
                 npcLoot.Add(notExpert);
             }
 
