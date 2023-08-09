@@ -51,6 +51,7 @@
     <None Remove="Content\Projectiles\MagicProj\IcyWandProj.png" />
     <None Remove="Content\Projectiles\MeleeProj\AuroraBladeProj.png" />
     <None Remove="Content\Projectiles\RangedProj\FrostBowProj.png" />
+    <None Remove="Content\Projectiles\RangedProj\ScifiBlasterHoming.png" />
     <None Remove="Content\Projectiles\RangedProj\ScifiBlasterProj.png" />
     <None Remove="Content\Projectiles\SummonProj\SunScepterMinion.png" />
     <None Remove="Content\Tiles\Banners\CursedPickaxeBannerTile.png" />

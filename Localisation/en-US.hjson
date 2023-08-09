@@ -551,11 +551,16 @@ Mods: {
 
 			ScifiBlaster: {
 				DisplayName: Sci-fi Blaster
-				Tooltip: 
-				     '''
-					 Shoots homing projectiles
-					 Battery powered
-					 '''
+				Tooltip:
+					'''
+					Shoots homing projectiles
+					Battery powered
+					'''
+			}
+
+			CultClassic: {
+				DisplayName: The Cult Classic
+				Tooltip: 9/10 cultists recommend
 			}
 		}
 
@@ -592,6 +597,8 @@ Mods: {
 			DeathRayProj.DisplayName: Death Ray Proj
 			ScifiBlasterProj.DisplayName: Scifi Blaster Proj
 			ScifiBlasterHoming.DisplayName: Scifi Blaster Homing
+			CultClassicOrb.DisplayName: Cult Classic Orb
+			CultClassicProj.DisplayName: Cult Classic Proj
 		}
 
 		Tiles: {
