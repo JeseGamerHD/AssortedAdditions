@@ -6,6 +6,7 @@ using ModdingTutorial.Content.Items.Consumables;
 using ModdingTutorial.Content.Items.Weapons.Magic;
 using ModdingTutorial.Content.Items.Weapons.Ranged;
 using ModdingTutorial.Content.Items.Weapons.Melee;
+using ModdingTutorial.Content.Items.Weapons.Summon;
 
 namespace ModdingTutorial.Common.GlobalItems
 {
@@ -24,7 +25,8 @@ namespace ModdingTutorial.Common.GlobalItems
             {
                 itemLoot.Add(ItemDropRule.OneFromOptions(1, ModContent.ItemType<DeathRay>(),
                     ModContent.ItemType<ScifiBlaster>(),
-                    ModContent.ItemType<CultClassic>()
+                    ModContent.ItemType<CultClassic>(),
+                    ModContent.ItemType<Motivator>()
                     ));
             }
         }

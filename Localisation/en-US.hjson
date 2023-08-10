@@ -20,6 +20,11 @@ Mods: {
 				DisplayName: Small Sun
 				Description: Don't stare at it
 			}
+
+			MotivatorDebuff: {
+				DisplayName: Motivator Debuff
+				Description: Mods.ModdingTutorial.Buffs.MotivatorDebuff.Description
+			}
 		}
 
 		Items: {
@@ -562,6 +567,15 @@ Mods: {
 				DisplayName: The Cult Classic
 				Tooltip: 9/10 cultists recommend
 			}
+
+			Motivator: {
+				DisplayName: Motivator
+				Tooltip:
+					'''
+					35 summon tag damage
+					Your summons will focus struck enemies
+					'''
+			}
 		}
 
 		Projectiles: {
@@ -599,6 +613,7 @@ Mods: {
 			ScifiBlasterHoming.DisplayName: Scifi Blaster Homing
 			CultClassicOrb.DisplayName: Cult Classic Orb
 			CultClassicProj.DisplayName: Cult Classic Proj
+			MotivatorProj.DisplayName: Motivator Proj
 		}
 
 		Tiles: {
