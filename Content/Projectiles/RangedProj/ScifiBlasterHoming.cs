@@ -59,6 +59,13 @@ namespace ModdingTutorial.Content.Projectiles.RangedProj
                 dust2.noGravity = true;
             }
 
+            // Homing doesn't work instantly to avoid projectiles overlapping with the main projectile
+            if (Projectile.timeLeft > 285)
+            {
+                Projectile.rotation = Projectile.velocity.ToRotation();
+                return;
+            }
+
             NPC closestNPC = FindClosestNPC(range);
             if (closestNPC == null)
             {

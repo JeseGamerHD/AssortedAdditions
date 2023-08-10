@@ -5,6 +5,7 @@ using ModdingTutorial.Content.Items.Weapons.Ammo;
 using ModdingTutorial.Content.Projectiles.RangedProj;
 using Microsoft.Xna.Framework;
 using Terraria.DataStructures;
+using Terraria.Audio;
 
 namespace ModdingTutorial.Content.Items.Weapons.Ranged
 {
@@ -27,7 +28,8 @@ namespace ModdingTutorial.Content.Items.Weapons.Ranged
             Item.DamageType = DamageClass.Ranged;
             Item.rare = ItemRarityID.Yellow;
             Item.useStyle = ItemUseStyleID.Shoot;
-            Item.UseSound = SoundID.Item12;
+            Item.UseSound = new SoundStyle("ModdingTutorial/Assets/Sounds/WeaponSound/ScifiBlasterSound") 
+                with { Volume = 0.5f, PitchVariance = 0.1f };
             Item.value = Item.sellPrice(gold: 8);
             Item.useAmmo = ModContent.ItemType<Battery>();
             Item.shoot = ModContent.ProjectileType<ScifiBlasterProj>();
