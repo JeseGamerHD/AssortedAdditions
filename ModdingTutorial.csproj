@@ -10,7 +10,6 @@
   <ItemGroup>
     <None Remove="Content\Buffs\MotivatorDebuff.png" />
     <None Remove="Content\Buffs\SunScepterBuff.png" />
-    <None Remove="Content\Items\Consumables\Testing.png" />
     <None Remove="Content\Items\Misc\IceEssence.png" />
     <None Remove="Content\Items\Placeables\Banners\CursedPickaxeBanner.png" />
     <None Remove="Content\Items\Placeables\Blocks\ArtDecoBlock.png" />

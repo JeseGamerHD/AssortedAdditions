@@ -4,7 +4,7 @@ using Terraria.ModLoader;
 namespace ModdingTutorial.Common.Players
 {
     // Used for giving player the buff from items that give a buff inside the inventory
-    // when loading back into a world
+    // Without this the buffs would not load after exiting and entering a world
     internal class SaveInventoryBuffs : ModPlayer
     {
         public override void PreUpdateBuffs()
