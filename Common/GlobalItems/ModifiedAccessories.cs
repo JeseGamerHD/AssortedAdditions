@@ -3,11 +3,11 @@ using Terraria;
 using Terraria.ModLoader;
 using ModdingTutorial.Content.Items.Placeables.Ores;
 using ModdingTutorial.Content.Items.Placeables.Blocks;
+using ModdingTutorial.Content.Items.Misc;
 
 namespace ModdingTutorial.Common.GlobalItems
 {
-    // This class gives many of the vanilla accessories alternative sources
-    // E.g. crafting recipes, sold by npcs...
+    // This class gives many of the vanilla accessories alternative sources (crafting recipes)
 
     internal class ModifiedAccessories : GlobalItem
     {
@@ -21,13 +21,31 @@ namespace ModdingTutorial.Common.GlobalItems
         // WaterWalkingBoots
         // IceSkates
         // Aglet
-        // ObsidianRose
         // CloudinaBottle
         // FrogLeg
         // DivingHelmet
         // ClimbingClaws
         // ShoeSpikes
         // FlyingCarpet
+
+        // HEALTH AND MANA
+        // *******************
+        // BandofRegeneration
+        // BandofStarpower
+
+        // COMBAT
+        // *******************
+        // ObsidianRose
+        // Shackle
+        // FeralClaws
+        // MagicQuiver
+        // MagmaStone
+        // PocketMirror
+        // SharkToothNecklace
+
+        // CONSTRUCTION
+        // *******************
+        // Presserator (ActuationAccessory)
 
         public override void AddRecipes()
         {
@@ -92,12 +110,6 @@ namespace ModdingTutorial.Common.GlobalItems
             aglet2.AddTile(TileID.TinkerersWorkbench);
             aglet2.Register();
 
-            Recipe obsidianRose = Recipe.Create(ItemID.ObsidianRose, 1);
-            obsidianRose.AddIngredient(ItemID.JungleRose, 1);
-            obsidianRose.AddIngredient(ItemID.Obsidian, 10);
-            obsidianRose.AddTile(TileID.TinkerersWorkbench);
-            obsidianRose.Register();
-
             Recipe cloudInABottle = Recipe.Create(ItemID.CloudinaBottle, 1);
             cloudInABottle.AddIngredient(ItemID.Bottle, 1);
             cloudInABottle.AddIngredient(ItemID.Cloud, 20);
@@ -122,33 +134,93 @@ namespace ModdingTutorial.Common.GlobalItems
 
             Recipe climbingClaws = Recipe.Create(ItemID.ClimbingClaws, 1);
             climbingClaws.AddIngredient(ModContent.ItemType<SteelBar>(), 10);
-            climbingClaws.AddIngredient(ItemID.IronBar, 6);
+            climbingClaws.AddRecipeGroup("IronBar", 6);
             climbingClaws.AddTile(TileID.TinkerersWorkbench);
             climbingClaws.Register();
 
-            Recipe climbingClaws2 = Recipe.Create(ItemID.ClimbingClaws, 1);
-            climbingClaws2.AddIngredient(ModContent.ItemType<SteelBar>(), 10);
-            climbingClaws2.AddIngredient(ItemID.LeadBar, 6);
-            climbingClaws2.AddTile(TileID.TinkerersWorkbench);
-            climbingClaws2.Register();
-
             Recipe shoeSpikes = Recipe.Create(ItemID.ClimbingClaws, 1);
             shoeSpikes.AddIngredient(ModContent.ItemType<SteelBar>(), 10);
-            shoeSpikes.AddIngredient(ItemID.IronBar, 6);
+            shoeSpikes.AddRecipeGroup("IronBar", 6);
             shoeSpikes.AddTile(TileID.TinkerersWorkbench);
             shoeSpikes.Register();
-
-            Recipe shoeSpikes2 = Recipe.Create(ItemID.ClimbingClaws, 1);
-            shoeSpikes2.AddIngredient(ModContent.ItemType<SteelBar>(), 10);
-            shoeSpikes2.AddIngredient(ItemID.LeadBar, 6);
-            shoeSpikes2.AddTile(TileID.TinkerersWorkbench);
-            shoeSpikes2.Register();
 
             Recipe flyingCarpet = Recipe.Create(ItemID.FlyingCarpet, 1);
             flyingCarpet.AddIngredient(ModContent.ItemType<RedCarpet>(), 15);
             flyingCarpet.AddIngredient(ItemID.SoulofFlight, 2);
             flyingCarpet.AddTile(TileID.TinkerersWorkbench);
             flyingCarpet.Register();
+
+            // HEALTH AND MANA
+            // ******************************************************************************
+            Recipe bandOfRegeneration = Recipe.Create(ItemID.BandofRegeneration, 1);
+            bandOfRegeneration.AddIngredient(ItemID.LifeCrystal, 1);
+            bandOfRegeneration.AddIngredient(ItemID.Ruby, 3);
+            bandOfRegeneration.AddTile(TileID.TinkerersWorkbench);
+            bandOfRegeneration.Register();
+
+            Recipe bandOfStarpower = Recipe.Create(ItemID.BandofStarpower, 1);
+            bandOfStarpower.AddIngredient(ItemID.ManaCrystal, 1);
+            bandOfStarpower.AddIngredient(ItemID.Sapphire, 3);
+            bandOfStarpower.AddTile(TileID.TinkerersWorkbench);
+            bandOfStarpower.Register();
+
+
+            // COMBAT
+            // ******************************************************************************
+            Recipe obsidianRose = Recipe.Create(ItemID.ObsidianRose, 1);
+            obsidianRose.AddIngredient(ItemID.JungleRose, 1);
+            obsidianRose.AddIngredient(ItemID.Obsidian, 10);
+            obsidianRose.AddTile(TileID.TinkerersWorkbench);
+            obsidianRose.Register();
+
+            Recipe shackle = Recipe.Create(ItemID.Shackle, 1);
+            shackle.AddIngredient(ItemID.Chain, 15);
+            shackle.AddTile(TileID.TinkerersWorkbench);
+            shackle.Register();
+
+            Recipe feralClaws = Recipe.Create(ItemID.FeralClaws, 1);
+            feralClaws.AddIngredient(ItemID.ClimbingClaws, 1);
+            feralClaws.AddIngredient(ItemID.Vine, 10);
+            feralClaws.AddTile(TileID.TinkerersWorkbench);
+            feralClaws.Register();
+
+            Recipe magicQuiver = Recipe.Create(ItemID.MagicQuiver, 1);
+            magicQuiver.AddIngredient(ItemID.Leather, 6);
+            magicQuiver.AddIngredient(ItemID.PixieDust, 6);
+            magicQuiver.AddTile(TileID.TinkerersWorkbench);
+            magicQuiver.Register();
+
+            Recipe magmaStone = Recipe.Create(ItemID.MagmaStone, 1);
+            magmaStone.AddIngredient(ItemID.StoneBlock, 30);
+            magmaStone.AddIngredient(ItemID.LavaBucket, 1);
+            magmaStone.AddTile(TileID.TinkerersWorkbench);
+            magmaStone.Register();
+
+            Recipe pocketMirror = Recipe.Create(ItemID.PocketMirror, 1);
+            pocketMirror.AddIngredient(ItemID.GoldBar, 6);
+            pocketMirror.AddIngredient(ItemID.MagicMirror, 1);
+            pocketMirror.AddTile(TileID.TinkerersWorkbench);
+            pocketMirror.Register();
+
+            Recipe pocketMirror2 = Recipe.Create(ItemID.PocketMirror, 1);
+            pocketMirror2.AddIngredient(ItemID.PlatinumBar, 6);
+            pocketMirror2.AddIngredient(ItemID.MagicMirror, 1);
+            pocketMirror2.AddTile(TileID.TinkerersWorkbench);
+            pocketMirror2.Register();
+
+            Recipe sharkToothNecklace = Recipe.Create(ItemID.SharkToothNecklace, 1);
+            sharkToothNecklace.AddIngredient(ModContent.ItemType<SharkTooth>(), 3);
+            sharkToothNecklace.AddIngredient(ItemID.Chain, 5);
+            sharkToothNecklace.AddTile(TileID.TinkerersWorkbench);
+            sharkToothNecklace.Register();
+
+            // CONSTRUCTION
+            // ******************************************************************************
+            Recipe presserator = Recipe.Create(ItemID.ActuationAccessory, 1); // Presserator
+            presserator.AddRecipeGroup("IronBar", 10);
+            presserator.AddIngredient(ItemID.Actuator, 25);
+            presserator.AddTile(TileID.TinkerersWorkbench);
+            presserator.Register();
         }
     }
 }

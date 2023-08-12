@@ -576,6 +576,11 @@ Mods: {
 					Your summons will focus struck enemies
 					'''
 			}
+
+			SharkTooth: {
+				DisplayName: Shark Tooth
+				Tooltip: ""
+			}
 		}
 
 		Projectiles: {
