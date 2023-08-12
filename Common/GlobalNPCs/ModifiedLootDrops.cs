@@ -69,6 +69,12 @@ namespace ModdingTutorial.Common.GlobalNPCs
                 AnyMechBossDefeated.OnSuccess(ItemDropRule.Common(ModContent.ItemType<IceEssence>(), 10, 1, 1));
                 npcLoot.Add(AnyMechBossDefeated);
             }
+
+            if(npc.type == NPCID.Shark)
+            {
+                // 25% chance to drop 1-3 Shark Tooth
+                npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<SharkTooth>(), 4, 1, 3));
+            }
         }
     }
 }
