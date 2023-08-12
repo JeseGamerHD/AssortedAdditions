@@ -123,7 +123,7 @@ namespace ModdingTutorial.Content.NPCs.Town
         public override void SetChatButtons(ref string button, ref string button2)
         {
             button = "Shop";
-            button2 = "Vanilla Blocks";
+            button2 = "Vanilla Shop";
         }
 
         public override void OnChatButtonClicked(bool firstButton, ref string shopName)
@@ -194,6 +194,12 @@ namespace ModdingTutorial.Content.NPCs.Town
                 .Add(new Item(ItemID.SunplateBlock) { shopCustomPrice = Item.buyPrice(copper: 75) })
                 .Add(new Item(ItemID.LivingFireBlock) { shopCustomPrice = Item.buyPrice(copper: 75) }, condition: Condition.Hardmode)
                 .Add(new Item(ItemID.RainbowBrick) { shopCustomPrice = Item.buyPrice(copper: 75) }, condition: Condition.Hardmode)
+
+                .Add(new Item(ItemID.PaintSprayer) { shopCustomPrice = Item.buyPrice(gold: 7, silver: 50) })
+                .Add(new Item(ItemID.ExtendoGrip) { shopCustomPrice = Item.buyPrice(gold: 7, silver: 50) })
+                .Add(new Item(ItemID.PortableCementMixer) { shopCustomPrice = Item.buyPrice(gold: 7, silver: 50) })
+                .Add(new Item(ItemID.BrickLayer) { shopCustomPrice = Item.buyPrice(gold: 7, silver: 50) })
+                .Add(new Item(ItemID.Toolbox) { shopCustomPrice = Item.buyPrice(gold: 5) })
                 ; // <-- Important remeber this
             vanillaShop.Register();
         }
