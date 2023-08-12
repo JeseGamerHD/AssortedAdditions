@@ -22,6 +22,16 @@ namespace ModdingTutorial.Common.GlobalNPCs
                 shop.Add<ControlChip>();
                 shop.Add<Battery>();
             }
+
+            if(shop.NpcType == NPCID.Dryad)
+            {
+                shop.Add(ItemID.FlowerBoots, condition: Condition.DownedSkeletron);
+            }
+
+            if(shop.NpcType == NPCID.PartyGirl)
+            {
+                shop.Add(ItemID.ShinyRedBalloon);
+            }
         }
     }
 }
