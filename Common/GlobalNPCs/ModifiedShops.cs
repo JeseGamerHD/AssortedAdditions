@@ -25,7 +25,7 @@ namespace ModdingTutorial.Common.GlobalNPCs
 
             if(shop.NpcType == NPCID.Dryad)
             {
-                shop.Add(ItemID.FlowerBoots, condition: Condition.DownedSkeletron);
+                shop.Add(ItemID.FlowerBoots, condition: Condition.DownedSkeletron); // Sells the item after skeletron has been defeated
             }
 
             if(shop.NpcType == NPCID.PartyGirl)

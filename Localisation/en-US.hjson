@@ -581,6 +581,11 @@ Mods: {
 				DisplayName: Shark Tooth
 				Tooltip: ""
 			}
+
+			ShroomlingBanner: {
+				DisplayName: Shroomling Banner
+				Tooltip: ""
+			}
 		}
 
 		Projectiles: {
@@ -629,6 +634,7 @@ Mods: {
 			NightSlimeBannerTile.MapEntry: Banner
 			PermafrostTile.MapEntry: Permafrost
 			CursedPickaxeBannerTile.MapEntry: Banner
+			ShroomlingBannerTile.MapEntry: Shroomling Banner Tile
 		}
 
 		NPCs: {
@@ -660,6 +666,7 @@ Mods: {
 			}
 
 			CursedPickaxe.DisplayName: Cursed Pickaxe
+			Shroomling.DisplayName: Shroomling
 		}
 	}
 }
