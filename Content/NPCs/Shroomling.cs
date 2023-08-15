@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using ModdingTutorial.Content.Items.Armor;
 using ModdingTutorial.Content.Items.Placeables.Banners;
 using Terraria;
 using Terraria.GameContent.Bestiary;
@@ -102,7 +103,7 @@ namespace ModdingTutorial.Content.NPCs
         public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
             npcLoot.Add(ItemDropRule.Common(ItemID.Mushroom, 1, 1, 5));
-            // TODO some custom drop maybe
+            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<ShroomHat>(), 10, 1, 1));
         }
 
         public override void HitEffect(NPC.HitInfo hit)

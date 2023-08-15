@@ -605,6 +605,15 @@ Mods: {
 					After being hit the shield breaks and needs to recharge.
 					'''
 			}
+
+			ShroomHat: {
+				DisplayName: Shroom Hat
+				Tooltip:
+					'''
+					Increases your max number of minions by 1
+					8% increased movement speed
+					'''
+			}
 		}
 
 		Projectiles: {

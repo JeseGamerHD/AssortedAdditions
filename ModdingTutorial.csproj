@@ -40,6 +40,8 @@
     <None Remove="Content\Items\Vanity\BuilderJacket_Body.png" />
     <None Remove="Content\Items\Vanity\BuilderPants.png" />
     <None Remove="Content\Items\Vanity\BuilderPants_Legs.png" />
+    <None Remove="Content\Items\Vanity\ShroomHat.png" />
+    <None Remove="Content\Items\Vanity\ShroomHat_Head.png" />
     <None Remove="Content\Items\Weapons\Magic\DeathRay.png" />
     <None Remove="Content\Items\Weapons\Magic\IcyStaff.png" />
     <None Remove="Content\Items\Weapons\Melee\AuroraBlade.png" />
