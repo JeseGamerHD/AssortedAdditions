@@ -7,6 +7,7 @@ using ModdingTutorial.Content.Items.Weapons.Magic;
 using ModdingTutorial.Content.Items.Weapons.Ranged;
 using ModdingTutorial.Content.Items.Weapons.Melee;
 using ModdingTutorial.Content.Items.Weapons.Summon;
+using ModdingTutorial.Content.Items.Accessories;
 
 namespace ModdingTutorial.Common.GlobalItems
 {
@@ -23,11 +24,15 @@ namespace ModdingTutorial.Common.GlobalItems
 
             if(item.type == ItemID.CultistBossBag)
             {
+                // Always drop one of these:
                 itemLoot.Add(ItemDropRule.OneFromOptions(1, ModContent.ItemType<DeathRay>(),
                     ModContent.ItemType<ScifiBlaster>(),
                     ModContent.ItemType<CultClassic>(),
                     ModContent.ItemType<Motivator>()
                     ));
+
+                // Also a 25% chance to get an accessory
+                itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<EchoChamber>(), 4, 1, 1));
             }
         }
 

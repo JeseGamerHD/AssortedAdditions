@@ -10,6 +10,7 @@ using ModdingTutorial.Content.Items.Weapons.Magic;
 using ModdingTutorial.Content.Items.Weapons.Ranged;
 using ModdingTutorial.Content.Items.Weapons.Melee;
 using ModdingTutorial.Content.Items.Weapons.Summon;
+using ModdingTutorial.Content.Items.Accessories;
 
 namespace ModdingTutorial.Common.GlobalNPCs
 {
@@ -42,6 +43,9 @@ namespace ModdingTutorial.Common.GlobalNPCs
                     ModContent.ItemType<ScifiBlaster>(),
                     ModContent.ItemType<CultClassic>(),
                     ModContent.ItemType<Motivator>())); 
+                npcLoot.Add(notExpert);
+
+                notExpert.OnSuccess(ItemDropRule.Common(ModContent.ItemType<EchoChamber>(), 4, 1, 1));
                 npcLoot.Add(notExpert);
             }
 
