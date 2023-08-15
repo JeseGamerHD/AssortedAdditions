@@ -27,6 +27,15 @@ namespace ModdingTutorial.Content.Projectiles.MeleeProj
 
         public override void AI()
         {
+
+            // If the projectile that spawned this one is no longer active, kill this one as well
+            // Checking the type as well since the projectile stored in ai[0] changes to something else when the original one dies
+            if (Main.projectile[(int)Projectile.ai[0]].type != ModContent.ProjectileType<CultClassicProj>()
+                || Main.projectile[(int)Projectile.ai[0]].active == false)
+            {
+                Projectile.Kill();
+            }
+
             // Loop through the sprite frames
             int frameSpeed = 5;
             Projectile.frameCounter++;
@@ -43,12 +52,6 @@ namespace ModdingTutorial.Content.Projectiles.MeleeProj
 
             // This projectile is spawned inside its parent projectile (CultClassicProj) and it stays on top of it.
             Projectile.Center = Main.projectile[(int)Projectile.ai[0]].Center;
-
-            // If the parent dies, kill this one as well
-            if(Main.projectile[(int)Projectile.ai[0]].active == false)
-            {
-                Projectile.Kill();
-            }
         }
     }
 }
