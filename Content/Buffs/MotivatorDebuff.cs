@@ -13,6 +13,8 @@ namespace ModdingTutorial.Content.Buffs
             // This allows the debuff to be inflicted on NPCs that would otherwise be immune to all debuffs.
             // Other mods may check it for different purposes.
             BuffID.Sets.IsAnNPCWhipDebuff[Type] = true;
+
+            Main.debuff[Type] = true;
         }
     }
 

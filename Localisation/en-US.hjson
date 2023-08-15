@@ -23,7 +23,17 @@ Mods: {
 
 			MotivatorDebuff: {
 				DisplayName: Motivator Debuff
-				Description: Mods.ModdingTutorial.Buffs.MotivatorDebuff.Description
+				Description: You are targeted by minions
+			}
+
+			EchoChamberBuff: {
+				DisplayName: Echo Chamber
+				Description: Protective shield active
+			}
+
+			EchoChamberDebuff: {
+				DisplayName: Echo Chamber Cooldown
+				Description: Your shield is recharging
 			}
 		}
 
@@ -586,6 +596,15 @@ Mods: {
 				DisplayName: Shroomling Banner
 				Tooltip: ""
 			}
+
+			EchoChamber: {
+				DisplayName: Echo Chamber
+				Tooltip:
+					'''
+					Creates a protective shield allowing you to take one free hit.
+					After being hit the shield breaks and needs to recharge.
+					'''
+			}
 		}
 
 		Projectiles: {
@@ -624,6 +643,7 @@ Mods: {
 			CultClassicOrb.DisplayName: Cult Classic Orb
 			CultClassicProj.DisplayName: Cult Classic Proj
 			MotivatorProj.DisplayName: Motivator Proj
+			EchoChamberProj.DisplayName: Echo Chamber Proj
 		}
 
 		Tiles: {
@@ -634,7 +654,7 @@ Mods: {
 			NightSlimeBannerTile.MapEntry: Banner
 			PermafrostTile.MapEntry: Permafrost
 			CursedPickaxeBannerTile.MapEntry: Banner
-			ShroomlingBannerTile.MapEntry: Shroomling Banner Tile
+			ShroomlingBannerTile.MapEntry: Banner
 		}
 
 		NPCs: {

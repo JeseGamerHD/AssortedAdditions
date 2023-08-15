@@ -8,11 +8,15 @@
     <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <ItemGroup>
+    <None Remove="Content\Buffs\EchoChamberBuff.png" />
+    <None Remove="Content\Buffs\EchoChamberDebuff.png" />
     <None Remove="Content\Buffs\MotivatorDebuff.png" />
     <None Remove="Content\Buffs\SunScepterBuff.png" />
+    <None Remove="Content\Items\Accessories\EchoChamber.png" />
     <None Remove="Content\Items\Misc\IceEssence.png" />
     <None Remove="Content\Items\Misc\SharkTooth.png" />
     <None Remove="Content\Items\Placeables\Banners\CursedPickaxeBanner.png" />
+    <None Remove="Content\Items\Placeables\Banners\ShroomlingBanner.png" />
     <None Remove="Content\Items\Placeables\Blocks\ArtDecoBlock.png" />
     <None Remove="Content\Items\Placeables\Blocks\BlueCarpet.png" />
     <None Remove="Content\Items\Placeables\Blocks\CheckerBlock.png" />
@@ -49,9 +53,11 @@
     <None Remove="Content\NPCs\Gores\BuilderGore1.png" />
     <None Remove="Content\NPCs\Gores\BuilderGore2.png" />
     <None Remove="Content\NPCs\Gores\BuilderGore3.png" />
+    <None Remove="Content\NPCs\Gores\ShroomlingGore.png" />
     <None Remove="Content\NPCs\Shroomling.png" />
     <None Remove="Content\NPCs\Town\Builder.png" />
     <None Remove="Content\NPCs\Town\Builder_Head.png" />
+    <None Remove="Content\Projectiles\EchoChamberProj.png" />
     <None Remove="Content\Projectiles\MagicProj\DeathRayProj.png" />
     <None Remove="Content\Projectiles\MagicProj\IcyWandProj.png" />
     <None Remove="Content\Projectiles\MeleeProj\AuroraBladeProj.png" />
@@ -63,6 +69,7 @@
     <None Remove="Content\Projectiles\SummonProj\MotivatorProj.png" />
     <None Remove="Content\Projectiles\SummonProj\SunScepterMinion.png" />
     <None Remove="Content\Tiles\Banners\CursedPickaxeBannerTile.png" />
+    <None Remove="Content\Tiles\Banners\ShroomlingBannerTile.png" />
     <None Remove="Content\Tiles\Blocks\ArtDecoBlockTile.png" />
     <None Remove="Content\Tiles\Blocks\BlueCarpetTile.png" />
     <None Remove="Content\Tiles\Blocks\CheckerBlockTile.png" />
