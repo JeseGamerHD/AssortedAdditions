@@ -27,13 +27,6 @@ namespace ModdingTutorial.Common.GlobalNPCs
 
             /* BOSSES HERE: */
             /* -------------------------------------------------------------------------------------------------- */
-            if (npc.type == NPCID.WallofFlesh)
-            {
-                // Drops if playing on normal mode / Journey mode otherwise obtained from treasure bag
-                notExpert.OnSuccess(ItemDropRule.Common(ModContent.ItemType<AncientToken>(), 1, 1));
-                npcLoot.Add(notExpert);
-            }
-
             if(npc.type == NPCID.CultistBoss)
             {
                 npcLoot.Add(ItemDropRule.Common(ItemID.CultistBossBag, 1)); // The cultist boss now drops its treasure bag since this mod adds some items to it

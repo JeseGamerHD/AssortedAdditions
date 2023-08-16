@@ -23,7 +23,7 @@ namespace ModdingTutorial.Content.Items.Consumables
             Item.width = 32;
             Item.height = 32;
             Item.maxStack = 99;
-            Item.value = Item.sellPrice(gold: 1);
+            Item.value = Item.sellPrice(gold: 4);
             Item.rare = ItemRarityID.Blue;
             Item.useAnimation = 30;
             Item.useTime = 30;

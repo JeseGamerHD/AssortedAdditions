@@ -1,4 +1,5 @@
-﻿using ModdingTutorial.Content.Items.Misc;
+﻿using ModdingTutorial.Content.Items.Consumables;
+using ModdingTutorial.Content.Items.Misc;
 using ModdingTutorial.Content.Items.Weapons.Ammo;
 using Terraria;
 using Terraria.ID;
@@ -31,6 +32,11 @@ namespace ModdingTutorial.Common.GlobalNPCs
             if(shop.NpcType == NPCID.PartyGirl)
             {
                 shop.Add(ItemID.ShinyRedBalloon);
+            }
+
+            if(shop.NpcType == NPCID.Wizard)
+            {
+                shop.Add(ModContent.ItemType<AncientToken>());
             }
         }
     }

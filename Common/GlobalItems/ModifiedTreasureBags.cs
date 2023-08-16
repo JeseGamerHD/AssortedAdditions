@@ -17,11 +17,6 @@ namespace ModdingTutorial.Common.GlobalItems
         // These items also drop from the bosses when not in expert. This is set in ModifiedLootDrops.cs
         public override void ModifyItemLoot(Item item, ItemLoot itemLoot)
         {
-            if(item.type == ItemID.WallOfFleshBossBag)
-            {
-                itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<AncientToken>(), 1, 1));
-            }
-
             if(item.type == ItemID.CultistBossBag)
             {
                 // Always drop one of these:
