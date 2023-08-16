@@ -58,7 +58,7 @@ namespace ModdingTutorial.Content.NPCs.BossFireDragon // This Boss NPC is built 
         {
             NPC.width = 48;
             NPC.height = 100;
-            NPC.value = Item.sellPrice(gold: 10);
+            NPC.value = 450000;
 
             NPC.damage = 50;
             NPC.defense = 12;
@@ -159,7 +159,7 @@ namespace ModdingTutorial.Content.NPCs.BossFireDragon // This Boss NPC is built 
             Player target = Main.player[NPC.target];
 
             // Checking if target has died
-            if (target.dead)
+            if (target.dead || !target.active)
             {
                 if(hasDied == false)
                 {
@@ -190,8 +190,8 @@ namespace ModdingTutorial.Content.NPCs.BossFireDragon // This Boss NPC is built 
                 flyPastTimer = 1;
             }
 
-            // Start counting up flyPastTimer and set boss to fly to the right of the player
-            if(flyPastTimer >= 1 && flyPastTimer <= 180)
+            // Start counting up flyPastTimer and set boss to
+            if(flyPastTimer >= 1 && flyPastTimer <= 360)
             {
                 flyPastTimer++;
 
@@ -199,14 +199,19 @@ namespace ModdingTutorial.Content.NPCs.BossFireDragon // This Boss NPC is built 
                 // Basically will target the top left/right of the screen for the flyPast duration
                 if(NPC.direction == -1)
                 {
-                    NPC.velocity = (new Vector2((int)Main.screenPosition.X + Main.screenWidth, (int)Main.screenPosition.Y) - NPC.Center).SafeNormalize(Vector2.Zero) * (MoveSpeed * 1.4f);
+                    NPC.velocity = (new Vector2((int)Main.screenPosition.X + Main.screenWidth, (int)Main.screenPosition.Y) - NPC.Center).SafeNormalize(Vector2.Zero) * (MoveSpeed);   
                 }
 
                 if (NPC.direction == 1) 
                 {
-                    NPC.velocity = (new Vector2((int)Main.screenPosition.X, (int)Main.screenPosition.Y) - NPC.Center).SafeNormalize(Vector2.Zero) * (MoveSpeed * 1.4f);
+                    NPC.velocity = (new Vector2((int)Main.screenPosition.X, (int)Main.screenPosition.Y) - NPC.Center).SafeNormalize(Vector2.Zero) * (MoveSpeed);
                 }
 
+                if (NPC.position == new Vector2((int)Main.screenPosition.X, (int)Main.screenPosition.Y)
+                    || NPC.position == new Vector2((int)Main.screenPosition.X + Main.screenWidth))
+                {
+                    flyPastTimer = 360;
+                }
             }
             else // Return to chasing
             {
@@ -281,9 +286,7 @@ namespace ModdingTutorial.Content.NPCs.BossFireDragon // This Boss NPC is built 
                     // Right bottom corner
                     NPC.NewNPC(NPC.GetSource_FromAI(), (int)Main.screenPosition.X + Main.screenWidth, (int)Main.screenPosition.Y + Main.screenHeight, ModContent.NPCType<FireDrake>());
                     break;
-            }
-            
-            // Sync with multiplayer...
+            }  
         }
 
         public override bool CanHitPlayer(Player target, ref int cooldownSlot)

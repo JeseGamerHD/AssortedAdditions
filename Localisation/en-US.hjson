@@ -170,7 +170,11 @@ Mods: {
 
 			AncientToken: {
 				DisplayName: Ancient Token
-				Tooltip: Summons the Fire Dragon
+				Tooltip:
+					'''
+					Summons the Fire Dragon
+					'It has an inscription about the underworld'
+					'''
 			}
 
 			FireDragonBag: {

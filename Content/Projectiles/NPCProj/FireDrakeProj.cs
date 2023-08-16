@@ -19,11 +19,11 @@ namespace ModdingTutorial.Content.Projectiles.NPCProj
             Projectile.timeLeft = 180;
 
             Projectile.ignoreWater = true;
-            Projectile.tileCollide = false;
+            Projectile.tileCollide = true;
             Projectile.friendly = false;
             Projectile.hostile = true;
             Projectile.light = 0.5f;
-            Projectile.alpha = 75;
+            Projectile.alpha = 0;
 
             Projectile.aiStyle = 0;
         }

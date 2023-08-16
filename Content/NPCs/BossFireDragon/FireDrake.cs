@@ -64,7 +64,6 @@ namespace ModdingTutorial.Content.NPCs.BossFireDragon
             else
             {
                 Movement(target, distanceFromTarget);
-                // TODO on death, gore
             }
 
         }
@@ -79,8 +78,12 @@ namespace ModdingTutorial.Content.NPCs.BossFireDragon
                     Vector2 direction = target.Center - NPC.Center;
                     direction.Normalize();
                     int type = ModContent.ProjectileType<FireDrakeProj>();
-                    Projectile.NewProjectile(NPC.GetSource_FromAI(), NPC.Center, direction * 10f, type, 25, 0f, Main.myPlayer);
                     
+                    // Spawn the projectile, check netmode
+                    if(Main.netMode != NetmodeID.MultiplayerClient)
+                    {
+                        Projectile.NewProjectile(NPC.GetSource_FromAI(), NPC.Center, direction * 10f, type, 15, 0f, Main.myPlayer);
+                    }
                     SoundEngine.PlaySound(SoundID.Item20, NPC.Center);
                 }
             }
@@ -153,7 +156,6 @@ namespace ModdingTutorial.Content.NPCs.BossFireDragon
                     Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("FireDrakeWing").Type, 1f);
                     Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("FireDrakeHead").Type, 1f);
                 }
-
             }
         }
     }

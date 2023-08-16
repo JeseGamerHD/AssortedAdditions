@@ -7,7 +7,6 @@ using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
 using Terraria.ID;
 using Terraria.Audio;
-using ReLogic.Utilities;
 
 namespace ModdingTutorial.Content.Projectiles.MagicProj
 {
