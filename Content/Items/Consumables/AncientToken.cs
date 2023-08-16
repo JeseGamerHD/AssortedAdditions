@@ -28,7 +28,7 @@ namespace ModdingTutorial.Content.Items.Consumables
             Item.useAnimation = 30;
             Item.useTime = 30;
             Item.useStyle = ItemUseStyleID.HoldUp;
-            Item.consumable = true;
+            Item.consumable = false; // Normally would be, but I want to make boss summon items non consumable
         }
 
         public override bool CanUseItem(Player player)
