@@ -36,6 +36,7 @@ namespace ModdingTutorial.Common.GlobalNPCs
 
             if(shop.NpcType == NPCID.Wizard)
             {
+                shop.Add(ModContent.ItemType<MagicEssence>());
                 shop.Add(ModContent.ItemType<AncientToken>());
             }
         }
