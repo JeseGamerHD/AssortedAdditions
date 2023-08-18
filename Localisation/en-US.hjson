@@ -618,6 +618,46 @@ Mods: {
 					8% increased movement speed
 					'''
 			}
+
+			TrueDiamondStaff: {
+				DisplayName: True Diamond Staff
+				Tooltip: ""
+			}
+
+			MagicEssence: {
+				DisplayName: Magic Essence
+				Tooltip: ""
+			}
+
+			TrueRubyStaff: {
+				DisplayName: True Ruby Staff
+				Tooltip: ""
+			}
+
+			TrueEmeraldStaff: {
+				DisplayName: True Emerald Staff
+				Tooltip: ""
+			}
+
+			TrueAmethystStaff: {
+				DisplayName: True Amethyst Staff
+				Tooltip: ""
+			}
+
+			TrueSapphireStaff: {
+				DisplayName: True Sapphire Staff
+				Tooltip: ""
+			}
+
+			TrueTopazStaff: {
+				DisplayName: True Topaz Staff
+				Tooltip: ""
+			}
+
+			TrueAmberStaff: {
+				DisplayName: True Amber Staff
+				Tooltip: ""
+			}
 		}
 
 		Projectiles: {
@@ -657,6 +697,13 @@ Mods: {
 			CultClassicProj.DisplayName: Cult Classic Proj
 			MotivatorProj.DisplayName: Motivator Proj
 			EchoChamberProj.DisplayName: Echo Chamber Proj
+			TrueDiamondStaffProj.DisplayName: True Diamond Staff Proj
+			TrueRubyStaffProj.DisplayName: True Ruby Staff Proj
+			TrueEmeraldStaffProj.DisplayName: True Emerald Staff Proj
+			TrueAmethystStaffProj.DisplayName: True Amethyst Staff Proj
+			TrueSapphireStaffProj.DisplayName: True Sapphire Staff Proj
+			TrueTopazStaffProj.DisplayName: True Topaz Staff Proj
+			TrueAmberStaffProj.DisplayName: True Amber Staff Proj
 		}
 
 		Tiles: {

@@ -14,6 +14,7 @@
     <None Remove="Content\Buffs\SunScepterBuff.png" />
     <None Remove="Content\Items\Accessories\EchoChamber.png" />
     <None Remove="Content\Items\Misc\IceEssence.png" />
+    <None Remove="Content\Items\Misc\MagicEssence.png" />
     <None Remove="Content\Items\Misc\SharkTooth.png" />
     <None Remove="Content\Items\Placeables\Banners\CursedPickaxeBanner.png" />
     <None Remove="Content\Items\Placeables\Banners\ShroomlingBanner.png" />
@@ -44,6 +45,11 @@
     <None Remove="Content\Items\Vanity\ShroomHat_Head.png" />
     <None Remove="Content\Items\Weapons\Magic\DeathRay.png" />
     <None Remove="Content\Items\Weapons\Magic\IcyStaff.png" />
+    <None Remove="Content\Items\Weapons\Magic\TrueAmethystStaff.png" />
+    <None Remove="Content\Items\Weapons\Magic\TrueDiamondStaff.png" />
+    <None Remove="Content\Items\Weapons\Magic\TrueEmeraldStaff.png" />
+    <None Remove="Content\Items\Weapons\Magic\TrueRubyStaff.png" />
+    <None Remove="Content\Items\Weapons\Magic\TrueSapphireStaff.png" />
     <None Remove="Content\Items\Weapons\Melee\AuroraBlade.png" />
     <None Remove="Content\Items\Weapons\Melee\CultClassic.png" />
     <None Remove="Content\Items\Weapons\Ranged\FrostBow.png" />
@@ -62,6 +68,11 @@
     <None Remove="Content\Projectiles\EchoChamberProj.png" />
     <None Remove="Content\Projectiles\MagicProj\DeathRayProj.png" />
     <None Remove="Content\Projectiles\MagicProj\IcyWandProj.png" />
+    <None Remove="Content\Projectiles\MagicProj\TrueAmethystStaffProj.png" />
+    <None Remove="Content\Projectiles\MagicProj\TrueDiamondStaffProj.png" />
+    <None Remove="Content\Projectiles\MagicProj\TrueEmeraldStaffProj.png" />
+    <None Remove="Content\Projectiles\MagicProj\TrueRubyStaffProj.png" />
+    <None Remove="Content\Projectiles\MagicProj\TrueSapphireStaffProj.png" />
     <None Remove="Content\Projectiles\MeleeProj\AuroraBladeProj.png" />
     <None Remove="Content\Projectiles\MeleeProj\CultClassicOrb.png" />
     <None Remove="Content\Projectiles\MeleeProj\CultClassicProj.png" />
