@@ -43,6 +43,7 @@
     <None Remove="Content\Items\Vanity\BuilderPants_Legs.png" />
     <None Remove="Content\Items\Vanity\ShroomHat.png" />
     <None Remove="Content\Items\Vanity\ShroomHat_Head.png" />
+    <None Remove="Content\Items\Weapons\Magic\BookOfAlphabets.png" />
     <None Remove="Content\Items\Weapons\Magic\DeathRay.png" />
     <None Remove="Content\Items\Weapons\Magic\IcyStaff.png" />
     <None Remove="Content\Items\Weapons\Magic\TrueAmberStaff.png" />
@@ -68,6 +69,7 @@
     <None Remove="Content\NPCs\Town\Builder.png" />
     <None Remove="Content\NPCs\Town\Builder_Head.png" />
     <None Remove="Content\Projectiles\EchoChamberProj.png" />
+    <None Remove="Content\Projectiles\MagicProj\BookOfAlphabetsProj.png" />
     <None Remove="Content\Projectiles\MagicProj\DeathRayProj.png" />
     <None Remove="Content\Projectiles\MagicProj\IcyWandProj.png" />
     <None Remove="Content\Projectiles\MagicProj\TrueAmberStaffProj.png" />

@@ -663,6 +663,11 @@ Mods: {
 				DisplayName: Book of Alphabets
 				Tooltip: Shoots out alphabets
 			}
+
+			MagicWorkbench: {
+				DisplayName: Magic Work Bench
+				Tooltip: Used for crafting magical items
+			}
 		}
 
 		Projectiles: {
@@ -716,11 +721,12 @@ Mods: {
 			CoalChunk.MapEntry: Coal
 			DuneOre.MapEntry: Dune Ore
 			BossTrophies.MapEntry: Trophy
-			BannerTiles.MapEntry: Night Slime banner
+			BannerTiles.MapEntry: Banner
 			NightSlimeBannerTile.MapEntry: Banner
 			PermafrostTile.MapEntry: Permafrost
 			CursedPickaxeBannerTile.MapEntry: Banner
 			ShroomlingBannerTile.MapEntry: Banner
+			MagicWorkbenchTile.MapEntry: Magic Work Bench
 		}
 
 		NPCs: {
