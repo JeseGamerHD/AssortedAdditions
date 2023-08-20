@@ -39,13 +39,6 @@ namespace ModdingTutorial.Content.Items.Weapons.Magic
 
         public override void AddRecipes()
         {
-            Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ItemID.SpellTome, 1);
-            recipe.AddIngredient(ItemID.Book, 25);
-            recipe.AddIngredient(ItemID.PixieDust, 5);
-            recipe.AddTile(TileID.Bookcases);
-            recipe.Register();
-
             Recipe recipe2 = CreateRecipe();
             recipe2.AddIngredient(ItemID.SpellTome, 1);
             recipe2.AddIngredient(ItemID.Book, 25);
@@ -53,7 +46,5 @@ namespace ModdingTutorial.Content.Items.Weapons.Magic
             recipe2.AddTile(ModContent.TileType<MagicWorkbenchTile>());
             recipe2.Register();
         }
-
-
     }
 }
