@@ -3,6 +3,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria;
 using Microsoft.Xna.Framework;
+using ModdingTutorial.Content.Tiles.CraftingStations;
 
 namespace ModdingTutorial.Content.Items.Weapons.Magic
 {
@@ -44,6 +45,15 @@ namespace ModdingTutorial.Content.Items.Weapons.Magic
             recipe.AddIngredient(ItemID.PixieDust, 5);
             recipe.AddTile(TileID.Bookcases);
             recipe.Register();
+
+            Recipe recipe2 = CreateRecipe();
+            recipe2.AddIngredient(ItemID.SpellTome, 1);
+            recipe2.AddIngredient(ItemID.Book, 25);
+            recipe2.AddIngredient(ItemID.PixieDust, 5);
+            recipe2.AddTile(ModContent.TileType<MagicWorkbenchTile>());
+            recipe2.Register();
         }
+
+
     }
 }

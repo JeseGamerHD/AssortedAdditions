@@ -4,6 +4,7 @@ using Terraria.ID;
 using Terraria;
 using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
+using ModdingTutorial.Content.Tiles.CraftingStations;
 
 namespace ModdingTutorial.Content.Items.Weapons.Magic
 {
@@ -48,7 +49,7 @@ namespace ModdingTutorial.Content.Items.Weapons.Magic
             recipe.AddIngredient(ItemID.LargeAmethyst, 1);
             recipe.AddIngredient(ItemID.AmethystStaff, 1);
             recipe.AddIngredient(ModContent.ItemType<MagicEssence>(), 5);
-            recipe.AddTile(TileID.Anvils);
+            recipe.AddTile(ModContent.TileType<MagicWorkbenchTile>());
             recipe.Register();
         }
     }
