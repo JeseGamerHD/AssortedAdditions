@@ -673,6 +673,16 @@ Mods: {
 				DisplayName: Frost Wraith Banner
 				Tooltip: ""
 			}
+
+			SteelPlating: {
+				DisplayName: Steel Plating
+				Tooltip: ""
+			}
+
+			SteelPlatingWall: {
+				DisplayName: Steel Plating Wall
+				Tooltip: ""
+			}
 		}
 
 		Projectiles: {
@@ -732,7 +742,7 @@ Mods: {
 			CursedPickaxeBannerTile.MapEntry: Banner
 			ShroomlingBannerTile.MapEntry: Banner
 			MagicWorkbenchTile.MapEntry: Magic Work Bench
-			FrostWraithBannerTile.MapEntry: Frost Wraith Banner Tile
+			FrostWraithBannerTile.MapEntry: Banner
 		}
 
 		NPCs: {
