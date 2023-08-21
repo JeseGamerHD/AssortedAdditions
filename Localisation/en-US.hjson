@@ -668,6 +668,11 @@ Mods: {
 				DisplayName: Magic Work Bench
 				Tooltip: Used for crafting magical items
 			}
+
+			FrostWraithBanner: {
+				DisplayName: Frost Wraith Banner
+				Tooltip: ""
+			}
 		}
 
 		Projectiles: {
@@ -727,6 +732,7 @@ Mods: {
 			CursedPickaxeBannerTile.MapEntry: Banner
 			ShroomlingBannerTile.MapEntry: Banner
 			MagicWorkbenchTile.MapEntry: Magic Work Bench
+			FrostWraithBannerTile.MapEntry: Frost Wraith Banner Tile
 		}
 
 		NPCs: {
@@ -759,6 +765,7 @@ Mods: {
 
 			CursedPickaxe.DisplayName: Cursed Pickaxe
 			Shroomling.DisplayName: Shroomling
+			FrostWraith.DisplayName: Frost Wraith
 		}
 	}
 }

@@ -17,7 +17,7 @@ namespace ModdingTutorial.Content.Tiles.Banners
             Main.tileNoAttach[Type] = true;
             Main.tileLavaDeath[Type] = true;
             TileID.Sets.DisableSmartCursor[Type] = true;
-            TileID.Sets.SwaysInWindBasic[Type] = true; // TODO add better effect once TML supports banner movement, now it uses foliage sway...
+            //TileID.Sets.SwaysInWindBasic[Type] = true; // TODO add better effect once TML supports banner movement, now it uses foliage sway...
             TileObjectData.newTile.StyleHorizontal = true;
 
             TileObjectData.newTile.CopyFrom(TileObjectData.Style1x2Top);
@@ -37,13 +37,7 @@ namespace ModdingTutorial.Content.Tiles.Banners
         {
             if (closer)
             {
-                int type = 0;
-                switch (Main.tile[i, j].TileFrameX / 18)
-                {
-                    case 0:
-                        type = ModContent.NPCType<NPCs.CursedPickaxe>();
-                        break;
-                }
+                int type = ModContent.NPCType<NPCs.CursedPickaxe>();
                 Main.SceneMetrics.hasBanner = true;
                 Main.SceneMetrics.NPCBannerBuff[type] = true;
             }
