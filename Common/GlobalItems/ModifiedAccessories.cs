@@ -138,7 +138,7 @@ namespace ModdingTutorial.Common.GlobalItems
             climbingClaws.AddTile(TileID.TinkerersWorkbench);
             climbingClaws.Register();
 
-            Recipe shoeSpikes = Recipe.Create(ItemID.ClimbingClaws, 1);
+            Recipe shoeSpikes = Recipe.Create(ItemID.ShoeSpikes, 1);
             shoeSpikes.AddIngredient(ModContent.ItemType<SteelBar>(), 10);
             shoeSpikes.AddRecipeGroup("IronBar", 6);
             shoeSpikes.AddTile(TileID.TinkerersWorkbench);
