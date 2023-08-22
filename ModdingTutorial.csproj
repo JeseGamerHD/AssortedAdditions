@@ -27,6 +27,7 @@
     <None Remove="Content\Items\Placeables\Blocks\HazardBlock.png" />
     <None Remove="Content\Items\Placeables\Blocks\PaintBlock2.png" />
     <None Remove="Content\Items\Placeables\Blocks\RedCarpet.png" />
+    <None Remove="Content\Items\Placeables\Blocks\SteelBlock.png" />
     <None Remove="Content\Items\Placeables\Blocks\SteelPlating.png" />
     <None Remove="Content\Items\Placeables\CraftingStations\MagicWorkbench.png" />
     <None Remove="Content\Items\Placeables\Ores\FrostBar.png" />
@@ -39,6 +40,7 @@
     <None Remove="Content\Items\Placeables\Walls\PaintWall.png" />
     <None Remove="Content\Items\Placeables\Walls\PaintWall2.png" />
     <None Remove="Content\Items\Placeables\Walls\SteelPlatingWall.png" />
+    <None Remove="Content\Items\Placeables\Walls\SteelWall.png" />
     <None Remove="Content\Items\Vanity\BuilderHelmet.png" />
     <None Remove="Content\Items\Vanity\BuilderHelmet_Head.png" />
     <None Remove="Content\Items\Vanity\BuilderJacket.png" />
@@ -103,6 +105,7 @@
     <None Remove="Content\Tiles\Blocks\HazardBlockTile.png" />
     <None Remove="Content\Tiles\Blocks\PaintBlockTile2.png" />
     <None Remove="Content\Tiles\Blocks\RedCarpetTile.png" />
+    <None Remove="Content\Tiles\Blocks\SteelBlockTile.png" />
     <None Remove="Content\Tiles\Blocks\SteelPlatingTile.png" />
     <None Remove="Content\Tiles\CraftingStations\MagicWorkbenchTile.png" />
     <None Remove="Content\Tiles\FrostBarTile.png" />
@@ -113,6 +116,7 @@
     <None Remove="Content\Tiles\Walls\PaintWallTile.png" />
     <None Remove="Content\Tiles\Walls\PaintWallTile2.png" />
     <None Remove="Content\Tiles\Walls\SteelPlatingWallTile.png" />
+    <None Remove="Content\Tiles\Walls\SteelWallTile.png" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="tModLoader.CodeAssist" Version="0.1.*" />

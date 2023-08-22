@@ -683,6 +683,16 @@ Mods: {
 				DisplayName: Steel Plating Wall
 				Tooltip: ""
 			}
+
+			SteelBlock: {
+				DisplayName: Steel Block
+				Tooltip: ""
+			}
+
+			SteelWall: {
+				DisplayName: Steel Wall
+				Tooltip: ""
+			}
 		}
 
 		Projectiles: {
