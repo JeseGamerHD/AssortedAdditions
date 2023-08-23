@@ -152,6 +152,8 @@ namespace ModdingTutorial.Content.NPCs.Town
                 .Add<RedCarpet>()
                 .Add<BlueCarpet>()
                 .Add<GreenCarpet>()
+
+                .Add<MysteriousBrick>(condition: Condition.DownedMechBossAll)
                 
                 .Add<BuilderHelmet>()
                 .Add<BuilderJacket>()
