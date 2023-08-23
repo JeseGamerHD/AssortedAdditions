@@ -17,6 +17,7 @@ public class DuneRod : ModItem
     {
         Item.CloneDefaults(ItemID.WoodFishingPole); // Most defaults can be copied
         Item.value = Item.sellPrice(silver: 30);
+        Item.rare = ItemRarityID.Orange;
         Item.fishingPole = 35; // Fishing power
         Item.shootSpeed = 14f; // Speed at which the bobbers are launched.
         
