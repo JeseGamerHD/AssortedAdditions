@@ -717,6 +717,15 @@ Mods: {
 				DisplayName: Mysterious Chest
 				Tooltip: ""
 			}
+
+			Telelocator: {
+				DisplayName: Telelocator
+				Tooltip:
+					'''
+					Teleports you to the position of the mouse, but inflicts chaos state
+					Doesn't work during chaos state
+					'''
+			}
 		}
 
 		Projectiles: {

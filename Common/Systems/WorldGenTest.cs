@@ -1,33 +1,37 @@
-﻿using Microsoft.Xna.Framework;
+﻿/*using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Input;
 using ModdingTutorial.Content.Items.Accessories;
-using ModdingTutorial.Content.Items.Tools;
 using ModdingTutorial.Content.Tiles.Blocks;
 using ModdingTutorial.Content.Tiles.Furniture;
 using Terraria;
 using Terraria.ID;
-using Terraria.IO;
 using Terraria.ModLoader;
+using Terraria.UI;
 using Terraria.WorldBuilding;
 
-namespace ModdingTutorial.Common.Systems.GenPasses
+namespace ModdingTutorial.Common.Systems
 {
-    // This mod adds a secret room below the dungeon entrance
-    // The generation happens here
-    internal class SecretRoomDungeon : GenPass
+    // Currently testing generating a secret room at the dungeon entrance
+    // Press the specified button to run the TestMethod
+    internal class WorldGenTest : ModSystem
     {
-        public SecretRoomDungeon(string name, float loadWeight) : base(name, loadWeight)
+        public static bool JustPressed(Keys key)
         {
-            // Constructor required for this to function
+            return Main.keyState.IsKeyDown(key) && !Main.oldKeyState.IsKeyDown(key);
         }
 
-        protected override void ApplyPass(GenerationProgress progress, GameConfiguration configuration)
+        public override void PostUpdateInput()
         {
-            progress.Message = "Adding a secret room";
+            if (JustPressed(Keys.D1)) // 1 on the keyboard
+                TestMethod((int)Main.MouseWorld.X / 16, (int)Main.MouseWorld.Y / 16);
+        }
 
+        private void TestMethod(int x, int y)
+        {
             // This point is 13 blocks from roughly the middle of the dungeon entrance towards the door
             // and 13 blocks down:
             Point roomWalls = new Point(Main.dungeonX - 13, Main.dungeonY + 13);
-
+            
             // Create a rectangle from that point
             WorldUtils.Gen(roomWalls, new Shapes.Rectangle(30, 20), new Actions.SetTile((ushort)ModContent.TileType<MysteriousBrickTile>()));
 
@@ -71,7 +75,7 @@ namespace ModdingTutorial.Common.Systems.GenPasses
             for (int chestIndex = 0; chestIndex < 8000; chestIndex++) // loop through chests in the world
             {
                 Chest chest = Main.chest[chestIndex]; // Set the index each loop
-                if (chest != null && Main.tile[chest.x, chest.y].TileType == ModContent.TileType<MysteriousChestTile>()
+                if (chest != null && Main.tile[chest.x, chest.y].TileType == ModContent.TileType<MysteriousChestTile>() 
                     && Main.tile[chest.x, chest.y].TileFrameX == 1 * 36) // Check that the tile is mysteriouschestile (locked = 1, unlocked = 0), 36 is chest width
                 {
                     // Chest contains a weapon for each class TODO
@@ -80,8 +84,7 @@ namespace ModdingTutorial.Common.Systems.GenPasses
                     chest.item[1].SetDefaults(ModContent.ItemType<MinersRing>());
                     chest.item[2].SetDefaults(ModContent.ItemType<MinersRing>());
                     chest.item[3].SetDefaults(ModContent.ItemType<MinersRing>());
-
-                    chest.item[4].SetDefaults(ModContent.ItemType<Telelocator>());
+                    chest.item[4].SetDefaults(ItemID.RecallPotion);
                 }
             }
 
@@ -89,7 +92,7 @@ namespace ModdingTutorial.Common.Systems.GenPasses
             // generate some beams:
 
             // Left side of the room
-            for (int i = 0; i <= 12; i++)
+            for(int i = 0; i <= 12; i++)
             {
                 WorldGen.PlaceTile(roomArchLeft.X + 2, roomArchLeft.Y + 17 - i, TileID.WoodenBeam, true, true);
                 WorldGen.paintTile(roomArchLeft.X + 2, roomArchLeft.Y + 17 - i, 22); // This paints the tile with deep purple paint
@@ -112,8 +115,8 @@ namespace ModdingTutorial.Common.Systems.GenPasses
 
             WorldGen.PlaceTile(roomArchLeft.X + 12, roomArchLeft.Y + 14 - 7, TileID.WoodenBeam, true, true);
             WorldGen.paintTile(roomArchLeft.X + 12, roomArchLeft.Y + 14 - 7, PaintID.DeepPurplePaint);
-
-            for (int i = 0; i <= 1; i++)
+            
+            for(int i = 0; i <= 1; i++)
             {
                 WorldGen.PlaceTile(roomArchLeft.X + 13 + i, roomArchLeft.Y + 14 - 8, TileID.WoodenBeam, true, true);
                 WorldGen.paintTile(roomArchLeft.X + 13 + i, roomArchLeft.Y + 14 - 8, PaintID.DeepPurplePaint);
@@ -132,6 +135,7 @@ namespace ModdingTutorial.Common.Systems.GenPasses
             // Finally add two lamps
             WorldGen.PlaceTile(roomArchLeft.X + 9, roomArchLeft.Y + 15, TileID.Lamps, true, true, -1, 29);
             WorldGen.PlaceTile(roomArchRight.X - 9, roomArchRight.Y + 15, TileID.Lamps, true, true, -1, 29);
+
         }
 
         // This method generates arches for the room, set a starting point (either the top left or right corner)
@@ -139,7 +143,7 @@ namespace ModdingTutorial.Common.Systems.GenPasses
         private void GenerateArches(Point start, int tile, bool rightSide)
         {
             int direction = 1;
-            if (rightSide)
+            if(rightSide)
             {
                 direction = -1;
             }
@@ -147,35 +151,35 @@ namespace ModdingTutorial.Common.Systems.GenPasses
             // Generation happens one row at a time, moving down each time
             for (int i = 0; i <= 9; i++)
             {
-                WorldGen.PlaceTile(start.X + direction * i, start.Y, tile, true, true);
+                WorldGen.PlaceTile(start.X + (direction * i), start.Y, tile, true, true);
             }
             for (int i = 0; i <= 6; i++)
             {
-                WorldGen.PlaceTile(start.X + direction * i, start.Y + 1, tile, true, true);
+                WorldGen.PlaceTile(start.X + (direction * i), start.Y + 1, tile, true, true);
             }
             for (int i = 0; i <= 4; i++)
             {
-                WorldGen.PlaceTile(start.X + direction * i, start.Y + 2, tile, true, true);
+                WorldGen.PlaceTile(start.X + (direction * i), start.Y + 2, tile, true, true);
             }
             for (int i = 0; i <= 3; i++)
             {
-                WorldGen.PlaceTile(start.X + direction * i, start.Y + 3, tile, true, true);
+                WorldGen.PlaceTile(start.X + (direction * i), start.Y + 3, tile, true, true);
             }
             for (int i = 0; i <= 2; i++)
             {
-                WorldGen.PlaceTile(start.X + direction * i, start.Y + 4, tile, true, true);
+                WorldGen.PlaceTile(start.X + (direction * i), start.Y + 4, tile, true, true);
             }
             for (int i = 0; i <= 1; i++)
             {
-                WorldGen.PlaceTile(start.X + direction * i, start.Y + 5, tile, true, true);
+                WorldGen.PlaceTile(start.X + (direction * i), start.Y + 5, tile, true, true);
             }
             for (int i = 0; i <= 1; i++)
             {
-                WorldGen.PlaceTile(start.X + direction * i, start.Y + 5, tile, true, true);
+                WorldGen.PlaceTile(start.X + (direction * i), start.Y + 5, tile, true, true);
             }
             for (int i = 0; i <= 1; i++)
             {
-                WorldGen.PlaceTile(start.X + direction * i, start.Y + 6, tile, true, true);
+                WorldGen.PlaceTile(start.X + (direction * i), start.Y + 6, tile, true, true);
             }
             // Last bit is just one block wide so just spam this three times
             WorldGen.PlaceTile(start.X, start.Y + 7, tile, true, true);
@@ -190,7 +194,7 @@ namespace ModdingTutorial.Common.Systems.GenPasses
             //__---        ---__
 
             // The altar has an outer layer of different tiles than the ones on the inside
-            for (int i = 0; i <= 17; i++)
+            for(int i = 0; i <= 17; i++)
             {
                 if (i <= 1 || i >= 16)
                 {
@@ -202,9 +206,9 @@ namespace ModdingTutorial.Common.Systems.GenPasses
                 }
             }
 
-            for (int i = 0; i <= 13; i++)
+            for(int i = 0; i <= 13; i++)
             {
-                if (i <= 2 || i >= 11)
+                if(i <= 2 || i >= 11) 
                 {
                     WorldGen.PlaceTile(start.X + 2 + i, start.Y - 1, borderTile, true, true);
                 }
@@ -214,9 +218,9 @@ namespace ModdingTutorial.Common.Systems.GenPasses
                 }
             }
 
-            for (int i = 0; i <= 7; i++)
+            for(int i = 0; i <= 7; i++)
             {
-                if (i <= 1 || i >= 6)
+                if(i <= 1 || i >= 6)
                 {
                     WorldGen.PlaceTile(start.X + 5 + i, start.Y - 2, borderTile, true, true);
                 }
@@ -226,10 +230,11 @@ namespace ModdingTutorial.Common.Systems.GenPasses
                 }
             }
 
-            for (int i = 0; i <= 3; i++)
+            for(int i = 0; i <= 3; i++)
             {
                 WorldGen.PlaceTile(start.X + 7 + i, start.Y - 3, borderTile, true, true);
             }
         }
     }
 }
+*/
