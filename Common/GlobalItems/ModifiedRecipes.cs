@@ -150,6 +150,12 @@ namespace ModdingTutorial.Common.GlobalItems
             wormFood.AddTile(ModContent.TileType<MagicWorkbenchTile>());
             wormFood.Register();
             // ************************************************************************************** //
+
+            Recipe shadowKey = Recipe.Create(ItemID.ShadowKey, 1);
+            shadowKey.AddIngredient(ItemID.Obsidian, 20);
+            shadowKey.AddIngredient(ItemID.SoulofNight, 5);
+            shadowKey.AddTile(TileID.Anvils);
+            shadowKey.Register();
         }
     }
 }
