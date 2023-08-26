@@ -693,6 +693,30 @@ Mods: {
 				DisplayName: Steel Wall
 				Tooltip: ""
 			}
+
+			FrostFishingRod: {
+				DisplayName: Frost Fishing Rod
+				Tooltip: ""
+			}
+
+			MysteriousBrick: {
+				DisplayName: Mysterious Brick
+				Tooltip: ""
+			}
+
+			MysteriousKey: {
+				DisplayName: Mysterious Key
+				Tooltip:
+					'''
+					A Mysterious key for a mysterious chest
+					Left click to teleport...
+					'''
+			}
+
+			MysteriousChest: {
+				DisplayName: Mysterious Chest
+				Tooltip: ""
+			}
 		}
 
 		Projectiles: {
@@ -740,6 +764,7 @@ Mods: {
 			TrueTopazStaffProj.DisplayName: True Topaz Staff Proj
 			TrueAmberStaffProj.DisplayName: True Amber Staff Proj
 			BookOfAlphabetsProj.DisplayName: Book Of Alphabets Proj
+			FrostBobber.DisplayName: Frost Bobber
 		}
 
 		Tiles: {
@@ -753,6 +778,11 @@ Mods: {
 			ShroomlingBannerTile.MapEntry: Banner
 			MagicWorkbenchTile.MapEntry: Magic Work Bench
 			FrostWraithBannerTile.MapEntry: Banner
+
+			MysteriousChestTile: {
+				MapEntry0: Mysterious Chest
+				MapEntry1: Locked Mysterious Chest
+			}
 		}
 
 		NPCs: {
