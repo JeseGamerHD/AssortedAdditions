@@ -45,6 +45,7 @@
     <None Remove="Content\Items\Placeables\Walls\SteelPlatingWall.png" />
     <None Remove="Content\Items\Placeables\Walls\SteelWall.png" />
     <None Remove="Content\Items\Tools\FrostFishingRod.png" />
+    <None Remove="Content\Items\Tools\Telelocator.png" />
     <None Remove="Content\Items\Vanity\BuilderHelmet.png" />
     <None Remove="Content\Items\Vanity\BuilderHelmet_Head.png" />
     <None Remove="Content\Items\Vanity\BuilderJacket.png" />
@@ -64,6 +65,7 @@
     <None Remove="Content\Items\Weapons\Magic\TrueSapphireStaff.png" />
     <None Remove="Content\Items\Weapons\Magic\TrueTopazStaff.png" />
     <None Remove="Content\Items\Weapons\Melee\AuroraBlade.png" />
+    <None Remove="Content\Items\Weapons\Melee\CosmicBlade.png" />
     <None Remove="Content\Items\Weapons\Melee\CultClassic.png" />
     <None Remove="Content\Items\Weapons\Ranged\FrostBow.png" />
     <None Remove="Content\Items\Weapons\Ranged\IceBlaster.png" />
@@ -92,6 +94,8 @@
     <None Remove="Content\Projectiles\MagicProj\TrueSapphireStaffProj.png" />
     <None Remove="Content\Projectiles\MagicProj\TrueTopazStaffProj.png" />
     <None Remove="Content\Projectiles\MeleeProj\AuroraBladeProj.png" />
+    <None Remove="Content\Projectiles\MeleeProj\CosmicBladeProj.png" />
+    <None Remove="Content\Projectiles\MeleeProj\CosmicBladeProj2.png" />
     <None Remove="Content\Projectiles\MeleeProj\CultClassicOrb.png" />
     <None Remove="Content\Projectiles\MeleeProj\CultClassicProj.png" />
     <None Remove="Content\Projectiles\RangedProj\FrostBowProj.png" />

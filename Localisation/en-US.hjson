@@ -726,6 +726,11 @@ Mods: {
 					Doesn't work during chaos state
 					'''
 			}
+
+			CosmicBlade: {
+				DisplayName: Cosmic Blade
+				Tooltip: Shoots out homing projectiles
+			}
 		}
 
 		Projectiles: {
@@ -774,6 +779,8 @@ Mods: {
 			TrueAmberStaffProj.DisplayName: True Amber Staff Proj
 			BookOfAlphabetsProj.DisplayName: Book Of Alphabets Proj
 			FrostBobber.DisplayName: Frost Bobber
+			CosmicBladeProj.DisplayName: Cosmic Blade Proj
+			CosmicBladeHoming.DisplayName: Cosmic Blade Homing
 		}
 
 		Tiles: {
