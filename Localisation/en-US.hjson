@@ -731,6 +731,11 @@ Mods: {
 				DisplayName: Cosmic Blade
 				Tooltip: Shoots out homing projectiles
 			}
+
+			ShootingStar: {
+				DisplayName: Shooting Star
+				Tooltip: Turn your arrows into shooting stars
+			}
 		}
 
 		Projectiles: {
@@ -781,6 +786,7 @@ Mods: {
 			FrostBobber.DisplayName: Frost Bobber
 			CosmicBladeProj.DisplayName: Cosmic Blade Proj
 			CosmicBladeHoming.DisplayName: Cosmic Blade Homing
+			ShootingStarProj.DisplayName: Shooting Star Proj
 		}
 
 		Tiles: {
