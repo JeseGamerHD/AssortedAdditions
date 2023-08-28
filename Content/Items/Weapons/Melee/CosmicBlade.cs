@@ -4,7 +4,6 @@ using Terraria.ModLoader;
 using Terraria;
 using Terraria.DataStructures;
 using Microsoft.Xna.Framework;
-using ModdingTutorial.Content.Projectiles.RangedProj;
 
 namespace ModdingTutorial.Content.Items.Weapons.Melee
 {
@@ -35,14 +34,14 @@ namespace ModdingTutorial.Content.Items.Weapons.Melee
         private int swingCount = 0;
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
-
+            // Swing effect:
             float adjustedItemScale = player.GetAdjustedItemScale(Item); // Get the melee scale of the player and item.
             Projectile.NewProjectile(source, player.MountedCenter, new Vector2(player.direction, 0f), type, damage, knockback, player.whoAmI, player.direction * player.gravDir, player.itemAnimationMax, adjustedItemScale);
             NetMessage.SendData(MessageID.PlayerControls, -1, -1, null, player.whoAmI); // Sync the changes in multiplayer.
 
+            // Also shoot out homing projectiles every 5 swings
             float numberOfProjs = 3;
             float rotation = MathHelper.ToRadians(25);
-
             if(swingCount == 0)
             {
                 for (int i = 0; i < numberOfProjs; i++)

@@ -94,8 +94,8 @@
     <None Remove="Content\Projectiles\MagicProj\TrueSapphireStaffProj.png" />
     <None Remove="Content\Projectiles\MagicProj\TrueTopazStaffProj.png" />
     <None Remove="Content\Projectiles\MeleeProj\AuroraBladeProj.png" />
+    <None Remove="Content\Projectiles\MeleeProj\CosmicBladeHoming.png" />
     <None Remove="Content\Projectiles\MeleeProj\CosmicBladeProj.png" />
-    <None Remove="Content\Projectiles\MeleeProj\CosmicBladeProj2.png" />
     <None Remove="Content\Projectiles\MeleeProj\CultClassicOrb.png" />
     <None Remove="Content\Projectiles\MeleeProj\CultClassicProj.png" />
     <None Remove="Content\Projectiles\RangedProj\FrostBowProj.png" />
