@@ -21,6 +21,7 @@ namespace ModdingTutorial.Content.Projectiles.MeleeProj
             Projectile.light = 1f;
             Projectile.alpha = 50;
             Projectile.aiStyle = 0;
+            Projectile.timeLeft = 300;
 
             Projectile.tileCollide = false;
             Projectile.ignoreWater = true;

@@ -41,7 +41,7 @@ namespace ModdingTutorial.Content.Items.Weapons.Melee
 
             // Also shoot out homing projectiles every 5 swings
             float numberOfProjs = 3;
-            float rotation = MathHelper.ToRadians(25);
+            float rotation = MathHelper.ToRadians(15);
             if(swingCount == 0)
             {
                 for (int i = 0; i < numberOfProjs; i++)
