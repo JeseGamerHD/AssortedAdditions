@@ -55,6 +55,7 @@
     <None Remove="Content\Items\Vanity\ShroomHat.png" />
     <None Remove="Content\Items\Vanity\ShroomHat_Head.png" />
     <None Remove="Content\Items\Weapons\Magic\BookOfAlphabets.png" />
+    <None Remove="Content\Items\Weapons\Magic\CosmicTome.png" />
     <None Remove="Content\Items\Weapons\Magic\DeathRay.png" />
     <None Remove="Content\Items\Weapons\Magic\IcyStaff.png" />
     <None Remove="Content\Items\Weapons\Magic\TrueAmberStaff.png" />

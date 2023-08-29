@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using ModdingTutorial.Content.Items.Accessories;
 using ModdingTutorial.Content.Items.Tools;
+using ModdingTutorial.Content.Items.Weapons.Magic;
 using ModdingTutorial.Content.Items.Weapons.Melee;
 using ModdingTutorial.Content.Items.Weapons.Ranged;
 using ModdingTutorial.Content.Tiles.Blocks;
@@ -80,7 +81,7 @@ namespace ModdingTutorial.Common.Systems.GenPasses
                     // and a recall potion so players won't get stuck in the room
                     chest.item[0].SetDefaults(ModContent.ItemType<CosmicBlade>()); // Melee
                     chest.item[1].SetDefaults(ModContent.ItemType<ShootingStar>()); // Ranged
-                    chest.item[2].SetDefaults(ModContent.ItemType<MinersRing>()); // TODO
+                    chest.item[2].SetDefaults(ModContent.ItemType<CosmicTome>()); // Magic
                     chest.item[3].SetDefaults(ModContent.ItemType<MinersRing>()); // TODO
 
                     chest.item[4].SetDefaults(ModContent.ItemType<Telelocator>());

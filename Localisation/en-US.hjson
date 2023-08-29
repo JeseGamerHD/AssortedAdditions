@@ -736,6 +736,11 @@ Mods: {
 				DisplayName: Shooting Star
 				Tooltip: Turn your arrows into shooting stars
 			}
+
+			CosmicTome: {
+				DisplayName: Cosmic Tome
+				Tooltip: Casts stars from the sky
+			}
 		}
 
 		Projectiles: {
@@ -787,6 +792,7 @@ Mods: {
 			CosmicBladeProj.DisplayName: Cosmic Blade Proj
 			CosmicBladeHoming.DisplayName: Cosmic Blade Homing
 			ShootingStarProj.DisplayName: Shooting Star Proj
+			CosmicTomeProj.DisplayName: Cosmic Tome Proj
 		}
 
 		Tiles: {
