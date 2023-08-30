@@ -7,8 +7,6 @@ using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.GameContent.Drawing;
-using static Humanizer.In;
-using System;
 
 namespace ModdingTutorial.Content.Projectiles.SummonProj
 {
