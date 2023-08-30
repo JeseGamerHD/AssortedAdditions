@@ -1,4 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
+using ModdingTutorial.Common.Players;
+using ModdingTutorial.Common.Systems;
 using ModdingTutorial.Content.Tiles.CraftingStations;
 using Terraria;
 using Terraria.DataStructures;
@@ -31,6 +33,10 @@ namespace ModdingTutorial.Content.Items.Misc
                 // Remember to multiply by 16
                 Vector2 roomPos = new((Main.dungeonX + 3) * 16, (Main.dungeonY + 16) * 16);
                 player.Teleport(roomPos, TeleportationStyleID.TeleportationPotion);
+
+                // After this the wizard will begin to sell items from the mysterious chest
+                // Otherwise items would be obtainable only once per world
+                ModContent.GetInstance<ItemFlags>().mysteriousKeyWasUsed = true;
             }
 
             return true;

@@ -1,6 +1,12 @@
-﻿using ModdingTutorial.Content.Items.Consumables;
+﻿using ModdingTutorial.Common.Systems;
+using ModdingTutorial.Content.Items.Consumables;
 using ModdingTutorial.Content.Items.Misc;
+using ModdingTutorial.Content.Items.Tools;
 using ModdingTutorial.Content.Items.Weapons.Ammo;
+using ModdingTutorial.Content.Items.Weapons.Magic;
+using ModdingTutorial.Content.Items.Weapons.Melee;
+using ModdingTutorial.Content.Items.Weapons.Ranged;
+using ModdingTutorial.Content.Items.Weapons.Summon;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -38,6 +44,14 @@ namespace ModdingTutorial.Common.GlobalNPCs
             {
                 shop.Add(ModContent.ItemType<MagicEssence>());
                 shop.Add(ModContent.ItemType<AncientToken>());
+
+                // These are sold after a mysterious key has been used once
+                var sellCosmicItems = new Condition("Mods.ModdingTutorial.Conditions.SellCosmicItems", () => ModContent.GetInstance<ItemFlags>().mysteriousKeyWasUsed);
+                shop.Add(ModContent.ItemType<CosmicBlade>(), condition: sellCosmicItems);
+                shop.Add(ModContent.ItemType<ShootingStar>(), condition: sellCosmicItems);
+                shop.Add(ModContent.ItemType<CosmicTome>(), condition: sellCosmicItems);
+                shop.Add(ModContent.ItemType<CosmicWhip>(), condition: sellCosmicItems);
+                shop.Add(ModContent.ItemType<Telelocator>(), condition: sellCosmicItems);
             }
         }
     }

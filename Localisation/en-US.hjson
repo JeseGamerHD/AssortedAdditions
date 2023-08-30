@@ -861,5 +861,7 @@ Mods: {
 			Shroomling.DisplayName: Shroomling
 			FrostWraith.DisplayName: Frost Wraith
 		}
+
+		Conditions.SellCosmicItems: Mods.ModdingTutorial.Conditions.SellCosmicItems
 	}
 }
