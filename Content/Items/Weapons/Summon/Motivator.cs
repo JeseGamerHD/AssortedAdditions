@@ -1,6 +1,7 @@
 ﻿using Terraria.ID;
 using Terraria.ModLoader;
 using ModdingTutorial.Content.Projectiles.SummonProj;
+using Terraria;
 
 namespace ModdingTutorial.Content.Items.Weapons.Summon
 {
@@ -9,6 +10,7 @@ namespace ModdingTutorial.Content.Items.Weapons.Summon
         public override void SetDefaults()
         {
             Item.DefaultToWhip(ModContent.ProjectileType<MotivatorProj>(), 190, 3, 10);
+            Item.value = Item.sellPrice(gold: 8);
             Item.rare = ItemRarityID.Yellow;
         }
 
