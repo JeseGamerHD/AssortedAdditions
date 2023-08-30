@@ -35,6 +35,11 @@ Mods: {
 				DisplayName: Echo Chamber Cooldown
 				Description: Your shield is recharging
 			}
+
+			CosmicWhipDebuff: {
+				DisplayName: Cosmic Whip Debuff
+				Description: Mods.ModdingTutorial.Buffs.CosmicWhipDebuff.Description
+			}
 		}
 
 		Items: {
@@ -741,6 +746,16 @@ Mods: {
 				DisplayName: Cosmic Tome
 				Tooltip: Casts stars from the sky
 			}
+
+			CosmicWhip: {
+				DisplayName: Cosmic Whip
+				Tooltip:
+					'''
+					15 summon tag damage
+					Inflicts shadowflame
+					Your summons will focus struck enemies
+					'''
+			}
 		}
 
 		Projectiles: {
@@ -793,6 +808,7 @@ Mods: {
 			CosmicBladeHoming.DisplayName: Cosmic Blade Homing
 			ShootingStarProj.DisplayName: Shooting Star Proj
 			CosmicTomeProj.DisplayName: Cosmic Tome Proj
+			CosmicWhipProj.DisplayName: Cosmic Whip Proj
 		}
 
 		Tiles: {
