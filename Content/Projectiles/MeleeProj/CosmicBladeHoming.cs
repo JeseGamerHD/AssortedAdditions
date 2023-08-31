@@ -39,7 +39,6 @@ namespace ModdingTutorial.Content.Projectiles.MeleeProj
         public override void AI()
         {
             float range = 600f; // Max radius that the projectile can detect a target
-            float speed = 6f; // Projectile's speed
             Timer++; // Timer to determine when to start homing
 
             // Homing doesn't work instantly
@@ -59,9 +58,14 @@ namespace ModdingTutorial.Content.Projectiles.MeleeProj
                 return;
             }
 
-            // If found, change the velocity of the projectile and turn it in the direction of the target
-            // Use the SafeNormalize extension method to avoid NaNs returned by Vector2.Normalize when the vector is zero
-            Projectile.velocity = (closestNPC.Center - Projectile.Center).SafeNormalize(Vector2.Zero) * speed;
+            // With these the projectile will move towards the target in a smooth way
+            // instead of snapping it moves in a curved way
+            float target = Utils.ToRotation(closestNPC.Center - Projectile.Center);
+            float curve = Utils.ToRotation(Projectile.velocity);
+            float maxTurn = MathHelper.ToRadians(3f);
+            
+            // Set the velocity and rotation:
+            Projectile.velocity = Utils.RotatedBy(Projectile.velocity, MathHelper.WrapAngle(Utils.AngleTowards(curve, target, maxTurn)) - curve);
             Projectile.rotation = Projectile.velocity.ToRotation();
         }
 
