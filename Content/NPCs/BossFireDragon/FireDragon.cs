@@ -128,8 +128,7 @@ namespace ModdingTutorial.Content.NPCs.BossFireDragon // This Boss NPC is built 
         // These control the speed/acceleration inside FireDragonBuilder.cs
         internal static void CommonWormInit(FireDragonBuilder worm)
         {
-            worm.MoveSpeed = 6f;
-            worm.Acceleration = 0.7f;
+            worm.MoveSpeed = 7f;
         }
 
         // Timers for AI
@@ -137,12 +136,6 @@ namespace ModdingTutorial.Content.NPCs.BossFireDragon // This Boss NPC is built 
         {
             get => NPC.ai[0];
             set => NPC.ai[0] = value;
-        }
-
-        public float flyPastTimer
-        {
-            get => NPC.ai[1];
-            set => NPC.ai[1] = value;
         }
 
         bool hasDied = false; // Used for despawning the boss
@@ -179,46 +172,16 @@ namespace ModdingTutorial.Content.NPCs.BossFireDragon // This Boss NPC is built 
                 return;
             }
 
-            Timer++; // Timer used for timing boss actions
+            // ********* //
+            Timer++;
+            // Timer used for timing boss actions
 
-            // Then dragon chases the player
-            NPC.velocity = (target.Center - NPC.Center).SafeNormalize(Vector2.Zero) * MoveSpeed;
-
-            // When the head hits the target...
-            if(NPC.Hitbox.Intersects(target.Hitbox))
-            {
-                flyPastTimer = 1;
-            }
-
-            // Start counting up flyPastTimer and set boss to
-            if(flyPastTimer >= 1 && flyPastTimer <= 360)
-            {
-                flyPastTimer++;
-
-                // Choose direction depending on head direction
-                // Basically will target the top left/right of the screen for the flyPast duration
-                if(NPC.direction == -1)
-                {
-                    NPC.velocity = (new Vector2((int)Main.screenPosition.X + Main.screenWidth, (int)Main.screenPosition.Y) - NPC.Center).SafeNormalize(Vector2.Zero) * (MoveSpeed);   
-                }
-
-                if (NPC.direction == 1) 
-                {
-                    NPC.velocity = (new Vector2((int)Main.screenPosition.X, (int)Main.screenPosition.Y) - NPC.Center).SafeNormalize(Vector2.Zero) * (MoveSpeed);
-                }
-
-                if (NPC.position == new Vector2((int)Main.screenPosition.X, (int)Main.screenPosition.Y)
-                    || NPC.position == new Vector2((int)Main.screenPosition.X + Main.screenWidth))
-                {
-                    flyPastTimer = 360;
-                }
-            }
-            else // Return to chasing
-            {
-                flyPastTimer = 0;
-                NPC.velocity = (target.Center - NPC.Center).SafeNormalize(Vector2.Zero) * MoveSpeed;
-            }
-
+            // Set the dragon to chase the player using these:
+            // when hitting the player it will continue for a bit and then smoothly turn back to chase
+            float moveTo = Utils.ToRotation(target.Center - NPC.Center);
+            float curve = Utils.ToRotation(NPC.velocity);
+            float maxTurn = MathHelper.ToRadians(4f);
+            NPC.velocity = Utils.RotatedBy(NPC.velocity, MathHelper.WrapAngle(Utils.AngleTowards(curve, moveTo, maxTurn)) - curve).SafeNormalize(Vector2.Zero) * MoveSpeed;
 
             // Summons minions after 15 seconds
             if(Timer >= 900)
@@ -244,7 +207,7 @@ namespace ModdingTutorial.Content.NPCs.BossFireDragon // This Boss NPC is built 
                     // Only spawn them in if there are less than 7 already
                     if(npcCount < 7)
                     {
-                        spawnMinions();
+                        SpawnMinions();
                     }   
                 }  
             }
@@ -257,7 +220,7 @@ namespace ModdingTutorial.Content.NPCs.BossFireDragon // This Boss NPC is built 
             }
         }
 
-        private void spawnMinions()
+        private void SpawnMinions()
         {
             if (Main.netMode == NetmodeID.MultiplayerClient)
             {
@@ -267,26 +230,41 @@ namespace ModdingTutorial.Content.NPCs.BossFireDragon // This Boss NPC is built 
             }
 
             // Spawn location varies, can be any of the screen corners
+            int xPos = 0;
+            int yPos = 0;
             int location = Main.rand.Next(0, 4);
             switch (location)
             {
                 case 0:
                     // Top left corner (screenPosition defaults to top left)
-                    NPC.NewNPC(NPC.GetSource_FromAI(), (int)Main.screenPosition.X, (int)Main.screenPosition.Y, ModContent.NPCType<FireDrake>());
+                    xPos = (int)Main.screenPosition.X;
+                    yPos = (int)Main.screenPosition.Y;
                     break;
                 case 1:
                     // Top right corner (We can get other corner's by adding the screen width/height accordingly)
-                    NPC.NewNPC(NPC.GetSource_FromAI(), (int)Main.screenPosition.X + Main.screenWidth, (int)Main.screenPosition.Y, ModContent.NPCType<FireDrake>());
+                    xPos = (int)Main.screenPosition.X + Main.screenWidth;
+                    yPos = (int)Main.screenPosition.Y;
                     break;
                 case 2:
                     // Left bottom corner
-                    NPC.NewNPC(NPC.GetSource_FromAI(), (int)Main.screenPosition.X, (int)Main.screenPosition.Y + Main.screenHeight, ModContent.NPCType<FireDrake>());
+                    xPos = (int)Main.screenPosition.X;
+                    yPos = (int)Main.screenPosition.Y + Main.screenHeight;
                     break;
                 case 3:
                     // Right bottom corner
-                    NPC.NewNPC(NPC.GetSource_FromAI(), (int)Main.screenPosition.X + Main.screenWidth, (int)Main.screenPosition.Y + Main.screenHeight, ModContent.NPCType<FireDrake>());
+                    xPos = (int)Main.screenPosition.X + Main.screenWidth;
+                    yPos = (int)Main.screenPosition.Y + Main.screenHeight;
                     break;
-            }  
+            }
+
+            // Spawn the minion at the position selected
+            NPC minion = NPC.NewNPCDirect(NPC.GetSource_FromAI(), xPos, yPos, ModContent.NPCType<FireDrake>(), NPC.whoAmI);
+            
+            // Sync up
+            if(Main.netMode == NetmodeID.Server)
+            {
+                NetMessage.SendData(MessageID.SyncNPC, number: minion.whoAmI);
+            }
         }
 
         public override bool CanHitPlayer(Player target, ref int cooldownSlot)

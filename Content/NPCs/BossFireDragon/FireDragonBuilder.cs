@@ -22,7 +22,6 @@ namespace ModdingTutorial.Content.NPCs.BossFireDragon /// This is a copy of Exam
         // These values are set in other classes that make the actual NPCs
         public abstract WormSegmentType SegmentType { get; } // Which type of segment this NPC is considered to be
         public float MoveSpeed { get; set; } // The maximum velocity for the NPC
-        public float Acceleration { get; set; } // The rate at which the NPC gains velocity
         public NPC HeadSegment => Main.npc[NPC.realLife]; // The NPC instance of the head segment for this worm.
         public NPC FollowingNPC => SegmentType == WormSegmentType.Head ? null : Main.npc[(int)NPC.ai[1]]; // The NPC instance of the segment that this segment is following (ai[1])
         public NPC FollowerNPC => SegmentType == WormSegmentType.Tail ? null : Main.npc[(int)NPC.ai[0]]; // The NPC instance of the segment that is following this segment (ai[0])

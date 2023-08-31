@@ -5,6 +5,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.GameContent.Bestiary;
+using System;
 
 namespace ModdingTutorial.Content.NPCs.BossFireDragon
 {
@@ -68,6 +69,10 @@ namespace ModdingTutorial.Content.NPCs.BossFireDragon
 
         }
 
+        // Limit the amount of projectiles
+        // The npc will fire a burst randomly when player is a correct distance away
+        int projectileCount;
+
         private void Movement(Player target, float distanceFromTarget)
         {
             // The dragon will attack with fire first until it gets closer
@@ -82,10 +87,19 @@ namespace ModdingTutorial.Content.NPCs.BossFireDragon
                     // Spawn the projectile, check netmode
                     if(Main.netMode != NetmodeID.MultiplayerClient)
                     {
-                        Projectile.NewProjectile(NPC.GetSource_FromAI(), NPC.Center, direction * 10f, type, 15, 0f, Main.myPlayer);
+                        if(projectileCount < 4)
+                        {
+                            Projectile.NewProjectile(NPC.GetSource_FromAI(), NPC.Center, direction * 10f, type, 15, 0f, Main.myPlayer);
+                            projectileCount++;
+                        }
+                        
                     }
                     SoundEngine.PlaySound(SoundID.Item20, NPC.Center);
                 }
+            }
+            else
+            {
+                projectileCount = 0;
             }
 
             // Minion has a target: attack (here, fly towards the enemy)
@@ -98,6 +112,37 @@ namespace ModdingTutorial.Content.NPCs.BossFireDragon
 
                 NPC.velocity = (NPC.velocity * (inertia - 1) + direction) / inertia;
             }
+
+            // Used for preventing multiple fire drakes from overlapping
+            float overlapVelocity = 0.04f;
+
+            // Fix overlap with other NPCs
+            for (int i = 0; i < Main.maxNPCs; i++)
+            {
+                NPC other = Main.npc[i];
+
+                if (i != NPC.whoAmI && other.active && Math.Abs(NPC.position.X - other.position.X) + Math.Abs(NPC.position.Y - other.position.Y) < NPC.width)
+                {
+                    if (NPC.position.X < other.position.X)
+                    {
+                        NPC.velocity.X -= overlapVelocity;
+                    }
+                    else
+                    {
+                        NPC.velocity.X += overlapVelocity;
+                    }
+
+                    if (NPC.position.Y < other.position.Y)
+                    {
+                        NPC.velocity.Y -= overlapVelocity;
+                    }
+                    else
+                    {
+                        NPC.velocity.Y += overlapVelocity;
+                    }
+                }
+            }
+
         }
 
         // Visual animation happens here
