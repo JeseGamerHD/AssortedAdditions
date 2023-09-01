@@ -38,7 +38,12 @@ Mods: {
 
 			CosmicWhipDebuff: {
 				DisplayName: Cosmic Whip Debuff
-				Description: Mods.ModdingTutorial.Buffs.CosmicWhipDebuff.Description
+				Description: You are targeted by minions
+			}
+
+			SnowDwellerBuff: {
+				DisplayName: Snow Dweller Buff
+				Description: A Little gremlin
 			}
 		}
 
@@ -756,6 +761,11 @@ Mods: {
 					Your summons will focus struck enemies
 					'''
 			}
+
+			SnowDwellerStaff: {
+				DisplayName: Snow Dweller Staff
+				Tooltip: Summons a snow dweller to fight for you
+			}
 		}
 
 		Projectiles: {
@@ -809,6 +819,7 @@ Mods: {
 			ShootingStarProj.DisplayName: Shooting Star Proj
 			CosmicTomeProj.DisplayName: Cosmic Tome Proj
 			CosmicWhipProj.DisplayName: Cosmic Whip Proj
+			SnowDwellerMinion.DisplayName: Snow Dweller Minion
 		}
 
 		Tiles: {

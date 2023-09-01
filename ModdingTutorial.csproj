@@ -11,6 +11,7 @@
     <None Remove="Content\Buffs\EchoChamberBuff.png" />
     <None Remove="Content\Buffs\EchoChamberDebuff.png" />
     <None Remove="Content\Buffs\MotivatorDebuff.png" />
+    <None Remove="Content\Buffs\SnowDwellerBuff.png" />
     <None Remove="Content\Buffs\SunScepterBuff.png" />
     <None Remove="Content\Items\Accessories\EchoChamber.png" />
     <None Remove="Content\Items\Misc\IceEssence.png" />
@@ -74,6 +75,7 @@
     <None Remove="Content\Items\Weapons\Ranged\ShootingStar.png" />
     <None Remove="Content\Items\Weapons\Summon\CosmicWhip.png" />
     <None Remove="Content\Items\Weapons\Summon\Motivator.png" />
+    <None Remove="Content\Items\Weapons\Summon\SnowDwellerStaff.png" />
     <None Remove="Content\Items\Weapons\Summon\SunScepter.png" />
     <None Remove="Content\NPCs\CursedPickaxe.png" />
     <None Remove="Content\NPCs\FrostWraith.png" />
@@ -107,6 +109,7 @@
     <None Remove="Content\Projectiles\RangedProj\ShootingStarProj.png" />
     <None Remove="Content\Projectiles\SummonProj\CosmicWhipProj.png" />
     <None Remove="Content\Projectiles\SummonProj\MotivatorProj.png" />
+    <None Remove="Content\Projectiles\SummonProj\SnowDwellerMinion.png" />
     <None Remove="Content\Projectiles\SummonProj\SunScepterMinion.png" />
     <None Remove="Content\Tiles\Banners\CursedPickaxeBannerTile.png" />
     <None Remove="Content\Tiles\Banners\FrostWraithBannerTile.png" />
