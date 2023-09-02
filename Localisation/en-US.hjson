@@ -766,6 +766,15 @@ Mods: {
 				DisplayName: Snow Dweller Staff
 				Tooltip: Summons a snow dweller to fight for you
 			}
+
+			InfiniRope: {
+				DisplayName: Infini Rope
+				Tooltip:
+					'''
+					Can place ropes infinitely
+					Right click to throw rope coils
+					'''
+			}
 		}
 
 		Projectiles: {
