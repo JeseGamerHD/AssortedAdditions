@@ -768,12 +768,17 @@ Mods: {
 			}
 
 			InfiniRope: {
-				DisplayName: Infini Rope
+				DisplayName: Infinity Rope
 				Tooltip:
 					'''
 					Can place ropes infinitely
 					Right click to throw rope coils
 					'''
+			}
+
+			InfiniPlatform: {
+				DisplayName: Infinity Platform
+				Tooltip: Can place wooden platforms infinitely
 			}
 		}
 

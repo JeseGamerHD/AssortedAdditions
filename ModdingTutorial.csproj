@@ -46,6 +46,7 @@
     <None Remove="Content\Items\Placeables\Walls\SteelPlatingWall.png" />
     <None Remove="Content\Items\Placeables\Walls\SteelWall.png" />
     <None Remove="Content\Items\Tools\FrostFishingRod.png" />
+    <None Remove="Content\Items\Tools\InfiniPlatform.png" />
     <None Remove="Content\Items\Tools\InfiniRope.png" />
     <None Remove="Content\Items\Tools\Telelocator.png" />
     <None Remove="Content\Items\Vanity\BuilderHelmet.png" />
