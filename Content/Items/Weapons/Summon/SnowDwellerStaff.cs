@@ -19,7 +19,7 @@ namespace ModdingTutorial.Content.Items.Weapons.Summon
             Item.useTime = 36;
             Item.useAnimation = 36;
             Item.mana = 20;
-            Item.damage = 50;
+            Item.damage = 45;
             Item.knockBack = 2f;
             Item.scale = 2f;
 
