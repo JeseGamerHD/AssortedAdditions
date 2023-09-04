@@ -1,7 +1,6 @@
 ﻿using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria;
-using ModdingTutorial.Content.NPCs.BossFireDragon;
 using Terraria.Audio;
 
 namespace ModdingTutorial.Content.Items.Consumables

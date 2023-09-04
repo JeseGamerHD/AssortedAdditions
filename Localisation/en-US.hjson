@@ -789,6 +789,11 @@ Mods: {
 					by teleporting him to your location
 					'''
 			}
+
+			SkeletonPotion: {
+				DisplayName: Skeleton Potion
+				Tooltip: Throw the potion to summon skeleton merchant
+			}
 		}
 
 		Projectiles: {
@@ -843,6 +848,7 @@ Mods: {
 			CosmicTomeProj.DisplayName: Cosmic Tome Proj
 			CosmicWhipProj.DisplayName: Cosmic Whip Proj
 			SnowDwellerMinion.DisplayName: Snow Dweller Minion
+			SkeletonPotionProj.DisplayName: Skeleton Potion Proj
 		}
 
 		Tiles: {

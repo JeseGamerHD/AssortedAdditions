@@ -15,6 +15,7 @@
     <None Remove="Content\Buffs\SunScepterBuff.png" />
     <None Remove="Content\Items\Accessories\EchoChamber.png" />
     <None Remove="Content\Items\Consumables\MerchantInvitation.png" />
+    <None Remove="Content\Items\Consumables\SkeletonPotion.png" />
     <None Remove="Content\Items\Misc\IceEssence.png" />
     <None Remove="Content\Items\Misc\MagicEssence.png" />
     <None Remove="Content\Items\Misc\MysteriousKey.png" />
@@ -110,6 +111,7 @@
     <None Remove="Content\Projectiles\RangedProj\ScifiBlasterHoming.png" />
     <None Remove="Content\Projectiles\RangedProj\ScifiBlasterProj.png" />
     <None Remove="Content\Projectiles\RangedProj\ShootingStarProj.png" />
+    <None Remove="Content\Projectiles\SkeletonPotionProj.png" />
     <None Remove="Content\Projectiles\SummonProj\CosmicWhipProj.png" />
     <None Remove="Content\Projectiles\SummonProj\MotivatorProj.png" />
     <None Remove="Content\Projectiles\SummonProj\SnowDwellerMinion.png" />
