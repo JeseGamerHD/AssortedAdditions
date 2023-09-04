@@ -17,6 +17,12 @@ namespace ModdingTutorial.Common.GlobalNPCs
     {
         public override void ModifyShop(NPCShop shop)
         {
+
+            if(shop.NpcType == NPCID.Merchant)
+            {
+                shop.Add<MerchantInvitation>();
+            }
+
             if(shop.NpcType == NPCID.Cyborg)
             {
                 // Add item with custom price

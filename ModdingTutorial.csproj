@@ -14,6 +14,7 @@
     <None Remove="Content\Buffs\SnowDwellerBuff.png" />
     <None Remove="Content\Buffs\SunScepterBuff.png" />
     <None Remove="Content\Items\Accessories\EchoChamber.png" />
+    <None Remove="Content\Items\Consumables\MerchantInvitation.png" />
     <None Remove="Content\Items\Misc\IceEssence.png" />
     <None Remove="Content\Items\Misc\MagicEssence.png" />
     <None Remove="Content\Items\Misc\MysteriousKey.png" />

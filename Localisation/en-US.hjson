@@ -780,6 +780,15 @@ Mods: {
 				DisplayName: Infinity Platform
 				Tooltip: Can place wooden platforms infinitely
 			}
+
+			MerchantInvitation: {
+				DisplayName: Merchant Invitation Letter
+				Tooltip:
+					'''
+					Politely invite the travelling merchant to do some trades
+					by teleporting him to your location
+					'''
+			}
 		}
 
 		Projectiles: {
