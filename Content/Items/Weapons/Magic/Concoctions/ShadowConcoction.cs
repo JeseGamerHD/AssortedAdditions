@@ -7,20 +7,16 @@ namespace ModdingTutorial.Content.Items.Weapons.Magic.Concoctions;
 
 internal class ShadowConcoction : ModItem
 {
-    public override void SetStaticDefaults()
-    {
-        // Tooltip.SetDefault("Set your enemies ablaze in shadowflames");
-    }
     public override void SetDefaults()
     {
         Item.width = 32;
         Item.height = 32;
         Item.noMelee = true;
         Item.DamageType = DamageClass.Magic;
-        Item.damage = 75;
+        Item.damage = 65;
         Item.channel = true;
         Item.mana = 6;
-        Item.rare = ItemRarityID.Yellow;
+        Item.rare = ItemRarityID.LightRed;
         Item.useTime = 27;
         Item.useAnimation = 27;
         Item.UseSound = SoundID.Item18;

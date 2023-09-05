@@ -8,20 +8,16 @@ namespace ModdingTutorial.Content.Items.Weapons.Magic.Concoctions;
 
 internal class CrazyConcoction : ModItem
 {
-    public override void SetStaticDefaults()
-    {
-        // Tooltip.SetDefault("What could go wrong...");
-    }
     public override void SetDefaults()
     {
         Item.width = 32;
         Item.height = 32;
         Item.noMelee = true;
         Item.DamageType = DamageClass.Magic;
-        Item.damage = 80;
+        Item.damage = 50;
         Item.channel = true;
-        Item.mana = 6;
-        Item.rare = ItemRarityID.Yellow;
+        Item.mana = 10;
+        Item.rare = ItemRarityID.LightPurple;
         Item.useTime = 20;
         Item.useAnimation = 20;
         Item.UseSound = SoundID.Item18;

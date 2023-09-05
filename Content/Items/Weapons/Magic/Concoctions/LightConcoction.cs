@@ -7,21 +7,16 @@ namespace ModdingTutorial.Content.Items.Weapons.Magic.Concoctions;
 
 internal class LightConcoction : ModItem
 {
-    public override void SetStaticDefaults()
-    {
-        // DisplayName.SetDefault("Luminous Concoction");
-        // Tooltip.SetDefault("Creates a damaging ring");
-    }
     public override void SetDefaults()
     {
         Item.width = 32;
         Item.height = 32;
         Item.noMelee = true;
         Item.DamageType = DamageClass.Magic;
-        Item.damage = 45;
+        Item.damage = 38;
         Item.channel = true;
         Item.mana = 6;
-        Item.rare = ItemRarityID.Yellow;
+        Item.rare = ItemRarityID.LightRed;
         Item.useTime = 27;
         Item.useAnimation = 27;
         Item.UseSound = SoundID.Item18;

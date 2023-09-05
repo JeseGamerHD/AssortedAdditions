@@ -7,18 +7,13 @@ namespace ModdingTutorial.Content.Items.Weapons.Magic.Concoctions;
 
 internal class ExplosiveConcoction : ModItem
 {
-    public override void SetStaticDefaults()
-    {
-        // Tooltip.SetDefault("Will burst into flames");
-        // DisplayName.SetDefault("Volatile Concoction");
-    }
     public override void SetDefaults()
     {
         Item.width = 32;
         Item.height = 32;
         Item.noMelee = true;
         Item.DamageType = DamageClass.Magic;
-        Item.damage = 35;
+        Item.damage = 22;
         Item.channel = true;
         Item.mana = 6;
         Item.rare = ItemRarityID.Green;

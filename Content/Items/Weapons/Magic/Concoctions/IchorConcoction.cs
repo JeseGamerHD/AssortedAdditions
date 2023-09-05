@@ -7,10 +7,6 @@ namespace ModdingTutorial.Content.Items.Weapons.Magic.Concoctions;
 
 internal class IchorConcoction : ModItem
 {
-    public override void SetStaticDefaults()
-    {
-        // Tooltip.SetDefault("Decreases target's defence");
-    }
     public override void SetDefaults()
     {
         Item.width = 32;
@@ -20,7 +16,7 @@ internal class IchorConcoction : ModItem
         Item.damage = 60;
         Item.channel = true;
         Item.mana = 6;
-        Item.rare = ItemRarityID.Lime;
+        Item.rare = ItemRarityID.LightRed;
         Item.useTime = 27;
         Item.useAnimation = 27;
         Item.UseSound = SoundID.Item18;

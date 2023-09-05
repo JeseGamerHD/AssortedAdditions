@@ -7,10 +7,6 @@ namespace ModdingTutorial.Content.Items.Weapons.Magic.Concoctions;
 
 internal class BouncingConcoction : ModItem
 {
-    public override void SetStaticDefaults()
-    {
-        // Tooltip.SetDefault("Filled with cursed inferno");
-    }
     public override void SetDefaults()
     {
         Item.width = 32;
