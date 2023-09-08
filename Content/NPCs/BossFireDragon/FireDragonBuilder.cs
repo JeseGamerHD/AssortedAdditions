@@ -250,7 +250,7 @@ namespace ModdingTutorial.Content.NPCs.BossFireDragon /// This is a copy of Exam
                 // We also get the length of the direction vector.
                 float length = (float)Math.Sqrt(dirX * dirX + dirY * dirY);
                 // We calculate a new, correct distance.
-                float dist = (length - worm.NPC.width) / length;
+                float dist = (length - (worm.NPC.width * 0.8f)) / length;
                 float posX = dirX * dist;
                 float posY = dirY * dist;
 

@@ -120,8 +120,8 @@ namespace ModdingTutorial.Content.NPCs.BossFireDragon // This Boss NPC is built 
         public override void Init()
         {
             // How long the Dragon will be
-            MinSegmentLength = 40;
-            MaxSegmentLength = 40;
+            MinSegmentLength = 60;
+            MaxSegmentLength = 60;
             CommonWormInit(this); // Segments spawn in FireDragonBuilder.cs
         }
 
