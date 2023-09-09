@@ -17,6 +17,7 @@
     <None Remove="Content\Items\Consumables\MerchantInvitation.png" />
     <None Remove="Content\Items\Consumables\SkeletonPotion.png" />
     <None Remove="Content\Items\Misc\IceEssence.png" />
+    <None Remove="Content\Items\Misc\LunchBox.png" />
     <None Remove="Content\Items\Misc\MagicEssence.png" />
     <None Remove="Content\Items\Misc\MysteriousKey.png" />
     <None Remove="Content\Items\Misc\SharkTooth.png" />

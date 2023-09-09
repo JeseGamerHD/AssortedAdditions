@@ -794,6 +794,11 @@ Mods: {
 				DisplayName: Skeleton Potion
 				Tooltip: Throw the potion to summon skeleton merchant
 			}
+
+			LunchBox: {
+				DisplayName: Lunch Box
+				Tooltip: ""
+			}
 		}
 
 		Projectiles: {

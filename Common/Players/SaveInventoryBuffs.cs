@@ -1,4 +1,5 @@
-﻿using Terraria.ID;
+﻿using ModdingTutorial.Content.Items.Misc;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace ModdingTutorial.Common.Players
@@ -27,6 +28,11 @@ namespace ModdingTutorial.Common.Players
             if (Player.HasItemInAnyInventory(ItemID.CrystalBall))
             {
                 Player.AddBuff(BuffID.Clairvoyance, 2);
+            }
+
+            if (Player.HasItemInAnyInventory(ModContent.ItemType<LunchBox>()))
+            {
+                Player.AddBuff(BuffID.WellFed2, 2);
             }
         }
     }
