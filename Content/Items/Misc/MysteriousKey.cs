@@ -45,9 +45,9 @@ namespace ModdingTutorial.Content.Items.Misc
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ItemID.SoulofMight, 1);
-            recipe.AddIngredient(ItemID.SoulofSight, 1);
-            recipe.AddIngredient(ItemID.SoulofFright, 1);
+            recipe.AddIngredient(ItemID.SoulofMight, 15);
+            recipe.AddIngredient(ItemID.SoulofSight, 15);
+            recipe.AddIngredient(ItemID.SoulofFright, 15);
             recipe.AddIngredient(ItemID.ShadowKey, 1);
             recipe.AddTile(ModContent.TileType<MagicWorkbenchTile>());
             recipe.Register();
