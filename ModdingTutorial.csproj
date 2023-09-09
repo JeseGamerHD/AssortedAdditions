@@ -84,6 +84,7 @@
     <None Remove="Content\Items\Weapons\Summon\SnowDwellerStaff.png" />
     <None Remove="Content\Items\Weapons\Summon\SunScepter.png" />
     <None Remove="Content\NPCs\BossFireDragon\FireDragonHead.png" />
+    <None Remove="Content\NPCs\BossFireDragon\FireDragon_Bestiary.png" />
     <None Remove="Content\NPCs\CursedPickaxe.png" />
     <None Remove="Content\NPCs\FrostWraith.png" />
     <None Remove="Content\NPCs\Gores\BuilderGore1.png" />

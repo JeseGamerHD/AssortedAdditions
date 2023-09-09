@@ -48,7 +48,7 @@ namespace ModdingTutorial.Content.NPCs.BossFireDragon // This Boss NPC is built 
             // Beastiary stuff
             var drawModifier = new NPCID.Sets.NPCBestiaryDrawModifiers(0)
             { // Influences how the NPC looks in the Bestiary
-                CustomTexturePath = "ModdingTutorial/Content/NPCs/BossFireDragon/FireDragon_Beastiary",
+                CustomTexturePath = "ModdingTutorial/Content/NPCs/BossFireDragon/FireDragon_Bestiary",
                 PortraitScale = 1.5f
             };
             NPCID.Sets.NPCBestiaryDrawOffset.Add(NPC.type, drawModifier);
@@ -84,7 +84,7 @@ namespace ModdingTutorial.Content.NPCs.BossFireDragon // This Boss NPC is built 
         {
             bestiaryEntry.Info.AddRange(new List<IBestiaryInfoElement> {
                 BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.TheUnderworld, // sets the background image
-                new FlavorTextBestiaryInfoElement("It answers the call of the Ancient Token, however, it does not like being disturbed.")
+                new FlavorTextBestiaryInfoElement("It lays dormant in the depths of the underworld until it is challenged. It commands an army of Fire Drakes")
             });
         }
 
