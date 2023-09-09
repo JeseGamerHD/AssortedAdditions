@@ -16,7 +16,7 @@ namespace ModdingTutorial.Content.Items.Misc
 
             Item.consumable = false;
 
-            Item.rare = ItemRarityID.Orange;
+            Item.rare = ItemRarityID.LightRed;
             Item.UseSound = SoundID.Item2;
             Item.useStyle = ItemUseStyleID.EatFood;
             Item.sellPrice(silver: 75);
