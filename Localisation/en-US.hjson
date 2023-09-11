@@ -799,6 +799,11 @@ Mods: {
 				DisplayName: Lunch Box
 				Tooltip: ""
 			}
+
+			LivingCactusBanner: {
+				DisplayName: Living Cactus Banner
+				Tooltip: ""
+			}
 		}
 
 		Projectiles: {
@@ -872,6 +877,8 @@ Mods: {
 				MapEntry0: Mysterious Chest
 				MapEntry1: Locked Mysterious Chest
 			}
+
+			LivingCactusBannerTile.MapEntry: Banner
 		}
 
 		NPCs: {
@@ -905,6 +912,7 @@ Mods: {
 			CursedPickaxe.DisplayName: Cursed Pickaxe
 			Shroomling.DisplayName: Shroomling
 			FrostWraith.DisplayName: Frost Wraith
+			LivingCactus.DisplayName: Living Cactus
 		}
 
 		Conditions.SellCosmicItems: Mods.ModdingTutorial.Conditions.SellCosmicItems

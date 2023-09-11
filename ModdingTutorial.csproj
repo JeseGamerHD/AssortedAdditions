@@ -23,6 +23,7 @@
     <None Remove="Content\Items\Misc\SharkTooth.png" />
     <None Remove="Content\Items\Placeables\Banners\CursedPickaxeBanner.png" />
     <None Remove="Content\Items\Placeables\Banners\FrostWraithBanner.png" />
+    <None Remove="Content\Items\Placeables\Banners\LivingCactusBanner.png" />
     <None Remove="Content\Items\Placeables\Banners\ShroomlingBanner.png" />
     <None Remove="Content\Items\Placeables\Blocks\ArtDecoBlock.png" />
     <None Remove="Content\Items\Placeables\Blocks\BlueCarpet.png" />
@@ -91,6 +92,7 @@
     <None Remove="Content\NPCs\Gores\BuilderGore2.png" />
     <None Remove="Content\NPCs\Gores\BuilderGore3.png" />
     <None Remove="Content\NPCs\Gores\ShroomlingGore.png" />
+    <None Remove="Content\NPCs\LivingCactus.png" />
     <None Remove="Content\NPCs\Shroomling.png" />
     <None Remove="Content\NPCs\Town\Builder.png" />
     <None Remove="Content\NPCs\Town\Builder_Head.png" />
@@ -122,6 +124,7 @@
     <None Remove="Content\Projectiles\SummonProj\SunScepterMinion.png" />
     <None Remove="Content\Tiles\Banners\CursedPickaxeBannerTile.png" />
     <None Remove="Content\Tiles\Banners\FrostWraithBannerTile.png" />
+    <None Remove="Content\Tiles\Banners\LivingCactusBannerTile.png" />
     <None Remove="Content\Tiles\Banners\ShroomlingBannerTile.png" />
     <None Remove="Content\Tiles\Blocks\ArtDecoBlockTile.png" />
     <None Remove="Content\Tiles\Blocks\BlueCarpetTile.png" />
