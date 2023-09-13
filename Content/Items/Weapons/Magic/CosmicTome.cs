@@ -21,6 +21,7 @@ namespace ModdingTutorial.Content.Items.Weapons.Magic
             Item.mana = 8;
 
             Item.autoReuse = true;
+            Item.noMelee = true;
 
             Item.DamageType = DamageClass.Magic;
             Item.useStyle = ItemUseStyleID.Shoot;
