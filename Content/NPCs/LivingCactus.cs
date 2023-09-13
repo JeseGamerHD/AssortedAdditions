@@ -1,4 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
+using ModdingTutorial.Content.Items.Accessories;
+using ModdingTutorial.Content.Items.Armor;
 using ModdingTutorial.Content.Items.Placeables.Banners;
 using Terraria;
 using Terraria.GameContent.Bestiary;
@@ -143,6 +145,16 @@ namespace ModdingTutorial.Content.NPCs
             State = 1; // If shot from further away, set state to attack
         }
 
+        public override void HitEffect(NPC.HitInfo hit)
+        {
+            // Create gore when the NPC is killed.
+            if (Main.netMode != NetmodeID.Server && NPC.life <= 0)
+            {
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position, Vector2.Zero, Mod.Find<ModGore>("LivingCactusGore1").Type, 1f);
+                Gore.NewGore(NPC.GetSource_Death(), NPC.position, Vector2.Zero, Mod.Find<ModGore>("LivingCactusGore2").Type, 1f);
+            }
+        }
+
         private int frame = 0;
         public override void FindFrame(int frameHeight)
         {
@@ -198,6 +210,7 @@ namespace ModdingTutorial.Content.NPCs
         public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
             npcLoot.Add(ItemDropRule.Common(ItemID.Cactus, 1, 1, 5));
+            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<CactusFlower>(), 10, 1, 1));
         }
 
         public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)

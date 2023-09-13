@@ -804,6 +804,15 @@ Mods: {
 				DisplayName: Living Cactus Banner
 				Tooltip: ""
 			}
+
+			CactusFlower: {
+				DisplayName: Cactus Flower
+				Tooltip: 
+				'''
+				Increases life regeneration
+				10% increased attack speed
+				'''
+			}
 		}
 
 		Projectiles: {
