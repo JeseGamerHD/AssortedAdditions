@@ -3,6 +3,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using ModdingTutorial.Content.Projectiles.RangedProj;
 using Terraria.GameContent.Creative;
+using ModdingTutorial.Content.Projectiles.MagicProj;
 
 namespace ModdingTutorial.Content.Items.Weapons.Ranged
 {
@@ -38,15 +39,7 @@ namespace ModdingTutorial.Content.Items.Weapons.Ranged
         // New one can be thrown once the first one has returned
         public override bool CanUseItem(Player player)
         {
-            Projectile proj = Main.projectile[0];
-            if (proj.active && proj.owner == player.whoAmI && proj.type == Item.shoot)
-            {
-                return false;
-            }
-            else
-            {
-                return true;
-            }
+            return player.ownedProjectileCounts[Item.shoot] < 1;
         }
     }
 }
