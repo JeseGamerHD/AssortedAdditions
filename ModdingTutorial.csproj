@@ -63,6 +63,7 @@
     <None Remove="Content\Items\Vanity\ShroomHat.png" />
     <None Remove="Content\Items\Vanity\ShroomHat_Head.png" />
     <None Remove="Content\Items\Weapons\Magic\BookOfAlphabets.png" />
+    <None Remove="Content\Items\Weapons\Magic\BookOfMathematics.png" />
     <None Remove="Content\Items\Weapons\Magic\Concoctions\FrozenConcoction.png" />
     <None Remove="Content\Items\Weapons\Magic\CosmicTome.png" />
     <None Remove="Content\Items\Weapons\Magic\DeathRay.png" />
@@ -100,6 +101,7 @@
     <None Remove="Content\Projectiles\EchoChamberProj.png" />
     <None Remove="Content\Projectiles\FrostBobber.png" />
     <None Remove="Content\Projectiles\MagicProj\BookOfAlphabetsProj.png" />
+    <None Remove="Content\Projectiles\MagicProj\BookOfMathematicsProj.png" />
     <None Remove="Content\Projectiles\MagicProj\DeathRayProj.png" />
     <None Remove="Content\Projectiles\MagicProj\IcyWandProj.png" />
     <None Remove="Content\Projectiles\MagicProj\TrueAmberStaffProj.png" />

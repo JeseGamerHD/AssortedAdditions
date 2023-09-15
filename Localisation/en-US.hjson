@@ -807,11 +807,16 @@ Mods: {
 
 			CactusFlower: {
 				DisplayName: Cactus Flower
-				Tooltip: 
-				'''
-				Increases life regeneration
-				10% increased attack speed
-				'''
+				Tooltip:
+					'''
+					Increases life regeneration
+					10% increased attack speed
+					'''
+			}
+
+			BookOfMathematics: {
+				DisplayName: Book Of Mathematics
+				Tooltip: Shoots out numbers in a sinusoidal pattern
 			}
 		}
 
@@ -868,6 +873,7 @@ Mods: {
 			CosmicWhipProj.DisplayName: Cosmic Whip Proj
 			SnowDwellerMinion.DisplayName: Snow Dweller Minion
 			SkeletonPotionProj.DisplayName: Skeleton Potion Proj
+			BookOfMathematicsProj.DisplayName: Book Of Mathematics Proj
 		}
 
 		Tiles: {
