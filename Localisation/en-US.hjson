@@ -815,8 +815,13 @@ Mods: {
 			}
 
 			BookOfMathematics: {
-				DisplayName: Book Of Mathematics
+				DisplayName: Book of Mathematics
 				Tooltip: Shoots out numbers in a sinusoidal pattern
+			}
+
+			EyeBow: {
+				DisplayName: Eye Bow
+				Tooltip: Converts arrows into eyeballs
 			}
 		}
 
@@ -874,6 +879,7 @@ Mods: {
 			SnowDwellerMinion.DisplayName: Snow Dweller Minion
 			SkeletonPotionProj.DisplayName: Skeleton Potion Proj
 			BookOfMathematicsProj.DisplayName: Book Of Mathematics Proj
+			EyeBowProj.DisplayName: Eye Bow Proj
 		}
 
 		Tiles: {

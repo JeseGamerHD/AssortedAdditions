@@ -3,7 +3,6 @@ using Terraria;
 using Terraria.ModLoader;
 using Terraria.GameContent.ItemDropRules;
 using ModdingTutorial.Common.ItemDropRules;
-using ModdingTutorial.Content.Items.Consumables;
 using ModdingTutorial.Content.Items.Placeables.Ores;
 using ModdingTutorial.Content.Items.Misc;
 using ModdingTutorial.Content.Items.Weapons.Magic;
@@ -44,6 +43,14 @@ namespace ModdingTutorial.Common.GlobalNPCs
 
             /* REGULAR ENEMIES UNDER HERE: */
             /* -------------------------------------------------------------------------------------------------- */
+            
+            // Demon eyes (only positive ids since the negatives are variants of the positives)
+            if(npc.type == NPCID.DemonEye || npc.type == NPCID.CataractEye || npc.type == NPCID.SleepyEye
+                || npc.type == NPCID.DialatedEye || npc.type == NPCID.GreenEye || npc.type == NPCID.PurpleEye)
+            {
+                npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<EyeBow>(), 40, 1, 1));
+            }
+            
             if (npc.type == NPCID.TombCrawlerHead)
             {
                 // 33% chance to drop 4-7 dune ores after crimson/corruption boss has been defeated
