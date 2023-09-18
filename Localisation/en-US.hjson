@@ -823,6 +823,11 @@ Mods: {
 				DisplayName: Eye Bow
 				Tooltip: Converts arrows into eyeballs
 			}
+
+			Adrenaline: {
+				DisplayName: Adrenaline
+				Tooltip: Increases your attack and movement speed when your health decreases
+			}
 		}
 
 		Projectiles: {

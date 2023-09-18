@@ -48,7 +48,7 @@ namespace ModdingTutorial.Common.GlobalNPCs
             if(npc.type == NPCID.DemonEye || npc.type == NPCID.CataractEye || npc.type == NPCID.SleepyEye
                 || npc.type == NPCID.DialatedEye || npc.type == NPCID.GreenEye || npc.type == NPCID.PurpleEye)
             {
-                npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<EyeBow>(), 40, 1, 1));
+                npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<EyeBow>(), 40, 1, 1)); // 2.5% chance to drop
             }
             
             if (npc.type == NPCID.TombCrawlerHead)
@@ -78,6 +78,11 @@ namespace ModdingTutorial.Common.GlobalNPCs
             {
                 // 25% chance to drop 1-3 Shark Tooth
                 npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<SharkTooth>(), 4, 1, 3));
+            }
+
+            if(npc.type == NPCID.ThePossessed || npc.type == NPCID.Fritz)
+            {
+                npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Adrenaline>(), 40, 1, 1)); // 2.5% chance to drop
             }
         }
     }

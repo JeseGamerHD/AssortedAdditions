@@ -13,6 +13,7 @@
     <None Remove="Content\Buffs\MotivatorDebuff.png" />
     <None Remove="Content\Buffs\SnowDwellerBuff.png" />
     <None Remove="Content\Buffs\SunScepterBuff.png" />
+    <None Remove="Content\Items\Accessories\Adrenaline.png" />
     <None Remove="Content\Items\Accessories\CactusFlower.png" />
     <None Remove="Content\Items\Accessories\EchoChamber.png" />
     <None Remove="Content\Items\Consumables\MerchantInvitation.png" />
