@@ -4,6 +4,7 @@ using Terraria.ModLoader;
 using ModdingTutorial.Content.Items.Placeables.Ores;
 using ModdingTutorial.Content.Items.Placeables.Blocks;
 using ModdingTutorial.Content.Items.Misc;
+using ModdingTutorial.Content.Items.Accessories;
 
 namespace ModdingTutorial.Common.GlobalItems
 {
@@ -42,6 +43,7 @@ namespace ModdingTutorial.Common.GlobalItems
         // MagmaStone
         // PocketMirror
         // SharkToothNecklace
+        // AnkhCharm
 
         // CONSTRUCTION
         // *******************
@@ -213,6 +215,15 @@ namespace ModdingTutorial.Common.GlobalItems
             sharkToothNecklace.AddIngredient(ItemID.Chain, 5);
             sharkToothNecklace.AddTile(TileID.TinkerersWorkbench);
             sharkToothNecklace.Register();
+
+            Recipe ankhCharm = Recipe.Create(ItemID.AnkhCharm, 1);
+            ankhCharm.AddIngredient(ItemID.ArmorBracing);
+            ankhCharm.AddIngredient(ModContent.ItemType<MedicatedDressing>(), 1);
+            ankhCharm.AddIngredient(ItemID.ThePlan);
+            ankhCharm.AddIngredient(ItemID.CountercurseMantra);
+            ankhCharm.AddIngredient(ItemID.ReflectiveShades);
+            ankhCharm.AddTile(TileID.TinkerersWorkbench);
+            ankhCharm.Register();
 
             // CONSTRUCTION
             // ******************************************************************************

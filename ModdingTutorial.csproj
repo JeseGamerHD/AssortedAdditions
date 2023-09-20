@@ -15,7 +15,9 @@
     <None Remove="Content\Buffs\SunScepterBuff.png" />
     <None Remove="Content\Items\Accessories\Adrenaline.png" />
     <None Remove="Content\Items\Accessories\CactusFlower.png" />
+    <None Remove="Content\Items\Accessories\Dressing.png" />
     <None Remove="Content\Items\Accessories\EchoChamber.png" />
+    <None Remove="Content\Items\Accessories\MedicatedDressing.png" />
     <None Remove="Content\Items\Consumables\MerchantInvitation.png" />
     <None Remove="Content\Items\Consumables\SkeletonPotion.png" />
     <None Remove="Content\Items\Misc\IceEssence.png" />

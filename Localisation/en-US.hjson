@@ -828,6 +828,16 @@ Mods: {
 				DisplayName: Adrenaline
 				Tooltip: Increases your attack and movement speed when your health decreases
 			}
+
+			Dressing: {
+				DisplayName: Dressing
+				Tooltip: Immunity to Bleeding
+			}
+
+			MedicatedDressing: {
+				DisplayName: Medicated Dressing
+				Tooltip: Immunity to Poison and Bleeding
+			}
 		}
 
 		Projectiles: {
