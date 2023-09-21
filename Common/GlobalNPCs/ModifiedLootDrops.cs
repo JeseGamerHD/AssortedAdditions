@@ -74,6 +74,13 @@ namespace ModdingTutorial.Common.GlobalNPCs
                 npcLoot.Add(AnyMechBossDefeated);
             }
 
+            // Add armor polish to other armored enemies as well
+            // (not to rusty armored bones since its armor is rusty and having it drops makes less sense)
+            if(npc.type == NPCID.ArmoredViking || npc.type == NPCID.HellArmoredBones)
+            {
+                npcLoot.Add(ItemDropRule.Common(ItemID.ArmorPolish, 40, 1, 1));
+            }
+
             if(npc.type == NPCID.Shark)
             {
                 // 25% chance to drop 1-3 Shark Tooth
@@ -83,6 +90,11 @@ namespace ModdingTutorial.Common.GlobalNPCs
             if(npc.type == NPCID.ThePossessed || npc.type == NPCID.Fritz)
             {
                 npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Adrenaline>(), 40, 1, 1)); // 2.5% chance to drop
+            }
+
+            if(npc.type == NPCID.Derpling)
+            {
+                npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Antiseptic>(), 20, 1, 1)); // 5% chance to drop
             }
         }
     }

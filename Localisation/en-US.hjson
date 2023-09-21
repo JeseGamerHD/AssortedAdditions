@@ -838,6 +838,11 @@ Mods: {
 				DisplayName: Medicated Dressing
 				Tooltip: Immunity to Poison and Bleeding
 			}
+
+			Antiseptic: {
+				DisplayName: Antiseptic
+				Tooltip: Immunity to Feral Bite
+			}
 		}
 
 		Projectiles: {
