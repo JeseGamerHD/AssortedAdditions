@@ -91,11 +91,6 @@ namespace ModdingTutorial.Common.GlobalNPCs
             {
                 npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Adrenaline>(), 40, 1, 1)); // 2.5% chance to drop
             }
-
-            if(npc.type == NPCID.Derpling)
-            {
-                npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Antiseptic>(), 20, 1, 1)); // 5% chance to drop
-            }
         }
     }
 }
