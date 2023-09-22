@@ -14,6 +14,7 @@
     <None Remove="Content\Buffs\SnowDwellerBuff.png" />
     <None Remove="Content\Buffs\SunScepterBuff.png" />
     <None Remove="Content\Items\Accessories\Adrenaline.png" />
+    <None Remove="Content\Items\Accessories\Antidote.png" />
     <None Remove="Content\Items\Accessories\CactusFlower.png" />
     <None Remove="Content\Items\Accessories\Dressing.png" />
     <None Remove="Content\Items\Accessories\EchoChamber.png" />

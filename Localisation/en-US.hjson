@@ -839,8 +839,8 @@ Mods: {
 				Tooltip: Immunity to Poison and Bleeding
 			}
 
-			Antiseptic: {
-				DisplayName: Antiseptic
+			Antidote: {
+				DisplayName: Antidote
 				Tooltip: Immunity to Feral Bite
 			}
 		}
