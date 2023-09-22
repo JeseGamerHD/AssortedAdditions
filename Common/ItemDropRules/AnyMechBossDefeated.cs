@@ -3,7 +3,9 @@ using Terraria.GameContent.ItemDropRules;
 
 namespace ModdingTutorial.Common.ItemDropRules
 {
-    internal class AnyMechBossDefeated : IItemDropRuleCondition
+    // No longer used since 1.4.4 added an easier way to add conditions to npcLoot
+    // Left as a example incase needed later
+/*    internal class AnyMechBossDefeated : IItemDropRuleCondition
     {
         public bool CanDrop(DropAttemptInfo info)
         {
@@ -19,5 +21,5 @@ namespace ModdingTutorial.Common.ItemDropRules
         {
             return "Drops after defeating one of the mechanical bosses";
         }
-    }
+    }*/
 }
