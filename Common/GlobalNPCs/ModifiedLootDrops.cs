@@ -91,6 +91,12 @@ namespace ModdingTutorial.Common.GlobalNPCs
             {
                 npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Adrenaline>(), 40, 1, 1)); // 2.5% chance to drop
             }
+
+            // Add vitamins to more enemy loot pools so its less rare
+            if(npc.type == NPCID.Herpling || npc.type == NPCID.IchorSticker || npc.type == NPCID.Clinger || npc.type == NPCID.SeekerHead)
+            {
+                npcLoot.Add(ItemDropRule.Common(ItemID.Vitamins, 40, 1, 1)); // 2.5% chance to drop
+            }
         }
     }
 }
