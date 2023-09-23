@@ -859,6 +859,11 @@ Mods: {
 					Life regen slightly increased during cooldown.
 					'''
 			}
+
+			FiberGlass: {
+				DisplayName: Fiber Glass
+				Tooltip: ""
+			}
 		}
 
 		Projectiles: {
