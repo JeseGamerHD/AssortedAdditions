@@ -853,7 +853,7 @@ Mods: {
 				DisplayName: Medkit
 				Tooltip:
 					'''
-					Immunity to Bleeding and Feral Bite.
+					Immunity to Bleeding, Poison and Feral Bite.
 					Increases attack and movement speed when your health decreases.
 					50% chance to heal you just before death, activates a cooldown.
 					Life regen slightly increased during cooldown.

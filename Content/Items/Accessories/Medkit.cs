@@ -23,6 +23,7 @@ namespace ModdingTutorial.Content.Items.Accessories
             player.GetModPlayer<AccessoryFlags>().isWearingMedkit = true; 
             player.buffImmune[BuffID.Rabies] = true;
             player.buffImmune[BuffID.Bleeding] = true;
+            player.buffImmune[BuffID.Poisoned] = true;
 
             // Increase max run speed manually
             if (player.statLife <= player.statLifeMax2 * 0.7f && player.statLife > player.statLifeMax2 * 0.5f)
