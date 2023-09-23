@@ -9,46 +9,9 @@ using ModdingTutorial.Content.Items.Accessories;
 namespace ModdingTutorial.Common.GlobalItems
 {
     // This class gives many of the vanilla accessories alternative sources (crafting recipes)
-
+    // Also modifies some behaviour
     internal class ModifiedAccessories : GlobalItem
     {
-
-        // MOVEMENT
-        // *******************
-        // HermesBoots
-        // DuneriderBoots (SandBoots)
-        // FlurryBoots
-        // SailfishBoots
-        // WaterWalkingBoots
-        // IceSkates
-        // Aglet
-        // CloudinaBottle
-        // FrogLeg
-        // DivingHelmet
-        // ClimbingClaws
-        // ShoeSpikes
-        // FlyingCarpet
-
-        // HEALTH AND MANA
-        // *******************
-        // BandofRegeneration
-        // BandofStarpower
-
-        // COMBAT
-        // *******************
-        // ObsidianRose
-        // Shackle
-        // FeralClaws
-        // MagicQuiver
-        // MagmaStone
-        // PocketMirror
-        // SharkToothNecklace
-        // AnkhCharm
-
-        // CONSTRUCTION
-        // *******************
-        // Presserator (ActuationAccessory)
-
         public override void AddRecipes()
         {
             // MOVEMENT
@@ -232,6 +195,20 @@ namespace ModdingTutorial.Common.GlobalItems
             presserator.AddIngredient(ItemID.Actuator, 25);
             presserator.AddTile(TileID.TinkerersWorkbench);
             presserator.Register();
+        }
+
+        // Prevent the player from equipping some similar accessories to prevent cheesing through limits in
+        // Modded accessories' CanAccessoryBeEquippedWith().
+        // E.g Player could equip both necklaces and then swap one for a medkit and get insane speeds
+        public override bool CanAccessoryBeEquippedWith(Item equippedItem, Item incomingItem, Player player)
+        {
+            if( (equippedItem.type == ItemID.PanicNecklace && incomingItem.type == ItemID.SweetheartNecklace ) 
+                || equippedItem.type == ItemID.SweetheartNecklace && incomingItem.type == ItemID.PanicNecklace)
+            {
+                return false;
+            }
+
+            return base.CanAccessoryBeEquippedWith(equippedItem, incomingItem, player);
         }
     }
 }

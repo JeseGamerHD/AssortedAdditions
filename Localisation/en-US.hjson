@@ -45,6 +45,11 @@ Mods: {
 				DisplayName: Snow Dweller Buff
 				Description: A Little gremlin
 			}
+
+			MedkitBuff: {
+				DisplayName: Medkit Cooldown
+				Description: Medkit won't save you, but increases life regen
+			}
 		}
 
 		Items: {
@@ -826,7 +831,7 @@ Mods: {
 
 			Adrenaline: {
 				DisplayName: Adrenaline
-				Tooltip: Increases your attack and movement speed when your health decreases
+				Tooltip: Increases attack and movement speed when your health decreases
 			}
 
 			Dressing: {
@@ -842,6 +847,17 @@ Mods: {
 			Antidote: {
 				DisplayName: Antidote
 				Tooltip: Immunity to Feral Bite
+			}
+
+			Medkit: {
+				DisplayName: Medkit
+				Tooltip:
+					'''
+					Immunity to Bleeding and Feral Bite.
+					Increases attack and movement speed when your health decreases.
+					50% chance to heal you just before death, activates a cooldown.
+					Life regen slightly increased during cooldown.
+					'''
 			}
 		}
 

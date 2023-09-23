@@ -1,6 +1,7 @@
 ﻿using ModdingTutorial.Content.Buffs;
 using Terraria;
 using Terraria.Audio;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -12,6 +13,7 @@ namespace ModdingTutorial.Common.Players
     {
         // These flags are set in the accessory file
         public bool isWearingEchoChamber;
+        public bool isWearingMedkit;
 
         public override bool ConsumableDodge(Player.HurtInfo info)
         {
@@ -54,10 +56,34 @@ namespace ModdingTutorial.Common.Players
             return false;
         }
 
+        public override bool PreKill(double damage, int hitDirection, bool pvp, ref bool playSound, ref bool genGore, ref PlayerDeathReason damageSource)
+        {
+            // When wearing a medkit and its buff has not been activated
+            if (isWearingMedkit && !Player.HasBuff(ModContent.BuffType<MedkitBuff>()))
+            {
+                // 50/50 chance to activate
+                if(Main.rand.NextBool())
+                {
+                    // Activate the buff and heal the player
+                    Player.AddBuff(ModContent.BuffType<MedkitBuff>(), 18000);
+                    Player.Heal(150);
+                    return false; // Stop player from dying
+                }
+                else
+                {
+                    return true;
+                }
+            }
+
+            // In any other case the player should die
+            return base.PreKill(damage, hitDirection, pvp, ref playSound, ref genGore, ref damageSource);
+        }
+
         // Reset flags
         public override void ResetEffects()
         {
             isWearingEchoChamber = false;
+            isWearingMedkit = false;
         }
     }
 }

@@ -10,6 +10,7 @@
   <ItemGroup>
     <None Remove="Content\Buffs\EchoChamberBuff.png" />
     <None Remove="Content\Buffs\EchoChamberDebuff.png" />
+    <None Remove="Content\Buffs\MedkitBuff.png" />
     <None Remove="Content\Buffs\MotivatorDebuff.png" />
     <None Remove="Content\Buffs\SnowDwellerBuff.png" />
     <None Remove="Content\Buffs\SunScepterBuff.png" />
@@ -19,6 +20,7 @@
     <None Remove="Content\Items\Accessories\Dressing.png" />
     <None Remove="Content\Items\Accessories\EchoChamber.png" />
     <None Remove="Content\Items\Accessories\MedicatedDressing.png" />
+    <None Remove="Content\Items\Accessories\Medkit.png" />
     <None Remove="Content\Items\Consumables\MerchantInvitation.png" />
     <None Remove="Content\Items\Consumables\SkeletonPotion.png" />
     <None Remove="Content\Items\Misc\IceEssence.png" />
