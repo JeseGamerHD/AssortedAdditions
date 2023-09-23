@@ -62,11 +62,24 @@ namespace ModdingTutorial.Common.Players
             if (isWearingMedkit && !Player.HasBuff(ModContent.BuffType<MedkitBuff>()))
             {
                 // 50/50 chance to activate
-                if(Main.rand.NextBool())
+                if(Main.rand.NextBool(2))
                 {
                     // Activate the buff and heal the player
                     Player.AddBuff(ModContent.BuffType<MedkitBuff>(), 18000);
                     Player.Heal(150);
+                    
+                    // Spawn some dust...
+                    for (int i = 0; i < 30; i++)
+                    {
+                        Dust dust = Dust.NewDustDirect(Player.position, Player.width, Player.height,
+                            DustID.Blood, 0, 0, 100, default, 2f);
+                        dust.noGravity = true;
+                        dust.velocity *= 6f;
+                    }
+
+                    // Sound effect..
+                    SoundEngine.PlaySound(SoundID.DD2_DarkMageHealImpact with { Volume = 3f }, Player.position);
+
                     return false; // Stop player from dying
                 }
                 else
