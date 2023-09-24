@@ -13,7 +13,7 @@ internal class IchorConcoction : ModItem
         Item.height = 32;
         Item.noMelee = true;
         Item.DamageType = DamageClass.Magic;
-        Item.damage = 60;
+        Item.damage = 50;
         Item.channel = true;
         Item.mana = 6;
         Item.rare = ItemRarityID.LightRed;

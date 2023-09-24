@@ -13,12 +13,12 @@ internal class ShadowConcoction : ModItem
         Item.height = 32;
         Item.noMelee = true;
         Item.DamageType = DamageClass.Magic;
-        Item.damage = 65;
+        Item.damage = 48;
         Item.channel = true;
         Item.mana = 6;
         Item.rare = ItemRarityID.LightRed;
-        Item.useTime = 27;
-        Item.useAnimation = 27;
+        Item.useTime = 24;
+        Item.useAnimation = 24;
         Item.UseSound = SoundID.Item18;
         Item.useStyle = ItemUseStyleID.Swing;
         Item.value = Item.sellPrice(gold: 10);

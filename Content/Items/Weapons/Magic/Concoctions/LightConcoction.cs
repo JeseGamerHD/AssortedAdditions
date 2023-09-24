@@ -13,7 +13,7 @@ internal class LightConcoction : ModItem
         Item.height = 32;
         Item.noMelee = true;
         Item.DamageType = DamageClass.Magic;
-        Item.damage = 38;
+        Item.damage = 35;
         Item.channel = true;
         Item.mana = 6;
         Item.rare = ItemRarityID.LightRed;

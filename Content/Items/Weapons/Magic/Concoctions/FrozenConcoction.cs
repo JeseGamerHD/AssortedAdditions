@@ -1,4 +1,5 @@
-﻿using ModdingTutorial.Content.Projectiles.MagicProj.ConcoctionsProj;
+﻿using ModdingTutorial.Content.Items.Placeables.Ores;
+using ModdingTutorial.Content.Projectiles.MagicProj.ConcoctionsProj;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -33,7 +34,7 @@ internal class FrozenConcoction : ModItem
         Recipe recipe = CreateRecipe();
         recipe.AddIngredient(ItemID.FrostCore, 1);
         recipe.AddIngredient(ItemID.Shiverthorn, 5);
-        recipe.AddIngredient(ItemID.FlinxFur, 3);
+        recipe.AddIngredient(ModContent.ItemType<Permafrost>(), 5);
         recipe.AddTile(TileID.ImbuingStation);
         recipe.Register();
     }

@@ -27,7 +27,7 @@ namespace ModdingTutorial.Content.Items.Weapons.Melee
             Item.autoReuse = true;
 
             Item.DamageType = DamageClass.Melee;
-            Item.damage = 50;
+            Item.damage = 47;
             Item.knockBack = 6;
             Item.crit = 5;
 

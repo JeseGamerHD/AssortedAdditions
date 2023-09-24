@@ -13,17 +13,17 @@ internal class BouncingConcoction : ModItem
         Item.height = 32;
         Item.noMelee = true;
         Item.DamageType = DamageClass.Magic;
-        Item.damage = 80;
+        Item.damage = 60;
         Item.channel = true;
         Item.mana = 6;
         Item.rare = ItemRarityID.LightRed;
-        Item.useTime = 27;
-        Item.useAnimation = 27;
+        Item.useTime = 25;
+        Item.useAnimation = 25;
         Item.UseSound = SoundID.Item18;
         Item.useStyle = ItemUseStyleID.Swing;
         Item.value = Item.sellPrice(gold: 5);
         Item.shoot = ModContent.ProjectileType<BouncingConcoctionProj>();
-        Item.shootSpeed = 6f;
+        Item.shootSpeed = 8f;
         Item.autoReuse = true;
         Item.noUseGraphic = true;
     }

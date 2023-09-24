@@ -33,6 +33,7 @@ internal class ExplosiveConcoction : ModItem
         Recipe recipe = CreateRecipe();
         recipe.AddIngredient(ItemID.InfernoPotion, 1);
         recipe.AddIngredient(ItemID.Fireblossom, 5);
+        recipe.AddIngredient(ItemID.Hellstone, 5);
         recipe.AddTile(TileID.ImbuingStation);
         recipe.Register();
     }

@@ -20,7 +20,7 @@ namespace ModdingTutorial.Content.Items.Weapons.Ranged
         {
             Item.width = 26;
             Item.height = 58;
-            Item.damage = 70;
+            Item.damage = 55;
             Item.knockBack = 5;
             Item.crit = 4;
             Item.shootSpeed = 13;
