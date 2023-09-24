@@ -1,16 +1,15 @@
 ﻿using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
-using Terraria;
 using Terraria.GameContent;
+using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Terraria.GameContent.Drawing;
 using ModdingTutorial.Content.Buffs.Whips;
 
 namespace ModdingTutorial.Content.Projectiles.SummonProj
 {
-    internal class MotivatorProj : ModProjectile
+    internal class WhipProj : ModProjectile
     {
         public override void SetStaticDefaults()
         {
@@ -25,7 +24,7 @@ namespace ModdingTutorial.Content.Projectiles.SummonProj
 
             // These values needed to be adjusted a bit
             Projectile.WhipSettings.Segments = 30;
-            Projectile.WhipSettings.RangeMultiplier = 1f;
+            Projectile.WhipSettings.RangeMultiplier = 0.75f;
         }
 
         private float Timer
@@ -36,50 +35,9 @@ namespace ModdingTutorial.Content.Projectiles.SummonProj
 
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
-            target.AddBuff(ModContent.BuffType<MotivatorDebuff>(), 240);
+            target.AddBuff(ModContent.BuffType<WhipDebuff>(), 240);
             Main.player[Projectile.owner].MinionAttackTargetNPC = target.whoAmI;
             Projectile.damage = (int)(Projectile.damage * 0.5f); // Multihit penalty. Decrease the damage the more enemies the whip hits.
-
-            // Creates cool sparkly effect when enemy is hit, vanilla has many effects -> ParticleOrchestraType.Effect
-            ParticleOrchestrator.RequestParticleSpawn(clientOnly: false, ParticleOrchestraType.Keybrand,
-                new ParticleOrchestraSettings { PositionInWorld = Main.rand.NextVector2FromRectangle(target.Hitbox) },
-                Projectile.owner);
-        }
-
-        public override void PostAI()
-        {
-            Player owner = Main.player[Projectile.owner];
-            float swingTime = owner.itemAnimationMax * Projectile.MaxUpdates;
-
-            // Spawn Dust along the whip path
-            // This is the dust code used by Durendal. Consult the Terraria source code for even more examples, found in Projectile.AI_165_Whip.
-            float swingProgress = Timer / swingTime;
-            // This code limits dust to only spawn during the the actual swing.
-            if (Utils.GetLerpValue(0.1f, 0.7f, swingProgress, clamped: true) * Utils.GetLerpValue(0.9f, 0.7f, swingProgress, clamped: true) > 0.5f && Main.rand.NextBool(1))
-            {
-                List<Vector2> points = Projectile.WhipPointsForCollision;
-                points.Clear();
-                Projectile.FillWhipControlPoints(Projectile, points);
-                int pointIndex = Main.rand.Next(points.Count - 10, points.Count);
-                Rectangle spawnArea = Utils.CenteredRectangle(points[pointIndex], new Vector2(30f, 30f));
-                int dustType = DustID.Flare;
-
-                // After choosing a randomized dust and a whip segment to spawn from, dust is spawned.
-                Dust dust = Dust.NewDustDirect(spawnArea.TopLeft(), spawnArea.Width, spawnArea.Height, dustType, 0f, 0f, 100, default, 2f);
-                dust.position = points[pointIndex];
-                dust.fadeIn = 0.3f;
-                dust.noGravity = true;
-
-                // Set new values for second dust
-                pointIndex = Main.rand.Next(points.Count - 10, points.Count);
-                spawnArea = Utils.CenteredRectangle(points[pointIndex], new Vector2(30f, 30f));
-                dustType = DustID.WhiteTorch;
-
-                Dust dust2 = Dust.NewDustDirect(spawnArea.TopLeft(), spawnArea.Width, spawnArea.Height, dustType, 0f, 0f, 100, Color.Gray, 2f);
-                dust2.position = points[pointIndex];
-                dust2.fadeIn = 0.3f;
-                dust2.noGravity = true;
-            }
         }
 
         public override bool PreDraw(ref Color lightColor)
@@ -103,7 +61,7 @@ namespace ModdingTutorial.Content.Projectiles.SummonProj
             {
                 // These two values are set to suit this projectile's sprite, but won't necessarily work for your own.
                 // You can change them if they don't!
-                Rectangle frame = new Rectangle(0, 0, 22, 26); // The size of the Handle (measured in pixels)
+                Rectangle frame = new Rectangle(0, 0, 14, 26); // The size of the Handle (measured in pixels)
                 Vector2 origin = new Vector2(5, 8); // Offset for where the player's hand will start measured from the top left of the image.
                 float scale = 1;
 
@@ -112,8 +70,8 @@ namespace ModdingTutorial.Content.Projectiles.SummonProj
                 if (i == list.Count - 2)
                 {
                     // This is the head of the whip. You need to measure the sprite to figure out these values.
-                    frame.Y = 70; // Distance from the top of the sprite to the start of the frame.
-                    frame.Height = 22; // Height of the frame.
+                    frame.Y = 72; // Distance from the top of the sprite to the start of the frame.
+                    frame.Height = 16; // Height of the frame.
 
                     // For a more impactful look, this scales the tip of the whip up when fully extended, and down when curled up.
                     Projectile.GetWhipSettings(Projectile, out float timeToFlyOut, out int _, out float _);

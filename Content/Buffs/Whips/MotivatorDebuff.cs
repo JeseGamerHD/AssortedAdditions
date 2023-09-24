@@ -2,7 +2,7 @@
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace ModdingTutorial.Content.Buffs
+namespace ModdingTutorial.Content.Buffs.Whips
 {
     internal class MotivatorDebuff : ModBuff
     {

@@ -1,5 +1,4 @@
-﻿using ModdingTutorial.Content.Buffs;
-using Terraria.GameContent.Drawing;
+﻿using Terraria.GameContent.Drawing;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -7,6 +6,7 @@ using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria.GameContent;
+using ModdingTutorial.Content.Buffs.Whips;
 
 namespace ModdingTutorial.Content.Projectiles.SummonProj
 {

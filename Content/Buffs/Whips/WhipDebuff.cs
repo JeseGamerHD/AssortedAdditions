@@ -2,14 +2,13 @@
 using Terraria;
 using Terraria.ModLoader;
 
-namespace ModdingTutorial.Content.Buffs
+namespace ModdingTutorial.Content.Buffs.Whips
 {
-    internal class CosmicWhipDebuff : ModBuff
+    internal class WhipDebuff : ModBuff
     {
+        public override string Texture => "ModdingTutorial/Content/Buffs/Whips/MotivatorDebuff";
 
-        public override string Texture => "ModdingTutorial/Content/Buffs/MotivatorDebuff";
-
-        public static readonly int TagDamage = 15;
+        public static readonly int TagDamage = 2;
 
         public override void SetStaticDefaults()
         {
@@ -18,9 +17,10 @@ namespace ModdingTutorial.Content.Buffs
             BuffID.Sets.IsAnNPCWhipDebuff[Type] = true;
             Main.debuff[Type] = true;
         }
+
     }
 
-    public class CosmicWhipDebuffNPC : GlobalNPC
+    public class WhipDebuffNPC : GlobalNPC
     {
         public override void ModifyHitByProjectile(NPC npc, Projectile projectile, ref NPC.HitModifiers modifiers)
         {

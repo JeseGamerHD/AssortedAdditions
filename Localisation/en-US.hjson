@@ -50,6 +50,11 @@ Mods: {
 				DisplayName: Medkit Cooldown
 				Description: Medkit won't save you, but increases life regen
 			}
+
+			WhipDebuff: {
+				DisplayName: Whip Debuff
+				Description: You are targeted by minions
+			}
 		}
 
 		Items: {
@@ -864,6 +869,15 @@ Mods: {
 				DisplayName: Fiber Glass
 				Tooltip: ""
 			}
+
+			Whip: {
+				DisplayName: Whip
+				Tooltip:
+					'''
+					2 summon tag damage
+					Your summons will focus struck enemies
+					'''
+			}
 		}
 
 		Projectiles: {
@@ -921,6 +935,7 @@ Mods: {
 			SkeletonPotionProj.DisplayName: Skeleton Potion Proj
 			BookOfMathematicsProj.DisplayName: Book Of Mathematics Proj
 			EyeBowProj.DisplayName: Eye Bow Proj
+			WhipProj.DisplayName: Whip Proj
 		}
 
 		Tiles: {

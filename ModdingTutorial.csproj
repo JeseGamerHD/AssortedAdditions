@@ -94,6 +94,7 @@
     <None Remove="Content\Items\Weapons\Summon\Motivator.png" />
     <None Remove="Content\Items\Weapons\Summon\SnowDwellerStaff.png" />
     <None Remove="Content\Items\Weapons\Summon\SunScepter.png" />
+    <None Remove="Content\Items\Weapons\Summon\Whip.png" />
     <None Remove="Content\NPCs\BossFireDragon\FireDragonHead.png" />
     <None Remove="Content\NPCs\BossFireDragon\FireDragon_Bestiary.png" />
     <None Remove="Content\NPCs\CursedPickaxe.png" />
@@ -134,6 +135,7 @@
     <None Remove="Content\Projectiles\SummonProj\MotivatorProj.png" />
     <None Remove="Content\Projectiles\SummonProj\SnowDwellerMinion.png" />
     <None Remove="Content\Projectiles\SummonProj\SunScepterMinion.png" />
+    <None Remove="Content\Projectiles\SummonProj\WhipProj.png" />
     <None Remove="Content\Tiles\Banners\CursedPickaxeBannerTile.png" />
     <None Remove="Content\Tiles\Banners\FrostWraithBannerTile.png" />
     <None Remove="Content\Tiles\Banners\LivingCactusBannerTile.png" />
