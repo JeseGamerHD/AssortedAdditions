@@ -55,6 +55,11 @@ Mods: {
 				DisplayName: Whip Debuff
 				Description: You are targeted by minions
 			}
+
+			ChainWhipDebuff: {
+				DisplayName: Chain Whip Debuff
+				Description: You are targeted by minions
+			}
 		}
 
 		Items: {
@@ -878,6 +883,15 @@ Mods: {
 					Your summons will focus struck enemies
 					'''
 			}
+
+			ChainWhip: {
+				DisplayName: Chain Whip
+				Tooltip:
+					'''
+					6 summon tag damage
+					Your summons will focus struck enemies
+					'''
+			}
 		}
 
 		Projectiles: {
@@ -936,6 +950,7 @@ Mods: {
 			BookOfMathematicsProj.DisplayName: Book Of Mathematics Proj
 			EyeBowProj.DisplayName: Eye Bow Proj
 			WhipProj.DisplayName: Whip Proj
+			ChainWhipProj.DisplayName: Chain Whip Proj
 		}
 
 		Tiles: {
