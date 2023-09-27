@@ -2,8 +2,6 @@
 using Terraria.ID;
 using Terraria;
 using Terraria.ModLoader;
-using ModdingTutorial.Content.Tiles.CraftingStations;
-using ModdingTutorial.Content.Items.Misc;
 
 namespace ModdingTutorial.Content.Items.Tools
 {
