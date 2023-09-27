@@ -29,8 +29,7 @@ namespace ModdingTutorial.Content.Items.Tools
         {
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ItemID.WoodPlatform, 999);
-            recipe.AddIngredient(ModContent.ItemType<MagicEssence>());
-            recipe.AddTile(ModContent.TileType<MagicWorkbenchTile>());
+            recipe.AddTile(TileID.WorkBenches);
             recipe.Register();
         }
     }
