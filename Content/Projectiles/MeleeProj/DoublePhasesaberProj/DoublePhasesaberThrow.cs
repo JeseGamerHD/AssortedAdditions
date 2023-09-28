@@ -25,13 +25,20 @@ namespace ModdingTutorial.Content.Projectiles.MeleeProj.DoublePhasesaberProj
             Projectile.timeLeft = 3000;
         }
 
+        int originalDirection;
+        Rectangle projectileRect;
         public override void AI()
         {
             Player player = Main.player[Projectile.owner];
             bool returnProjectile = false; // Used for returning the projectile back
 
+            if(originalDirection == 0)
+            {
+                originalDirection = Projectile.direction;
+            }
+
             // Projectile will rotate when thrown
-            Projectile.rotation += 0.3f;
+            Projectile.rotation += 0.5f;
 
             // Sound effect
             if (Projectile.soundDelay == 0)
@@ -67,8 +74,20 @@ namespace ModdingTutorial.Content.Projectiles.MeleeProj.DoublePhasesaberProj
                     Projectile.velocity *= 10f;
                 }
 
+                // This makes the catch look better, without this the projectile sometimes dies when it doesn't look like it has hit the player
+                // since the sprite does not cover the whole hitbox
+                // Still not perfect, but works for now...
+                if (originalDirection == 1)
+                {
+                    projectileRect = new((int)Projectile.position.X, (int)Projectile.position.Y, Projectile.width / 2, Projectile.height / 2);
+                }
+                else
+                {
+                    projectileRect = new((int)Projectile.Center.X, (int)Projectile.Center.Y, Projectile.width / 2, Projectile.height / 2);
+                }
+
                 // Once the projectile reaches the player, it will disappear
-                if (Projectile.Hitbox.Intersects(player.Hitbox))
+                if (player.Hitbox.Intersects(projectileRect))
                 {
                     Projectile.Kill();
                 }

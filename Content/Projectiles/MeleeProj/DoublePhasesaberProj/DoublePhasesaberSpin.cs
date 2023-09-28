@@ -25,6 +25,8 @@ namespace ModdingTutorial.Content.Projectiles.MeleeProj.DoublePhasesaberProj
             Projectile.friendly = true;
         }
 
+        int movePos;
+        int oldDirection;
         public override void AI()
         {
             Player player = Main.player[Projectile.owner];
@@ -44,33 +46,34 @@ namespace ModdingTutorial.Content.Projectiles.MeleeProj.DoublePhasesaberProj
 
                 if (player.direction == -1) // If player faces left adjust accordingly
                 {
-                    Projectile.position.X -= 60;
+                    Projectile.position.X -= 60 + movePos;
                     Projectile.rotation -= 0.3f; // Rotation also changes depending on direction faced
                 }
                 else // If right, adjust differently
                 {
-                    Projectile.position.X -= 55; 
+                    Projectile.position.X -= 55 + movePos;
                     Projectile.rotation += 0.3f;
                 }
 
-                // Used for swapping the weapon position if the player switches direction
-                int switchSides = player.direction;
-
+                oldDirection = player.direction;
                 // Weapon needs to "point" towards the cursor's X position
                 if (Main.MouseWorld.X > player.Center.X)
                 {
                     player.ChangeDir(1); // Change player to face said direction
+
+                    if(oldDirection != player.direction)
+                    {
+                        movePos = -5;
+                    }
                 }
                 else if (Main.MouseWorld.X < player.Center.X)
                 {
                     player.ChangeDir(-1);
-                }
 
-                // Replaces the old projectile with a new one after switching direction
-                // New projectile alligns properly
-                if (switchSides != player.direction)
-                {
-                    Projectile.Kill();
+                    if (oldDirection != player.direction)
+                    {
+                        movePos = 5;
+                    }
                 }
 
                 // Makes player hold the weapon
@@ -104,8 +107,6 @@ namespace ModdingTutorial.Content.Projectiles.MeleeProj.DoublePhasesaberProj
         {
             overPlayers.Add(index); // Saber is drawn over the player's arm
         }
-
-        //public override string GlowTexture => "ModdingTutorial/Content/Projectiles/MeleeProj/DoublePhasesaberProj/DoublePhasesaberThrow_Glow";
 
         // The color of the sprite will be chosen here
         private void Visuals()
