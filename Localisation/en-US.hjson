@@ -42,7 +42,7 @@ Mods: {
 			}
 
 			SnowDwellerBuff: {
-				DisplayName: Snow Dweller Buff
+				DisplayName: Snow Dweller
 				Description: A Little gremlin
 			}
 
@@ -62,8 +62,8 @@ Mods: {
 			}
 
 			ToyCarBuff: {
-				DisplayName: Toy Car Buff
-				Description: Mods.ModdingTutorial.Buffs.ToyCarBuff.Description
+				DisplayName: Toy Car
+				Description: Vroom vroom...
 			}
 		}
 
