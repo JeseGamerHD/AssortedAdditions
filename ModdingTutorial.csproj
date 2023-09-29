@@ -14,6 +14,7 @@
     <None Remove="Content\Buffs\MotivatorDebuff.png" />
     <None Remove="Content\Buffs\SnowDwellerBuff.png" />
     <None Remove="Content\Buffs\SunScepterBuff.png" />
+    <None Remove="Content\Buffs\ToyCarBuff.png" />
     <None Remove="Content\Items\Accessories\Adrenaline.png" />
     <None Remove="Content\Items\Accessories\Antidote.png" />
     <None Remove="Content\Items\Accessories\CactusFlower.png" />
@@ -28,6 +29,7 @@
     <None Remove="Content\Items\Misc\MagicEssence.png" />
     <None Remove="Content\Items\Misc\MysteriousKey.png" />
     <None Remove="Content\Items\Misc\SharkTooth.png" />
+    <None Remove="Content\Items\Pets\ToyCarRemote.png" />
     <None Remove="Content\Items\Placeables\Banners\CursedPickaxeBanner.png" />
     <None Remove="Content\Items\Placeables\Banners\FrostWraithBanner.png" />
     <None Remove="Content\Items\Placeables\Banners\LivingCactusBanner.png" />
@@ -138,6 +140,7 @@
     <None Remove="Content\Projectiles\SummonProj\SnowDwellerMinion.png" />
     <None Remove="Content\Projectiles\SummonProj\SunScepterMinion.png" />
     <None Remove="Content\Projectiles\SummonProj\WhipProj.png" />
+    <None Remove="Content\Projectiles\ToyCar.png" />
     <None Remove="Content\Tiles\Banners\CursedPickaxeBannerTile.png" />
     <None Remove="Content\Tiles\Banners\FrostWraithBannerTile.png" />
     <None Remove="Content\Tiles\Banners\LivingCactusBannerTile.png" />

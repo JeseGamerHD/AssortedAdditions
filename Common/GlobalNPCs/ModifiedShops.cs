@@ -1,6 +1,7 @@
 ﻿using ModdingTutorial.Common.Systems;
 using ModdingTutorial.Content.Items.Consumables;
 using ModdingTutorial.Content.Items.Misc;
+using ModdingTutorial.Content.Items.Pets;
 using ModdingTutorial.Content.Items.Tools;
 using ModdingTutorial.Content.Items.Weapons.Ammo;
 using ModdingTutorial.Content.Items.Weapons.Magic;
@@ -34,6 +35,7 @@ namespace ModdingTutorial.Common.GlobalNPCs
                 // Add just item (its value determines price)
                 shop.Add<ControlChip>();
                 shop.Add<Battery>();
+                shop.Add<ToyCarRemote>();
             }
 
             if(shop.NpcType == NPCID.Dryad)

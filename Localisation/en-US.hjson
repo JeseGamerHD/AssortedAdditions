@@ -60,6 +60,11 @@ Mods: {
 				DisplayName: Chain Whip Debuff
 				Description: You are targeted by minions
 			}
+
+			ToyCarBuff: {
+				DisplayName: Toy Car Buff
+				Description: Mods.ModdingTutorial.Buffs.ToyCarBuff.Description
+			}
 		}
 
 		Items: {
@@ -892,6 +897,11 @@ Mods: {
 					Your summons will focus struck enemies
 					'''
 			}
+
+			ToyCarRemote: {
+				DisplayName: Toy Car Remote
+				Tooltip: Summons the Toy Car pet
+			}
 		}
 
 		Projectiles: {
@@ -951,6 +961,7 @@ Mods: {
 			EyeBowProj.DisplayName: Eye Bow Proj
 			WhipProj.DisplayName: Whip Proj
 			ChainWhipProj.DisplayName: Chain Whip Proj
+			ToyCar.DisplayName: Toy Car
 		}
 
 		Tiles: {
