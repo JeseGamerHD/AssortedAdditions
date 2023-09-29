@@ -109,15 +109,16 @@ namespace ModdingTutorial.Content.Projectiles.MagicProj
         public override bool? Colliding(Rectangle projHitbox, Rectangle targetHitbox)
         {
             // We can only collide if we are at max charge, which is when the laser is actually fired
-            if (!IsAtMaxCharge) return false;
+            if (!IsAtMaxCharge) 
+                return false;
 
+            // TODO: Fix this, collision is buggy... Maybe try using whatever the Example last prism does...
             Player player = Main.player[Projectile.owner];
-            Vector2 unit = Projectile.velocity;
             float point = 0f;
             // Run an AABB versus Line check to look for collisions, look up AABB collision first to see how it works
             // It will look for collisions on the given line using AABB
             return Collision.CheckAABBvLineCollision(targetHitbox.TopLeft(), targetHitbox.Size(), player.Center,
-                player.Center + unit * Distance, 22, ref point);
+                player.Center + Projectile.velocity * Distance, 22, ref point);
         }
 
         // Set custom immunity time on hitting an NPC, higher value means the target gets hit less
