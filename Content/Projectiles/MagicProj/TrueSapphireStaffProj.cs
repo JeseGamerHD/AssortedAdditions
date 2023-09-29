@@ -16,7 +16,7 @@ namespace ModdingTutorial.Content.Projectiles.MagicProj
         {
             Projectile.width = 60;
             Projectile.height = 60;
-            Projectile.penetrate = -1;
+            Projectile.penetrate = 3;
             Projectile.aiStyle = 0;
             Projectile.timeLeft = 420;
             Projectile.light = 0.5f;
