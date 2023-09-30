@@ -95,7 +95,12 @@ namespace ModdingTutorial.Common.GlobalNPCs
             // Bats drop antidote during hardmode
             if(npc.type == NPCID.CaveBat || npc.type == NPCID.JungleBat || npc.type == NPCID.GiantBat || npc.type == NPCID.SporeBat || npc.type == NPCID.GiantFlyingFox)
             {
-                npcLoot.Add(ItemDropRule.ByCondition(Condition.Hardmode.ToDropCondition(ShowItemDropInUI.Always), ModContent.ItemType<Antidote>(), 40, 1));
+                npcLoot.Add(ItemDropRule.ByCondition(Condition.Hardmode.ToDropCondition(ShowItemDropInUI.Always), ModContent.ItemType<Antidote>(), 40, 1)); // 2.5 % chance
+            }
+
+            if(npc.type == NPCID.Dandelion)
+            {
+                npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<DandelionFlower>(), 3, 1, 1)); // 33% chance
             }
         }
     }

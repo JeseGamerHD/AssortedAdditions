@@ -18,6 +18,7 @@
     <None Remove="Content\Items\Accessories\Adrenaline.png" />
     <None Remove="Content\Items\Accessories\Antidote.png" />
     <None Remove="Content\Items\Accessories\CactusFlower.png" />
+    <None Remove="Content\Items\Accessories\DandelionFlower.png" />
     <None Remove="Content\Items\Accessories\Dressing.png" />
     <None Remove="Content\Items\Accessories\EchoChamber.png" />
     <None Remove="Content\Items\Accessories\MedicatedDressing.png" />

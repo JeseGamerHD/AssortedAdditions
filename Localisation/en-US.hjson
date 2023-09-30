@@ -902,6 +902,15 @@ Mods: {
 				DisplayName: Toy Car Remote
 				Tooltip: Summons the Toy Car pet
 			}
+
+			DandelionFlower: {
+				DisplayName: Dandelion Flower
+				Tooltip:
+					'''
+					Increased jump height
+					10% increases movement speed
+					'''
+			}
 		}
 
 		Projectiles: {
