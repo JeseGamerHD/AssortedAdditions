@@ -17,9 +17,6 @@ namespace ModdingTutorial.Content.Projectiles.MagicProj
         // This field is used as a counter for the wave motion
         private int sineTimer;
 
-        // This field "offsets" the progress along the wave
-        private float waveOffset;
-
         // For setting the frame
         private bool setVisual;
 
@@ -74,7 +71,7 @@ namespace ModdingTutorial.Content.Projectiles.MagicProj
                 // A stride of 300 pixels is 18.75 tiles
                 float waveStride = 300f;
 
-                float waveProgress = sineTimer * velocityLength / waveStride + waveOffset;  // 1 for each full sine wave
+                float waveProgress = sineTimer * velocityLength / waveStride;  // 1 for each full sine wave
                 float radians = waveProgress * MathHelper.TwoPi;  // Convert the wave progress into an angle for MathF.Sin()
                 float sine = MathF.Sin(radians) * Projectile.direction;
 

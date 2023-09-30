@@ -19,7 +19,7 @@ namespace ModdingTutorial.Content.Items.Accessories
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
             player.lifeRegen += 4;
-            player.GetAttackSpeed(DamageClass.Generic) += 0.1f;
+            player.GetAttackSpeed(DamageClass.Generic) += 0.05f;
 
         }
     }
