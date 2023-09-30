@@ -115,6 +115,12 @@ namespace ModdingTutorial.Common.GlobalItems
             flyingCarpet.AddTile(TileID.TinkerersWorkbench);
             flyingCarpet.Register();
 
+            Recipe lightningBoots = Recipe.Create(ItemID.LightningBoots, 1);
+            lightningBoots.AddIngredient(ItemID.SpectreBoots);
+            lightningBoots.AddIngredient(ModContent.ItemType<DandelionFlower>());
+            lightningBoots.AddIngredient(ItemID.Aglet);
+            lightningBoots.AddTile(TileID.TinkerersWorkbench);
+
             // HEALTH AND MANA
             // ******************************************************************************
             Recipe bandOfRegeneration = Recipe.Create(ItemID.BandofRegeneration, 1);
