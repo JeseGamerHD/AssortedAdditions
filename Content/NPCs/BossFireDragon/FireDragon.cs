@@ -11,7 +11,6 @@ using ModdingTutorial.Content.Items.Weapons.Ranged;
 using ModdingTutorial.Content.Items.Weapons.Summon;
 using Terraria;
 using Terraria.Audio;
-using Terraria.DataStructures;
 using Terraria.GameContent.Bestiary;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
@@ -32,26 +31,19 @@ namespace ModdingTutorial.Content.NPCs.BossFireDragon // This Boss NPC is built 
             NPCID.Sets.BossBestiaryPriority.Add(Type);
 
             // Immune to fire debuffs
-            NPCDebuffImmunityData debuffData = new NPCDebuffImmunityData
-            {
-                SpecificallyImmuneTo = new int[] {
-                    BuffID.OnFire,
-                    BuffID.OnFire3,
-                    BuffID.ShadowFlame,
-                    BuffID.Burning,
-
-                    BuffID.Confused // Most NPCs have this
-				}
-            };
-            NPCID.Sets.DebuffImmunitySets.Add(Type, debuffData);
+            NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.OnFire] = true;
+            NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.OnFire3] = true;
+            NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.ShadowFlame] = true;
+            NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Burning] = true;
+            NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Confused] = true;
 
             // Beastiary stuff
-            var drawModifier = new NPCID.Sets.NPCBestiaryDrawModifiers(0)
-            { // Influences how the NPC looks in the Bestiary
+            NPCID.Sets.NPCBestiaryDrawModifiers value = new NPCID.Sets.NPCBestiaryDrawModifiers(0)
+            {
                 CustomTexturePath = "ModdingTutorial/Content/NPCs/BossFireDragon/FireDragon_Bestiary",
                 PortraitScale = 1.5f
             };
-            NPCID.Sets.NPCBestiaryDrawOffset.Add(NPC.type, drawModifier);
+            NPCID.Sets.NPCBestiaryDrawOffset.Add(NPC.type, value);
         }
 
         public override void SetDefaults()
@@ -290,25 +282,18 @@ namespace ModdingTutorial.Content.NPCs.BossFireDragon // This Boss NPC is built 
     {
         public override void SetStaticDefaults()
         {
-            NPCID.Sets.NPCBestiaryDrawModifiers value = new NPCID.Sets.NPCBestiaryDrawModifiers(0)
+            NPCID.Sets.NPCBestiaryDrawModifiers value = new NPCID.Sets.NPCBestiaryDrawModifiers()
             {
                 Hide = true // Hides this NPC from the Bestiary, useful for multi-part NPCs whom you only want one entry.
             };
             NPCID.Sets.NPCBestiaryDrawOffset.Add(NPC.type, value);
 
             // Immune to fire debuffs
-            NPCDebuffImmunityData debuffData = new NPCDebuffImmunityData
-            {
-                SpecificallyImmuneTo = new int[] {
-                    BuffID.OnFire,
-                    BuffID.OnFire3,
-                    BuffID.ShadowFlame,
-                    BuffID.Burning,
-
-                    BuffID.Confused // Most NPCs have this
-				}
-            };
-            NPCID.Sets.DebuffImmunitySets.Add(Type, debuffData);
+            NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.OnFire] = true;
+            NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.OnFire3] = true;
+            NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.ShadowFlame] = true;
+            NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Burning] = true;
+            NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Confused] = true;
         }
 
         public override void SetDefaults()
@@ -363,25 +348,18 @@ namespace ModdingTutorial.Content.NPCs.BossFireDragon // This Boss NPC is built 
     {
         public override void SetStaticDefaults()
         {
-            NPCID.Sets.NPCBestiaryDrawModifiers value = new NPCID.Sets.NPCBestiaryDrawModifiers(0)
+            NPCID.Sets.NPCBestiaryDrawModifiers value = new NPCID.Sets.NPCBestiaryDrawModifiers()
             {
                 Hide = true // Hides this NPC from the Bestiary, useful for multi-part NPCs whom you only want one entry.
             };
             NPCID.Sets.NPCBestiaryDrawOffset.Add(NPC.type, value);
 
             // Immune to fire debuffs
-            NPCDebuffImmunityData debuffData = new NPCDebuffImmunityData
-            {
-                SpecificallyImmuneTo = new int[] {
-                    BuffID.OnFire,
-                    BuffID.OnFire3,
-                    BuffID.ShadowFlame,
-                    BuffID.Burning,
-
-                    BuffID.Confused // Most NPCs have this
-				}
-            };
-            NPCID.Sets.DebuffImmunitySets.Add(Type, debuffData);
+            NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.OnFire] = true;
+            NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.OnFire3] = true;
+            NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.ShadowFlame] = true;
+            NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Burning] = true;
+            NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Confused] = true;
         }
 
         public override void SetDefaults()

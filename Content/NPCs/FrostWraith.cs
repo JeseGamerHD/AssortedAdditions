@@ -1,8 +1,6 @@
-﻿using Microsoft.Xna.Framework;
-using ModdingTutorial.Content.Items.Misc;
+﻿using ModdingTutorial.Content.Items.Misc;
 using ModdingTutorial.Content.Items.Placeables.Banners;
 using Terraria;
-using Terraria.DataStructures;
 using Terraria.GameContent.Bestiary;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
@@ -18,15 +16,9 @@ namespace ModdingTutorial.Content.NPCs
             Main.npcFrameCount[Type] = 4;
 
             // Immune to debuffs:
-            NPCDebuffImmunityData debuffData = new NPCDebuffImmunityData
-            {
-                SpecificallyImmuneTo = new int[] {
-                    BuffID.Frostburn,
-                    BuffID.Frostburn2,
-                    BuffID.Confused
-                }
-            };
-            NPCID.Sets.DebuffImmunitySets.Add(Type, debuffData);
+            NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Frostburn] = true;
+            NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Frostburn2] = true;
+            NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Confused] = true;  
         }
 
         public override void SetDefaults()

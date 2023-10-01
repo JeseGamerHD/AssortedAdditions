@@ -107,6 +107,7 @@
     <None Remove="Content\NPCs\Gores\BuilderGore2.png" />
     <None Remove="Content\NPCs\Gores\BuilderGore3.png" />
     <None Remove="Content\NPCs\Gores\ShroomlingGore.png" />
+    <None Remove="Content\NPCs\GrabberPlant.png" />
     <None Remove="Content\NPCs\LivingCactus.png" />
     <None Remove="Content\NPCs\Shroomling.png" />
     <None Remove="Content\NPCs\Town\Builder.png" />

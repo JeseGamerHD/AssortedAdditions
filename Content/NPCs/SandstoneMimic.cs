@@ -3,7 +3,6 @@ using ModdingTutorial.Content.Items.Weapons.Melee;
 using ModdingTutorial.Content.Items.Weapons.Ranged;
 using ModdingTutorial.Content.Items.Weapons.Summon;
 using Terraria;
-using Terraria.DataStructures;
 using Terraria.GameContent.Bestiary;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
@@ -19,18 +18,12 @@ namespace ModdingTutorial.Content.NPCs
             Main.npcFrameCount[Type] = 6; // Sprite has 6 frames
 
             // Immune to debuffs:
-            NPCDebuffImmunityData debuffData = new NPCDebuffImmunityData
-            {
-                SpecificallyImmuneTo = new int[] {
-                    BuffID.OnFire,
-                    BuffID.OnFire3,
-                    BuffID.Poisoned,
-                    BuffID.Frostburn,
-                    BuffID.Frostburn2,
-                    BuffID.Confused
-                }
-            };
-            NPCID.Sets.DebuffImmunitySets.Add(Type, debuffData);
+            NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.OnFire] = true;
+            NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.OnFire3] = true;
+            NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Poisoned] = true;
+            NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Frostburn] = true;
+            NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Frostburn2] = true;
+            NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Confused] = true;
         }
 
         public override void SetDefaults()

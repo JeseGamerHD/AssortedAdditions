@@ -1,5 +1,4 @@
-﻿using Terraria.DataStructures;
-using Terraria.ID;
+﻿using Terraria.ID;
 using Terraria;
 using Terraria.ModLoader;
 using Terraria.GameContent.ItemDropRules;
@@ -17,18 +16,12 @@ namespace ModdingTutorial.Content.NPCs
             Main.npcFrameCount[Type] = 6;
 
             // Immune to debuffs:
-            NPCDebuffImmunityData debuffData = new NPCDebuffImmunityData
-            {
-                SpecificallyImmuneTo = new int[] {
-                    BuffID.OnFire,
-                    BuffID.OnFire3,
-                    BuffID.Poisoned,
-                    BuffID.Frostburn,
-                    BuffID.Frostburn2,
-                    BuffID.Confused
-                }
-            };
-            NPCID.Sets.DebuffImmunitySets.Add(Type, debuffData);
+            NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.OnFire] = true;
+            NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.OnFire3] = true;
+            NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Poisoned] = true;
+            NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Frostburn] = true;
+            NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Frostburn2] = true;
+            NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Confused] = true;
         }
 
         public override void SetDefaults()
