@@ -911,6 +911,11 @@ Mods: {
 					10% increases movement speed
 					'''
 			}
+
+			GrabberPlantBanner: {
+				DisplayName: Grabber Plant Banner
+				Tooltip: ""
+			}
 		}
 
 		Projectiles: {
@@ -991,6 +996,7 @@ Mods: {
 			}
 
 			LivingCactusBannerTile.MapEntry: Banner
+			GrabberPlantBannerTile.MapEntry: Banner
 		}
 
 		NPCs: {
@@ -1025,6 +1031,7 @@ Mods: {
 			Shroomling.DisplayName: Shroomling
 			FrostWraith.DisplayName: Frost Wraith
 			LivingCactus.DisplayName: Living Cactus
+			GrabberPlant.DisplayName: Grabber Plant
 		}
 
 		Conditions.SellCosmicItems: Mods.ModdingTutorial.Conditions.SellCosmicItems
