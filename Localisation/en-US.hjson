@@ -380,7 +380,7 @@ Mods: {
 
 			NightSlimeBanner: {
 				DisplayName: Night Slime Banner
-				Tooltip: ""
+				Tooltip: Nearby players get a bonus against: Night Slime
 			}
 
 			StarryWand: {
@@ -590,7 +590,7 @@ Mods: {
 
 			CursedPickaxeBanner: {
 				DisplayName: Cursed Pickaxe Banner
-				Tooltip: ""
+				Tooltip: Nearby players get a bonus against: Cursed Pickaxe
 			}
 
 			DeathRay: {
@@ -628,7 +628,7 @@ Mods: {
 
 			ShroomlingBanner: {
 				DisplayName: Shroomling Banner
-				Tooltip: ""
+				Tooltip: Nearby players get a bonus against: Shroomling
 			}
 
 			EchoChamber: {
@@ -701,7 +701,7 @@ Mods: {
 
 			FrostWraithBanner: {
 				DisplayName: Frost Wraith Banner
-				Tooltip: ""
+				Tooltip: Nearby players get a bonus against: Frost Wraith
 			}
 
 			SteelPlating: {
@@ -822,7 +822,7 @@ Mods: {
 
 			LivingCactusBanner: {
 				DisplayName: Living Cactus Banner
-				Tooltip: ""
+				Tooltip: Nearby players get a bonus against: Living Cactus
 			}
 
 			CactusFlower: {
@@ -914,7 +914,7 @@ Mods: {
 
 			GrabberPlantBanner: {
 				DisplayName: Grabber Plant Banner
-				Tooltip: ""
+				Tooltip: Nearby players get a bonus against: Grabber Plant
 			}
 		}
 
