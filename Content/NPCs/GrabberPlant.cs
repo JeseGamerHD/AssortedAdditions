@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using ModdingTutorial.Content.Items.Accessories;
 using ModdingTutorial.Content.Items.Placeables.Banners;
 using Terraria;
 using Terraria.GameContent.Bestiary;
@@ -9,7 +10,7 @@ using Terraria.ModLoader.Utilities;
 
 namespace ModdingTutorial.Content.NPCs
 {
-    internal class GrabberPlant : ModNPC // TODO
+    internal class GrabberPlant : ModNPC
     {
         public override void SetStaticDefaults()
         {
@@ -66,7 +67,7 @@ namespace ModdingTutorial.Content.NPCs
 
         public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
-            // TODO
+            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<GrabberFlower>(), 10, 1));
         }
 
         public override void HitEffect(NPC.HitInfo hit)
@@ -186,7 +187,7 @@ namespace ModdingTutorial.Content.NPCs
                 BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.Jungle,
 				
                 // Sets the description of this NPC that is listed in the bestiary.
-				new FlavorTextBestiaryInfoElement("This plant will grab any traveller who touches it. Keep your distance.")
+				new FlavorTextBestiaryInfoElement("This poisonous plant will grab any traveller who touches it. Keep your distance.")
             });
         }
     }

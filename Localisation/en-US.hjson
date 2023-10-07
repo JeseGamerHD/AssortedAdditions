@@ -916,6 +916,15 @@ Mods: {
 				DisplayName: Grabber Plant Banner
 				Tooltip: Nearby players get a bonus against: Grabber Plant
 			}
+
+			GrabberFlower: {
+				DisplayName: Grabber Flower
+				Tooltip:
+					'''
+					3% increased damage
+					Enemies are less likely to target you
+					'''
+			}
 		}
 
 		Projectiles: {

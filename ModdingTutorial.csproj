@@ -21,6 +21,7 @@
     <None Remove="Content\Items\Accessories\DandelionFlower.png" />
     <None Remove="Content\Items\Accessories\Dressing.png" />
     <None Remove="Content\Items\Accessories\EchoChamber.png" />
+    <None Remove="Content\Items\Accessories\GrabberFlower.png" />
     <None Remove="Content\Items\Accessories\MedicatedDressing.png" />
     <None Remove="Content\Items\Accessories\Medkit.png" />
     <None Remove="Content\Items\Consumables\MerchantInvitation.png" />
@@ -33,6 +34,7 @@
     <None Remove="Content\Items\Pets\ToyCarRemote.png" />
     <None Remove="Content\Items\Placeables\Banners\CursedPickaxeBanner.png" />
     <None Remove="Content\Items\Placeables\Banners\FrostWraithBanner.png" />
+    <None Remove="Content\Items\Placeables\Banners\GrabberPlantBanner.png" />
     <None Remove="Content\Items\Placeables\Banners\LivingCactusBanner.png" />
     <None Remove="Content\Items\Placeables\Banners\ShroomlingBanner.png" />
     <None Remove="Content\Items\Placeables\Blocks\ArtDecoBlock.png" />
@@ -148,6 +150,7 @@
     <None Remove="Content\Projectiles\ToyCar.png" />
     <None Remove="Content\Tiles\Banners\CursedPickaxeBannerTile.png" />
     <None Remove="Content\Tiles\Banners\FrostWraithBannerTile.png" />
+    <None Remove="Content\Tiles\Banners\GrabberPlantBannerTile.png" />
     <None Remove="Content\Tiles\Banners\LivingCactusBannerTile.png" />
     <None Remove="Content\Tiles\Banners\ShroomlingBannerTile.png" />
     <None Remove="Content\Tiles\Blocks\ArtDecoBlockTile.png" />
