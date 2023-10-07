@@ -40,7 +40,10 @@ namespace ModdingTutorial.Content.Buffs
                 timer++;
                 if(timer % 25 == 0 && timer <= 125) 
                 {
-                    Projectile.NewProjectile(player.GetSource_Buff(buffIndex), player.Center, Vector2.Zero, ModContent.ProjectileType<DraconicArmorProj>(), 20, 4f, player.whoAmI);
+                    if(Main.myPlayer == player.whoAmI)
+                    {
+                        Projectile.NewProjectile(player.GetSource_Buff(buffIndex), player.Center, Vector2.Zero, ModContent.ProjectileType<DraconicArmorProj>(), 20, 4f, player.whoAmI);
+                    }
                 }
 
                 // Add some lighting
