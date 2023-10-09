@@ -113,6 +113,8 @@
     <None Remove="Content\NPCs\Gores\GrabberPlantGore3.png" />
     <None Remove="Content\NPCs\Gores\ShroomlingGore.png" />
     <None Remove="Content\NPCs\GrabberPlant.png" />
+    <None Remove="Content\NPCs\IceGuardian.png" />
+    <None Remove="Content\NPCs\IceGuardianShield.png" />
     <None Remove="Content\NPCs\LivingCactus.png" />
     <None Remove="Content\NPCs\Shroomling.png" />
     <None Remove="Content\NPCs\Town\Builder.png" />
@@ -135,6 +137,7 @@
     <None Remove="Content\Projectiles\MeleeProj\CosmicBladeProj.png" />
     <None Remove="Content\Projectiles\MeleeProj\CultClassicOrb.png" />
     <None Remove="Content\Projectiles\MeleeProj\CultClassicProj.png" />
+    <None Remove="Content\Projectiles\NPCProj\IceGuardianProj.png" />
     <None Remove="Content\Projectiles\RangedProj\EyeBowProj.png" />
     <None Remove="Content\Projectiles\RangedProj\FrostBowProj.png" />
     <None Remove="Content\Projectiles\RangedProj\ScifiBlasterHoming.png" />

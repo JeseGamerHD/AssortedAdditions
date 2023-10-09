@@ -985,6 +985,7 @@ Mods: {
 			WhipProj.DisplayName: Whip Proj
 			ChainWhipProj.DisplayName: Chain Whip Proj
 			ToyCar.DisplayName: Toy Car
+			IceGuardianProj.DisplayName: Ice Guardian Proj
 		}
 
 		Tiles: {
@@ -1041,6 +1042,8 @@ Mods: {
 			FrostWraith.DisplayName: Frost Wraith
 			LivingCactus.DisplayName: Living Cactus
 			GrabberPlant.DisplayName: Grabber Plant
+			IceGuardian.DisplayName: Ice Guardian
+			IceGuardianShield.DisplayName: Ice Guardian Shield
 		}
 
 		Conditions.SellCosmicItems: Mods.ModdingTutorial.Conditions.SellCosmicItems
