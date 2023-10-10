@@ -17,6 +17,8 @@ namespace ModdingTutorial.Content.NPCs
     {
         public override void SetStaticDefaults()
         {
+            Main.npcFrameCount[Type] = 4;
+
             // Immune to debuffs:
             NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Frostburn] = true;
             NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Frostburn2] = true;
@@ -78,6 +80,26 @@ namespace ModdingTutorial.Content.NPCs
                 }
             }
             return true;
+        }
+
+        private int frame;
+        public override void FindFrame(int frameHeight)
+        {
+            // Switch frames
+            if (NPC.frameCounter % 10 == 0)
+            {
+                frame++;
+            }
+            // When over the last frame, back to start
+            // (frames start from 0)
+            if(frame == 4)
+            {
+                frame = 0;
+            }
+            NPC.frameCounter++;
+
+            // Set the frame
+            NPC.frame.Y = frameHeight * frame;
         }
 
         public override void OnKill()
