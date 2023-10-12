@@ -925,6 +925,11 @@ Mods: {
 					Enemies are less likely to target you
 					'''
 			}
+
+			IceGuardianBanner: {
+				DisplayName: Ice Guardian Banner
+				Tooltip: Nearby players get a bonus against: Ice Guardian
+			}
 		}
 
 		Projectiles: {
@@ -1007,6 +1012,8 @@ Mods: {
 
 			LivingCactusBannerTile.MapEntry: Banner
 			GrabberPlantBannerTile.MapEntry: Banner
+			MonsterBanners.MapEntry: Monster Banners
+			IceGuardianBannerTile.MapEntry: Ice Guardian Banner Tile
 		}
 
 		NPCs: {

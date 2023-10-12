@@ -4,12 +4,12 @@ using Terraria.ModLoader;
 
 namespace ModdingTutorial.Content.Tiles.Banners
 {
-    internal class GrabberPlantBannerTile : MonsterBanners
+    internal class IceGuardianBannerTile : MonsterBanners
     {
         public override void SetStaticDefaults()
         {
-            Color = Color.Green;
-            BuffNPC = ModContent.NPCType<GrabberPlant>();
+            Color = Color.Aqua;
+            BuffNPC = ModContent.NPCType<IceGuardian>();
             base.SetStaticDefaults();
         }
     }

@@ -42,7 +42,7 @@ namespace ModdingTutorial.Content.NPCs
             NPC.aiStyle = 10;
 
             Banner = NPC.type;
-            BannerItem = ModContent.ItemType<GrabberPlantBanner>(); // TODO
+            BannerItem = ModContent.ItemType<IceGuardianBanner>();
         }
 
         private int timer;
