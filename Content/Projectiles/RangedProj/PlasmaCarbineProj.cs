@@ -59,7 +59,7 @@ namespace ModdingTutorial.Content.Projectiles.RangedProj
         }
 
         // Once projectile dies, create some dust
-        public override void Kill(int timeLeft)
+        public override void OnKill(int timeLeft)
         {
             for (int i = 0; i < 30; i++)
             {

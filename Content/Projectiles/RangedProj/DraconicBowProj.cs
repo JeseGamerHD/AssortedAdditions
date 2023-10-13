@@ -71,7 +71,7 @@ namespace ModdingTutorial.Content.Projectiles.RangedProj
             target.AddBuff(BuffID.OnFire3, 120);
         }
 
-        public override void Kill(int timeLeft)
+        public override void OnKill(int timeLeft)
         {
             SoundEngine.PlaySound(SoundID.DD2_FlameburstTowerShot, Projectile.position);
             for (int i = 0; i < 30; i++)

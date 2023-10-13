@@ -75,7 +75,7 @@ namespace ModdingTutorial.Content.Projectiles.MagicProj
                 Projectile.owner);
         }
 
-        public override void Kill(int timeLeft)
+        public override void OnKill(int timeLeft)
         {
             // On death create dust explosion
             for (int i = 0; i < 30; i++)

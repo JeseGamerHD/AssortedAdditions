@@ -98,7 +98,7 @@ namespace ModdingTutorial.Content.Projectiles.RangedProj
             target.AddBuff(BuffID.Frostburn2, 180);
         }
 
-        public override void Kill(int timeLeft)
+        public override void OnKill(int timeLeft)
         {
             SoundEngine.PlaySound(SoundID.NPCDeath7, Projectile.position);
             for (int i = 0; i < 30; i++)

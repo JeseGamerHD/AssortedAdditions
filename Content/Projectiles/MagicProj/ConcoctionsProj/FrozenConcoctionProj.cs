@@ -56,7 +56,7 @@ internal class FrozenConcoctionProj : ModProjectile
     }
 
     // When projectile hits something, create an explosion
-    public override void Kill(int timeLeft)
+    public override void OnKill(int timeLeft)
     {
         // If the projectile dies without hitting an enemy, crate a small explosion that hits all enemies in the area.
         if (Projectile.penetrate == 1)
