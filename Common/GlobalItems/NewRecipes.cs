@@ -6,8 +6,10 @@ using ModdingTutorial.Content.Tiles.CraftingStations;
 
 namespace ModdingTutorial.Common.GlobalItems
 {
-    // This class is used for adding alternative recipes to vanilla items
-    internal class ModifiedRecipes : GlobalItem
+    // This class is used for adding alternative recipes
+    // or new recipes for vanilla items
+    // For editing/deleting recipes look at ModifiedRecipes.cs in Systems folder
+    internal class NewRecipes : GlobalItem
     {
         public override void AddRecipes()
         {
