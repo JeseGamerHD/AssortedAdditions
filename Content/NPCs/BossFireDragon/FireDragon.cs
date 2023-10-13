@@ -50,7 +50,7 @@ namespace ModdingTutorial.Content.NPCs.BossFireDragon // This Boss NPC is built 
         {
             NPC.width = 48;
             NPC.height = 100;
-            NPC.value = 450000;
+            NPC.value = 100000;
 
             NPC.damage = 50;
             NPC.defense = 12;
