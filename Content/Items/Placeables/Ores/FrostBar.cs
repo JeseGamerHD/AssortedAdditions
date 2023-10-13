@@ -20,7 +20,7 @@ namespace ModdingTutorial.Content.Items.Placeables.Ores
             Item.maxStack = 999;
             Item.consumable = true;
             Item.value = Item.sellPrice(silver: 60);
-            Item.rare = ItemRarityID.Green;
+            Item.rare = ItemRarityID.Orange;
 
             Item.useStyle = ItemUseStyleID.Swing;
             Item.useAnimation = 15;
