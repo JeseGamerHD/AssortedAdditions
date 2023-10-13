@@ -68,7 +68,7 @@ namespace ModdingTutorial.Content.NPCs.BossFireDragon // This Boss NPC is built 
 
             if (!Main.dedServ)
             {
-                Music = MusicID.OtherworldlyInvasion;
+                Music = MusicID.OtherworldlyWoF;
             }
         }
 
