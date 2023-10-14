@@ -1054,5 +1054,21 @@ Mods: {
 		}
 
 		Conditions.SellCosmicItems: Mods.ModdingTutorial.Conditions.SellCosmicItems
+
+		Configs: {
+			VanillaChangeToggle: {
+				DisplayName: Server settings
+				Headers.VanillaRecipes: Recipe toggles
+
+				ModifiedRecipesToggle: {
+					Label: Modified vanilla recipes
+					Tooltip: 
+						'''
+						Toggles changes done to existing vanilla recipes. 
+						Does not remove new alternative recipes.
+						'''
+				}
+			}
+		}
 	}
 }
