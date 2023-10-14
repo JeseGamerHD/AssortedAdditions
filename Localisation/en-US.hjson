@@ -1058,14 +1058,28 @@ Mods: {
 		Configs: {
 			VanillaChangeToggle: {
 				DisplayName: Server settings
-				Headers.VanillaRecipes: Recipe toggles
+
+				Headers: {
+					VanillaRecipes: Recipe toggles
+					OreProgression: Ore Progression toggle
+				}
 
 				ModifiedRecipesToggle: {
 					Label: Modified vanilla recipes
-					Tooltip: 
+					Tooltip:
 						'''
 						Toggles changes done to existing vanilla recipes. 
 						Does not remove new alternative recipes.
+						'''
+				}
+
+				HardmodeOreProgressionToggle: {
+					Label: Use Modded Hardmode Ore Progression
+					Tooltip: 
+						'''
+						Palladium/Cobalt: after Wall of Flesh
+						Mythril/Orichalcum: after The Destroyer
+						Adamantite/Titanium: after The Destroyer + Twins
 						'''
 				}
 			}
