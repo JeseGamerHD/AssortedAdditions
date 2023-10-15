@@ -15,6 +15,7 @@
     <None Remove="Content\Buffs\SnowDwellerBuff.png" />
     <None Remove="Content\Buffs\SunScepterBuff.png" />
     <None Remove="Content\Buffs\ToyCarBuff.png" />
+    <None Remove="Content\Buffs\WardingPotionBuff.png" />
     <None Remove="Content\Items\Accessories\Adrenaline.png" />
     <None Remove="Content\Items\Accessories\Antidote.png" />
     <None Remove="Content\Items\Accessories\CactusFlower.png" />
@@ -26,6 +27,7 @@
     <None Remove="Content\Items\Accessories\Medkit.png" />
     <None Remove="Content\Items\Consumables\MerchantInvitation.png" />
     <None Remove="Content\Items\Consumables\SkeletonPotion.png" />
+    <None Remove="Content\Items\Consumables\WardingPotion.png" />
     <None Remove="Content\Items\Misc\IceEssence.png" />
     <None Remove="Content\Items\Misc\LunchBox.png" />
     <None Remove="Content\Items\Misc\MagicEssence.png" />

@@ -65,6 +65,11 @@ Mods: {
 				DisplayName: Toy Car
 				Description: Vroom vroom...
 			}
+
+			WardingPotionBuff: {
+				DisplayName: Warding Potion Buff
+				Description: Immune to knockback
+			}
 		}
 
 		Items: {
@@ -930,6 +935,11 @@ Mods: {
 				DisplayName: Ice Guardian Banner
 				Tooltip: Nearby players get a bonus against: Ice Guardian
 			}
+
+			WardingPotion: {
+				DisplayName: Warding Potion
+				Tooltip: Grants temporary immunity to knockback
+			}
 		}
 
 		Projectiles: {
@@ -1075,7 +1085,7 @@ Mods: {
 
 				HardmodeOreProgressionToggle: {
 					Label: Use Modded Hardmode Ore Progression
-					Tooltip: 
+					Tooltip:
 						'''
 						Palladium/Cobalt: after Wall of Flesh
 						Mythril/Orichalcum: after The Destroyer
