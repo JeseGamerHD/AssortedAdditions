@@ -11,13 +11,14 @@ namespace ModdingTutorial.Content.Items.Weapons.Melee
     {
         public override void SetDefaults()
         {
-            Item.width = 72;
-            Item.height = 74;
+            Item.width = 36;
+            Item.height = 37;
             Item.useAnimation = 15;
             Item.useTime = 15;
             Item.damage = 70;
             Item.knockBack = 3f;
             Item.shootSpeed = 6f;
+            Item.scale = 1.5f;
 
             Item.noMelee = true; // This is set the sword itself doesn't deal damage (only the projectile does).
             Item.shootsEveryUse = true; // This makes sure Player.ItemAnimationJustStarted is set when swinging.

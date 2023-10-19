@@ -10,16 +10,11 @@ namespace ModdingTutorial.Content.Items.Weapons.Melee
 {
     internal class DraconicBlade : ModItem
     {
-        public override void SetStaticDefaults()
-        {
-            CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-        }
-
         public override void SetDefaults()
         {
-            Item.width = 123;
-            Item.height = 127;
-            Item.scale = 0.75f;
+            Item.width = 70;
+            Item.height = 72;
+            //Item.scale = 0.75f;
 
             Item.useStyle = ItemUseStyleID.Swing;
             Item.useTime = 25;
