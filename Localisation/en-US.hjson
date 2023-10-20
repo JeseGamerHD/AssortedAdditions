@@ -70,6 +70,11 @@ Mods: {
 				DisplayName: Warding Potion Buff
 				Description: Immune to knockback
 			}
+
+			BerserkerBuff: {
+				DisplayName: Berserker Buff
+				Description: Increased melee speed
+			}
 		}
 
 		Items: {
@@ -939,6 +944,11 @@ Mods: {
 			WardingPotion: {
 				DisplayName: Warding Potion
 				Tooltip: Grants temporary immunity to knockback
+			}
+
+			BerserkerPotion: {
+				DisplayName: Berserker Potion
+				Tooltip: 10% increased melee speed
 			}
 		}
 

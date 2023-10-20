@@ -8,6 +8,7 @@
     <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <ItemGroup>
+    <None Remove="Content\Buffs\BerserkerBuff.png" />
     <None Remove="Content\Buffs\EchoChamberBuff.png" />
     <None Remove="Content\Buffs\EchoChamberDebuff.png" />
     <None Remove="Content\Buffs\MedkitBuff.png" />
@@ -25,6 +26,7 @@
     <None Remove="Content\Items\Accessories\GrabberFlower.png" />
     <None Remove="Content\Items\Accessories\MedicatedDressing.png" />
     <None Remove="Content\Items\Accessories\Medkit.png" />
+    <None Remove="Content\Items\Consumables\BerserkerPotion.png" />
     <None Remove="Content\Items\Consumables\MerchantInvitation.png" />
     <None Remove="Content\Items\Consumables\SkeletonPotion.png" />
     <None Remove="Content\Items\Consumables\WardingPotion.png" />
