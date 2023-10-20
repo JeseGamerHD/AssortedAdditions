@@ -11,7 +11,7 @@ namespace ModdingTutorial.Content.Items.Placeables.Blocks
         {
             Item.width = 16;
             Item.height = 16;
-            Item.maxStack = 999;
+            Item.maxStack = 9999;
             Item.consumable = true;
             Item.value = Item.sellPrice(copper: 20);
 
