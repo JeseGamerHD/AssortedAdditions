@@ -950,6 +950,11 @@ Mods: {
 				DisplayName: Berserker Potion
 				Tooltip: 10% increased melee speed
 			}
+
+			StoneWand: {
+				DisplayName: Stone Wand
+				Tooltip: Shoots rocks
+			}
 		}
 
 		Projectiles: {
@@ -1011,6 +1016,7 @@ Mods: {
 			ChainWhipProj.DisplayName: Chain Whip Proj
 			ToyCar.DisplayName: Toy Car
 			IceGuardianProj.DisplayName: Ice Guardian Proj
+			StoneWandProj.DisplayName: Stone Wand Proj
 		}
 
 		Tiles: {

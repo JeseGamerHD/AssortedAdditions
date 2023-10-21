@@ -3,6 +3,7 @@ using Terraria.ID;
 using Terraria;
 using ModdingTutorial.Content.Items.Weapons.Ranged;
 using ModdingTutorial.Content.Items.Accessories;
+using ModdingTutorial.Content.Items.Weapons.Magic;
 
 namespace ModdingTutorial.Common.Systems
 {
@@ -16,10 +17,11 @@ namespace ModdingTutorial.Common.Systems
             int chestWidth = 36; // 36 is the width of the chest tiles
      
             // Chests can be found within tiles_21 (TileID.Containers) and tiles_467 (TileID.Containers2) spritesheets
-            // Below are ID's for different chests, counting begins from zero:
+            // Below are some ID's for different chests, counting begins from zero:
             
             // Containers
-            int ChestID = 0;
+            int chestID = 0;
+            int goldChestID = 1;
 
             // Containers2
             int SandstoneChestID = 10;
@@ -30,10 +32,11 @@ namespace ModdingTutorial.Common.Systems
                 Chest chest = Main.chest[chestIndex];
 
                 // Regular chests
-                if (chest != null && Main.tile[chest.x, chest.y].TileType == TileID.Containers && Main.tile[chest.x, chest.y].TileFrameX == ChestID * chestWidth)
+                if (chest != null && Main.tile[chest.x, chest.y].TileType == TileID.Containers && Main.tile[chest.x, chest.y].TileFrameX == chestID * chestWidth)
                 {
                     for (int inventoryIndex = 0; inventoryIndex < 40; inventoryIndex++)
                     {
+                        // If the spot is empty (no item)
                         if (chest.item[inventoryIndex].type == ItemID.None)
                         {
                             // 20% chance to be in a chest
@@ -41,6 +44,23 @@ namespace ModdingTutorial.Common.Systems
                             {
                                 chest.item[inventoryIndex].SetDefaults(ModContent.ItemType<MinersRing>());
                             }
+
+                            break; // Break to prevent adding the item to other empty slots
+                        }
+                    }
+                }
+
+                // Golden chests
+                if(chest != null && Main.tile[chest.x, chest.y].TileType == TileID.Containers && Main.tile[chest.x, chest.y].TileFrameX == goldChestID * chestWidth)
+                {
+                    for(int inventoryIndex = 0; inventoryIndex < 40; inventoryIndex++)
+                    {
+                        if (chest.item[inventoryIndex].type == ItemID.None)
+                        {
+                            if(Main.rand.NextFloat() <= 0.2f)
+                            {
+                                chest.item[inventoryIndex].SetDefaults(ModContent.ItemType<StoneWand>());
+                            } 
 
                             break;
                         }

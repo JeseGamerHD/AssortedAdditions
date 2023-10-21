@@ -12,7 +12,7 @@ namespace ModdingTutorial.Content.Items.Weapons.Magic
             Item.width = 28;
             Item.height = 28;
             Item.damage = 18;
-            Item.crit = 10;
+            Item.crit = 6;
             Item.knockBack = 3;
             Item.useAnimation = 30;
             Item.useTime = 30;
