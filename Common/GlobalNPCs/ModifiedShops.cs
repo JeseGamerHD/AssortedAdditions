@@ -61,6 +61,11 @@ namespace ModdingTutorial.Common.GlobalNPCs
                 shop.Add(ModContent.ItemType<CosmicWhip>(), condition: sellCosmicItems);
                 shop.Add(ModContent.ItemType<Telelocator>(), condition: sellCosmicItems);
             }
+
+            if(shop.NpcType == NPCID.SkeletonMerchant)
+            {
+                shop.Add(ModContent.ItemType<StoneWand>());
+            }
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using ModdingTutorial.Content.Projectiles.MagicProj;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria;
 
 namespace ModdingTutorial.Content.Items.Weapons.Magic
 {
@@ -24,6 +25,7 @@ namespace ModdingTutorial.Content.Items.Weapons.Magic
             Item.autoReuse = true;
             Item.noMelee = true;
 
+            Item.value = Item.sellPrice(silver: 15);
             Item.useStyle = ItemUseStyleID.Shoot;
             Item.DamageType = DamageClass.Magic;
             Item.rare = ItemRarityID.Green;
