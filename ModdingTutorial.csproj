@@ -96,6 +96,7 @@
     <None Remove="Content\Items\Weapons\Melee\AuroraBlade.png" />
     <None Remove="Content\Items\Weapons\Melee\CosmicBlade.png" />
     <None Remove="Content\Items\Weapons\Melee\CultClassic.png" />
+    <None Remove="Content\Items\Weapons\Ranged\Boom_erang.png" />
     <None Remove="Content\Items\Weapons\Ranged\EyeBow.png" />
     <None Remove="Content\Items\Weapons\Ranged\FrostBow.png" />
     <None Remove="Content\Items\Weapons\Ranged\IceBlaster.png" />
@@ -145,6 +146,7 @@
     <None Remove="Content\Projectiles\MeleeProj\CultClassicOrb.png" />
     <None Remove="Content\Projectiles\MeleeProj\CultClassicProj.png" />
     <None Remove="Content\Projectiles\NPCProj\IceGuardianProj.png" />
+    <None Remove="Content\Projectiles\RangedProj\Boom_erangProj.png" />
     <None Remove="Content\Projectiles\RangedProj\EyeBowProj.png" />
     <None Remove="Content\Projectiles\RangedProj\FrostBowProj.png" />
     <None Remove="Content\Projectiles\RangedProj\ScifiBlasterHoming.png" />

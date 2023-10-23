@@ -2,7 +2,6 @@
 using Terraria.ID;
 using Terraria.ModLoader;
 using ModdingTutorial.Content.Projectiles.RangedProj;
-using Terraria.GameContent.Creative;
 
 namespace ModdingTutorial.Content.Items.Weapons.Ranged
 {
