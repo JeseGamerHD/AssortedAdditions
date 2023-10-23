@@ -8,7 +8,7 @@ namespace ModdingTutorial.Common.GlobalItems
 {
     // This class is used for adding alternative recipes
     // or new recipes for vanilla items
-    // For editing/deleting recipes look at ModifiedRecipes.cs in Systems folder
+    // For editing/deleting recipes look at ModifiedRecipes.cs in Common\Systems folder
     internal class NewRecipes : GlobalItem
     {
         public override void AddRecipes()
@@ -158,6 +158,12 @@ namespace ModdingTutorial.Common.GlobalItems
             shadowKey.AddIngredient(ItemID.SoulofNight, 5);
             shadowKey.AddTile(TileID.Anvils);
             shadowKey.Register();
+
+            Recipe woodenBoomerang = Recipe.Create(ItemID.WoodenBoomerang);
+            woodenBoomerang.AddRecipeGroup("Wood", 30);
+            woodenBoomerang.AddIngredient(ItemID.Silk, 3);
+            woodenBoomerang.AddTile(TileID.WorkBenches);
+            woodenBoomerang.Register();
         }
     }
 }

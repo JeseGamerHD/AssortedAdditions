@@ -39,7 +39,7 @@ namespace ModdingTutorial.Content.Items.Weapons.Ranged
         {
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ItemID.WoodenBoomerang);
-            recipe.AddIngredient(ItemID.Dynamite, 20);
+            recipe.AddIngredient(ItemID.Dynamite, 30);
             recipe.AddTile(TileID.WorkBenches);
             recipe.Register();
         }
