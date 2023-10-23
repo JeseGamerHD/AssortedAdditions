@@ -188,6 +188,7 @@
     <None Remove="Content\Tiles\Walls\PaintWallTile2.png" />
     <None Remove="Content\Tiles\Walls\SteelPlatingWallTile.png" />
     <None Remove="Content\Tiles\Walls\SteelWallTile.png" />
+    <None Remove="icon_small.png" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="tModLoader.CodeAssist" Version="0.1.*" />
