@@ -46,55 +46,6 @@ namespace ModdingTutorial.Content.NPCs
             BannerItem = ModContent.ItemType<FrostWraithBanner>();
         }
 
-        // Tried making a flying AI and it kinda worked
-        // The problem was that it floated up and down too much
-        // Also sprite direction flipping when being close to the player
-/*        public override void AI()
-        {
-            NPC.TargetClosest();
-            Vector2 targetPos = Main.player[NPC.target].position;
-
-            // IF the target is to the left and max velocity hasn't been reached
-            if (targetPos.X < NPC.position.X && NPC.velocity.X > -8)
-            {
-                NPC.velocity.X -= 0.22f; // accelerate to the left
-            }
-
-            // IF the target is to the right and max velocity hasn't been reached
-            if (targetPos.X > NPC.position.X && NPC.velocity.X < 8)
-            {
-                NPC.velocity.X += 0.22f; // accelerate to the right
-            }
-
-            // IF the target is higher
-            // (Y grows when going down in the world)
-            if (targetPos.Y < NPC.position.Y)
-            {
-                // If already moving up and not at max up velocity
-                if(NPC.velocity.Y < 0 && NPC.velocity.Y > -1)
-                {
-                    NPC.velocity.Y -= 0.022f; // accelerate up
-                }
-                else // Otherwise begin moving up at a faster rate
-                {
-                    NPC.velocity.Y -= 0.03f;
-                }
-            }
-
-            // IF the target is lower
-            if (targetPos.Y > NPC.position.Y)
-            {
-                if(NPC.velocity.Y > 0 && NPC.velocity.Y < 1)
-                {
-                    NPC.velocity.Y += 0.022f;
-                }
-                else
-                {
-                    NPC.velocity.Y += 0.03f;
-                }
-            }
-        }*/
-
         // Add some lighting and dust to the NPC
         public override void PostAI()
         {

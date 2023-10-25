@@ -112,6 +112,7 @@
     <None Remove="Content\NPCs\BossFireDragon\FireDragon_Bestiary.png" />
     <None Remove="Content\NPCs\CursedPickaxe.png" />
     <None Remove="Content\NPCs\FrostWraith.png" />
+    <None Remove="Content\NPCs\GoblinBalloonist.png" />
     <None Remove="Content\NPCs\Gores\BuilderGore1.png" />
     <None Remove="Content\NPCs\Gores\BuilderGore2.png" />
     <None Remove="Content\NPCs\Gores\BuilderGore3.png" />

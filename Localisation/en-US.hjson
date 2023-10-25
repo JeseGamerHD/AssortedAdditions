@@ -960,6 +960,11 @@ Mods: {
 				DisplayName: BOOMerang
 				Tooltip: Explosive boomerang, won't destroy tiles
 			}
+
+			GoblinBalloonistBanner: {
+				DisplayName: Goblin Balloonist Banner
+				Tooltip: Nearby players get a bonus against: Goblin Balloonist
+			}
 		}
 
 		Projectiles: {
@@ -1083,6 +1088,7 @@ Mods: {
 			GrabberPlant.DisplayName: Grabber Plant
 			IceGuardian.DisplayName: Ice Guardian
 			IceGuardianShield.DisplayName: Ice Guardian Shield
+			GoblinBalloonist.DisplayName: Goblin Balloonist
 		}
 
 		Conditions.SellCosmicItems: Mods.ModdingTutorial.Conditions.SellCosmicItems
