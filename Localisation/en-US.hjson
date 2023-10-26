@@ -1028,6 +1028,7 @@ Mods: {
 			IceGuardianProj.DisplayName: Ice Guardian Proj
 			StoneWandProj.DisplayName: Stone Wand Proj
 			Boom_erangProj.DisplayName: Boom_erang Proj
+			GoblinBomb.DisplayName: Goblin Bomb
 		}
 
 		Tiles: {

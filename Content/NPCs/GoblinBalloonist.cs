@@ -6,6 +6,8 @@ using Microsoft.Xna.Framework;
 using Terraria.GameContent.Bestiary;
 using System;
 using Terraria.ModLoader.Utilities;
+using ModdingTutorial.Content.Projectiles.NPCProj;
+using Terraria.Audio;
 
 namespace ModdingTutorial.Content.NPCs
 {
@@ -46,9 +48,15 @@ namespace ModdingTutorial.Content.NPCs
         // Used for movement in AI
         private float speed = 4f;
         private float inertia = 12f;
+        public float Timer
+        {
+            get => NPC.ai[0];
+            set => NPC.ai[0] = value;
+        }
 
         public override void AI()
         {
+            Timer++;
             NPC.spriteDirection = 1;
             Player player = Main.player[NPC.target];
             Vector2 targetPos = new(player.position.X, player.position.Y - 200);
@@ -93,6 +101,15 @@ namespace ModdingTutorial.Content.NPCs
                     }
                 }
             }
+
+            if (Timer % 500 == 0 && Timer != 0)
+            {
+                if (Main.netMode != NetmodeID.MultiplayerClient)
+                {
+                    SoundEngine.PlaySound(SoundID.Item1, NPC.position);
+                    Projectile.NewProjectile(NPC.GetSource_FromAI(), new(NPC.Center.X, NPC.Center.Y + 10), NPC.velocity, ModContent.ProjectileType<GoblinBomb>(), 40, 4f, Main.myPlayer);
+                }
+            }
         }
 
         private int frame;
@@ -110,12 +127,6 @@ namespace ModdingTutorial.Content.NPCs
             NPC.frame.Y = frameHeight * frame;
         }
 
-        public float npcCounter
-        {
-            get => NPC.ai[0];
-            set => NPC.ai[0] = value;
-        }
-
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
             if (Main.invasionType == InvasionID.GoblinArmy)
@@ -128,7 +139,7 @@ namespace ModdingTutorial.Content.NPCs
 
         public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
-            // TODO
+            // TODO some cool loot...
         }
 
         public override void HitEffect(NPC.HitInfo hit)

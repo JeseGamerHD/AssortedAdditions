@@ -38,6 +38,7 @@
     <None Remove="Content\Items\Pets\ToyCarRemote.png" />
     <None Remove="Content\Items\Placeables\Banners\CursedPickaxeBanner.png" />
     <None Remove="Content\Items\Placeables\Banners\FrostWraithBanner.png" />
+    <None Remove="Content\Items\Placeables\Banners\GoblinBalloonistBanner.png" />
     <None Remove="Content\Items\Placeables\Banners\GrabberPlantBanner.png" />
     <None Remove="Content\Items\Placeables\Banners\IceGuardianBanner.png" />
     <None Remove="Content\Items\Placeables\Banners\LivingCactusBanner.png" />
@@ -163,6 +164,7 @@
     <None Remove="Content\Projectiles\ToyCar.png" />
     <None Remove="Content\Tiles\Banners\CursedPickaxeBannerTile.png" />
     <None Remove="Content\Tiles\Banners\FrostWraithBannerTile.png" />
+    <None Remove="Content\Tiles\Banners\GoblinBalloonistBannerTile.png" />
     <None Remove="Content\Tiles\Banners\GrabberPlantBannerTile.png" />
     <None Remove="Content\Tiles\Banners\IceGuardianBannerTile.png" />
     <None Remove="Content\Tiles\Banners\LivingCactusBannerTile.png" />
