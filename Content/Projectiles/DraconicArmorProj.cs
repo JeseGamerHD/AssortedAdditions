@@ -68,7 +68,6 @@ namespace ModdingTutorial.Content.Projectiles
                     }
                 }
             }
-
             // If player dies or doesnt have the buff kill projectile
             else
             {

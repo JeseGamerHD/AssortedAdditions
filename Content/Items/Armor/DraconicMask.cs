@@ -5,6 +5,7 @@ using Terraria.GameContent.Creative;
 using Terraria.ID;
 using Terraria;
 using Terraria.ModLoader;
+using ModdingTutorial.Common.Players;
 
 namespace ModdingTutorial.Content.Items.Armor
 {

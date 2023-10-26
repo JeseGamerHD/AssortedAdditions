@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using ModdingTutorial.Common.Players;
 using ModdingTutorial.Content.Items.Armor;
 using ModdingTutorial.Content.Projectiles;
 using Terraria;
@@ -15,11 +16,13 @@ namespace ModdingTutorial.Content.Buffs
             Main.buffNoTimeDisplay[Type] = true;
         }
 
-        int timer;
         public override void Update(Player player, ref int buffIndex)
         {
             // If not wearing the full set, remove the set bonus buff
-            // There is probably a better way to do this but this works for now
+            // There is probably a better way to do this but this works for now...
+            // Tried making a bool in ArmorSetBuff (ModPlayer) and setting it to true inside the head pieces,
+            // however, it did not work. The bool got reset to false before anything could happen and if resetEffects
+            // was not used the buff would keep going when removing armor pieces
             if ((player.armor[0].type != ModContent.ItemType<DraconicHelmet>() 
                 && player.armor[0].type != ModContent.ItemType<DraconicHood>() 
                 && player.armor[0].type != ModContent.ItemType<DraconicHat>()
@@ -27,7 +30,7 @@ namespace ModdingTutorial.Content.Buffs
                 || player.armor[1].type != ModContent.ItemType<DraconicChestplate>()
                 || player.armor[2].type != ModContent.ItemType<DraconicGreaves>())
             {
-                timer = 0; // Reset timer so that new projectiles can spawn if armor gets put on again
+                player.GetModPlayer<ArmorSetBuffs>().DraconicArmorBuff = 0; // Reset timer so that new projectiles can spawn if armor gets put on again
                 player.DelBuff(buffIndex);
                 buffIndex--;
             }
@@ -37,8 +40,9 @@ namespace ModdingTutorial.Content.Buffs
                 player.buffTime[buffIndex] = 18000;
 
                 // Buff spawns five projectiles that circle around the player
-                timer++;
-                if(timer % 25 == 0 && timer <= 125) 
+                player.GetModPlayer<ArmorSetBuffs>().DraconicArmorBuff++;
+                if(player.GetModPlayer<ArmorSetBuffs>().DraconicArmorBuff % 25 == 0 
+                    && player.GetModPlayer<ArmorSetBuffs>().DraconicArmorBuff <= 125)
                 {
                     if(Main.myPlayer == player.whoAmI)
                     {
@@ -47,7 +51,7 @@ namespace ModdingTutorial.Content.Buffs
                 }
 
                 // Add some lighting
-                Lighting.AddLight(player.Center, TorchID.Orange); 
+                Lighting.AddLight(player.Center, TorchID.Orange);
             }
         }
     }
