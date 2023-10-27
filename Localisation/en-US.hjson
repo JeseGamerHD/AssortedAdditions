@@ -965,6 +965,15 @@ Mods: {
 				DisplayName: Goblin Balloonist Banner
 				Tooltip: Nearby players get a bonus against: Goblin Balloonist
 			}
+
+			BagOfBombs: {
+				DisplayName: Bag of Bombs
+				Tooltip:
+					'''
+					Contains unlimited bombs
+					Bombs will destroy tiles
+					'''
+			}
 		}
 
 		Projectiles: {

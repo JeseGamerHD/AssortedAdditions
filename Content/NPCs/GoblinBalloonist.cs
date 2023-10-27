@@ -8,6 +8,9 @@ using System;
 using Terraria.ModLoader.Utilities;
 using ModdingTutorial.Content.Projectiles.NPCProj;
 using Terraria.Audio;
+using Terraria.GameContent.ItemDropRules;
+using ModdingTutorial.Content.Items.Tools;
+using Terraria.Graphics.Shaders;
 
 namespace ModdingTutorial.Content.NPCs
 {
@@ -139,7 +142,7 @@ namespace ModdingTutorial.Content.NPCs
 
         public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
-            // TODO some cool loot...
+            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<BagOfBombs>(), 10));
         }
 
         public override void HitEffect(NPC.HitInfo hit)
@@ -148,8 +151,9 @@ namespace ModdingTutorial.Content.NPCs
             {
                 for (int i = 0; i < 30; i++)
                 {
-                    Dust dust = Dust.NewDustDirect(NPC.position, NPC.width, NPC.height, DustID.Confetti, 0f, 0f, 0, Color.Red, 1.5f);
+                    Dust dust = Dust.NewDustDirect(NPC.position, NPC.width, NPC.height, DustID.Confetti, 0f, 0f, 0, default, 2f);
                     dust.velocity *= 1.4f;
+                    dust.shader = GameShaders.Armor.GetShaderFromItemId(ItemID.RedandBlackDye);
                 }
 
                 if(Main.netMode != NetmodeID.MultiplayerClient)

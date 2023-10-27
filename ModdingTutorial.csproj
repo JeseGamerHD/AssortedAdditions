@@ -68,6 +68,7 @@
     <None Remove="Content\Items\Placeables\Walls\PaintWall2.png" />
     <None Remove="Content\Items\Placeables\Walls\SteelPlatingWall.png" />
     <None Remove="Content\Items\Placeables\Walls\SteelWall.png" />
+    <None Remove="Content\Items\Tools\BagOfBombs.png" />
     <None Remove="Content\Items\Tools\FrostFishingRod.png" />
     <None Remove="Content\Items\Tools\InfiniPlatform.png" />
     <None Remove="Content\Items\Tools\InfiniRope.png" />
@@ -147,6 +148,7 @@
     <None Remove="Content\Projectiles\MeleeProj\CosmicBladeProj.png" />
     <None Remove="Content\Projectiles\MeleeProj\CultClassicOrb.png" />
     <None Remove="Content\Projectiles\MeleeProj\CultClassicProj.png" />
+    <None Remove="Content\Projectiles\NPCProj\GoblinBomb.png" />
     <None Remove="Content\Projectiles\NPCProj\IceGuardianProj.png" />
     <None Remove="Content\Projectiles\RangedProj\Boom_erangProj.png" />
     <None Remove="Content\Projectiles\RangedProj\EyeBowProj.png" />
