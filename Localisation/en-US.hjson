@@ -1108,8 +1108,9 @@ Mods: {
 				DisplayName: Server settings
 
 				Headers: {
-					VanillaRecipes: Recipe toggles
-					OreProgression: Ore Progression toggle
+					VanillaRecipes: Recipe settings
+					OreProgression: Ore Progression settings
+					Items: Item settings
 				}
 
 				ModifiedRecipesToggle: {
@@ -1129,6 +1130,16 @@ Mods: {
 						Mythril/Orichalcum: after The Destroyer
 						Adamantite/Titanium: after The Destroyer + Twins
 						'''
+				}
+
+				NoConsumeBossSummon: {
+					Label: Reusable boss summon items
+					Tooltip: Toggles whether or not boss summon items will be consumed.
+				}
+
+				NoConsumeEventSummon: {
+					Label: Reusable event summon items
+					Tooltip: Toggles whether or not event summon items will be consumed.
 				}
 			}
 		}
