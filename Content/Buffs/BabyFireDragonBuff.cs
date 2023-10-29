@@ -1,6 +1,6 @@
 ﻿using Terraria;
 using Terraria.ModLoader;
-using ModdingTutorial.Content.Projectiles;
+using ModdingTutorial.Content.Projectiles.PetProj;
 
 namespace ModdingTutorial.Content.Buffs
 {

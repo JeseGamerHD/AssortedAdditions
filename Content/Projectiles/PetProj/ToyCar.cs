@@ -4,7 +4,7 @@ using Terraria.ModLoader;
 using ModdingTutorial.Content.Buffs;
 using System.Collections.Generic;
 
-namespace ModdingTutorial.Content.Projectiles
+namespace ModdingTutorial.Content.Projectiles.PetProj
 {
     internal class ToyCar : ModProjectile
     {

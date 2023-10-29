@@ -75,6 +75,11 @@ Mods: {
 				DisplayName: Berserker Buff
 				Description: Increased melee speed
 			}
+
+			IlluminatedCrystalBuff: {
+				DisplayName: Illuminated Crystal Buff
+				Description: The crystal lights your way
+			}
 		}
 
 		Items: {
@@ -974,6 +979,11 @@ Mods: {
 					Bombs will destroy tiles
 					'''
 			}
+
+			IlluminatedCrystal: {
+				DisplayName: Illuminated Crystal
+				Tooltip: Summons a magical crystal
+			}
 		}
 
 		Projectiles: {
@@ -1038,6 +1048,7 @@ Mods: {
 			StoneWandProj.DisplayName: Stone Wand Proj
 			Boom_erangProj.DisplayName: Boom_erang Proj
 			GoblinBomb.DisplayName: Goblin Bomb
+			IlluminatedCrystalPet.DisplayName: Illuminated Crystal Pet
 		}
 
 		Tiles: {

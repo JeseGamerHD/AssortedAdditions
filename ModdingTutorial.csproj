@@ -11,6 +11,7 @@
     <None Remove="Content\Buffs\BerserkerBuff.png" />
     <None Remove="Content\Buffs\EchoChamberBuff.png" />
     <None Remove="Content\Buffs\EchoChamberDebuff.png" />
+    <None Remove="Content\Buffs\IlluminatedCrystalBuff.png" />
     <None Remove="Content\Buffs\MedkitBuff.png" />
     <None Remove="Content\Buffs\MotivatorDebuff.png" />
     <None Remove="Content\Buffs\SnowDwellerBuff.png" />
@@ -35,6 +36,7 @@
     <None Remove="Content\Items\Misc\MagicEssence.png" />
     <None Remove="Content\Items\Misc\MysteriousKey.png" />
     <None Remove="Content\Items\Misc\SharkTooth.png" />
+    <None Remove="Content\Items\Pets\IlluminatedCrystal.png" />
     <None Remove="Content\Items\Pets\ToyCarRemote.png" />
     <None Remove="Content\Items\Placeables\Banners\CursedPickaxeBanner.png" />
     <None Remove="Content\Items\Placeables\Banners\FrostWraithBanner.png" />
@@ -150,6 +152,7 @@
     <None Remove="Content\Projectiles\MeleeProj\CultClassicProj.png" />
     <None Remove="Content\Projectiles\NPCProj\GoblinBomb.png" />
     <None Remove="Content\Projectiles\NPCProj\IceGuardianProj.png" />
+    <None Remove="Content\Projectiles\PetProj\IlluminatedCrystalPet.png" />
     <None Remove="Content\Projectiles\RangedProj\Boom_erangProj.png" />
     <None Remove="Content\Projectiles\RangedProj\EyeBowProj.png" />
     <None Remove="Content\Projectiles\RangedProj\FrostBowProj.png" />

@@ -1,10 +1,10 @@
 ﻿using ModdingTutorial.Content.Buffs;
-using ModdingTutorial.Content.Projectiles;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria;
 using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
+using ModdingTutorial.Content.Projectiles.PetProj;
 
 namespace ModdingTutorial.Content.Items.Pets
 {

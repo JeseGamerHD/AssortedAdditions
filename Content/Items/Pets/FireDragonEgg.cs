@@ -4,7 +4,7 @@ using Terraria;
 using Terraria.DataStructures;
 using Microsoft.Xna.Framework;
 using ModdingTutorial.Content.Buffs;
-using ModdingTutorial.Content.Projectiles;
+using ModdingTutorial.Content.Projectiles.PetProj;
 
 namespace ModdingTutorial.Content.Items.Pets
 {

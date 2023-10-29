@@ -4,7 +4,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace ModdingTutorial.Content.Projectiles
+namespace ModdingTutorial.Content.Projectiles.PetProj
 {
     internal class BabyFireDragon : ModProjectile
     {
