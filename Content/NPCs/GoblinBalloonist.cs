@@ -21,7 +21,7 @@ namespace ModdingTutorial.Content.NPCs
             Main.npcFrameCount[Type] = 2;
             NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Confused] = true;
 
-            NPCID.Sets.NPCBestiaryDrawModifiers value = new NPCID.Sets.NPCBestiaryDrawModifiers(0)
+            NPCID.Sets.NPCBestiaryDrawModifiers value = new NPCID.Sets.NPCBestiaryDrawModifiers()
             {
                 PortraitScale = 0.75f,
                 PortraitPositionYOverride = -15,

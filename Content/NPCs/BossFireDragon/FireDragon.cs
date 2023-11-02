@@ -38,7 +38,7 @@ namespace ModdingTutorial.Content.NPCs.BossFireDragon // This Boss NPC is built 
             NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Confused] = true;
 
             // Beastiary stuff
-            NPCID.Sets.NPCBestiaryDrawModifiers value = new NPCID.Sets.NPCBestiaryDrawModifiers(0)
+            NPCID.Sets.NPCBestiaryDrawModifiers value = new NPCID.Sets.NPCBestiaryDrawModifiers()
             {
                 CustomTexturePath = "ModdingTutorial/Content/NPCs/BossFireDragon/FireDragon_Bestiary",
                 PortraitScale = 1.5f

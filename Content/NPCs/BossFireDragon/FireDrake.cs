@@ -16,7 +16,7 @@ namespace ModdingTutorial.Content.NPCs.BossFireDragon
             Main.npcFrameCount[Type] = 5; // The amount of frames the NPC has
 
             // Influences how the NPC looks in the Bestiary
-            NPCID.Sets.NPCBestiaryDrawModifiers drawModifiers = new NPCID.Sets.NPCBestiaryDrawModifiers(0)
+            NPCID.Sets.NPCBestiaryDrawModifiers drawModifiers = new NPCID.Sets.NPCBestiaryDrawModifiers()
             {
                 Velocity = 1f, // Draws the NPC in the bestiary as if its moving +1 tiles in the x direction
             };
