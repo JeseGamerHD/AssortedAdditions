@@ -100,6 +100,7 @@
     <None Remove="Content\Items\Weapons\Melee\AuroraBlade.png" />
     <None Remove="Content\Items\Weapons\Melee\CosmicBlade.png" />
     <None Remove="Content\Items\Weapons\Melee\CultClassic.png" />
+    <None Remove="Content\Items\Weapons\Ranged\BombLauncher.png" />
     <None Remove="Content\Items\Weapons\Ranged\Boom_erang.png" />
     <None Remove="Content\Items\Weapons\Ranged\EyeBow.png" />
     <None Remove="Content\Items\Weapons\Ranged\FrostBow.png" />

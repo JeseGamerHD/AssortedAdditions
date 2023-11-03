@@ -984,6 +984,11 @@ Mods: {
 				DisplayName: Illuminated Crystal
 				Tooltip: Summons a magical crystal
 			}
+
+			BombLauncher: {
+				DisplayName: Bomb Launcher
+				Tooltip: Shoots non-destructive bombs
+			}
 		}
 
 		Projectiles: {
@@ -1049,6 +1054,7 @@ Mods: {
 			Boom_erangProj.DisplayName: Boom_erang Proj
 			GoblinBomb.DisplayName: Goblin Bomb
 			IlluminatedCrystalPet.DisplayName: Illuminated Crystal Pet
+			BombLauncherProj.DisplayName: Bomb Launcher Proj
 		}
 
 		Tiles: {
