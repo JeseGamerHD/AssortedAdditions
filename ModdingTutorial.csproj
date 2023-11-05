@@ -106,6 +106,7 @@
     <None Remove="Content\Items\Weapons\Ranged\EyeBow.png" />
     <None Remove="Content\Items\Weapons\Ranged\FrostBow.png" />
     <None Remove="Content\Items\Weapons\Ranged\IceBlaster.png" />
+    <None Remove="Content\Items\Weapons\Ranged\JungleChakram.png" />
     <None Remove="Content\Items\Weapons\Ranged\ScifiBlaster.png" />
     <None Remove="Content\Items\Weapons\Ranged\ShootingStar.png" />
     <None Remove="Content\Items\Weapons\Summon\ChainWhip.png" />
@@ -158,6 +159,7 @@
     <None Remove="Content\Projectiles\RangedProj\Boom_erangProj.png" />
     <None Remove="Content\Projectiles\RangedProj\EyeBowProj.png" />
     <None Remove="Content\Projectiles\RangedProj\FrostBowProj.png" />
+    <None Remove="Content\Projectiles\RangedProj\JungleChakramProj.png" />
     <None Remove="Content\Projectiles\RangedProj\ScifiBlasterHoming.png" />
     <None Remove="Content\Projectiles\RangedProj\ScifiBlasterProj.png" />
     <None Remove="Content\Projectiles\RangedProj\ShootingStarProj.png" />

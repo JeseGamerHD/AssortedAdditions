@@ -994,6 +994,11 @@ Mods: {
 				DisplayName: Spore Necklace
 				Tooltip: Spawns spiky spores after taking damage
 			}
+
+			JungleChakram: {
+				DisplayName: Jungle Chakram
+				Tooltip: ""
+			}
 		}
 
 		Projectiles: {
@@ -1061,6 +1066,7 @@ Mods: {
 			IlluminatedCrystalPet.DisplayName: Illuminated Crystal Pet
 			BombLauncherProj.DisplayName: Bomb Launcher Proj
 			SporeNecklaceProj.DisplayName: Spore Necklace Proj
+			JungleChakramProj.DisplayName: Jungle Chakram Proj
 		}
 
 		Tiles: {
