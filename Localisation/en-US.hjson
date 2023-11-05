@@ -989,6 +989,11 @@ Mods: {
 				DisplayName: Bomb Launcher
 				Tooltip: Shoots non-destructive bombs
 			}
+
+			SporeNecklace: {
+				DisplayName: Spore Necklace
+				Tooltip: Spawns spiky spores after taking damage
+			}
 		}
 
 		Projectiles: {
@@ -1055,6 +1060,7 @@ Mods: {
 			GoblinBomb.DisplayName: Goblin Bomb
 			IlluminatedCrystalPet.DisplayName: Illuminated Crystal Pet
 			BombLauncherProj.DisplayName: Bomb Launcher Proj
+			SporeNecklaceProj.DisplayName: Spore Necklace Proj
 		}
 
 		Tiles: {
