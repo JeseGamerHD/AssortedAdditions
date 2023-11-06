@@ -4,8 +4,15 @@ using Terraria;
 
 namespace ModdingTutorial.Content.Items.Accessories
 {
+    [AutoloadEquip(EquipType.Face)]
     internal class CactusFlower : ModItem
     {
+        public override void SetStaticDefaults()
+        {
+            // Draws the accessory over helmets
+            ArmorIDs.Face.Sets.DrawInFaceFlowerLayer[Item.faceSlot] = true;
+        }
+
         public override void SetDefaults()
         {
             Item.width = 32;

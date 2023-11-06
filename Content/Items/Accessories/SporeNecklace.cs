@@ -6,6 +6,7 @@ using Terraria.ModLoader;
 
 namespace ModdingTutorial.Content.Items.Accessories
 {
+    [AutoloadEquip(EquipType.Neck)]
     internal class SporeNecklace : ModItem
     {
         public override void SetDefaults()
