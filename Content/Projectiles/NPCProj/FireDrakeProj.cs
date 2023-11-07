@@ -59,5 +59,15 @@ namespace ModdingTutorial.Content.Projectiles.NPCProj
                 }
             }
         }
+
+        public override void OnKill(int timeLeft)
+        {
+            for(int i = 0; i < 10; i++)
+            {
+                Dust dust2 = Dust.NewDustDirect(Projectile.position - Projectile.velocity, Projectile.width, Projectile.height,
+                    DustID.OrangeTorch, 0, 0, 150, default, 1f);
+                dust2.noGravity = true;
+            }
+        }
     }
 }

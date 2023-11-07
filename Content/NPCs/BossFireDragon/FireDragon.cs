@@ -49,12 +49,12 @@ namespace ModdingTutorial.Content.NPCs.BossFireDragon // This Boss NPC is built 
         public override void SetDefaults()
         {
             NPC.width = 48;
-            NPC.height = 100;
+            NPC.height = 80;
             NPC.value = 100000;
 
             NPC.damage = 50;
-            NPC.defense = 12;
-            NPC.lifeMax = 10000;
+            NPC.defense = 18;
+            NPC.lifeMax = 28500;
             NPC.knockBackResist = 0f;
 
             NPC.HitSound = SoundID.NPCHit7;
@@ -76,7 +76,7 @@ namespace ModdingTutorial.Content.NPCs.BossFireDragon // This Boss NPC is built 
         {
             bestiaryEntry.Info.AddRange(new List<IBestiaryInfoElement> {
                 BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.TheUnderworld, // sets the background image
-                new FlavorTextBestiaryInfoElement("It lays dormant in the depths of the underworld until it is challenged. It commands an army of Fire Drakes")
+                new FlavorTextBestiaryInfoElement("It lays dormant in the depths of the underworld until it is challenged. It commands an army of Fire Drakes. Tip: kill of its servants whenever they spawn...")
             });
         }
 
@@ -294,15 +294,17 @@ namespace ModdingTutorial.Content.NPCs.BossFireDragon // This Boss NPC is built 
             NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.ShadowFlame] = true;
             NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Burning] = true;
             NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Confused] = true;
+
+            Main.npcFrameCount[Type] = 2;
         }
 
         public override void SetDefaults()
         {
-            NPC.width = 48;
+            NPC.width = 50;
             NPC.height = 45;
             NPC.damage = 25;
-            NPC.defense = 12;
-            NPC.lifeMax = 10000;
+            NPC.defense = 24;
+            NPC.lifeMax = 28500;
             NPC.HitSound = SoundID.NPCHit7;
             NPC.SpawnWithHigherTime(30);
             NPC.boss = true;
@@ -313,6 +315,20 @@ namespace ModdingTutorial.Content.NPCs.BossFireDragon // This Boss NPC is built 
         public override void Init()
         {
             FireDragonHead.CommonWormInit(this);
+        }
+
+        public override void FindFrame(int frameHeight)
+        {
+            // Body segment will have a leg every 5th segment
+            // Beginning from a little past the first segment
+            if (NPC.ai[2] > 2 && (NPC.ai[2] - 3) % 5 == 0)
+            {
+                NPC.frame.Y = frameHeight * 1;
+            }
+            else
+            {
+                NPC.frame.Y = 0;
+            }
         }
 
         public override void AI()
@@ -364,11 +380,11 @@ namespace ModdingTutorial.Content.NPCs.BossFireDragon // This Boss NPC is built 
 
         public override void SetDefaults()
         {
-            NPC.width = 50;
-            NPC.height = 136;
+            NPC.width = 70;
+            NPC.height = 116;
             NPC.damage = 30;
-            NPC.defense = 12;
-            NPC.lifeMax = 10000;
+            NPC.defense = 18;
+            NPC.lifeMax = 28500;
             NPC.HitSound = SoundID.NPCHit7;
             NPC.SpawnWithHigherTime(30);
             NPC.boss = true;

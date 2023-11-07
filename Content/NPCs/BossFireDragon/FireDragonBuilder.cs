@@ -1,12 +1,16 @@
 ﻿using System;
+using System.IO;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace ModdingTutorial.Content.NPCs.BossFireDragon /// This is a copy of ExampleMod's Worm.cs, modified for a custom Fire Dragon boss
-{ // https://github.com/tModLoader/tModLoader/blob/1.4.3-MigrationPreparation/ExampleMod/Content/NPCs/Worm.cs
+/// This is a copy of ExampleMod's Worm.cs, modified for a custom Fire Dragon boss
+/// The code is very messy... I should not have tried to make a wormlike boss when starting to learn how to mod Terraria
+/// Comment was added after coming back to try and fix some of the bigger errors...
+namespace ModdingTutorial.Content.NPCs.BossFireDragon 
+{
 
     public enum WormSegmentType
     {
@@ -46,15 +50,6 @@ namespace ModdingTutorial.Content.NPCs.BossFireDragon /// This is a copy of Exam
                 if (!NPC.HasValidTarget)
                 {
                     NPC.TargetClosest(true);
-
-                    // If the NPC is a boss and it has no target, force it to fall to the underworld quickly
-                    // This part handeled in FireDragon.cs
-/*                    if (!NPC.HasValidTarget && NPC.boss)
-                    {
-                        NPC.velocity.Y += 8f;
-
-                        MoveSpeed = 1000f;
-                    }*/
                 }
             }
             else
@@ -96,16 +91,19 @@ namespace ModdingTutorial.Content.NPCs.BossFireDragon /// This is a copy of Exam
             return NPC.whoAmI;
         }
 
+        // Used to keep track of how many bodies have been spanwed, this information is passed to the NPC.ai[2]
+        // Then inside the actual body npc the frame depends on that value (some parts have a leg)
+        private int bodyCount = 0;
+
         // Spawns a body or tail segment of the worm.
-        protected int SpawnSegment(IEntitySource source, int type, int latestNPC)
+        protected int SpawnSegment(IEntitySource source, int type, int latestNPC, int bodyCount)
         {
             // We spawn a new NPC, setting latestNPC to the newer NPC, whilst also using that same variable
             // to set the parent of this new NPC. The parent of the new NPC (may it be a tail or body part)
             // will determine the movement of this new NPC.
             // Under there, we also set the realLife value of the new NPC, because of what is explained above.
             int oldLatest = latestNPC;
-            latestNPC = NPC.NewNPC(source, (int)NPC.Center.X, (int)NPC.Center.Y, type, NPC.whoAmI, 0, latestNPC);
-
+            latestNPC = NPC.NewNPC(source, (int)NPC.Center.X, (int)NPC.Center.Y, type, NPC.whoAmI, 0, latestNPC, bodyCount);
             Main.npc[oldLatest].ai[0] = latestNPC;
 
             NPC latest = Main.npc[latestNPC];
@@ -155,13 +153,14 @@ namespace ModdingTutorial.Content.NPCs.BossFireDragon /// This is a copy of Exam
                         // If not, spawn the body segments like usual
                         while (distance > 0)
                         {
-                            latestNPC = SpawnSegment(source, BodyType, latestNPC);
+                            bodyCount++; // Keep count of how many bodies have been spawned
+                            latestNPC = SpawnSegment(source, BodyType, latestNPC, bodyCount);
                             distance--;
                         }
                     }
 
                     // Spawn the tail segment
-                    SpawnSegment(source, TailType, latestNPC);
+                    SpawnSegment(source, TailType, latestNPC, 0);
 
                     NPC.netUpdate = true;
 
@@ -205,6 +204,17 @@ namespace ModdingTutorial.Content.NPCs.BossFireDragon /// This is a copy of Exam
             // Force a netupdate if the NPC's velocity changed sign and it was not "just hit" by a player
             if ((NPC.velocity.X > 0 && NPC.oldVelocity.X < 0 || NPC.velocity.X < 0 && NPC.oldVelocity.X > 0 || NPC.velocity.Y > 0 && NPC.oldVelocity.Y < 0 || NPC.velocity.Y < 0 && NPC.oldVelocity.Y > 0) && !NPC.justHit)
                 NPC.netUpdate = true;
+        }
+
+        // Sync up the bodyCount
+        public override void SendExtraAI(BinaryWriter writer)
+        {
+            writer.Write(bodyCount);
+        }
+
+        public override void ReceiveExtraAI(BinaryReader reader)
+        {
+            bodyCount = reader.ReadInt32();
         }
     }
 
