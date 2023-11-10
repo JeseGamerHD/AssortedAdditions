@@ -30,7 +30,7 @@ namespace ModdingTutorial.Content.Buffs.Whips
 
             // SummonTagDamageMultiplier scales down tag damage for some specific minion and sentry projectiles for balance purposes.
             var projTagMultiplier = ProjectileID.Sets.SummonTagDamageMultiplier[projectile.type];
-            if (npc.HasBuff<CosmicWhipDebuff>())
+            if (npc.HasBuff<WhipDebuff>())
             {
                 // Apply a flat bonus to every hit
                 modifiers.FlatBonusDamage += MotivatorDebuff.TagDamage * projTagMultiplier;

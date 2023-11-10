@@ -39,7 +39,7 @@ namespace ModdingTutorial.Content.Projectiles.SummonProj
             target.AddBuff(ModContent.BuffType<MotivatorDebuff>(), 240);
             target.AddBuff(BuffID.ShadowFlame, 120);
             Main.player[Projectile.owner].MinionAttackTargetNPC = target.whoAmI;
-            Projectile.damage = (int)(Projectile.damage * 0.5f); // Multihit penalty. Decrease the damage the more enemies the whip hits.
+            Projectile.damage = (int)(Projectile.damage * 0.90f); // Multihit penalty. Decrease the damage the more enemies the whip hits.
 
             // Creates cool sparkly effect when enemy is hit, vanilla has many effects -> ParticleOrchestraType.Effect
             ParticleOrchestrator.RequestParticleSpawn(clientOnly: false, ParticleOrchestraType.NightsEdge,

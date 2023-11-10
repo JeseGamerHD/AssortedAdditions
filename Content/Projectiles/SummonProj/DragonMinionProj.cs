@@ -176,7 +176,7 @@ namespace ModdingTutorial.Content.Projectiles.SummonProj
                 if(distanceFromTarget < 400f && distanceFromTarget > 200f)
                 {
                     Vector2 direction = targetCenter - Projectile.Center;
-                    if (Main.rand.NextBool(5)) // 20% Chance to breathe fire
+                    if (Main.rand.NextBool(5) && Main.myPlayer == Projectile.owner) // 20% Chance to breathe fire
                     {
                         Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.position, 
                             Projectile.velocity, ProjectileID.Flames, 55, 4, Projectile.owner);
