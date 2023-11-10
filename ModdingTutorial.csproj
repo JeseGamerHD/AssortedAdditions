@@ -112,6 +112,8 @@
     <None Remove="Content\Items\Weapons\Ranged\JungleChakram.png" />
     <None Remove="Content\Items\Weapons\Ranged\ScifiBlaster.png" />
     <None Remove="Content\Items\Weapons\Ranged\ShootingStar.png" />
+    <None Remove="Content\Items\Weapons\Summon\BlossomLash.png" />
+    <None Remove="Content\Items\Weapons\Summon\BlossomLashProj.png" />
     <None Remove="Content\Items\Weapons\Summon\ChainWhip.png" />
     <None Remove="Content\Items\Weapons\Summon\CosmicWhip.png" />
     <None Remove="Content\Items\Weapons\Summon\Motivator.png" />
@@ -169,6 +171,8 @@
     <None Remove="Content\Projectiles\RangedProj\ShootingStarProj.png" />
     <None Remove="Content\Projectiles\SkeletonPotionProj.png" />
     <None Remove="Content\Projectiles\SporeNecklaceProj.png" />
+    <None Remove="Content\Projectiles\SummonProj\BlossomLashFlower.png" />
+    <None Remove="Content\Projectiles\SummonProj\BlossomLashProj.png" />
     <None Remove="Content\Projectiles\SummonProj\ChainWhipProj.png" />
     <None Remove="Content\Projectiles\SummonProj\CosmicWhipProj.png" />
     <None Remove="Content\Projectiles\SummonProj\MotivatorProj.png" />

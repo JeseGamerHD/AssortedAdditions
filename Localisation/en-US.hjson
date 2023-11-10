@@ -80,6 +80,11 @@ Mods: {
 				DisplayName: Illuminated Crystal Buff
 				Description: The crystal lights your way
 			}
+
+			BlossomLashDebuff: {
+				DisplayName: Blossom Lash Debuff
+				Description: Mods.ModdingTutorial.Buffs.BlossomLashDebuff.Description
+			}
 		}
 
 		Items: {
@@ -999,6 +1004,16 @@ Mods: {
 				DisplayName: Jungle Chakram
 				Tooltip: ""
 			}
+
+			BlossomLash: {
+				DisplayName: Blossom Lash
+				Tooltip:
+					'''
+					10 summon tag damage
+					Your summons will focus struck enemies
+					Spawns floating flowers which deal damage to enemies
+					'''
+			}
 		}
 
 		Projectiles: {
@@ -1067,6 +1082,8 @@ Mods: {
 			BombLauncherProj.DisplayName: Bomb Launcher Proj
 			SporeNecklaceProj.DisplayName: Spore Necklace Proj
 			JungleChakramProj.DisplayName: Jungle Chakram Proj
+			BlossomLashProj.DisplayName: Blossom Lash Proj
+			BlossomLashFlower.DisplayName: Blossom Lash Flower
 		}
 
 		Tiles: {
