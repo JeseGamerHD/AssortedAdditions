@@ -15,8 +15,8 @@ public class AuroraBlade : ModItem
     public override void SetDefaults()
     {
         
-        Item.useAnimation = 20;
-        Item.useTime = 20;
+        Item.useAnimation = 16;
+        Item.useTime = 16;
         Item.damage = 70;
         Item.knockBack = 4.5f;
         Item.width = 72;
