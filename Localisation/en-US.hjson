@@ -1014,6 +1014,11 @@ Mods: {
 					Spawns floating flowers which deal damage to enemies
 					'''
 			}
+
+			PetalBlade: {
+				DisplayName: Petal Blade
+				Tooltip: Shoots out flower petals
+			}
 		}
 
 		Projectiles: {
@@ -1084,6 +1089,7 @@ Mods: {
 			JungleChakramProj.DisplayName: Jungle Chakram Proj
 			BlossomLashProj.DisplayName: Blossom Lash Proj
 			BlossomLashFlower.DisplayName: Blossom Lash Flower
+			PetalBladeProj.DisplayName: Petal Blade Proj
 		}
 
 		Tiles: {
