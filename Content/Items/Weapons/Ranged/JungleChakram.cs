@@ -12,11 +12,11 @@ namespace ModdingTutorial.Content.Items.Weapons.Ranged
             Item.width = 44;
             Item.height = 44;
             Item.damage = 75;
-            Item.knockBack = 8f;
-            Item.useTime = 14;
-            Item.useAnimation = 14;
+            Item.knockBack = 6f;
+            Item.useTime = 12;
+            Item.useAnimation = 12;
             Item.shootSpeed = 16f;
-            Item.crit = 6;
+            Item.crit = 10;
 
             Item.noMelee = true;
             Item.autoReuse = true;
