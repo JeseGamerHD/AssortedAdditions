@@ -138,6 +138,7 @@
     <None Remove="Content\NPCs\GrabberPlant.png" />
     <None Remove="Content\NPCs\IceGuardian.png" />
     <None Remove="Content\NPCs\IceGuardianShield.png" />
+    <None Remove="Content\NPCs\JungleMimic.png" />
     <None Remove="Content\NPCs\LivingCactus.png" />
     <None Remove="Content\NPCs\Shroomling.png" />
     <None Remove="Content\NPCs\Town\Builder.png" />

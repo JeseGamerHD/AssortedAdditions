@@ -1158,6 +1158,7 @@ Mods: {
 			IceGuardian.DisplayName: Ice Guardian
 			IceGuardianShield.DisplayName: Ice Guardian Shield
 			GoblinBalloonist.DisplayName: Goblin Balloonist
+			JungleMimic.DisplayName: Jungle Mimic
 		}
 
 		Conditions.SellCosmicItems: Mods.ModdingTutorial.Conditions.SellCosmicItems

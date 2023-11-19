@@ -61,6 +61,23 @@ namespace ModdingTutorial.Content.Projectiles.MagicProj
                     DustID.JungleTorch, 5, 5, 150, default, 1.5f);
                 dust2.noGravity = true;
             }
+
+            // When the projectile hits something it slows down to hit the target up to 3 times
+            // If the target dies or the projectile passes the target, then kill it
+            if (Projectile.ai[0] != 0)
+            {
+                if (!Projectile.Hitbox.Intersects(Main.npc[TargetBeingHit].Hitbox)
+                    || !Main.npc[TargetBeingHit].active)
+                {
+                    Projectile.Kill();
+                }
+            }
+        }
+
+        public int TargetBeingHit
+        {
+            get => (int)Projectile.ai[0];
+            set => Projectile.ai[0] = value;
         }
 
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
@@ -70,6 +87,8 @@ namespace ModdingTutorial.Content.Projectiles.MagicProj
                 Projectile.velocity *= 0.1f;
                 Projectile.ai[2]++;
                 Projectile.timeLeft = 75;
+
+                TargetBeingHit = target.whoAmI;
             }
         }
 
