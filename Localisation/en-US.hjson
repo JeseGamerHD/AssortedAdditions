@@ -1019,6 +1019,11 @@ Mods: {
 				DisplayName: Petal Blade
 				Tooltip: Shoots out flower petals
 			}
+
+			SporeRod: {
+				DisplayName: Spore Rod
+				Tooltip: Casts a spore orb which breaks into smaller orbs
+			}
 		}
 
 		Projectiles: {
@@ -1090,6 +1095,8 @@ Mods: {
 			BlossomLashProj.DisplayName: Blossom Lash Proj
 			BlossomLashFlower.DisplayName: Blossom Lash Flower
 			PetalBladeProj.DisplayName: Petal Blade Proj
+			SporeOrbBig.DisplayName: Spore Orb Big
+			SporeOrbSmall.DisplayName: Spore Orb Small
 		}
 
 		Tiles: {
