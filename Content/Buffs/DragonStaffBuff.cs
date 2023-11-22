@@ -1,8 +1,8 @@
 ﻿using Terraria;
 using Terraria.ModLoader;
-using ModdingTutorial.Content.Projectiles.SummonProj;
+using AssortedAdditions.Content.Projectiles.SummonProj;
 
-namespace ModdingTutorial.Content.Buffs;
+namespace AssortedAdditions.Content.Buffs;
 
 public class DragonStaffBuff : ModBuff
 {
@@ -15,7 +15,7 @@ public class DragonStaffBuff : ModBuff
     public override void Update(Player player, ref int buffIndex)
     {
         if (player.ownedProjectileCounts[ModContent.ProjectileType<DragonMinionProj>()] < 1)
-        { 
+        {
             player.DelBuff(buffIndex);
             buffIndex--;
         }

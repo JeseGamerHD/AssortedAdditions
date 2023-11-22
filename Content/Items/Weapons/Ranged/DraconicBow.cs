@@ -3,10 +3,10 @@ using Terraria.GameContent.Creative;
 using Terraria.ModLoader;
 using Terraria;
 using Microsoft.Xna.Framework;
-using ModdingTutorial.Content.Projectiles.RangedProj;
 using Terraria.DataStructures;
+using AssortedAdditions.Content.Projectiles.RangedProj;
 
-namespace ModdingTutorial.Content.Items.Weapons.Ranged
+namespace AssortedAdditions.Content.Items.Weapons.Ranged
 {
     internal class DraconicBow : ModItem
     {
@@ -36,7 +36,7 @@ namespace ModdingTutorial.Content.Items.Weapons.Ranged
             Item.UseSound = SoundID.Item5;
             Item.value = Item.sellPrice(gold: 5);
             Item.useAmmo = AmmoID.Arrow;
-            Item.shoot = ModContent.ProjectileType<DraconicBowProj>(); 
+            Item.shoot = ModContent.ProjectileType<DraconicBowProj>();
         }
 
         public override Vector2? HoldoutOffset() => new(-2, 0); // Alligns the sprite properly
@@ -45,7 +45,7 @@ namespace ModdingTutorial.Content.Items.Weapons.Ranged
         public override bool CanConsumeAmmo(Item ammo, Player player)
         {
             // Consume ammo every 3 shots, also on the 1st shot
-            if(shotsFired % 3 == 0)
+            if (shotsFired % 3 == 0)
             {
                 return true;
             }

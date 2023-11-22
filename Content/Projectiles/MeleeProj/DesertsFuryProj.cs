@@ -4,7 +4,7 @@ using Terraria;
 using Terraria.ModLoader;
 using System.Collections.Generic;
 
-namespace ModdingTutorial.Content.Projectiles.MeleeProj
+namespace AssortedAdditions.Content.Projectiles.MeleeProj
 {
     internal class DesertsFuryProj : ModProjectile
     {
@@ -36,7 +36,7 @@ namespace ModdingTutorial.Content.Projectiles.MeleeProj
             {
                 rotateSpeed += 0.0015f;
             }
-            
+
             // Weapon will spin as long as player keeps channeling
             if (player.channel)
             {
@@ -89,11 +89,11 @@ namespace ModdingTutorial.Content.Projectiles.MeleeProj
                     dust2.noGravity = true;
                 }
 
-                if(delay > 14)
+                if (delay > 14)
                 {
                     delay -= 0.105f;
                 }
-                
+
                 // Sound effect
                 // Gets faster along with the spin
                 if (Projectile.soundDelay == 0)

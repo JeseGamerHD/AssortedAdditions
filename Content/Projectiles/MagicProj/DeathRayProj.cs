@@ -8,7 +8,7 @@ using Microsoft.Xna.Framework;
 using Terraria.ID;
 using Terraria.Audio;
 
-namespace ModdingTutorial.Content.Projectiles.MagicProj
+namespace AssortedAdditions.Content.Projectiles.MagicProj
 {
     // The following laser shows a channeled ability, after charging up the laser will be fired
     // Using custom drawing, dust effects, and custom collision checks for tiles
@@ -18,8 +18,8 @@ namespace ModdingTutorial.Content.Projectiles.MagicProj
         private const float MOVE_DISTANCE = 60f; //The distance charge particle from the player center
         private const int FRAME_COUNT = 14; // The amount of frames in the animation (minus one since counting begins from zero)
         private int laserFrame = 0; // Used for selecting correct frame for animation
-        
-        SoundStyle laserSound = new("ModdingTutorial/Assets/Sounds/ProjectileSound/DeathRayFire"); // Sound effect for the laser beam
+
+        SoundStyle laserSound = new("AssortedAdditions/Assets/Sounds/ProjectileSound/DeathRayFire"); // Sound effect for the laser beam
 
         // The actual distance is stored in the ai0 field
         // By making a property to handle this it makes our life easier, and the accessibility more readable
@@ -71,21 +71,21 @@ namespace ModdingTutorial.Content.Projectiles.MagicProj
         }
 
         // The core function of drawing a laser
-        public void DrawLaser(SpriteBatch spriteBatch, Texture2D texture, Vector2 start, Vector2 unit, float step, int damage, float rotation = 0f, float scale = 1f, float maxDist = 2000f, Color color = default(Color), int transDist = 50)
+        public void DrawLaser(SpriteBatch spriteBatch, Texture2D texture, Vector2 start, Vector2 unit, float step, int damage, float rotation = 0f, float scale = 1f, float maxDist = 2000f, Color color = default, int transDist = 50)
         {
             // The frame to display is selected here
-            if(frameTiming % 4 == 0 && frameTiming != 0)
+            if (frameTiming % 4 == 0 && frameTiming != 0)
             {
                 laserFrame++;
             }
 
-            if(laserFrame > FRAME_COUNT) // Reset when reaching final frame
+            if (laserFrame > FRAME_COUNT) // Reset when reaching final frame
             {
                 laserFrame = 0;
             }
 
             float drawRotation = unit.ToRotation() + rotation;
-            
+
             // Draws the laser 'body'
             for (float i = transDist; i <= Distance; i += step)
             {
@@ -109,7 +109,7 @@ namespace ModdingTutorial.Content.Projectiles.MagicProj
         public override bool? Colliding(Rectangle projHitbox, Rectangle targetHitbox)
         {
             // We can only collide if we are at max charge, which is when the laser is actually fired
-            if (!IsAtMaxCharge) 
+            if (!IsAtMaxCharge)
                 return false;
 
             // TODO: Fix this, collision is buggy... Maybe try using whatever the Example last prism does...
@@ -179,7 +179,7 @@ namespace ModdingTutorial.Content.Projectiles.MagicProj
 
             for (int i = 0; i < 2; ++i)
             {
-                float num1 = Projectile.velocity.ToRotation() + (Main.rand.NextBool(2)? -1.0f : 1.0f) * 1.57f;
+                float num1 = Projectile.velocity.ToRotation() + (Main.rand.NextBool(2) ? -1.0f : 1.0f) * 1.57f;
                 float num2 = (float)(Main.rand.NextDouble() * 0.8f + 1.0f);
                 Vector2 dustVel = new Vector2((float)Math.Cos(num1) * num2, (float)Math.Sin(num1) * num2);
                 Dust dust = Main.dust[Dust.NewDust(dustPos, 0, 0, DustID.Fireworks, dustVel.X, dustVel.Y)];

@@ -3,7 +3,7 @@ using Terraria.ModLoader;
 using Terraria;
 using System.Collections.Generic;
 
-namespace ModdingTutorial.Content.Items.Misc
+namespace AssortedAdditions.Content.Items.Misc
 {
     internal class LunchBox : ModItem
     {
@@ -37,14 +37,14 @@ namespace ModdingTutorial.Content.Items.Misc
         {
             Recipe recipe = CreateRecipe();
             recipe.AddRecipeGroup("Fruit");
-            recipe.AddRecipeGroup("ModdingTutorial:Drinks");
+            recipe.AddRecipeGroup("AssortedAdditions:Drinks");
             recipe.AddIngredient(ItemID.CobaltBar, 5);
             recipe.AddTile(TileID.WorkBenches);
             recipe.Register();
 
             Recipe recipe2 = CreateRecipe();
             recipe2.AddRecipeGroup("Fruit", 3);
-            recipe2.AddRecipeGroup("ModdingTutorial:Drinks");
+            recipe2.AddRecipeGroup("AssortedAdditions:Drinks");
             recipe2.AddIngredient(ItemID.PalladiumBar, 5);
             recipe2.AddTile(TileID.WorkBenches);
             recipe2.Register();

@@ -3,7 +3,7 @@ using Terraria.ID;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace ModdingTutorial.Content.Projectiles
+namespace AssortedAdditions.Content.Projectiles
 {
     internal class SkeletonPotionProj : ModProjectile
     {
@@ -49,7 +49,7 @@ namespace ModdingTutorial.Content.Projectiles
                 {
                     NPC.NewNPC(Projectile.GetSource_FromThis(), (int)Projectile.position.X, (int)Projectile.position.Y, NPCID.SkeletonMerchant);
                 }
-                
+
             }
         }
 

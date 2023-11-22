@@ -4,7 +4,7 @@ using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace ModdingTutorial.Content.Projectiles.RangedProj
+namespace AssortedAdditions.Content.Projectiles.RangedProj
 {
     internal class Boom_erangProj : ModProjectile
     {

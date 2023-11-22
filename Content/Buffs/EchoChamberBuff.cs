@@ -1,8 +1,8 @@
-﻿using ModdingTutorial.Common.Players;
+﻿using AssortedAdditions.Common.Players;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace ModdingTutorial.Content.Buffs
+namespace AssortedAdditions.Content.Buffs
 {
     internal class EchoChamberBuff : ModBuff
     {

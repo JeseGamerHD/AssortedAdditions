@@ -1,6 +1,6 @@
-﻿using Microsoft.Xna.Framework;
-using ModdingTutorial.Content.Items.Armor;
-using ModdingTutorial.Content.Items.Placeables.Banners;
+﻿using AssortedAdditions.Content.Items.Armor;
+using AssortedAdditions.Content.Items.Placeables.Banners;
+using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent.Bestiary;
@@ -9,7 +9,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ModLoader.Utilities;
 
-namespace ModdingTutorial.Content.NPCs
+namespace AssortedAdditions.Content.NPCs
 {
     internal class Shroomling : ModNPC
     {
@@ -26,8 +26,8 @@ namespace ModdingTutorial.Content.NPCs
             NPC.defense = 4;
             NPC.lifeMax = 45;
             NPC.knockBackResist = 0.5f;
-            NPC.HitSound = new SoundStyle("ModdingTutorial/Assets/Sounds/NPCSound/ShroomlingHit");
-            NPC.DeathSound = new SoundStyle("ModdingTutorial/Assets/Sounds/NPCSound/ShroomlingDeath");
+            NPC.HitSound = new SoundStyle("AssortedAdditions/Assets/Sounds/NPCSound/ShroomlingHit");
+            NPC.DeathSound = new SoundStyle("AssortedAdditions/Assets/Sounds/NPCSound/ShroomlingDeath");
             NPC.value = 80;
 
             NPC.aiStyle = 0;
@@ -42,7 +42,7 @@ namespace ModdingTutorial.Content.NPCs
         {
             // Enemy starts off in idle position
             // then switches to fighter ai
-            if(NPC.aiStyle == 0)
+            if (NPC.aiStyle == 0)
             {
                 // Find a target
                 if (!NPC.HasValidTarget)
@@ -56,9 +56,9 @@ namespace ModdingTutorial.Content.NPCs
                 if (target.Distance(NPC.Center) < 150f || NPC.velocity != Vector2.Zero)
                 {
                     // It also makes a noise when disturbed
-                    SoundStyle shroomlingAngry = new SoundStyle("ModdingTutorial/Assets/Sounds/NPCSound/ShroomlingAngry");
+                    SoundStyle shroomlingAngry = new SoundStyle("AssortedAdditions/Assets/Sounds/NPCSound/ShroomlingAngry");
                     SoundEngine.PlaySound(shroomlingAngry, NPC.position);
-                    
+
                     NPC.aiStyle = 38; // Snowman AI, works well enough
                 }
                 return false; // If aiStyle stays at 0, keep idling
@@ -70,23 +70,23 @@ namespace ModdingTutorial.Content.NPCs
         // Animation happens here:
         private int frame = 0;
         public override void FindFrame(int frameHeight)
-        {          
+        {
             // When target gets close ai switches to fighter ai
             // Frame won't change from 0 if aiStyle is still 0 (idle)
-            if(NPC.aiStyle == 38)
+            if (NPC.aiStyle == 38)
             {
                 // Switch frames
-                if(NPC.frameCounter % 3 == 0)
+                if (NPC.frameCounter % 3 == 0)
                 {
                     frame++;
                 }
                 NPC.frameCounter++;
 
                 // If final frame was reached, reset to frame 1 (0 is only for idle)
-                if(frame > 14)
+                if (frame > 14)
                 {
                     frame = 1;
-                }             
+                }
             }
 
             // Set the frame whether its the idle one or one of the walking frames

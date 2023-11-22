@@ -2,7 +2,7 @@
 using Terraria.ModLoader;
 using Terraria;
 
-namespace ModdingTutorial.Content.Items.Accessories
+namespace AssortedAdditions.Content.Items.Accessories
 {
     [AutoloadEquip(EquipType.Face)]
     internal class CactusFlower : ModItem

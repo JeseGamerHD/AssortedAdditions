@@ -3,11 +3,11 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace ModdingTutorial.Content.Projectiles.RangedProj
+namespace AssortedAdditions.Content.Projectiles.RangedProj
 {
     internal class PlasmaCarbineProj : ModProjectile
     {
-        public override void SetStaticDefaults() 
+        public override void SetStaticDefaults()
         {
             Main.projFrames[Projectile.type] = 5;
         }

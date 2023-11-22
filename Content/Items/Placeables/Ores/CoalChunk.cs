@@ -4,7 +4,7 @@ using Terraria.ModLoader;
 using Terraria.GameContent.Creative;
 using Terraria.ID;
 
-namespace ModdingTutorial.Content.Items.Placeables.Ores
+namespace AssortedAdditions.Content.Items.Placeables.Ores
 {
     internal class CoalChunk : ModItem
     {

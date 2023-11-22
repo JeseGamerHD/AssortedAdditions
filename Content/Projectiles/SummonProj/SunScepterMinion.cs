@@ -1,11 +1,11 @@
 ﻿using Terraria.ID;
 using Terraria;
 using Terraria.ModLoader;
-using ModdingTutorial.Content.Buffs;
 using System;
 using Microsoft.Xna.Framework;
+using AssortedAdditions.Content.Buffs;
 
-namespace ModdingTutorial.Content.Projectiles.SummonProj
+namespace AssortedAdditions.Content.Projectiles.SummonProj
 {
     internal class SunScepterMinion : ModProjectile
     {
@@ -55,7 +55,7 @@ namespace ModdingTutorial.Content.Projectiles.SummonProj
         {
             Player owner = Main.player[Projectile.owner];
 
-            if(owner.dead || !owner.active)
+            if (owner.dead || !owner.active)
             {
                 owner.ClearBuff(ModContent.BuffType<SunScepterBuff>());
             }
@@ -65,7 +65,7 @@ namespace ModdingTutorial.Content.Projectiles.SummonProj
             SearchForTargets(owner, out bool foundTarget, out float distanceFromTarget, out Vector2 targetCenter);
             Movement(foundTarget, distanceFromTarget, targetCenter, distanceToIdlePosition, vectorToIdlePosition);
 
-            
+
             Projectile.rotation += 0.01f; // Minion slowly spins when in idle, rotation increases when attacking in Movement()
             Lighting.AddLight(Projectile.position, TorchID.Yellow); // Emits some light
 
@@ -152,7 +152,7 @@ namespace ModdingTutorial.Content.Projectiles.SummonProj
                         // The number depends on various parameters seen in the movement code below. Test different ones out until it works alright
                         bool closeThroughWall = between < 1000f;
 
-                        if (((closest && inRange) || !foundTarget) && (lineOfSight || closeThroughWall))
+                        if ((closest && inRange || !foundTarget) && (lineOfSight || closeThroughWall))
                         {
                             distanceFromTarget = between;
                             targetCenter = npc.Center;

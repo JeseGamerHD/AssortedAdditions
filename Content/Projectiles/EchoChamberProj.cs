@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
-using ModdingTutorial.Content.Buffs;
+using AssortedAdditions.Content.Buffs;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ModLoader;
 
-namespace ModdingTutorial.Content.Projectiles
+namespace AssortedAdditions.Content.Projectiles
 {
     internal class EchoChamberProj : ModProjectile
     {
@@ -51,7 +51,7 @@ namespace ModdingTutorial.Content.Projectiles
             }
 
             // Keep projectile on top of player
-            Projectile.Center = player.Center; 
+            Projectile.Center = player.Center;
 
             // Loop through the sprite frames
             int frameSpeed = 5;
@@ -71,7 +71,7 @@ namespace ModdingTutorial.Content.Projectiles
             // This plays only once since timeLeft gets set to 2 after the first run of the AI() and is kept at 2
             if (player.whoAmI == Main.myPlayer && Projectile.timeLeft > 2)
             {
-                SoundStyle echoChamberActivate = new SoundStyle("ModdingTutorial/Assets/Sounds/ProjectileSound/EchoChamberActivate");
+                SoundStyle echoChamberActivate = new SoundStyle("AssortedAdditions/Assets/Sounds/ProjectileSound/EchoChamberActivate");
                 SoundEngine.PlaySound(echoChamberActivate, player.position);
             }
 

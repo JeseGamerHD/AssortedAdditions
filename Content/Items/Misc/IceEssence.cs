@@ -4,14 +4,14 @@ using Terraria;
 using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
 
-namespace ModdingTutorial.Content.Items.Misc
+namespace AssortedAdditions.Content.Items.Misc
 {
     internal class IceEssence : ModItem
     {
         public override void SetStaticDefaults()
         {
-            
-            Main.RegisterItemAnimation(Item.type, new DrawAnimationVertical(5, 5)); 
+
+            Main.RegisterItemAnimation(Item.type, new DrawAnimationVertical(5, 5));
             ItemID.Sets.AnimatesAsSoul[Item.type] = true; // Makes the item have an animation while in world (not held.). Use in combination with RegisterItemAnimation
             ItemID.Sets.ItemNoGravity[Item.type] = true;
 

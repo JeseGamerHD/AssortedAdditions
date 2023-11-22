@@ -2,15 +2,16 @@
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.GameContent.Creative;
-using ModdingTutorial.Content.Items.Placeables.Ores;
+using AssortedAdditions.Content.Items.Placeables.Ores;
 
-namespace ModdingTutorial.Content.Items.Armor
+namespace AssortedAdditions.Content.Items.Armor
 {
     [AutoloadEquip(EquipType.Body)]
     internal class SteelBreastplate : ModItem
     {
-        public override void SetStaticDefaults() {
-            
+        public override void SetStaticDefaults()
+        {
+
             // Tooltip.SetDefault("A breastplate made out of steel");
             CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
         }

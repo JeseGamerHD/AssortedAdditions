@@ -1,5 +1,5 @@
-﻿using ModdingTutorial.Content.Items.Misc;
-using ModdingTutorial.Content.Items.Placeables.Banners;
+﻿using AssortedAdditions.Content.Items.Misc;
+using AssortedAdditions.Content.Items.Placeables.Banners;
 using Terraria;
 using Terraria.GameContent.Bestiary;
 using Terraria.GameContent.ItemDropRules;
@@ -7,7 +7,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ModLoader.Utilities;
 
-namespace ModdingTutorial.Content.NPCs
+namespace AssortedAdditions.Content.NPCs
 {
     internal class FrostWraith : ModNPC
     {
@@ -18,7 +18,7 @@ namespace ModdingTutorial.Content.NPCs
             // Immune to debuffs:
             NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Frostburn] = true;
             NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Frostburn2] = true;
-            NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Confused] = true;  
+            NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Confused] = true;
         }
 
         public override void SetDefaults()

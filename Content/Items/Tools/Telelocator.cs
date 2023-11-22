@@ -3,7 +3,7 @@ using Terraria.ModLoader;
 using Terraria;
 using Microsoft.Xna.Framework;
 
-namespace ModdingTutorial.Content.Items.Tools
+namespace AssortedAdditions.Content.Items.Tools
 {
     internal class Telelocator : ModItem
     {
@@ -24,7 +24,7 @@ namespace ModdingTutorial.Content.Items.Tools
         public override bool CanUseItem(Player player)
         {
             // Can only be used if no cooldown is active
-            if(player.HasBuff(BuffID.ChaosState))
+            if (player.HasBuff(BuffID.ChaosState))
             {
                 return false;
             }
@@ -42,7 +42,7 @@ namespace ModdingTutorial.Content.Items.Tools
 
         public override bool? UseItem(Player player)
         {
-            if(player.whoAmI == Main.myPlayer) // Important check
+            if (player.whoAmI == Main.myPlayer) // Important check
             {
                 // Set the coordinates, in this case the mouse position
                 Vector2 teleportHere = new(Main.MouseWorld.X, Main.MouseWorld.Y);

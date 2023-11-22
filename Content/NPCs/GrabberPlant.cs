@@ -1,6 +1,6 @@
-﻿using Microsoft.Xna.Framework;
-using ModdingTutorial.Content.Items.Accessories;
-using ModdingTutorial.Content.Items.Placeables.Banners;
+﻿using AssortedAdditions.Content.Items.Accessories;
+using AssortedAdditions.Content.Items.Placeables.Banners;
+using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.GameContent.Bestiary;
 using Terraria.GameContent.ItemDropRules;
@@ -8,7 +8,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ModLoader.Utilities;
 
-namespace ModdingTutorial.Content.NPCs
+namespace AssortedAdditions.Content.NPCs
 {
     internal class GrabberPlant : ModNPC
     {
@@ -40,7 +40,7 @@ namespace ModdingTutorial.Content.NPCs
             // Surface
             if (spawnInfo.Player.ZoneJungle && !spawnInfo.Player.ZoneRockLayerHeight)
             {
-                if(!Main.hardMode)
+                if (!Main.hardMode)
                 {
                     return SpawnCondition.SurfaceJungle.Chance;
                 }
@@ -50,9 +50,9 @@ namespace ModdingTutorial.Content.NPCs
                 }
             }
             // Underground
-            else if(spawnInfo.Player.ZoneJungle && spawnInfo.Player.ZoneRockLayerHeight)
+            else if (spawnInfo.Player.ZoneJungle && spawnInfo.Player.ZoneRockLayerHeight)
             {
-                if(!Main.hardMode)
+                if (!Main.hardMode)
                 {
                     return SpawnCondition.UndergroundJungle.Chance;
                 }
@@ -61,7 +61,7 @@ namespace ModdingTutorial.Content.NPCs
                     return SpawnCondition.UndergroundJungle.Chance * 0.5f;
                 }
             }
-            
+
             return 0f;
         }
 
@@ -90,7 +90,7 @@ namespace ModdingTutorial.Content.NPCs
         public override void AI()
         {
             // When in idle
-            if(State == 0)
+            if (State == 0)
             {
                 return; // Does nothing
             }
@@ -116,12 +116,12 @@ namespace ModdingTutorial.Content.NPCs
             trappedPlayer = target;
 
             // Grab the player
-            if(target.Center != NPC.Center)
+            if (target.Center != NPC.Center)
             {
                 target.Center = NPC.Center;
             }
-            
-            if(!target.HasBuff(BuffID.Poisoned))
+
+            if (!target.HasBuff(BuffID.Poisoned))
             {
                 target.AddBuff(BuffID.Poisoned, 300);
             }
@@ -131,7 +131,7 @@ namespace ModdingTutorial.Content.NPCs
         public override void FindFrame(int frameHeight)
         {
             // When in idle
-            if(State == 0)
+            if (State == 0)
             {
                 // Loop through the first four frames
                 if (NPC.frameCounter % 20 == 0)
@@ -147,7 +147,7 @@ namespace ModdingTutorial.Content.NPCs
             else // Otherwise play the last three and stay on the last one
             {
                 // Ensure that the grab will begin at frame 4 below by setting it to three first
-                if(frame < 3)
+                if (frame < 3)
                 {
                     frame = 3;
                 }
@@ -156,7 +156,7 @@ namespace ModdingTutorial.Content.NPCs
                 // After that loop the two last frames
                 if (NPC.frameCounter % 10 == 0)
                 {
-                    if(frame < 7)
+                    if (frame < 7)
                     {
                         frame++;
                     }

@@ -1,12 +1,12 @@
-﻿using Microsoft.Xna.Framework;
-using ModdingTutorial.Content.Projectiles.MeleeProj;
+﻿using AssortedAdditions.Content.Projectiles.MeleeProj;
+using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.GameContent.Creative;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace ModdingTutorial.Content.Items.Weapons.Melee
+namespace AssortedAdditions.Content.Items.Weapons.Melee
 {
     internal class DraconicBlade : ModItem
     {
@@ -38,7 +38,7 @@ namespace ModdingTutorial.Content.Items.Weapons.Melee
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
             shoot++;
-            if(shoot % 2 == 0)
+            if (shoot % 2 == 0)
             {
                 return true;
             }

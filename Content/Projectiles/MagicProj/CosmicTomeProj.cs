@@ -6,12 +6,12 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Audio;
 
-namespace ModdingTutorial.Content.Projectiles.MagicProj
+namespace AssortedAdditions.Content.Projectiles.MagicProj
 {
     internal class CosmicTomeProj : ModProjectile
     {
         // Re-use the shooting star sprite, visual difference comes in shader
-        public override string Texture => "ModdingTutorial/Content/Projectiles/RangedProj/ShootingStarProj";
+        public override string Texture => "AssortedAdditions/Content/Projectiles/RangedProj/ShootingStarProj";
 
         public override void SetStaticDefaults()
         {
@@ -90,7 +90,7 @@ namespace ModdingTutorial.Content.Projectiles.MagicProj
         }
 
         private Color StripColors(float progressOnStrip)
-        { 
+        {
             Color result = Color.Lerp(Color.HotPink, Color.Indigo, Utils.GetLerpValue(-0.2f, 0.5f, progressOnStrip, clamped: true)) * (1f - Utils.GetLerpValue(0f, 0.98f, progressOnStrip));
             result.A = 0;
 

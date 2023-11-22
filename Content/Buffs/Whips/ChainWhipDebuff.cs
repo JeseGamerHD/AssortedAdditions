@@ -2,11 +2,11 @@
 using Terraria;
 using Terraria.ModLoader;
 
-namespace ModdingTutorial.Content.Buffs.Whips
+namespace AssortedAdditions.Content.Buffs.Whips
 {
     internal class ChainWhipDebuff : ModBuff
     {
-        public override string Texture => "ModdingTutorial/Content/Buffs/Whips/MotivatorDebuff";
+        public override string Texture => "AssortedAdditions/Content/Buffs/Whips/MotivatorDebuff";
 
         public static readonly int TagDamage = 6;
 

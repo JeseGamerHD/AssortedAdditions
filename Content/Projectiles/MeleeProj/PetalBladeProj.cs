@@ -3,7 +3,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace ModdingTutorial.Content.Projectiles.MeleeProj
+namespace AssortedAdditions.Content.Projectiles.MeleeProj
 {
     internal class PetalBladeProj : ModProjectile
     {
@@ -22,7 +22,7 @@ namespace ModdingTutorial.Content.Projectiles.MeleeProj
         public override void AI()
         {
 
-            if(setOnce == 0)
+            if (setOnce == 0)
             {
                 Projectile.rotation -= MathHelper.ToRadians(45);
                 setOnce = 1;

@@ -3,7 +3,7 @@ using Terraria.ID;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace ModdingTutorial.Content.Items.Tools
+namespace AssortedAdditions.Content.Items.Tools
 {
     internal class InfiniPlatform : ModItem
     {

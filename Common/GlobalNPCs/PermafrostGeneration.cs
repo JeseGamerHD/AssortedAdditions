@@ -1,11 +1,11 @@
-﻿using Microsoft.Xna.Framework;
-using ModdingTutorial.Content.Tiles;
+﻿using AssortedAdditions.Content.Tiles;
+using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.WorldBuilding;
 
-namespace ModdingTutorial.Common.GlobalNPCs
+namespace AssortedAdditions.Common.GlobalNPCs
 {
     // This class is used for generating permafrost after defeating one of the mech bosses
     internal class PermafrostGeneration : GlobalNPC
@@ -13,12 +13,12 @@ namespace ModdingTutorial.Common.GlobalNPCs
         public override bool AppliesToEntity(NPC entity, bool lateInstantiation)
         {
             // Check if the entity is one of the mech bosses
-            if(entity.type == NPCID.Retinazer || entity.type == NPCID.Spazmatism || entity.type == NPCID.TheDestroyer || entity.type == NPCID.SkeletronPrime)
+            if (entity.type == NPCID.Retinazer || entity.type == NPCID.Spazmatism || entity.type == NPCID.TheDestroyer || entity.type == NPCID.SkeletronPrime)
             {
                 return true;
             }
 
-            return false;   
+            return false;
         }
 
         public override void OnKill(NPC npc)

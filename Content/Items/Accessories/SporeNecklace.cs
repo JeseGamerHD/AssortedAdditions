@@ -1,10 +1,10 @@
-﻿using Microsoft.Xna.Framework;
-using ModdingTutorial.Content.Projectiles;
+﻿using AssortedAdditions.Content.Projectiles;
+using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace ModdingTutorial.Content.Items.Accessories
+namespace AssortedAdditions.Content.Items.Accessories
 {
     [AutoloadEquip(EquipType.Neck)]
     internal class SporeNecklace : ModItem
@@ -30,12 +30,12 @@ namespace ModdingTutorial.Content.Items.Accessories
 
         public override void OnHurt(Player.HurtInfo info)
         {
-            if(isWearingSporeNecklace && Player.whoAmI == Main.myPlayer)
+            if (isWearingSporeNecklace && Player.whoAmI == Main.myPlayer)
             {
                 if (Player.ownedProjectileCounts[ModContent.ProjectileType<SporeNecklaceProj>()] < 25)
                 {
                     // Spawn 5 projectiles with random upwards velocity
-                    for(int i = 0; i <= 5; i++)
+                    for (int i = 0; i <= 5; i++)
                     {
                         Vector2 launchVelocity = new Vector2(Main.rand.NextFloat(-3, 3), Main.rand.NextFloat(-4, -2));
                         Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center, launchVelocity, ModContent.ProjectileType<SporeNecklaceProj>(), 45, 2, Main.myPlayer);

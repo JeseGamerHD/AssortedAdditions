@@ -1,9 +1,9 @@
 ﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using ModdingTutorial.Content.Projectiles.RangedProj;
+using AssortedAdditions.Content.Projectiles.RangedProj;
 
-namespace ModdingTutorial.Content.Items.Weapons.Ranged
+namespace AssortedAdditions.Content.Items.Weapons.Ranged
 {
     internal class Dunerang : ModItem
     {

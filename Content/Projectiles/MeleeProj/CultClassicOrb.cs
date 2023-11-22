@@ -1,7 +1,7 @@
 ﻿using Terraria;
 using Terraria.ModLoader;
 
-namespace ModdingTutorial.Content.Projectiles.MeleeProj
+namespace AssortedAdditions.Content.Projectiles.MeleeProj
 {
     internal class CultClassicOrb : ModProjectile
     {

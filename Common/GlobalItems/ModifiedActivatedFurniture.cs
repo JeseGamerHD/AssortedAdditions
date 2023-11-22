@@ -3,7 +3,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace ModdingTutorial.Common.GlobalItems
+namespace AssortedAdditions.Common.GlobalItems
 {
     // This class is used for modifying furniture items that grant a buff
     // E.g Sharpening Station, Ammo Box...
@@ -13,17 +13,17 @@ namespace ModdingTutorial.Common.GlobalItems
         // Make these items give the buff when the item is in player's inventory
         public override void UpdateInventory(Item item, Player player)
         {
-            if(item.type == ItemID.AmmoBox)
+            if (item.type == ItemID.AmmoBox)
             {
                 player.AddBuff(BuffID.AmmoBox, 2);
             }
 
-            if(item.type == ItemID.CrystalBall)
+            if (item.type == ItemID.CrystalBall)
             {
                 player.AddBuff(BuffID.Clairvoyance, 2);
             }
 
-            if(item.type == ItemID.SharpeningStation)
+            if (item.type == ItemID.SharpeningStation)
             {
                 player.AddBuff(BuffID.Sharpened, 2);
             }

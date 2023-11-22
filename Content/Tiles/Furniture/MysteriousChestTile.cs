@@ -2,16 +2,16 @@
 using Terraria;
 using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
-using ModdingTutorial.Content.Items.Placeables.Furniture;
 using Terraria.DataStructures;
 using Terraria.ObjectData;
 using Terraria.Enums;
 using Terraria.Localization;
 using Terraria.GameContent.ObjectInteractions;
 using Terraria.Audio;
-using ModdingTutorial.Content.Items.Misc;
+using AssortedAdditions.Content.Items.Placeables.Furniture;
+using AssortedAdditions.Content.Items.Misc;
 
-namespace ModdingTutorial.Content.Tiles.Furniture
+namespace AssortedAdditions.Content.Tiles.Furniture
 {
     internal class MysteriousChestTile : ModTile
     {

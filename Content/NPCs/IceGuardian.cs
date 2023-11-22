@@ -1,8 +1,8 @@
-﻿using Microsoft.Xna.Framework;
-using ModdingTutorial.Content.Items.Misc;
-using ModdingTutorial.Content.Items.Placeables.Banners;
-using ModdingTutorial.Content.Projectiles;
-using ModdingTutorial.Content.Projectiles.NPCProj;
+﻿using AssortedAdditions.Content.Items.Misc;
+using AssortedAdditions.Content.Items.Placeables.Banners;
+using AssortedAdditions.Content.Projectiles.NPCProj;
+using Microsoft.Xna.Framework;
+using AssortedAdditions.Content.Projectiles;
 using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent.Bestiary;
@@ -11,7 +11,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ModLoader.Utilities;
 
-namespace ModdingTutorial.Content.NPCs
+namespace AssortedAdditions.Content.NPCs
 {
     internal class IceGuardian : ModNPC // TODO
     {
@@ -69,11 +69,11 @@ namespace ModdingTutorial.Content.NPCs
             }
             timer++;
 
-            if(timer % 180 == 0)
+            if (timer % 180 == 0)
             {
                 Vector2 direction = target.Center - NPC.Center;
                 direction.Normalize();
-                if(Main.netMode != NetmodeID.MultiplayerClient)
+                if (Main.netMode != NetmodeID.MultiplayerClient)
                 {
                     SoundEngine.PlaySound(SoundID.Item28, NPC.position);
                     Projectile.NewProjectile(NPC.GetSource_FromAI(), NPC.Center, direction * 10f, ModContent.ProjectileType<IceGuardianProj>(), 20, 4f, Main.myPlayer);
@@ -92,7 +92,7 @@ namespace ModdingTutorial.Content.NPCs
             }
             // When over the last frame, back to start
             // (frames start from 0)
-            if(frame == 4)
+            if (frame == 4)
             {
                 frame = 0;
             }

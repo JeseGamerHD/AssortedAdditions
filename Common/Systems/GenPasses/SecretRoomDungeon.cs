@@ -1,18 +1,18 @@
-﻿using Microsoft.Xna.Framework;
-using ModdingTutorial.Content.Items.Tools;
-using ModdingTutorial.Content.Items.Weapons.Magic;
-using ModdingTutorial.Content.Items.Weapons.Melee;
-using ModdingTutorial.Content.Items.Weapons.Ranged;
-using ModdingTutorial.Content.Items.Weapons.Summon;
-using ModdingTutorial.Content.Tiles.Blocks;
-using ModdingTutorial.Content.Tiles.Furniture;
+﻿using AssortedAdditions.Content.Items.Tools;
+using AssortedAdditions.Content.Items.Weapons.Magic;
+using AssortedAdditions.Content.Items.Weapons.Melee;
+using AssortedAdditions.Content.Items.Weapons.Ranged;
+using AssortedAdditions.Content.Items.Weapons.Summon;
+using AssortedAdditions.Content.Tiles.Blocks;
+using AssortedAdditions.Content.Tiles.Furniture;
+using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.IO;
 using Terraria.ModLoader;
 using Terraria.WorldBuilding;
 
-namespace ModdingTutorial.Common.Systems.GenPasses
+namespace AssortedAdditions.Common.Systems.GenPasses
 {
     // This mod adds a secret room below the dungeon entrance
     // The generation happens here

@@ -1,9 +1,9 @@
-﻿using ModdingTutorial.Content.Projectiles.MeleeProj;
-using Terraria.ID;
+﻿using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria;
+using AssortedAdditions.Content.Projectiles.MeleeProj;
 
-namespace ModdingTutorial.Content.Items.Weapons.Melee
+namespace AssortedAdditions.Content.Items.Weapons.Melee
 {
     internal class DesertsFury : ModItem
     {

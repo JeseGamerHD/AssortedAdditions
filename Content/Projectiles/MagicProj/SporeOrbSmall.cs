@@ -2,7 +2,7 @@
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace ModdingTutorial.Content.Projectiles.MagicProj
+namespace AssortedAdditions.Content.Projectiles.MagicProj
 {
     internal class SporeOrbSmall : ModProjectile
     {
@@ -59,7 +59,7 @@ namespace ModdingTutorial.Content.Projectiles.MagicProj
 
         public override bool? CanHitNPC(NPC target)
         {
-            if(Projectile.timeLeft >= 570)
+            if (Projectile.timeLeft >= 570)
             {
                 return false;
             }

@@ -6,9 +6,9 @@ using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria.GameContent;
-using ModdingTutorial.Content.Buffs.Whips;
+using AssortedAdditions.Content.Buffs.Whips;
 
-namespace ModdingTutorial.Content.Projectiles.SummonProj
+namespace AssortedAdditions.Content.Projectiles.SummonProj
 {
     internal class CosmicWhipProj : ModProjectile
     {

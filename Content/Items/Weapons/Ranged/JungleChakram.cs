@@ -1,9 +1,9 @@
-﻿using ModdingTutorial.Content.Projectiles.RangedProj;
+﻿using AssortedAdditions.Content.Projectiles.RangedProj;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace ModdingTutorial.Content.Items.Weapons.Ranged
+namespace AssortedAdditions.Content.Items.Weapons.Ranged
 {
     internal class JungleChakram : ModItem
     {

@@ -1,7 +1,7 @@
 ﻿using Terraria.DataStructures;
 using Terraria.ModLoader;
 
-namespace ModdingTutorial.Common.Players
+namespace AssortedAdditions.Common.Players
 {
     internal class ArmorSetBuffs : ModPlayer
     {

@@ -3,10 +3,10 @@ using Terraria.ModLoader;
 using Terraria;
 using Terraria.DataStructures;
 using Microsoft.Xna.Framework;
-using ModdingTutorial.Content.Buffs;
-using ModdingTutorial.Content.Projectiles.PetProj;
+using AssortedAdditions.Content.Buffs;
+using AssortedAdditions.Content.Projectiles.PetProj;
 
-namespace ModdingTutorial.Content.Items.Pets
+namespace AssortedAdditions.Content.Items.Pets
 {
     internal class FireDragonEgg : ModItem
     {

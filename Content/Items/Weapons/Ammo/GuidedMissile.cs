@@ -1,9 +1,9 @@
 ﻿using Terraria.ID;
 using Terraria;
 using Terraria.ModLoader;
-using ModdingTutorial.Content.Projectiles.RangedProj;
+using AssortedAdditions.Content.Projectiles.RangedProj;
 
-namespace ModdingTutorial.Content.Items.Weapons.Ammo
+namespace AssortedAdditions.Content.Items.Weapons.Ammo
 {
     internal class GuidedMissile : ModItem
     {

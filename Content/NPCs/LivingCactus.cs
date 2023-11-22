@@ -1,7 +1,7 @@
-﻿using Microsoft.Xna.Framework;
-using ModdingTutorial.Content.Items.Accessories;
-using ModdingTutorial.Content.Items.Armor;
-using ModdingTutorial.Content.Items.Placeables.Banners;
+﻿using AssortedAdditions.Content.Items.Accessories;
+using AssortedAdditions.Content.Items.Placeables.Banners;
+using Microsoft.Xna.Framework;
+using AssortedAdditions.Content.Items.Armor;
 using Terraria;
 using Terraria.GameContent.Bestiary;
 using Terraria.GameContent.ItemDropRules;
@@ -9,7 +9,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ModLoader.Utilities;
 
-namespace ModdingTutorial.Content.NPCs
+namespace AssortedAdditions.Content.NPCs
 {
     internal class LivingCactus : ModNPC
     {
@@ -100,21 +100,21 @@ namespace ModdingTutorial.Content.NPCs
 
             // If the NPC manages to get higher than the player, then add y velocity to bring it down
             // E.g it has jumped over the player or it is jumping against a wall
-            if(NPC.position.Y < target.position.Y)
+            if (NPC.position.Y < target.position.Y)
             {
                 NPC.velocity.Y = (NPC.velocity.Y * (inertia - 1) + direction.Y) / inertia;
             }
 
             // Jumping over obstacles:
-            if(NPC.collideX)
+            if (NPC.collideX)
             {
                 Timer++;
-                if(Timer < 20 && NPC.velocity.Y >= 0) // NPC goes up
+                if (Timer < 20 && NPC.velocity.Y >= 0) // NPC goes up
                 {
                     NPC.velocity.Y -= 10f;
                 }
-                
-                if(Timer > 40)
+
+                if (Timer > 40)
                 {
                     NPC.velocity.Y += 1f; // NPC goes down
                     Timer = 0;
@@ -130,13 +130,13 @@ namespace ModdingTutorial.Content.NPCs
             Rotation++;
             if (target.position.X > NPC.position.X)
             {
-                if(target.Center.X - NPC.Center.X > 10)
+                if (target.Center.X - NPC.Center.X > 10)
                     NPC.rotation = MathHelper.ToRadians(Rotation * 8f);
             }
             else
             {
                 if (target.Center.X - NPC.Center.X < 10)
-                    NPC.rotation = -1 * (MathHelper.ToRadians(Rotation * 8f));
+                    NPC.rotation = -1 * MathHelper.ToRadians(Rotation * 8f);
             }
         }
 
@@ -166,26 +166,26 @@ namespace ModdingTutorial.Content.NPCs
             }
 
             // Then keep using either frame 3 or 4 depending on which side the player is on
-            if(NPC.frameCounter >= 4 && State != 0)
+            if (NPC.frameCounter >= 4 && State != 0)
             {
-                if(NPC.direction == 1)
+                if (NPC.direction == 1)
                 {
                     frame = 3;
                 }
                 else
                 {
                     frame = 2;
-                    
+
                 }
             }
 
             // State gets set to 0 when player dies
             // so set the frame to 0 as well
-            if(State == 0)
+            if (State == 0)
             {
                 frame = 0;
             }
-            
+
             // Set the frame:
             NPC.frame.Y = frameHeight * frame;
         }

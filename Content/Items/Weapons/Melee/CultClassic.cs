@@ -1,14 +1,14 @@
 ﻿using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria;
-using ModdingTutorial.Content.Projectiles.MeleeProj;
+using AssortedAdditions.Content.Projectiles.MeleeProj;
 
-namespace ModdingTutorial.Content.Items.Weapons.Melee
+namespace AssortedAdditions.Content.Items.Weapons.Melee
 {
     internal class CultClassic : ModItem
     {
         public override void SetStaticDefaults()
-        { 
+        {
             // These are all related to gamepad controls and don't seem to affect anything else
             ItemID.Sets.Yoyo[Item.type] = true;
             ItemID.Sets.GamepadExtraRange[Item.type] = 20;

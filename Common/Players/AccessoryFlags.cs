@@ -1,11 +1,11 @@
-﻿using ModdingTutorial.Content.Buffs;
+﻿using AssortedAdditions.Content.Buffs;
 using Terraria;
 using Terraria.Audio;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace ModdingTutorial.Common.Players
+namespace AssortedAdditions.Common.Players
 {
     // This class is used for doing stuff to the player when they wear an accessory
     // E.g. dodge damage when a shield is active
@@ -21,8 +21,8 @@ namespace ModdingTutorial.Common.Players
             if (Player.HasBuff(ModContent.BuffType<EchoChamberBuff>()))
             {
                 Player.AddBuff(ModContent.BuffType<EchoChamberDebuff>(), 4500); // 75 second cooldown
-                // When player is given the debuff the buff ends and the protective barrier disappears
-                
+                                                                                // When player is given the debuff the buff ends and the protective barrier disappears
+
                 // Give the player some immunity frames so they won't be instantly damaged
                 Player.immune = true;
                 Player.immuneTime = 60;
@@ -42,7 +42,7 @@ namespace ModdingTutorial.Common.Players
                 }
 
                 // Play a shield breaking sound
-                SoundStyle echoChamberBreak = new SoundStyle("ModdingTutorial/Assets/Sounds/ProjectileSound/EchoChamberBreak");
+                SoundStyle echoChamberBreak = new SoundStyle("AssortedAdditions/Assets/Sounds/ProjectileSound/EchoChamberBreak");
                 echoChamberBreak = echoChamberBreak with
                 {
                     Volume = 1f,
@@ -52,7 +52,7 @@ namespace ModdingTutorial.Common.Players
 
                 return true;
             }
-            
+
             return false;
         }
 
@@ -62,12 +62,12 @@ namespace ModdingTutorial.Common.Players
             if (isWearingMedkit && !Player.HasBuff(ModContent.BuffType<MedkitBuff>()))
             {
                 // 50/50 chance to activate
-                if(Main.rand.NextBool(2))
+                if (Main.rand.NextBool(2))
                 {
                     // Activate the buff and heal the player
                     Player.AddBuff(ModContent.BuffType<MedkitBuff>(), 18000);
                     Player.Heal(150);
-                    
+
                     // Spawn some dust...
                     for (int i = 0; i < 30; i++)
                     {

@@ -2,7 +2,7 @@
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace ModdingTutorial.Content.Projectiles
+namespace AssortedAdditions.Content.Projectiles
 {
     internal class FrostBobber : ModProjectile
     {

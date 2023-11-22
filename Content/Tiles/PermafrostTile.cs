@@ -4,7 +4,7 @@ using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
 using Terraria.Localization;
 
-namespace ModdingTutorial.Content.Tiles
+namespace AssortedAdditions.Content.Tiles
 {
     internal class PermafrostTile : ModTile
     {

@@ -2,7 +2,7 @@
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace ModdingTutorial.Content.Items.Tools
+namespace AssortedAdditions.Content.Items.Tools
 {
     internal class BagOfBombs : ModItem
     {

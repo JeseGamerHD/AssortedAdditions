@@ -1,12 +1,12 @@
-﻿using ModdingTutorial.Content.Buffs;
-using Terraria.DataStructures;
+﻿using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria;
 using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
-using ModdingTutorial.Content.Projectiles.PetProj;
+using AssortedAdditions.Content.Buffs;
+using AssortedAdditions.Content.Projectiles.PetProj;
 
-namespace ModdingTutorial.Content.Items.Pets
+namespace AssortedAdditions.Content.Items.Pets
 {
     internal class ToyCarRemote : ModItem
     {

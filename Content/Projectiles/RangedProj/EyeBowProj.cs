@@ -5,7 +5,7 @@ using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace ModdingTutorial.Content.Projectiles.RangedProj
+namespace AssortedAdditions.Content.Projectiles.RangedProj
 {
     internal class EyeBowProj : ModProjectile
     {
@@ -38,7 +38,7 @@ namespace ModdingTutorial.Content.Projectiles.RangedProj
         public override bool OnTileCollide(Vector2 oldVelocity)
         {
             Projectile.penetrate--;
-            if(Projectile.penetrate <= 0)
+            if (Projectile.penetrate <= 0)
             {
                 Projectile.Kill();
             }

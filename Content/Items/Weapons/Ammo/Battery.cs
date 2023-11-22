@@ -1,10 +1,10 @@
 ﻿using Terraria;
 using Terraria.ID;
-using ModdingTutorial.Content.Projectiles.RangedProj;
 using Terraria.ModLoader;
 using Terraria.GameContent.Creative;
+using AssortedAdditions.Content.Projectiles.RangedProj;
 
-namespace ModdingTutorial.Content.Items.Weapons.Ammo
+namespace AssortedAdditions.Content.Items.Weapons.Ammo
 {
     internal class Battery : ModItem // Ammo for different energy weapons
     {

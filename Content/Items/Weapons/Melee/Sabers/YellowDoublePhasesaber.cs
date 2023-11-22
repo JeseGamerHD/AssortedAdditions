@@ -1,10 +1,10 @@
-﻿using ModdingTutorial.Content.Projectiles.MeleeProj.DoublePhasesaberProj;
+﻿using AssortedAdditions.Content.Projectiles.MeleeProj.DoublePhasesaberProj;
 using Terraria;
 using Terraria.GameContent.Creative;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace ModdingTutorial.Content.Items.Weapons.Melee.Sabers
+namespace AssortedAdditions.Content.Items.Weapons.Melee.Sabers
 {
     internal class YellowDoublePhasesaber : ModItem
     {
@@ -19,7 +19,7 @@ namespace ModdingTutorial.Content.Items.Weapons.Melee.Sabers
             Item.height = 40;
             Item.useAnimation = 30;
             Item.useTime = 30;
-            Item.value = Item.sellPrice(gold: 2); 
+            Item.value = Item.sellPrice(gold: 2);
 
             Item.DamageType = DamageClass.Melee;
             Item.damage = 60;
@@ -47,14 +47,14 @@ namespace ModdingTutorial.Content.Items.Weapons.Melee.Sabers
         // Also limits the amount that spawns to 1
         public override bool CanUseItem(Player player)
         {
-            if(player.altFunctionUse == 2 & player.ownedProjectileCounts[Item.shoot] < 1)
+            if (player.altFunctionUse == 2 & player.ownedProjectileCounts[Item.shoot] < 1)
             {
                 Item.autoReuse = true;
                 Item.shootSpeed = 12f;
                 Item.channel = false;
                 Item.shoot = ModContent.ProjectileType<DoublePhasesaberThrow>();
             }
-            else if(player.ownedProjectileCounts[Item.shoot] < 1)
+            else if (player.ownedProjectileCounts[Item.shoot] < 1)
             {
                 Item.shoot = ModContent.ProjectileType<DoublePhasesaberSpin>();
                 Item.shootSpeed = 5f;

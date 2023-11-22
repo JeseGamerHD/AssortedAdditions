@@ -1,12 +1,12 @@
-﻿using ModdingTutorial.Content.Buffs;
-using ModdingTutorial.Content.Projectiles;
-using Terraria.GameContent.Creative;
+﻿using Terraria.GameContent.Creative;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria;
-using ModdingTutorial.Content.Items.Misc;
+using AssortedAdditions.Content.Items.Misc;
+using AssortedAdditions.Content.Projectiles;
+using AssortedAdditions.Content.Buffs;
 
-namespace ModdingTutorial.Content.Items.Armor
+namespace AssortedAdditions.Content.Items.Armor
 {
     [AutoloadEquip(EquipType.Head)]
     internal class DraconicHood : ModItem

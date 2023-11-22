@@ -1,27 +1,27 @@
 ﻿using Terraria;
 using Terraria.GameContent.ItemDropRules;
 
-namespace ModdingTutorial.Common.ItemDropRules
+namespace AssortedAdditions.Common.ItemDropRules
 {
     // Rule that checks if the 2nd boss has been defeated
 
     // No longer used since 1.4.4 added an easier way to add conditions to npcLoot
     // Left as a example incase needed later
-/*    public class WormOrBrainDefeated : IItemDropRuleCondition
-    {
-        public bool CanDrop(DropAttemptInfo info)
+    /*    public class WormOrBrainDefeated : IItemDropRuleCondition
         {
-            return NPC.downedBoss2;
-        }
+            public bool CanDrop(DropAttemptInfo info)
+            {
+                return NPC.downedBoss2;
+            }
 
-        public bool CanShowItemDropInUI()
-        {
-            return true;
-        }
+            public bool CanShowItemDropInUI()
+            {
+                return true;
+            }
 
-        public string GetConditionDescription()
-        {
-            return "Drops after Eater of Worlds or Brain of Cthulhu has been defeated";
-        }
-    }*/
+            public string GetConditionDescription()
+            {
+                return "Drops after Eater of Worlds or Brain of Cthulhu has been defeated";
+            }
+        }*/
 }

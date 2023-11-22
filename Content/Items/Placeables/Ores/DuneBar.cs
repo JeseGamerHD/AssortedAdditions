@@ -3,7 +3,7 @@ using Terraria.GameContent.Creative;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace ModdingTutorial.Content.Items.Placeables.Ores
+namespace AssortedAdditions.Content.Items.Placeables.Ores
 {
     internal class DuneBar : ModItem
     {

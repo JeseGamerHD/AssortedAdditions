@@ -3,7 +3,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace ModdingTutorial.Content.NPCs
+namespace AssortedAdditions.Content.NPCs
 {
     internal class IceGuardianShield : ModNPC
     {
@@ -42,7 +42,7 @@ namespace ModdingTutorial.Content.NPCs
         public override void AI()
         {
             // If the parent NPC dies, so does this one
-            if (Main.npc[(int)NPC.ai[0]].type != ModContent.NPCType<IceGuardian>() 
+            if (Main.npc[(int)NPC.ai[0]].type != ModContent.NPCType<IceGuardian>()
                 || !Main.npc[(int)NPC.ai[0]].active)
             {
                 NPC.active = false;
@@ -50,7 +50,7 @@ namespace ModdingTutorial.Content.NPCs
 
             if (!doOnce)
             {
-                for(int i = 0; i < 15; i++)
+                for (int i = 0; i < 15; i++)
                 {
                     Dust dust = Dust.NewDustDirect(NPC.position, NPC.width, NPC.height,
                         DustID.Frost, 0, 0, 150, default, 1f);

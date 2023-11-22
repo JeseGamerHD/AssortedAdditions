@@ -3,7 +3,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace ModdingTutorial.Content.Projectiles.MeleeProj
+namespace AssortedAdditions.Content.Projectiles.MeleeProj
 {
     internal class DuneSpearProj : ModProjectile
     {

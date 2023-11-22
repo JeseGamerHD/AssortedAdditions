@@ -3,9 +3,9 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria;
 using Microsoft.Xna.Framework;
-using ModdingTutorial.Content.Items.Placeables.Ores;
+using AssortedAdditions.Content.Items.Placeables.Ores;
 
-namespace ModdingTutorial.Content.Items.Weapons.Melee
+namespace AssortedAdditions.Content.Items.Weapons.Melee
 {
     internal class DuneSword : ModItem
     {

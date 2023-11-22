@@ -5,7 +5,7 @@ using Terraria.ModLoader;
 using Terraria.Graphics;
 using Terraria.ID;
 
-namespace ModdingTutorial.Content.Projectiles.MeleeProj
+namespace AssortedAdditions.Content.Projectiles.MeleeProj
 {
     internal class CosmicBladeHoming : ModProjectile
     {
@@ -60,12 +60,12 @@ namespace ModdingTutorial.Content.Projectiles.MeleeProj
 
             // With these the projectile will move towards the target in a smooth way
             // instead of snapping it moves in a curved way
-            float target = Utils.ToRotation(closestNPC.Center - Projectile.Center);
-            float curve = Utils.ToRotation(Projectile.velocity);
+            float target = (closestNPC.Center - Projectile.Center).ToRotation();
+            float curve = Projectile.velocity.ToRotation();
             float maxTurn = MathHelper.ToRadians(3f);
-            
+
             // Set the velocity and rotation:
-            Projectile.velocity = Utils.RotatedBy(Projectile.velocity, MathHelper.WrapAngle(Utils.AngleTowards(curve, target, maxTurn)) - curve);
+            Projectile.velocity = Projectile.velocity.RotatedBy(MathHelper.WrapAngle(curve.AngleTowards(target, maxTurn)) - curve);
             Projectile.rotation = Projectile.velocity.ToRotation();
         }
 

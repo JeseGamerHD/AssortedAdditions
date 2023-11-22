@@ -1,12 +1,12 @@
-﻿using ModdingTutorial.Content.Projectiles.MagicProj;
-using Terraria.ID;
+﻿using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria;
 using Microsoft.Xna.Framework;
-using ModdingTutorial.Content.Items.Misc;
-using ModdingTutorial.Content.Items.Placeables.Ores;
+using AssortedAdditions.Content.Projectiles.MagicProj;
+using AssortedAdditions.Content.Items.Misc;
+using AssortedAdditions.Content.Items.Placeables.Ores;
 
-namespace ModdingTutorial.Content.Items.Weapons.Magic
+namespace AssortedAdditions.Content.Items.Weapons.Magic
 {
     internal class IcyStaff : ModItem
     {

@@ -6,7 +6,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Audio;
 
-namespace ModdingTutorial.Content.Projectiles.MagicProj
+namespace AssortedAdditions.Content.Projectiles.MagicProj
 {
     internal class SporeOrbBig : ModProjectile
     {
@@ -112,7 +112,7 @@ namespace ModdingTutorial.Content.Projectiles.MagicProj
             }
 
             int amount = Main.rand.Next(1, 5);
-            for(int i = 0; i <= amount; i++)
+            for (int i = 0; i <= amount; i++)
             {
                 if (Main.myPlayer == Projectile.owner)
                 {

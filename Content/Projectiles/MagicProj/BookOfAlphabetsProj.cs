@@ -4,7 +4,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace ModdingTutorial.Content.Projectiles.MagicProj
+namespace AssortedAdditions.Content.Projectiles.MagicProj
 {
     internal class BookOfAlphabetsProj : ModProjectile
     {
@@ -32,7 +32,7 @@ namespace ModdingTutorial.Content.Projectiles.MagicProj
         public override void AI()
         {
             // Pick a frame randomly
-            if(!setVisual) 
+            if (!setVisual)
             {
                 Projectile.frame = Main.rand.Next(25);
                 Projectile.rotation = Main.rand.Next(-10, 11) * 57.2958f; // Set a random rotation as well

@@ -2,7 +2,7 @@
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace ModdingTutorial.Content.Projectiles.MagicProj
+namespace AssortedAdditions.Content.Projectiles.MagicProj
 {
     internal class DraconicTomeProj : ModProjectile
     {
@@ -48,12 +48,12 @@ namespace ModdingTutorial.Content.Projectiles.MagicProj
             }
 
             // Faces the right way
-            if(setOnce == false)
+            if (setOnce == false)
             {
                 Projectile.spriteDirection = Main.player[Projectile.owner].direction;
                 setOnce = true; // Only set once when it spawns
             }
-            
+
 
             Lighting.AddLight(Projectile.position, TorchID.Torch); // Emits some orange light
 
@@ -62,10 +62,10 @@ namespace ModdingTutorial.Content.Projectiles.MagicProj
             {
                 Projectile.timeLeft = 127;
 
-                if(Projectile.timeLeft <= 127)
+                if (Projectile.timeLeft <= 127)
                 {
                     Projectile.alpha += 2;
-                }    
+                }
             }
         }
 

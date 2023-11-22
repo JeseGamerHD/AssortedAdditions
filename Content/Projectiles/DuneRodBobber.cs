@@ -3,7 +3,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace ModdingTutorial.Content.Projectiles;
+namespace AssortedAdditions.Content.Projectiles;
 
 public class DuneRodBobber : ModProjectile // Bobber for the Dune Rod item
 {

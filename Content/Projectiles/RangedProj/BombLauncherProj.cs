@@ -4,11 +4,11 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
 
-namespace ModdingTutorial.Content.Projectiles.RangedProj
+namespace AssortedAdditions.Content.Projectiles.RangedProj
 {
     internal class BombLauncherProj : ModProjectile
     {
-        public override string Texture => "ModdingTutorial/Content/Projectiles/NPCProj/GoblinBomb";
+        public override string Texture => "AssortedAdditions/Content/Projectiles/NPCProj/GoblinBomb";
         public override void SetDefaults()
         {
             Projectile.width = 22;
@@ -26,11 +26,12 @@ namespace ModdingTutorial.Content.Projectiles.RangedProj
 
         public override void AI()
         {
-            if(Projectile.direction == 1)
+            if (Projectile.direction == 1)
             {
                 Projectile.rotation += 0.4f;
-            } 
-            else {
+            }
+            else
+            {
                 Projectile.rotation -= 0.4f;
             }
 

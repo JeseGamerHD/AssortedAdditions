@@ -2,11 +2,11 @@
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria;
-using ModdingTutorial.Content.Projectiles.MeleeProj;
 using Terraria.Audio;
-using ModdingTutorial.Content.Items.Placeables.Ores;
+using AssortedAdditions.Content.Projectiles.MeleeProj;
+using AssortedAdditions.Content.Items.Placeables.Ores;
 
-namespace ModdingTutorial.Content.Items.Weapons.Melee
+namespace AssortedAdditions.Content.Items.Weapons.Melee
 {
     internal class DuneSpear : ModItem
     {

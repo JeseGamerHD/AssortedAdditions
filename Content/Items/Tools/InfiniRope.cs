@@ -3,7 +3,7 @@ using Terraria.ID;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace ModdingTutorial.Content.Items.Tools
+namespace AssortedAdditions.Content.Items.Tools
 {
     internal class InfiniRope : ModItem
     {
@@ -23,7 +23,7 @@ namespace ModdingTutorial.Content.Items.Tools
 
             Item.useStyle = ItemUseStyleID.Swing;
             Item.value = Item.sellPrice(gold: 1);
-            Item.rare = ItemRarityID.Orange;          
+            Item.rare = ItemRarityID.Orange;
         }
 
         public override bool AltFunctionUse(Player player)
@@ -33,7 +33,7 @@ namespace ModdingTutorial.Content.Items.Tools
 
         public override bool CanUseItem(Player player)
         {
-            if(player.altFunctionUse == 2)
+            if (player.altFunctionUse == 2)
             {
                 Item.shoot = ProjectileID.RopeCoil;
                 Item.useTime = 15;

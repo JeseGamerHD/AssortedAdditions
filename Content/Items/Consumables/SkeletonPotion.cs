@@ -1,9 +1,9 @@
 ﻿using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria;
-using ModdingTutorial.Content.Projectiles;
+using AssortedAdditions.Content.Projectiles;
 
-namespace ModdingTutorial.Content.Items.Consumables
+namespace AssortedAdditions.Content.Items.Consumables
 {
     internal class SkeletonPotion : ModItem
     {

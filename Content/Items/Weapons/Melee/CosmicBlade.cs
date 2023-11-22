@@ -1,11 +1,11 @@
-﻿using ModdingTutorial.Content.Projectiles.MeleeProj;
-using Terraria.ID;
+﻿using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria;
 using Terraria.DataStructures;
 using Microsoft.Xna.Framework;
+using AssortedAdditions.Content.Projectiles.MeleeProj;
 
-namespace ModdingTutorial.Content.Items.Weapons.Melee
+namespace AssortedAdditions.Content.Items.Weapons.Melee
 {
     internal class CosmicBlade : ModItem
     {
@@ -43,7 +43,7 @@ namespace ModdingTutorial.Content.Items.Weapons.Melee
             // Also shoot out homing projectiles every 5 swings
             float numberOfProjs = 3;
             float rotation = MathHelper.ToRadians(15);
-            if(swingCount == 0)
+            if (swingCount == 0)
             {
                 for (int i = 0; i < numberOfProjs; i++)
                 {
@@ -53,7 +53,7 @@ namespace ModdingTutorial.Content.Items.Weapons.Melee
             }
             swingCount++;
 
-            if(swingCount == 4)
+            if (swingCount == 4)
             {
                 swingCount = 0;
             }

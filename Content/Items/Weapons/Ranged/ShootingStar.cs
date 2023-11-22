@@ -1,10 +1,10 @@
-﻿using ModdingTutorial.Content.Projectiles.RangedProj;
-using Terraria.ID;
+﻿using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria;
 using Microsoft.Xna.Framework;
+using AssortedAdditions.Content.Projectiles.RangedProj;
 
-namespace ModdingTutorial.Content.Items.Weapons.Ranged
+namespace AssortedAdditions.Content.Items.Weapons.Ranged
 {
     internal class ShootingStar : ModItem
     {

@@ -1,9 +1,9 @@
-﻿using ModdingTutorial.Content.Projectiles.MagicProj.ConcoctionsProj;
+﻿using AssortedAdditions.Content.Projectiles.MagicProj.ConcoctionsProj;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace ModdingTutorial.Content.Items.Weapons.Magic.Concoctions;
+namespace AssortedAdditions.Content.Items.Weapons.Magic.Concoctions;
 
 internal class LightConcoction : ModItem
 {

@@ -1,8 +1,8 @@
-﻿using ModdingTutorial.Content.Projectiles.PetProj;
+﻿using AssortedAdditions.Content.Projectiles.PetProj;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace ModdingTutorial.Content.Buffs
+namespace AssortedAdditions.Content.Buffs
 {
     internal class IlluminatedCrystalBuff : ModBuff
     {

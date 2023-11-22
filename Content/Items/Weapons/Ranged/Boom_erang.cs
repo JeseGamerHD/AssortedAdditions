@@ -1,9 +1,9 @@
 ﻿using Terraria.ModLoader;
 using Terraria;
 using Terraria.ID;
-using ModdingTutorial.Content.Projectiles.RangedProj;
+using AssortedAdditions.Content.Projectiles.RangedProj;
 
-namespace ModdingTutorial.Content.Items.Weapons.Ranged
+namespace AssortedAdditions.Content.Items.Weapons.Ranged
 {
     internal class Boom_erang : ModItem
     {

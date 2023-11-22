@@ -1,10 +1,10 @@
-﻿using ModdingTutorial.Content.Projectiles.MeleeProj.DoublePhasesaberProj;
+﻿using AssortedAdditions.Content.Projectiles.MeleeProj.DoublePhasesaberProj;
 using Terraria;
 using Terraria.GameContent.Creative;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace ModdingTutorial.Content.Items.Weapons.Melee.Sabers
+namespace AssortedAdditions.Content.Items.Weapons.Melee.Sabers
 {
     internal class PurpleDoublePhasesaber : ModItem
     {

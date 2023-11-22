@@ -1,9 +1,9 @@
 ﻿using Terraria.ID;
 using Terraria;
 using Terraria.ModLoader;
-using ModdingTutorial.Content.Tiles.Banners;
+using AssortedAdditions.Content.Tiles.Banners;
 
-namespace ModdingTutorial.Content.Items.Placeables.Banners
+namespace AssortedAdditions.Content.Items.Placeables.Banners
 {
     internal class NightSlimeBanner : ModItem
     {
@@ -18,7 +18,7 @@ namespace ModdingTutorial.Content.Items.Placeables.Banners
             Item.useTurn = true;
             Item.autoReuse = true;
             Item.consumable = true;
-            
+
             Item.useStyle = ItemUseStyleID.Swing;
             Item.rare = ItemRarityID.Blue; // All banners are blue and sell for 2 silver
             Item.value = Item.sellPrice(silver: 2);

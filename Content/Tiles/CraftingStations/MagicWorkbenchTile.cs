@@ -3,7 +3,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
-namespace ModdingTutorial.Content.Tiles.CraftingStations
+namespace AssortedAdditions.Content.Tiles.CraftingStations
 {
     internal class MagicWorkbenchTile : ModTile
     {
@@ -17,7 +17,7 @@ namespace ModdingTutorial.Content.Tiles.CraftingStations
             HitSound = SoundID.Dig;
 
             TileID.Sets.DisableSmartCursor[Type] = true;
-            
+
             TileObjectData.newTile.CopyFrom(TileObjectData.Style3x3);
             TileObjectData.newTile.CoordinateHeights = new[] { 16, 16, 16 };
             TileObjectData.addTile(Type);

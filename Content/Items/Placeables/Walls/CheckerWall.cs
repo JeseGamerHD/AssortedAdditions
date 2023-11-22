@@ -1,10 +1,10 @@
-﻿using ModdingTutorial.Content.Items.Placeables.Blocks;
-using ModdingTutorial.Content.Tiles.Walls;
-using Terraria.ID;
+﻿using Terraria.ID;
 using Terraria;
 using Terraria.ModLoader;
+using AssortedAdditions.Content.Items.Placeables.Blocks;
+using AssortedAdditions.Content.Tiles.Walls;
 
-namespace ModdingTutorial.Content.Items.Placeables.Walls
+namespace AssortedAdditions.Content.Items.Placeables.Walls
 {
     internal class CheckerWall : ModItem
     {

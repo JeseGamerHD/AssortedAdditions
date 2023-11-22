@@ -2,9 +2,9 @@
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria;
-using ModdingTutorial.Content.Tiles.Relics;
+using AssortedAdditions.Content.Tiles.Relics;
 
-namespace ModdingTutorial.Content.Items.Placeables.Relics
+namespace AssortedAdditions.Content.Items.Placeables.Relics
 {
     internal class FireDragonRelic : ModItem
     {

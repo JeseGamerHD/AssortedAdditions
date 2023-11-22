@@ -2,7 +2,7 @@
 using Terraria.ModLoader;
 using Terraria;
 
-namespace ModdingTutorial.Content.Items.Misc
+namespace AssortedAdditions.Content.Items.Misc
 {
     internal class MagicEssence : ModItem
     {

@@ -2,14 +2,14 @@
 using Terraria;
 using Terraria.ModLoader;
 using Terraria.GameContent.ItemDropRules;
-using ModdingTutorial.Content.Items.Consumables;
-using ModdingTutorial.Content.Items.Weapons.Magic;
-using ModdingTutorial.Content.Items.Weapons.Ranged;
-using ModdingTutorial.Content.Items.Weapons.Melee;
-using ModdingTutorial.Content.Items.Weapons.Summon;
-using ModdingTutorial.Content.Items.Accessories;
+using AssortedAdditions.Content.Items.Consumables;
+using AssortedAdditions.Content.Items.Weapons.Melee;
+using AssortedAdditions.Content.Items.Weapons.Ranged;
+using AssortedAdditions.Content.Items.Weapons.Magic;
+using AssortedAdditions.Content.Items.Weapons.Summon;
+using AssortedAdditions.Content.Items.Accessories;
 
-namespace ModdingTutorial.Common.GlobalItems
+namespace AssortedAdditions.Common.GlobalItems
 {
     // Class is (mostly) used for modifying existing treasure bag loot
     internal class ModifiedTreasureBags : GlobalItem
@@ -17,7 +17,7 @@ namespace ModdingTutorial.Common.GlobalItems
         // These items also drop from the bosses when not in expert. This is set in ModifiedLootDrops.cs
         public override void ModifyItemLoot(Item item, ItemLoot itemLoot)
         {
-            if(item.type == ItemID.CultistBossBag)
+            if (item.type == ItemID.CultistBossBag)
             {
                 // Always drop one of these:
                 itemLoot.Add(ItemDropRule.OneFromOptions(1, ModContent.ItemType<DeathRay>(),
@@ -34,10 +34,10 @@ namespace ModdingTutorial.Common.GlobalItems
         public override void SetDefaults(Item entity)
         {
             // Since cultist bag is normally not obtainable, journey mode research count needs to be added
-            if(entity.type == ItemID.CultistBossBag)
+            if (entity.type == ItemID.CultistBossBag)
             {
                 entity.ResearchUnlockCount = 3;
-            }  
+            }
         }
     }
 }

@@ -1,5 +1,5 @@
 Mods: {
-	ModdingTutorial: {
+	AssortedAdditions: {
 		Buffs: {
 			DragonStaffBuff: {
 				DisplayName: It's a dragon!
@@ -83,7 +83,7 @@ Mods: {
 
 			BlossomLashDebuff: {
 				DisplayName: Blossom Lash Debuff
-				Description: Mods.ModdingTutorial.Buffs.BlossomLashDebuff.Description
+				Description: Mods.AssortedAdditions.Buffs.BlossomLashDebuff.Description
 			}
 		}
 
@@ -1161,7 +1161,7 @@ Mods: {
 			JungleMimic.DisplayName: Jungle Mimic
 		}
 
-		Conditions.SellCosmicItems: Mods.ModdingTutorial.Conditions.SellCosmicItems
+		Conditions.SellCosmicItems: Mods.AssortedAdditions.Conditions.SellCosmicItems
 
 		Configs: {
 			VanillaChangeToggle: {

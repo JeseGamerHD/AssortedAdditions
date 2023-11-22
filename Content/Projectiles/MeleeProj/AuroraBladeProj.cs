@@ -1,7 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Terraria.GameContent.Drawing;
 
-namespace ModdingTutorial.Content.Projectiles.MeleeProj
+namespace AssortedAdditions.Content.Projectiles.MeleeProj
 {
     public class AuroraBladeProj : SwingTrailBase
     {
@@ -21,7 +21,7 @@ namespace ModdingTutorial.Content.Projectiles.MeleeProj
 
             SwingBackColor = new(12, 212, 108);
             SwingMiddleColor = new(12, 212, 196);
-            SwingFrontColor = new(14, 52, 189);  
+            SwingFrontColor = new(14, 52, 189);
         }
     }
 }

@@ -1,9 +1,9 @@
-﻿using ModdingTutorial.Content.Items.Placeables.Ores;
+﻿using AssortedAdditions.Content.Items.Placeables.Ores;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace ModdingTutorial.Content.Items.Weapons.Melee
+namespace AssortedAdditions.Content.Items.Weapons.Melee
 {
     internal class SteelSword : ModItem
     {

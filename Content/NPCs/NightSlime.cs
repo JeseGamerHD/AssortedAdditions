@@ -6,10 +6,10 @@ using Terraria.GameContent.ItemDropRules;
 using Terraria.GameContent.Bestiary;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
-using ModdingTutorial.Content.Items.Placeables.Banners;
-using ModdingTutorial.Content.Items.Weapons.Magic;
+using AssortedAdditions.Content.Items.Weapons.Magic;
+using AssortedAdditions.Content.Items.Placeables.Banners;
 
-namespace ModdingTutorial.Content.NPCs
+namespace AssortedAdditions.Content.NPCs
 {
     internal class NightSlime : ModNPC
     {
@@ -74,7 +74,7 @@ namespace ModdingTutorial.Content.NPCs
         // Parts of the slime glow
         public override void PostDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
-            Texture2D glowMask = ModContent.Request<Texture2D>("ModdingTutorial/Content/NPCs/NightSlime_Glow").Value; // The glowmask sprite
+            Texture2D glowMask = ModContent.Request<Texture2D>("AssortedAdditions/Content/NPCs/NightSlime_Glow").Value; // The glowmask sprite
             Vector2 drawPosition = NPC.position + new Vector2(0, 4) - Main.screenPosition; // Position the sprite gets drawn at
             Rectangle frame = new Rectangle(0, NPC.frame.Y, glowMask.Width, glowMask.Height / 2); // Frame(s) of the sprite, divided by 2 here since there are two frames
 

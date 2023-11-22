@@ -1,13 +1,13 @@
 ﻿using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria;
-using ModdingTutorial.Content.Items.Weapons.Ammo;
-using ModdingTutorial.Content.Projectiles.RangedProj;
 using Microsoft.Xna.Framework;
 using Terraria.DataStructures;
 using Terraria.Audio;
+using AssortedAdditions.Content.Projectiles.RangedProj;
+using AssortedAdditions.Content.Items.Weapons.Ammo;
 
-namespace ModdingTutorial.Content.Items.Weapons.Ranged
+namespace AssortedAdditions.Content.Items.Weapons.Ranged
 {
     internal class ScifiBlaster : ModItem
     {
@@ -28,8 +28,9 @@ namespace ModdingTutorial.Content.Items.Weapons.Ranged
             Item.DamageType = DamageClass.Ranged;
             Item.rare = ItemRarityID.Yellow;
             Item.useStyle = ItemUseStyleID.Shoot;
-            Item.UseSound = new SoundStyle("ModdingTutorial/Assets/Sounds/WeaponSound/ScifiBlasterSound") 
-                with { Volume = 0.5f, PitchVariance = 0.1f };
+            Item.UseSound = new SoundStyle("AssortedAdditions/Assets/Sounds/WeaponSound/ScifiBlasterSound")
+                with
+            { Volume = 0.5f, PitchVariance = 0.1f };
             Item.value = Item.sellPrice(gold: 8);
             Item.useAmmo = ModContent.ItemType<Battery>();
             Item.shoot = ModContent.ProjectileType<ScifiBlasterProj>();
@@ -54,7 +55,7 @@ namespace ModdingTutorial.Content.Items.Weapons.Ranged
             float numberOfProjs = 2;
             float rotation = MathHelper.ToRadians(25);
 
-            for(int i = 0; i < numberOfProjs; i++)
+            for (int i = 0; i < numberOfProjs; i++)
             {
                 Vector2 perturbedSpeed = velocity.RotatedBy(MathHelper.Lerp(-rotation, rotation, i / (numberOfProjs - 1))); // Watch out for dividing by 0 if there is only 1 projectile.
                 Projectile.NewProjectile(source, position, perturbedSpeed, ModContent.ProjectileType<ScifiBlasterHoming>(), damage, knockback, player.whoAmI);

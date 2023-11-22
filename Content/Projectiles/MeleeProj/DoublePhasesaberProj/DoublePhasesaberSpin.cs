@@ -4,9 +4,9 @@ using Terraria.ModLoader;
 using Terraria.Audio;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
-using ModdingTutorial.Content.Items.Weapons.Melee.Sabers;
+using AssortedAdditions.Content.Items.Weapons.Melee.Sabers;
 
-namespace ModdingTutorial.Content.Projectiles.MeleeProj.DoublePhasesaberProj
+namespace AssortedAdditions.Content.Projectiles.MeleeProj.DoublePhasesaberProj
 {
     internal class DoublePhasesaberSpin : ModProjectile // This handles all the double phasesabers, projectile sprite will be swapped depending on which Item is used
     {
@@ -61,7 +61,7 @@ namespace ModdingTutorial.Content.Projectiles.MeleeProj.DoublePhasesaberProj
                 {
                     player.ChangeDir(1); // Change player to face said direction
 
-                    if(oldDirection != player.direction)
+                    if (oldDirection != player.direction)
                     {
                         movePos = -5;
                     }
@@ -116,35 +116,43 @@ namespace ModdingTutorial.Content.Projectiles.MeleeProj.DoublePhasesaberProj
 
             // Each color has its own ModItem so the frame can be selected based on that
             // Emitted light color is also selected here
-            if (itemInUse == ModContent.ItemType<YellowDoublePhasesaber>()) { 
-                Projectile.frame = 0; 
-                Lighting.AddLight(player.Center, TorchID.Yellow); }
+            if (itemInUse == ModContent.ItemType<YellowDoublePhasesaber>())
+            {
+                Projectile.frame = 0;
+                Lighting.AddLight(player.Center, TorchID.Yellow);
+            }
 
-            if (itemInUse == ModContent.ItemType<OrangeDoublePhasesaber>()) { 
+            if (itemInUse == ModContent.ItemType<OrangeDoublePhasesaber>())
+            {
                 Projectile.frame = 1;
                 Lighting.AddLight(player.Center, TorchID.Orange);
             }
 
-            if (itemInUse == ModContent.ItemType<GreenDoublePhasesaber>()) { 
+            if (itemInUse == ModContent.ItemType<GreenDoublePhasesaber>())
+            {
                 Projectile.frame = 2;
                 Lighting.AddLight(player.Center, TorchID.Green);
             }
 
-            if (itemInUse == ModContent.ItemType<BlueDoublePhasesaber>()) { 
+            if (itemInUse == ModContent.ItemType<BlueDoublePhasesaber>())
+            {
                 Projectile.frame = 3;
                 Lighting.AddLight(player.Center, TorchID.Blue);
             }
 
-            if (itemInUse == ModContent.ItemType<PurpleDoublePhasesaber>()) { 
+            if (itemInUse == ModContent.ItemType<PurpleDoublePhasesaber>())
+            {
                 Projectile.frame = 4;
                 Lighting.AddLight(player.Center, TorchID.Purple);
             }
 
-            if (itemInUse == ModContent.ItemType<RedDoublePhasesaber>()) {
+            if (itemInUse == ModContent.ItemType<RedDoublePhasesaber>())
+            {
                 Projectile.frame = 5;
                 Lighting.AddLight(player.Center, TorchID.Red);
             }
-            if (itemInUse == ModContent.ItemType<WhiteDoublePhasesaber>()) {
+            if (itemInUse == ModContent.ItemType<WhiteDoublePhasesaber>())
+            {
                 Projectile.frame = 6;
                 Lighting.AddLight(player.Center, TorchID.White);
             }

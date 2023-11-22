@@ -2,14 +2,15 @@
 using Terraria.ModLoader;
 using Terraria.ID;
 using Terraria.GameContent.Creative;
-using ModdingTutorial.Content.Items.Placeables.Ores;
+using AssortedAdditions.Content.Items.Placeables.Ores;
 
-namespace ModdingTutorial.Content.Items.Armor
+namespace AssortedAdditions.Content.Items.Armor
 {
     [AutoloadEquip(EquipType.Head)]
     internal class SteelHelmet : ModItem
     {
-        public override void SetStaticDefaults() {
+        public override void SetStaticDefaults()
+        {
 
             // Tooltip.SetDefault("A helmet made out of steel");
             CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;

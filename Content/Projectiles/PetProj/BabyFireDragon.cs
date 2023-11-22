@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
-using ModdingTutorial.Content.Buffs;
+using AssortedAdditions.Content.Buffs;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace ModdingTutorial.Content.Projectiles.PetProj
+namespace AssortedAdditions.Content.Projectiles.PetProj
 {
     internal class BabyFireDragon : ModProjectile
     {

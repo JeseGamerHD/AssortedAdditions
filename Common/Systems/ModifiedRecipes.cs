@@ -1,10 +1,10 @@
-﻿using ModdingTutorial.Common.Configs;
-using ModdingTutorial.Content.Items.Placeables.Ores;
+﻿using AssortedAdditions.Common.Configs;
+using AssortedAdditions.Content.Items.Placeables.Ores;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace ModdingTutorial.Common.Systems
+namespace AssortedAdditions.Common.Systems
 {
     // This class is used for editing vanilla recipes
     internal class ModifiedRecipes : ModSystem
@@ -12,7 +12,7 @@ namespace ModdingTutorial.Common.Systems
         public override void PostAddRecipes()
         {
             // The player can disable these changes if they want to in the mod configs
-            if(ModContent.GetInstance<VanillaChangeToggle>().ModifiedRecipesToggle)
+            if (ModContent.GetInstance<VanillaChangeToggle>().ModifiedRecipesToggle)
             {
                 for (int i = 0; i < Recipe.numRecipes; i++)
                 {

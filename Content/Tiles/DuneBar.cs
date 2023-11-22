@@ -5,7 +5,7 @@ using Terraria.DataStructures;
 using Terraria.ObjectData;
 using Terraria.Localization;
 
-namespace ModdingTutorial.Content.Tiles
+namespace AssortedAdditions.Content.Tiles
 {
     internal class DuneBar : ModTile
     {

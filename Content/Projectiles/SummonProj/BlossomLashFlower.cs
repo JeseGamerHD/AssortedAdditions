@@ -3,7 +3,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace ModdingTutorial.Content.Projectiles.SummonProj
+namespace AssortedAdditions.Content.Projectiles.SummonProj
 {
     internal class BlossomLashFlower : ModProjectile
     {

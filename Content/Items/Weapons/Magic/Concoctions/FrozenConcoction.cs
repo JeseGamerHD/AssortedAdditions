@@ -1,10 +1,10 @@
-﻿using ModdingTutorial.Content.Items.Placeables.Ores;
-using ModdingTutorial.Content.Projectiles.MagicProj.ConcoctionsProj;
+﻿using AssortedAdditions.Content.Items.Placeables.Ores;
+using AssortedAdditions.Content.Projectiles.MagicProj.ConcoctionsProj;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace ModdingTutorial.Content.Items.Weapons.Magic.Concoctions;
+namespace AssortedAdditions.Content.Items.Weapons.Magic.Concoctions;
 
 internal class FrozenConcoction : ModItem
 {

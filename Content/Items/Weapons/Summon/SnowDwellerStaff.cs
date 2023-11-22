@@ -1,14 +1,14 @@
-﻿using ModdingTutorial.Content.Buffs;
-using ModdingTutorial.Content.Projectiles.SummonProj;
-using Terraria.ID;
+﻿using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria;
 using Terraria.DataStructures;
 using Microsoft.Xna.Framework;
-using ModdingTutorial.Content.Items.Misc;
-using ModdingTutorial.Content.Items.Placeables.Ores;
+using AssortedAdditions.Content.Projectiles.SummonProj;
+using AssortedAdditions.Content.Items.Misc;
+using AssortedAdditions.Content.Buffs;
+using AssortedAdditions.Content.Items.Placeables.Ores;
 
-namespace ModdingTutorial.Content.Items.Weapons.Summon
+namespace AssortedAdditions.Content.Items.Weapons.Summon
 {
     internal class SnowDwellerStaff : ModItem
     {

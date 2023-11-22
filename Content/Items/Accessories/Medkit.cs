@@ -1,9 +1,9 @@
 ﻿using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria;
-using ModdingTutorial.Common.Players;
+using AssortedAdditions.Common.Players;
 
-namespace ModdingTutorial.Content.Items.Accessories
+namespace AssortedAdditions.Content.Items.Accessories
 {
     internal class Medkit : ModItem
     {
@@ -20,7 +20,7 @@ namespace ModdingTutorial.Content.Items.Accessories
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
             // Set a flag to true, ModPlayer will keep player from dying (only once) and activate a buff which also acts as a cooldown
-            player.GetModPlayer<AccessoryFlags>().isWearingMedkit = true; 
+            player.GetModPlayer<AccessoryFlags>().isWearingMedkit = true;
             player.buffImmune[BuffID.Rabies] = true;
             player.buffImmune[BuffID.Bleeding] = true;
             player.buffImmune[BuffID.Poisoned] = true;

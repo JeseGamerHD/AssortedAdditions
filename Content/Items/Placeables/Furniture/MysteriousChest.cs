@@ -1,17 +1,17 @@
 ﻿using Terraria.ModLoader;
 using Terraria;
-using ModdingTutorial.Content.Tiles.Furniture;
 using Terraria.ID;
-using ModdingTutorial.Content.Items.Placeables.Blocks;
+using AssortedAdditions.Content.Tiles.Furniture;
+using AssortedAdditions.Content.Items.Placeables.Blocks;
 
-namespace ModdingTutorial.Content.Items.Placeables.Furniture
+namespace AssortedAdditions.Content.Items.Placeables.Furniture
 {
     internal class MysteriousChest : ModItem
     {
         public override void SetDefaults()
         {
             Item.DefaultToPlaceableTile(ModContent.TileType<MysteriousChestTile>());
-            
+
             Item.width = 32;
             Item.height = 28;
             Item.value = Item.sellPrice(silver: 10);

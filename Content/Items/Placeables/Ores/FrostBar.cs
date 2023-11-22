@@ -2,9 +2,9 @@
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria;
-using ModdingTutorial.Content.Tiles;
+using AssortedAdditions.Content.Tiles;
 
-namespace ModdingTutorial.Content.Items.Placeables.Ores
+namespace AssortedAdditions.Content.Items.Placeables.Ores
 {
     internal class FrostBar : ModItem
     {

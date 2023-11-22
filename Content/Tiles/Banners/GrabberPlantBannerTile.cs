@@ -1,8 +1,8 @@
-﻿using Microsoft.Xna.Framework;
-using ModdingTutorial.Content.NPCs;
+﻿using AssortedAdditions.Content.NPCs;
+using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
 
-namespace ModdingTutorial.Content.Tiles.Banners
+namespace AssortedAdditions.Content.Tiles.Banners
 {
     internal class GrabberPlantBannerTile : MonsterBanners
     {

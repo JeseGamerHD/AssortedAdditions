@@ -2,10 +2,10 @@
 using Terraria.ModLoader;
 using Terraria.IO;
 using Terraria.WorldBuilding;
-using ModdingTutorial.Content.Tiles;
 using Terraria.ID;
+using AssortedAdditions.Content.Tiles;
 
-namespace ModdingTutorial.Common.Systems.GenPasses
+namespace AssortedAdditions.Common.Systems.GenPasses
 {
     internal class OreGenPreHard : GenPass // Ore generation for Pre-hardmore
     {
@@ -17,7 +17,7 @@ namespace ModdingTutorial.Common.Systems.GenPasses
 
             //Coal Chunk
             int maxtoSpawn = (int)(Main.maxTilesX * Main.maxTilesY * 0.0003);
-            for(int i = 0; i < maxtoSpawn; i++)
+            for (int i = 0; i < maxtoSpawn; i++)
             {
                 int x = WorldGen.genRand.Next(100, Main.maxTilesX - 100);
                 int y = WorldGen.genRand.Next((int)GenVars.worldSurface + 30, Main.maxTilesY - 300);
@@ -38,7 +38,7 @@ namespace ModdingTutorial.Common.Systems.GenPasses
                 {
                     WorldGen.TileRunner(x, y, WorldGen.genRand.Next(4, 10), WorldGen.genRand.Next(4, 10), ModContent.TileType<DuneOre>());
                 }
-     
+
             }
         }
     }

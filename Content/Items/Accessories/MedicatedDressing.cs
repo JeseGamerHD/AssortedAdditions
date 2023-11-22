@@ -2,7 +2,7 @@
 using Terraria;
 using Terraria.ModLoader;
 
-namespace ModdingTutorial.Content.Items.Accessories
+namespace AssortedAdditions.Content.Items.Accessories
 {
     internal class MedicatedDressing : ModItem
     {

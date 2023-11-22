@@ -2,11 +2,11 @@
 using Terraria.ModLoader;
 using Terraria;
 using Microsoft.Xna.Framework;
-using ModdingTutorial.Content.Projectiles;
-using ModdingTutorial.Content.Buffs;
-using ModdingTutorial.Common.Players;
+using AssortedAdditions.Content.Buffs;
+using AssortedAdditions.Common.Players;
+using AssortedAdditions.Content.Projectiles;
 
-namespace ModdingTutorial.Content.Items.Accessories
+namespace AssortedAdditions.Content.Items.Accessories
 {
     internal class EchoChamber : ModItem
     {

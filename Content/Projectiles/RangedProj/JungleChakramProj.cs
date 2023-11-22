@@ -7,7 +7,7 @@ using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace ModdingTutorial.Content.Projectiles.RangedProj
+namespace AssortedAdditions.Content.Projectiles.RangedProj
 {
     internal class JungleChakramProj : ModProjectile
     {
@@ -37,9 +37,9 @@ namespace ModdingTutorial.Content.Projectiles.RangedProj
         private bool setOnce;
         public override void AI()
         {
-            if(!setOnce)
+            if (!setOnce)
             {
-                if(Main.rand.NextBool())
+                if (Main.rand.NextBool())
                 {
                     Projectile.frame = 0;
                     setOnce = true;
@@ -51,7 +51,7 @@ namespace ModdingTutorial.Content.Projectiles.RangedProj
                 }
             }
 
-            if(Main.rand.NextBool(5))
+            if (Main.rand.NextBool(5))
             {
                 Dust dust = Dust.NewDustDirect(Projectile.position - Projectile.velocity, Projectile.width, Projectile.height,
                     DustID.JungleGrass, 0, 0, 150, default, 1.5f);
@@ -96,7 +96,7 @@ namespace ModdingTutorial.Content.Projectiles.RangedProj
             Vector2 drawOrigin = new Vector2(texture.Width * 0.5f, Projectile.height * 0.5f);
             for (int k = 0; k < Projectile.oldPos.Length; k++)
             {
-                Vector2 drawPos = (Projectile.oldPos[k] - Main.screenPosition) + drawOrigin + new Vector2(0f, Projectile.gfxOffY);
+                Vector2 drawPos = Projectile.oldPos[k] - Main.screenPosition + drawOrigin + new Vector2(0f, Projectile.gfxOffY);
                 Color color = Projectile.GetAlpha(lightColor) * ((Projectile.oldPos.Length - k) / (float)Projectile.oldPos.Length);
                 Main.EntitySpriteDraw(texture, drawPos, frame, color, Projectile.rotation, drawOrigin, Projectile.scale, SpriteEffects.None, 0);
             }

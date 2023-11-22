@@ -1,12 +1,12 @@
 ﻿using Terraria.ID;
 using Terraria;
 using Terraria.ModLoader;
-using ModdingTutorial.Content.Items.Placeables.Ores;
-using ModdingTutorial.Content.Items.Placeables.Blocks;
-using ModdingTutorial.Content.Items.Misc;
-using ModdingTutorial.Content.Items.Accessories;
+using AssortedAdditions.Content.Items.Accessories;
+using AssortedAdditions.Content.Items.Misc;
+using AssortedAdditions.Content.Items.Placeables.Ores;
+using AssortedAdditions.Content.Items.Placeables.Blocks;
 
-namespace ModdingTutorial.Common.GlobalItems
+namespace AssortedAdditions.Common.GlobalItems
 {
     // This class gives many of the vanilla accessories alternative sources (crafting recipes)
     // Also modifies some behaviour
@@ -208,7 +208,7 @@ namespace ModdingTutorial.Common.GlobalItems
         // E.g Player could equip both necklaces and then swap one for a medkit and get insane speeds
         public override bool CanAccessoryBeEquippedWith(Item equippedItem, Item incomingItem, Player player)
         {
-            if( (equippedItem.type == ItemID.PanicNecklace && incomingItem.type == ItemID.SweetheartNecklace ) 
+            if (equippedItem.type == ItemID.PanicNecklace && incomingItem.type == ItemID.SweetheartNecklace
                 || equippedItem.type == ItemID.SweetheartNecklace && incomingItem.type == ItemID.PanicNecklace)
             {
                 return false;

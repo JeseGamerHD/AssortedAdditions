@@ -1,9 +1,9 @@
 ﻿using Terraria.ID;
 using Terraria.ModLoader;
-using ModdingTutorial.Content.Tiles.CraftingStations;
 using Terraria;
+using AssortedAdditions.Content.Tiles.CraftingStations;
 
-namespace ModdingTutorial.Content.Items.Placeables.CraftingStations
+namespace AssortedAdditions.Content.Items.Placeables.CraftingStations
 {
     internal class MagicWorkbench : ModItem
     {

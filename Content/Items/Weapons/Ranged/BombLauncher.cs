@@ -1,11 +1,11 @@
-﻿using ModdingTutorial.Content.Projectiles.RangedProj;
-using Terraria.ID;
+﻿using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria;
 using Microsoft.Xna.Framework;
-using ModdingTutorial.Content.Items.Tools;
+using AssortedAdditions.Content.Items.Tools;
+using AssortedAdditions.Content.Projectiles.RangedProj;
 
-namespace ModdingTutorial.Content.Items.Weapons.Ranged
+namespace AssortedAdditions.Content.Items.Weapons.Ranged
 {
     internal class BombLauncher : ModItem
     {

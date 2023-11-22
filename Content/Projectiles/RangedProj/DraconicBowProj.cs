@@ -3,7 +3,7 @@ using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace ModdingTutorial.Content.Projectiles.RangedProj
+namespace AssortedAdditions.Content.Projectiles.RangedProj
 {
     internal class DraconicBowProj : ModProjectile
     {
@@ -18,7 +18,7 @@ namespace ModdingTutorial.Content.Projectiles.RangedProj
             Projectile.friendly = true;
             Projectile.hostile = false;
             Projectile.light = 1f;
-            Projectile.alpha = 50; 
+            Projectile.alpha = 50;
             Projectile.DamageType = DamageClass.Ranged;
 
             Projectile.aiStyle = 0;
@@ -50,7 +50,7 @@ namespace ModdingTutorial.Content.Projectiles.RangedProj
             }
 
             // Projectile fades in/out a little
-            if(Timer <= 60)
+            if (Timer <= 60)
             {
                 Projectile.alpha++;
             }
@@ -60,7 +60,7 @@ namespace ModdingTutorial.Content.Projectiles.RangedProj
                 Projectile.alpha--;
             }
 
-            if(Timer >= 120)
+            if (Timer >= 120)
             {
                 Timer = 0;
             }

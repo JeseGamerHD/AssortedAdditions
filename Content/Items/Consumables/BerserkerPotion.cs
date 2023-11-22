@@ -1,10 +1,10 @@
 ﻿using Microsoft.Xna.Framework;
-using ModdingTutorial.Content.Buffs;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria;
+using AssortedAdditions.Content.Buffs;
 
-namespace ModdingTutorial.Content.Items.Consumables
+namespace AssortedAdditions.Content.Items.Consumables
 {
     internal class BerserkerPotion : ModItem
     {

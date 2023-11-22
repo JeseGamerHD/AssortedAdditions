@@ -1,20 +1,20 @@
-﻿using Microsoft.Xna.Framework;
-using ModdingTutorial.Content.Items.Misc;
-using ModdingTutorial.Content.Items.Placeables.Ores;
-using ModdingTutorial.Content.Projectiles.MeleeProj;
+﻿using AssortedAdditions.Content.Items.Misc;
+using AssortedAdditions.Content.Items.Placeables.Ores;
+using AssortedAdditions.Content.Projectiles.MeleeProj;
+using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace ModdingTutorial.Content.Items.Weapons.Melee;
+namespace AssortedAdditions.Content.Items.Weapons.Melee;
 
 // This is a copy of the Excalibur (from ExampleMod)
 public class AuroraBlade : ModItem
 {
     public override void SetDefaults()
     {
-        
+
         Item.useAnimation = 16;
         Item.useTime = 16;
         Item.damage = 70;

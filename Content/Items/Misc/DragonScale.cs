@@ -3,7 +3,7 @@ using Terraria.GameContent.Creative;
 using Terraria.ModLoader;
 using Terraria;
 
-namespace ModdingTutorial.Content.Items.Misc
+namespace AssortedAdditions.Content.Items.Misc
 {
     internal class DragonScale : ModItem // Dropped from Fire Dragon boss
     {

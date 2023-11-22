@@ -6,7 +6,7 @@ using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace ModdingTutorial.Content.Projectiles.RangedProj
+namespace AssortedAdditions.Content.Projectiles.RangedProj
 {
     internal class FrostBowProj : ModProjectile
     {
@@ -61,9 +61,9 @@ namespace ModdingTutorial.Content.Projectiles.RangedProj
             }
 
             // Slows down and falls shortly after firing
-            if(Timer >= 15)
+            if (Timer >= 15)
             {
-                if(Projectile.direction == 1) // If moving to the right, subtract from X
+                if (Projectile.direction == 1) // If moving to the right, subtract from X
                 {
                     Projectile.velocity.X -= 0.2f;
                     if (Projectile.velocity.X < 3f)
@@ -72,7 +72,7 @@ namespace ModdingTutorial.Content.Projectiles.RangedProj
                     }
                 }
 
-                if(Projectile.direction == -1) // If moving to the left, add to X
+                if (Projectile.direction == -1) // If moving to the left, add to X
                 {
                     Projectile.velocity.X += 0.2f;
                     if (Projectile.velocity.X > -3f)
@@ -82,8 +82,8 @@ namespace ModdingTutorial.Content.Projectiles.RangedProj
                 }
 
             }
-            
-            if(Timer >= 30)
+
+            if (Timer >= 30)
             {
                 Projectile.velocity.Y = Projectile.velocity.Y + 0.5f;
                 if (Projectile.velocity.Y > 16f) // Increase Y velocity to add gravity until max of 16 is reached
@@ -118,7 +118,7 @@ namespace ModdingTutorial.Content.Projectiles.RangedProj
             Vector2 drawOrigin = new Vector2(texture.Width * 0.5f, Projectile.height * 0.5f);
             for (int k = 0; k < Projectile.oldPos.Length; k++)
             {
-                Vector2 drawPos = (Projectile.oldPos[k] - Main.screenPosition) + drawOrigin + new Vector2(0f, Projectile.gfxOffY);
+                Vector2 drawPos = Projectile.oldPos[k] - Main.screenPosition + drawOrigin + new Vector2(0f, Projectile.gfxOffY);
                 Color color = Projectile.GetAlpha(lightColor) * ((Projectile.oldPos.Length - k) / (float)Projectile.oldPos.Length);
                 Main.EntitySpriteDraw(texture, drawPos, null, color, Projectile.rotation, drawOrigin, Projectile.scale, SpriteEffects.None, 0);
             }

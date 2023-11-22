@@ -3,14 +3,14 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria;
 using Microsoft.Xna.Framework;
-using ModdingTutorial.Content.Projectiles.RangedProj;
-using ModdingTutorial.Content.Items.Weapons.Ammo;
+using AssortedAdditions.Content.Projectiles.RangedProj;
+using AssortedAdditions.Content.Items.Weapons.Ammo;
 
-namespace ModdingTutorial.Content.Items.Weapons.Ranged
+namespace AssortedAdditions.Content.Items.Weapons.Ranged
 {
     internal class PlasmaCarbine : ModItem
     {
-        public override void SetStaticDefaults() 
+        public override void SetStaticDefaults()
         {
             CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
             // Tooltip.SetDefault("Battery powered");

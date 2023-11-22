@@ -2,7 +2,7 @@
 using Terraria.ModLoader;
 using Terraria;
 
-namespace ModdingTutorial.Content.Items.Vanity
+namespace AssortedAdditions.Content.Items.Vanity
 {
     [AutoloadEquip(EquipType.Legs)]
     internal class BuilderPants : ModItem

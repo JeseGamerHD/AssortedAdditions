@@ -5,7 +5,7 @@ using Microsoft.Xna.Framework;
 using Terraria.Audio;
 using System;
 
-namespace ModdingTutorial.Content.Projectiles.MagicProj.ConcoctionsProj;
+namespace AssortedAdditions.Content.Projectiles.MagicProj.ConcoctionsProj;
 
 internal class BouncingConcoctionProj : ModProjectile
 {

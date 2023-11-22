@@ -1,8 +1,8 @@
-﻿using ModdingTutorial.Content.Projectiles.SummonProj;
+﻿using AssortedAdditions.Content.Projectiles.SummonProj;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace ModdingTutorial.Content.Buffs
+namespace AssortedAdditions.Content.Buffs
 {
     internal class SunScepterBuff : ModBuff
     {

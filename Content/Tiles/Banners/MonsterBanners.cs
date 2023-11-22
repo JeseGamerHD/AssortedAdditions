@@ -7,7 +7,7 @@ using Terraria.ObjectData;
 using Terraria.Enums;
 using Microsoft.Xna.Framework;
 
-namespace ModdingTutorial.Content.Tiles.Banners
+namespace AssortedAdditions.Content.Tiles.Banners
 {
     // This class is used as a base for other banners so there is no need to repeat the same code
     // Just set the Color and BuffNPC in the other banner's SetStaticDefaults() and keep the base.SetStaticDefaults();

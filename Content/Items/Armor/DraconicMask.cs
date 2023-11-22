@@ -1,13 +1,13 @@
-﻿using ModdingTutorial.Content.Buffs;
-using ModdingTutorial.Content.Items.Misc;
-using ModdingTutorial.Content.Projectiles;
-using Terraria.GameContent.Creative;
+﻿using Terraria.GameContent.Creative;
 using Terraria.ID;
 using Terraria;
 using Terraria.ModLoader;
-using ModdingTutorial.Common.Players;
+using AssortedAdditions.Common.Players;
+using AssortedAdditions.Content.Items.Misc;
+using AssortedAdditions.Content.Projectiles;
+using AssortedAdditions.Content.Buffs;
 
-namespace ModdingTutorial.Content.Items.Armor
+namespace AssortedAdditions.Content.Items.Armor
 {
     [AutoloadEquip(EquipType.Head)]
     internal class DraconicMask : ModItem

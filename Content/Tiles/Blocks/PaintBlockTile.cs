@@ -4,7 +4,7 @@ using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
 using Terraria.Audio;
 
-namespace ModdingTutorial.Content.Tiles.Blocks
+namespace AssortedAdditions.Content.Tiles.Blocks
 {
     internal class PaintBlockTile : ModTile
     {
@@ -24,7 +24,7 @@ namespace ModdingTutorial.Content.Tiles.Blocks
             // When the block breaks, play a different sound
             if (!fail)
             {
-                SoundEngine.PlaySound(new SoundStyle("ModdingTutorial/Assets/Sounds/Tiles/PaintTileBreak"));
+                SoundEngine.PlaySound(new SoundStyle("AssortedAdditions/Assets/Sounds/Tiles/PaintTileBreak"));
             }
 
             // Otherwise play the hit sound

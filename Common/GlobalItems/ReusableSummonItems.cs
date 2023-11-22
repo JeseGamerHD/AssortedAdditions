@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
-using ModdingTutorial.Common.Configs;
+using AssortedAdditions.Common.Configs;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace ModdingTutorial.Common.GlobalItems
+namespace AssortedAdditions.Common.GlobalItems
 {
     // Majority of boss/event summon items are no longer consumables
     internal class ReusableSummonItems : GlobalItem
@@ -48,7 +48,7 @@ namespace ModdingTutorial.Common.GlobalItems
                 }
             }
 
-            if(ModContent.GetInstance<VanillaChangeToggle>().NoConsumeEventSummon)
+            if (ModContent.GetInstance<VanillaChangeToggle>().NoConsumeEventSummon)
             {
                 if (noConsumeEvent.Contains(entity.type))
                 {

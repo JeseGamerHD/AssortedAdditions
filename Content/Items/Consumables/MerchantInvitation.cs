@@ -3,7 +3,7 @@ using Terraria.ModLoader;
 using Terraria;
 using Terraria.Audio;
 
-namespace ModdingTutorial.Content.Items.Consumables
+namespace AssortedAdditions.Content.Items.Consumables
 {
     internal class MerchantInvitation : ModItem
     {
@@ -39,7 +39,7 @@ namespace ModdingTutorial.Content.Items.Consumables
 
         public override bool? UseItem(Player player)
         {
-            if(player.whoAmI == Main.myPlayer)
+            if (player.whoAmI == Main.myPlayer)
             {
                 return true;
             }
@@ -64,9 +64,9 @@ namespace ModdingTutorial.Content.Items.Consumables
             // NPC spawning should not be done on multiplayer clients
             if (Main.netMode != NetmodeID.MultiplayerClient)
             {
-                NPC.NewNPC(player.GetSource_ItemUse(Item), (int)player.Center.X, (int)player.Center.Y, NPCID.TravellingMerchant);   
+                NPC.NewNPC(player.GetSource_ItemUse(Item), (int)player.Center.X, (int)player.Center.Y, NPCID.TravellingMerchant);
             }
-            
+
             return base.ConsumeItem(player);
         }
     }

@@ -1,18 +1,18 @@
 ﻿using Terraria.ID;
 using Terraria;
 using Terraria.ModLoader;
-using ModdingTutorial.Content.Items.Placeables.Banners;
 using Microsoft.Xna.Framework;
 using Terraria.GameContent.Bestiary;
 using System;
 using Terraria.ModLoader.Utilities;
-using ModdingTutorial.Content.Projectiles.NPCProj;
 using Terraria.Audio;
 using Terraria.GameContent.ItemDropRules;
-using ModdingTutorial.Content.Items.Tools;
 using Terraria.Graphics.Shaders;
+using AssortedAdditions.Content.Items.Tools;
+using AssortedAdditions.Content.Items.Placeables.Banners;
+using AssortedAdditions.Content.Projectiles.NPCProj;
 
-namespace ModdingTutorial.Content.NPCs
+namespace AssortedAdditions.Content.NPCs
 {
     internal class GoblinBalloonist : ModNPC
     {
@@ -156,7 +156,7 @@ namespace ModdingTutorial.Content.NPCs
                     dust.shader = GameShaders.Armor.GetShaderFromItemId(ItemID.RedandBlackDye);
                 }
 
-                if(Main.netMode != NetmodeID.MultiplayerClient)
+                if (Main.netMode != NetmodeID.MultiplayerClient)
                 {
                     NPC.NewNPC(NPC.GetSource_FromAI(), (int)NPC.position.X, (int)NPC.position.Y, NPCID.GoblinScout, NPC.whoAmI);
                 }

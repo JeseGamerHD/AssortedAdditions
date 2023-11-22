@@ -1,9 +1,9 @@
-﻿using ModdingTutorial.Content.Tiles.Banners;
-using Terraria.ID;
+﻿using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria;
+using AssortedAdditions.Content.Tiles.Banners;
 
-namespace ModdingTutorial.Content.Items.Placeables.Banners
+namespace AssortedAdditions.Content.Items.Placeables.Banners
 {
     internal class ShroomlingBanner : ModItem
     {

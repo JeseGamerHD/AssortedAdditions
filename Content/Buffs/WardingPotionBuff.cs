@@ -1,7 +1,7 @@
 ﻿using Terraria;
 using Terraria.ModLoader;
 
-namespace ModdingTutorial.Content.Buffs
+namespace AssortedAdditions.Content.Buffs
 {
     internal class WardingPotionBuff : ModBuff
     {

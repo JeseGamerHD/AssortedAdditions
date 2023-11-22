@@ -2,9 +2,9 @@
 using Terraria.ModLoader;
 using Terraria;
 using Terraria.ID;
-using ModdingTutorial.Content.Items.Misc;
+using AssortedAdditions.Content.Items.Misc;
 
-namespace ModdingTutorial.Content.Items.Armor
+namespace AssortedAdditions.Content.Items.Armor
 {
     [AutoloadEquip(EquipType.Legs)]
     internal class DraconicGreaves : ModItem

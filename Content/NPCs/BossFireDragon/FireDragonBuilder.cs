@@ -9,7 +9,7 @@ using Terraria.ModLoader;
 /// This is a copy of ExampleMod's Worm.cs, modified for a custom Fire Dragon boss
 /// The code is very messy... I should not have tried to make a wormlike boss when starting to learn how to mod Terraria
 /// Comment was added after coming back to try and fix some of the bigger errors...
-namespace ModdingTutorial.Content.NPCs.BossFireDragon 
+namespace AssortedAdditions.Content.NPCs.BossFireDragon
 {
 
     public enum WormSegmentType
@@ -74,10 +74,10 @@ namespace ModdingTutorial.Content.NPCs.BossFireDragon
     {
         public sealed override WormSegmentType SegmentType => WormSegmentType.Head;
         public abstract int BodyType { get; } // The NPCID or ModContent.NPCType for the body segment NPCs.
-                                             // This property is only used if HasCustomBodySegments = false
+                                              // This property is only used if HasCustomBodySegments = false
 
         public abstract int TailType { get; } // The NPCID or ModContent.NPCType for the tail segment NPC.
-                                             // This property is only used if HasCustomBodySegments = false
+                                              // This property is only used if HasCustomBodySegments = false
         public int MinSegmentLength { get; set; } // The minimum amount of segments expected, including the head and tail segments
 
         public int MaxSegmentLength { get; set; } // The maximum amount of segments expected, including the head and tail segments
@@ -85,7 +85,7 @@ namespace ModdingTutorial.Content.NPCs.BossFireDragon
         public virtual bool HasCustomBodySegments => false; // Whether the NPC uses custom segments such as Legs like in the wyvern
 
         public virtual int SpawnBodySegments(int segmentCount) // Override this method to use custom body-spawning code. This method only runs if HasCustomBodySegments = true
-                                                              // The whoAmI of the most-recently spawned NPC
+                                                               // The whoAmI of the most-recently spawned NPC
         {
             // Defaults to just returning this NPC's whoAmI, since the tail segment uses the return value as its "following" NPC index
             return NPC.whoAmI;
@@ -260,7 +260,7 @@ namespace ModdingTutorial.Content.NPCs.BossFireDragon
                 // We also get the length of the direction vector.
                 float length = (float)Math.Sqrt(dirX * dirX + dirY * dirY);
                 // We calculate a new, correct distance.
-                float dist = (length - (worm.NPC.width * 0.8f)) / length;
+                float dist = (length - worm.NPC.width * 0.8f) / length;
                 float posX = dirX * dist;
                 float posY = dirY * dist;
 

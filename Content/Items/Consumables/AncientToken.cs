@@ -2,11 +2,11 @@
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria;
-using ModdingTutorial.Content.NPCs.BossFireDragon;
 using Terraria.Audio;
-using ModdingTutorial.Content.Items.Misc;
+using AssortedAdditions.Content.Items.Misc;
+using AssortedAdditions.Content.NPCs.BossFireDragon;
 
-namespace ModdingTutorial.Content.Items.Consumables
+namespace AssortedAdditions.Content.Items.Consumables
 {
     internal class AncientToken : ModItem
     {

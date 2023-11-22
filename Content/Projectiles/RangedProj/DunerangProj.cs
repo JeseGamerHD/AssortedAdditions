@@ -5,7 +5,7 @@ using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace ModdingTutorial.Content.Projectiles.RangedProj
+namespace AssortedAdditions.Content.Projectiles.RangedProj
 {
     internal class DunerangProj : ModProjectile
     {
@@ -21,7 +21,7 @@ namespace ModdingTutorial.Content.Projectiles.RangedProj
             Projectile.hostile = false;
             Projectile.penetrate = -1; // So that the boomerang doesn't die once hitting enemies
 
-            Projectile.aiStyle = 0; 
+            Projectile.aiStyle = 0;
         }
 
 
@@ -32,18 +32,18 @@ namespace ModdingTutorial.Content.Projectiles.RangedProj
         private float slowDown = 0.2f;
         private float rotationDirection;
         public override void AI()
-        { 
+        {
             Player player = Main.player[Projectile.owner];
 
 
             // Set the speed depending on vector's length
-            if(setValues == false)
+            if (setValues == false)
             {
                 speed = Projectile.velocity.Length();
                 speedLimit = speed;
 
                 // Rotates right/left depending on which direction it was thrown
-                if(player.direction == 1)
+                if (player.direction == 1)
                     rotationDirection = 0.4f;
                 else
                     rotationDirection = -0.4f;
@@ -77,9 +77,9 @@ namespace ModdingTutorial.Content.Projectiles.RangedProj
             if (turnBack == true)
             {
                 Projectile.tileCollide = false; // Returns through tiles
-                
+
                 // Code that directs the boomerang back to the player (Polar Vector)
-                Projectile.velocity = new Vector2((float)Math.Cos((player.Center - Projectile.Center).ToRotation()), 
+                Projectile.velocity = new Vector2((float)Math.Cos((player.Center - Projectile.Center).ToRotation()),
                                                  (float)Math.Sin((player.Center - Projectile.Center).ToRotation())) * speed;
                 speed += slowDown; // Needs to be accelerated since it has been slowed down first
 
@@ -100,7 +100,7 @@ namespace ModdingTutorial.Content.Projectiles.RangedProj
                 Projectile.velocity = Projectile.velocity.SafeNormalize(-Vector2.UnitY) * speed;
                 speed -= slowDown;
             }
-            if(speed < 1f) // Once it has slowed down enough...
+            if (speed < 1f) // Once it has slowed down enough...
             {
                 turnBack = true; // ...turn back
             }

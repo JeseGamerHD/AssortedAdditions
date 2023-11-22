@@ -3,9 +3,9 @@ using Terraria.ID;
 using Terraria;
 using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
-using ModdingTutorial.Content.Items.Weapons.Melee.BoStaffs;
+using AssortedAdditions.Content.Items.Weapons.Melee.BoStaffs;
 
-namespace ModdingTutorial.Content.Projectiles.MeleeProj
+namespace AssortedAdditions.Content.Projectiles.MeleeProj
 {
     internal class BoStaffSpin : ModProjectile
     {

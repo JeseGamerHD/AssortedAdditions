@@ -1,9 +1,9 @@
-﻿using ModdingTutorial.Content.Items.Placeables.Ores;
+﻿using AssortedAdditions.Content.Items.Placeables.Ores;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace ModdingTutorial.Content.Items.Tools
+namespace AssortedAdditions.Content.Items.Tools
 {
     internal class DuneHammer : ModItem
     {

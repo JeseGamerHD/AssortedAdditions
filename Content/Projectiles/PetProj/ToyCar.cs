@@ -1,10 +1,10 @@
 ﻿using Terraria.ID;
 using Terraria;
 using Terraria.ModLoader;
-using ModdingTutorial.Content.Buffs;
 using System.Collections.Generic;
+using AssortedAdditions.Content.Buffs;
 
-namespace ModdingTutorial.Content.Projectiles.PetProj
+namespace AssortedAdditions.Content.Projectiles.PetProj
 {
     internal class ToyCar : ModProjectile
     {

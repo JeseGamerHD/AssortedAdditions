@@ -4,7 +4,7 @@ using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
 using Terraria.Audio;
 
-namespace ModdingTutorial.Content.Projectiles.RangedProj;
+namespace AssortedAdditions.Content.Projectiles.RangedProj;
 
 internal class GuidedMissileProj : ModProjectile
 {
@@ -20,7 +20,7 @@ internal class GuidedMissileProj : ModProjectile
         Projectile.aiStyle = 0; // Custom AI style
         Projectile.timeLeft = 300; // 5 second life
         Projectile.DamageType = DamageClass.Ranged;
-        DrawOriginOffsetY = 0;  
+        DrawOriginOffsetY = 0;
         DrawOriginOffsetX = 0;
         Projectile.ignoreWater = true;
         Projectile.tileCollide = true;
@@ -85,10 +85,10 @@ internal class GuidedMissileProj : ModProjectile
                 Projectile.netUpdate = true;
 
                 NPC closestNPC = FindClosestNPC(maxDetectRadius);
-                
+
                 if (closestNPC == null) // If no target is found, missile flies off
                 {
-                    if(Projectile.velocity == Vector2.Zero)
+                    if (Projectile.velocity == Vector2.Zero)
                     {
                         Vector2 vectorToCursor = Projectile.Center - player.Center;
                         float distanceToCursor = vectorToCursor.Length();
@@ -178,7 +178,7 @@ internal class GuidedMissileProj : ModProjectile
         }
 
         SoundEngine.PlaySound(SoundID.Item62, Projectile.position);
-        
+
         // Smoke Dust
         for (int i = 0; i < 30; i++)
         {

@@ -1,13 +1,13 @@
-﻿using Microsoft.Xna.Framework;
-using ModdingTutorial.Content.Items.Misc;
-using ModdingTutorial.Content.Items.Placeables.Ores;
-using ModdingTutorial.Content.Items.Weapons.Ammo;
-using ModdingTutorial.Content.Projectiles.RangedProj;
+﻿using AssortedAdditions.Content.Items.Misc;
+using AssortedAdditions.Content.Items.Placeables.Ores;
+using AssortedAdditions.Content.Items.Weapons.Ammo;
+using AssortedAdditions.Content.Projectiles.RangedProj;
+using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace ModdingTutorial.Content.Items.Weapons.Ranged;
+namespace AssortedAdditions.Content.Items.Weapons.Ranged;
 
 internal class GuidedMissileLauncher : ModItem
 {

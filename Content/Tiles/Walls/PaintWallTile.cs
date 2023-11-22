@@ -3,7 +3,7 @@ using Terraria;
 using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
 
-namespace ModdingTutorial.Content.Tiles.Walls
+namespace AssortedAdditions.Content.Tiles.Walls
 {
     internal class PaintWallTile : ModWall
     {

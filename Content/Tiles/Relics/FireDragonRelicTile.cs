@@ -10,7 +10,7 @@ using System;
 using ReLogic.Content;
 using Terraria.Localization;
 
-namespace ModdingTutorial.Content.Tiles.Relics
+namespace AssortedAdditions.Content.Tiles.Relics
 {
     // Common code for a Master Mode boss relic
     // Contains comments for optional Item.placeStyle handling if you wish to add more relics but use the same tile type (then it would be wise to name this class something more generic like BossRelic)
@@ -26,10 +26,10 @@ namespace ModdingTutorial.Content.Tiles.Relics
 
         // Every relic has its own extra floating part, should be 50x50. Optional: Expand this sheet if you want to add more, stacked vertically
         // If you do not go the optional way, and you extend from this class, you can override this to point to a different texture
-        public virtual string RelicTextureName => "ModdingTutorial/Content/Tiles/Relics/FireDragonRelicTile";
+        public virtual string RelicTextureName => "AssortedAdditions/Content/Tiles/Relics/FireDragonRelicTile";
 
         // All relics use the same pedestal texture, this one is copied from vanilla
-        public override string Texture => "ModdingTutorial/Content/Tiles/Relics/RelicPedestal";
+        public override string Texture => "AssortedAdditions/Content/Tiles/Relics/RelicPedestal";
 
         public override void Load()
         {

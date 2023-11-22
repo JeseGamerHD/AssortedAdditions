@@ -4,7 +4,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace ModdingTutorial.Common.GlobalItems
+namespace AssortedAdditions.Common.GlobalItems
 {
     // Currently mostly used for buffing/nerfing items, but also editing tooltips
     internal class ModifiedItems : GlobalItem
@@ -36,7 +36,7 @@ namespace ModdingTutorial.Common.GlobalItems
 
         public override void UpdateEquip(Item item, Player player)
         {
-            switch(item.type)
+            switch (item.type)
             {
                 case ItemID.FrostHelmet:
                     player.GetDamage(DamageClass.Melee) -= 0.04f; // From 16% to 12%
@@ -52,7 +52,7 @@ namespace ModdingTutorial.Common.GlobalItems
                     player.GetAttackSpeed(DamageClass.Melee) -= 0.02f; // From 10% to 8%
                     break;
 
-                default: 
+                default:
                     break;
             }
         }
@@ -63,7 +63,7 @@ namespace ModdingTutorial.Common.GlobalItems
             {
                 case ItemID.FrostHelmet:
                     TooltipLine editedTip = tooltips.FirstOrDefault(tip => tip.Name == "Tooltip0" && tip.Mod == "Terraria");
-                    if(editedTip != null)
+                    if (editedTip != null)
                     {
                         editedTip.Text = "12% increased melee and ranged damage";
                     }

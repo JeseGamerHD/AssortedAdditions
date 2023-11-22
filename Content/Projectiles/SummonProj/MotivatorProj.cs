@@ -6,9 +6,9 @@ using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.GameContent.Drawing;
-using ModdingTutorial.Content.Buffs.Whips;
+using AssortedAdditions.Content.Buffs.Whips;
 
-namespace ModdingTutorial.Content.Projectiles.SummonProj
+namespace AssortedAdditions.Content.Projectiles.SummonProj
 {
     internal class MotivatorProj : ModProjectile
     {

@@ -1,13 +1,13 @@
 ﻿using Terraria.Audio;
 using Microsoft.Xna.Framework;
-using ModdingTutorial.Content.Projectiles.NPCProj;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.GameContent.Bestiary;
 using System;
+using AssortedAdditions.Content.Projectiles.NPCProj;
 
-namespace ModdingTutorial.Content.NPCs.BossFireDragon
+namespace AssortedAdditions.Content.NPCs.BossFireDragon
 {
     internal class FireDrake : ModNPC
     {
@@ -30,7 +30,7 @@ namespace ModdingTutorial.Content.NPCs.BossFireDragon
             NPC.height = 22;
             NPC.noTileCollide = true;
             NPC.noGravity = true;
-            
+
             NPC.lifeMax = 50;
             NPC.defense = 5;
             NPC.damage = 25;
@@ -51,7 +51,7 @@ namespace ModdingTutorial.Content.NPCs.BossFireDragon
             Player target = Main.player[NPC.target];
             float distanceFromTarget = Vector2.Distance(target.Center, NPC.Center);
 
-            if(target.dead)
+            if (target.dead)
             {
                 Vector2 direction = Main.screenPosition - NPC.position;
                 direction.Normalize();
@@ -82,16 +82,16 @@ namespace ModdingTutorial.Content.NPCs.BossFireDragon
                     Vector2 direction = target.Center - NPC.Center;
                     direction.Normalize();
                     int type = ModContent.ProjectileType<FireDrakeProj>();
-                    
+
                     // Spawn the projectile, check netmode
-                    if(Main.netMode != NetmodeID.MultiplayerClient)
+                    if (Main.netMode != NetmodeID.MultiplayerClient)
                     {
-                        if(projectileCount < 4)
+                        if (projectileCount < 4)
                         {
                             Projectile.NewProjectile(NPC.GetSource_FromAI(), NPC.Center, direction * 10f, type, 15, 0f, Main.myPlayer);
                             projectileCount++;
                         }
-                        
+
                     }
                     SoundEngine.PlaySound(SoundID.Item20, NPC.Center);
                 }
@@ -169,7 +169,7 @@ namespace ModdingTutorial.Content.NPCs.BossFireDragon
                     NPC.frame.Y = frameHeight;
                 }
 
-                if(NPC.frame.Y == 5 * frameHeight)
+                if (NPC.frame.Y == 5 * frameHeight)
                 {
                     NPC.frame.Y = 0;
                 }
@@ -192,10 +192,10 @@ namespace ModdingTutorial.Content.NPCs.BossFireDragon
 
         public override void HitEffect(NPC.HitInfo hit)
         {
-            if(NPC.life <= 0)
+            if (NPC.life <= 0)
             {
                 // Mod.Find can't run on servers, it will crash
-                if(Main.netMode != NetmodeID.Server)
+                if (Main.netMode != NetmodeID.Server)
                 {
                     Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("FireDrakeWing").Type, 1f);
                     Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("FireDrakeHead").Type, 1f);

@@ -1,12 +1,12 @@
-﻿using ModdingTutorial.Content.Items.Misc;
-using ModdingTutorial.Content.Projectiles.MagicProj;
-using Terraria.ID;
+﻿using Terraria.ID;
 using Terraria;
 using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
-using ModdingTutorial.Content.Tiles.CraftingStations;
+using AssortedAdditions.Content.Tiles.CraftingStations;
+using AssortedAdditions.Content.Projectiles.MagicProj;
+using AssortedAdditions.Content.Items.Misc;
 
-namespace ModdingTutorial.Content.Items.Weapons.Magic
+namespace AssortedAdditions.Content.Items.Weapons.Magic
 {
     internal class TrueAmethystStaff : ModItem
     {

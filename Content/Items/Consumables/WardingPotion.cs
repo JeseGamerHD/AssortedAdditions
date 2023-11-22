@@ -2,10 +2,10 @@
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria;
-using ModdingTutorial.Content.Buffs;
-using ModdingTutorial.Content.Items.Placeables.Ores;
+using AssortedAdditions.Content.Items.Placeables.Ores;
+using AssortedAdditions.Content.Buffs;
 
-namespace ModdingTutorial.Content.Items.Consumables
+namespace AssortedAdditions.Content.Items.Consumables
 {
     internal class WardingPotion : ModItem
     {
@@ -23,7 +23,7 @@ namespace ModdingTutorial.Content.Items.Consumables
 
         public override void SetDefaults()
         {
-            Item.width = 20; 
+            Item.width = 20;
             Item.height = 30;
             Item.useAnimation = 15;
             Item.useTime = 15;

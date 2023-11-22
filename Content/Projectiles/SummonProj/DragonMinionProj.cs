@@ -2,10 +2,10 @@
 using Terraria;
 using Terraria.ID;
 using Microsoft.Xna.Framework;
-using ModdingTutorial.Content.Buffs;
 using System;
+using AssortedAdditions.Content.Buffs;
 
-namespace ModdingTutorial.Content.Projectiles.SummonProj
+namespace AssortedAdditions.Content.Projectiles.SummonProj
 {
     internal class DragonMinionProj : ModProjectile
     {
@@ -13,7 +13,7 @@ namespace ModdingTutorial.Content.Projectiles.SummonProj
         {
             Main.projFrames[Projectile.type] = 5; // How many frames the minion has in its animation/sprite
             Main.projPet[Projectile.type] = true; // If the projectile is a pet or a minion
-            
+
             ProjectileID.Sets.MinionSacrificable[Projectile.type] = true; // Minion will spawn properly if another one is already summoned
             ProjectileID.Sets.CultistIsResistantTo[Projectile.type] = true; // Doesn't target the cultists
         }
@@ -56,16 +56,17 @@ namespace ModdingTutorial.Content.Projectiles.SummonProj
         }
 
         // Basically checks if the player is alive
-        private bool CheckActive(Player owner) 
-                                              
+        private bool CheckActive(Player owner)
+
         {
-            if(owner.dead || !owner.active)
+            if (owner.dead || !owner.active)
             {
                 owner.ClearBuff(ModContent.BuffType<DragonStaffBuff>()); // If not, minion despawns
                 return false;
             }
 
-            if (owner.HasBuff(ModContent.BuffType<DragonStaffBuff>() ) ){
+            if (owner.HasBuff(ModContent.BuffType<DragonStaffBuff>()))
+            {
                 Projectile.timeLeft = 2;
             }
 
@@ -83,7 +84,7 @@ namespace ModdingTutorial.Content.Projectiles.SummonProj
             vectorToIdlePosition = idlePosition - Projectile.Center;
             distanceToIdlePosition = vectorToIdlePosition.Length();
 
-            if(Main.myPlayer == owner.whoAmI && distanceToIdlePosition > 2000f)
+            if (Main.myPlayer == owner.whoAmI && distanceToIdlePosition > 2000f)
             {
                 Projectile.position = idlePosition;
                 Projectile.velocity *= 0.1f;
@@ -97,9 +98,9 @@ namespace ModdingTutorial.Content.Projectiles.SummonProj
             {
                 Projectile other = Main.projectile[i];
 
-                if (i != Projectile.whoAmI && 
-                    other.active && 
-                    other.owner == Projectile.owner && 
+                if (i != Projectile.whoAmI &&
+                    other.active &&
+                    other.owner == Projectile.owner &&
                     Math.Abs(Projectile.position.X - other.position.X) + Math.Abs(Projectile.position.Y - other.position.Y) < Projectile.width)
                 {
 
@@ -148,7 +149,7 @@ namespace ModdingTutorial.Content.Projectiles.SummonProj
                         // The number depends on various parameters seen in the movement code below. Test different ones out until it works alright
                         bool closeThroughWall = between < 100f;
 
-                        if (((closest && inRange) || !foundTarget) && (lineOfSight || closeThroughWall))
+                        if ((closest && inRange || !foundTarget) && (lineOfSight || closeThroughWall))
                         {
                             distanceFromTarget = between;
                             targetCenter = npc.Center;
@@ -173,12 +174,12 @@ namespace ModdingTutorial.Content.Projectiles.SummonProj
             if (foundTarget)
             {
                 // The dragon will attack with fire first until it gets closer
-                if(distanceFromTarget < 400f && distanceFromTarget > 200f)
+                if (distanceFromTarget < 400f && distanceFromTarget > 200f)
                 {
                     Vector2 direction = targetCenter - Projectile.Center;
                     if (Main.rand.NextBool(5) && Main.myPlayer == Projectile.owner) // 20% Chance to breathe fire
                     {
-                        Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.position, 
+                        Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.position,
                             Projectile.velocity, ProjectileID.Flames, 55, 4, Projectile.owner);
                     }
                 }
@@ -248,7 +249,7 @@ namespace ModdingTutorial.Content.Projectiles.SummonProj
                 {
                     Projectile.frame = 4;
                 }
-                else if(Projectile.frame == 4) // Ensures that fire attack frame only plays when actually attacking
+                else if (Projectile.frame == 4) // Ensures that fire attack frame only plays when actually attacking
                 {
                     Projectile.frame++;
                 }

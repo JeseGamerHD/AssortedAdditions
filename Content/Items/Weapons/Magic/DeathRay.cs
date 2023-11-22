@@ -1,10 +1,10 @@
 ﻿using Terraria.ID;
 using Terraria;
 using Terraria.ModLoader;
-using ModdingTutorial.Content.Projectiles.MagicProj;
 using Microsoft.Xna.Framework;
+using AssortedAdditions.Content.Projectiles.MagicProj;
 
-namespace ModdingTutorial.Content.Items.Weapons.Magic
+namespace AssortedAdditions.Content.Items.Weapons.Magic
 {
     internal class DeathRay : ModItem
     {

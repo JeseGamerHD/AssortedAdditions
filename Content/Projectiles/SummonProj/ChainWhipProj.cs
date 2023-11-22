@@ -1,14 +1,14 @@
-﻿using ModdingTutorial.Content.Buffs.Whips;
-using Terraria.ID;
+﻿using Terraria.ID;
 using Terraria;
 using Terraria.ModLoader;
-using ModdingTutorial.Content.Buffs;
+using AssortedAdditions.Content.Buffs;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Terraria.GameContent;
+using AssortedAdditions.Content.Buffs.Whips;
 
-namespace ModdingTutorial.Content.Projectiles.SummonProj
+namespace AssortedAdditions.Content.Projectiles.SummonProj
 {
     internal class ChainWhipProj : ModProjectile
     {
@@ -39,7 +39,7 @@ namespace ModdingTutorial.Content.Projectiles.SummonProj
             target.AddBuff(ModContent.BuffType<ChainWhipDebuff>(), 240);
             Main.player[Projectile.owner].MinionAttackTargetNPC = target.whoAmI;
             Projectile.damage = (int)(Projectile.damage * 0.5f); // Multihit penalty. Decrease the damage the more enemies the whip hits.
-            
+
             target.AddBuff(BuffID.Bleeding, 240); // Doesn't do anything
 
             for (int i = 0; i < 15; i++)

@@ -1,9 +1,9 @@
-﻿using ModdingTutorial.Common.Configs;
+﻿using AssortedAdditions.Common.Configs;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace ModdingTutorial.Common.GlobalTiles
+namespace AssortedAdditions.Common.GlobalTiles
 {
     // The hardmode ore progression is different. Only palladium/cobalt can be mined after Wall of Flesh
     // Orichalcum/Mythril can be mined after defeating one mech boss

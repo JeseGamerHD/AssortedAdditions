@@ -1,10 +1,9 @@
 ﻿using Terraria;
 using Terraria.ModLoader;
-using ModdingTutorial.Content.Buffs;
 using Microsoft.Xna.Framework;
+using AssortedAdditions.Content.Buffs;
 
-
-namespace ModdingTutorial.Content.Projectiles
+namespace AssortedAdditions.Content.Projectiles
 {
     internal class DraconicArmorProj : ModProjectile
     {

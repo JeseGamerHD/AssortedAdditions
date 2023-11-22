@@ -2,14 +2,14 @@
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace ModdingTutorial.Common.Systems
+namespace AssortedAdditions.Common.Systems
 {
     internal class CustomRecipeGroups : ModSystem
     {
         public override void AddRecipeGroups()
         {
             RecipeGroup drinks = new RecipeGroup(() => "Any Drink or Beverage",
-                
+
                 ItemID.CreamSoda,
                 ItemID.Milkshake,
 
@@ -24,14 +24,14 @@ namespace ModdingTutorial.Common.Systems
                 ItemID.SmoothieofDarkness,
                 ItemID.PrismaticPunch,
                 ItemID.FruitJuice,
-                
+
                 ItemID.Teacup,
                 ItemID.MilkCarton,
                 ItemID.CoffeeCup,
                 ItemID.JojaCola
                 );
-            
-            RecipeGroup.RegisterGroup("ModdingTutorial:Drinks", drinks);
+
+            RecipeGroup.RegisterGroup("AssortedAdditions:Drinks", drinks);
         }
     }
 }

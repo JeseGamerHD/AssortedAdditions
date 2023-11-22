@@ -2,7 +2,7 @@
 using Terraria;
 using Terraria.ModLoader;
 
-namespace ModdingTutorial.Content.Projectiles.MagicProj
+namespace AssortedAdditions.Content.Projectiles.MagicProj
 {
     internal class StarryWandProj : ModProjectile
     {
@@ -44,7 +44,7 @@ namespace ModdingTutorial.Content.Projectiles.MagicProj
 
         public override void OnKill(int timeLeft)
         {
-            for(int i = 0; i < 15; i++)
+            for (int i = 0; i < 15; i++)
             {
                 Dust dust = Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height,
                             DustID.GoldCoin, 0, 0, 100, default, 3f);

@@ -1,12 +1,12 @@
 ﻿using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria;
-using ModdingTutorial.Content.Buffs;
-using ModdingTutorial.Content.Projectiles.SummonProj;
 using Microsoft.Xna.Framework;
 using Terraria.DataStructures;
+using AssortedAdditions.Content.Projectiles.SummonProj;
+using AssortedAdditions.Content.Buffs;
 
-namespace ModdingTutorial.Content.Items.Weapons.Summon
+namespace AssortedAdditions.Content.Items.Weapons.Summon
 {
     internal class SunScepter : ModItem
     {

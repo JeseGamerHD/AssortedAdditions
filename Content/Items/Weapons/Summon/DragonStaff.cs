@@ -3,10 +3,10 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
 using Terraria.DataStructures;
-using ModdingTutorial.Content.Buffs;
-using ModdingTutorial.Content.Projectiles.SummonProj;
+using AssortedAdditions.Content.Buffs;
+using AssortedAdditions.Content.Projectiles.SummonProj;
 
-namespace ModdingTutorial.Content.Items.Weapons.Summon;
+namespace AssortedAdditions.Content.Items.Weapons.Summon;
 
 public class DragonStaff : ModItem
 {

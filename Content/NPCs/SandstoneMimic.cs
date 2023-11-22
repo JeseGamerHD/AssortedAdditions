@@ -1,7 +1,7 @@
-﻿using ModdingTutorial.Content.Items.Weapons.Magic;
-using ModdingTutorial.Content.Items.Weapons.Melee;
-using ModdingTutorial.Content.Items.Weapons.Ranged;
-using ModdingTutorial.Content.Items.Weapons.Summon;
+﻿using AssortedAdditions.Content.Items.Weapons.Magic;
+using AssortedAdditions.Content.Items.Weapons.Melee;
+using AssortedAdditions.Content.Items.Weapons.Ranged;
+using AssortedAdditions.Content.Items.Weapons.Summon;
 using Terraria;
 using Terraria.GameContent.Bestiary;
 using Terraria.GameContent.ItemDropRules;
@@ -9,7 +9,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ModLoader.Utilities;
 
-namespace ModdingTutorial.Content.NPCs
+namespace AssortedAdditions.Content.NPCs
 {
     internal class SandstoneMimic : ModNPC
     {
@@ -49,7 +49,7 @@ namespace ModdingTutorial.Content.NPCs
         // Should only spawn during hardmode and in the underground desert
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            if(Main.hardMode && spawnInfo.Player.ZoneUndergroundDesert)
+            if (Main.hardMode && spawnInfo.Player.ZoneUndergroundDesert)
             {
                 return SpawnCondition.DesertCave.Chance * 0.05f;
             }

@@ -2,7 +2,7 @@
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace ModdingTutorial.Content.Projectiles
+namespace AssortedAdditions.Content.Projectiles
 {
     internal class SporeNecklaceProj : ModProjectile
     {
@@ -30,7 +30,7 @@ namespace ModdingTutorial.Content.Projectiles
 
         public override void PostAI()
         {
-            if(Projectile.timeLeft < 60)
+            if (Projectile.timeLeft < 60)
             {
                 Projectile.alpha += 5;
             }

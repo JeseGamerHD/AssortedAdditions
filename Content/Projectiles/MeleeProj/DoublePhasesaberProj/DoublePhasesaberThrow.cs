@@ -1,12 +1,12 @@
 ﻿using System.Collections.Generic;
+using AssortedAdditions.Content.Items.Weapons.Melee.Sabers;
 using Microsoft.Xna.Framework;
-using ModdingTutorial.Content.Items.Weapons.Melee.Sabers;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace ModdingTutorial.Content.Projectiles.MeleeProj.DoublePhasesaberProj
+namespace AssortedAdditions.Content.Projectiles.MeleeProj.DoublePhasesaberProj
 {
     internal class DoublePhasesaberThrow : ModProjectile
     {
@@ -32,7 +32,7 @@ namespace ModdingTutorial.Content.Projectiles.MeleeProj.DoublePhasesaberProj
             Player player = Main.player[Projectile.owner];
             bool returnProjectile = false; // Used for returning the projectile back
 
-            if(originalDirection == 0)
+            if (originalDirection == 0)
             {
                 originalDirection = Projectile.direction;
             }

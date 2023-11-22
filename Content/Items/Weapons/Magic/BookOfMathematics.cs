@@ -1,10 +1,10 @@
-﻿using ModdingTutorial.Content.Projectiles.MagicProj;
-using Terraria.ID;
+﻿using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria;
-using ModdingTutorial.Content.Tiles.CraftingStations;
+using AssortedAdditions.Content.Projectiles.MagicProj;
+using AssortedAdditions.Content.Tiles.CraftingStations;
 
-namespace ModdingTutorial.Content.Items.Weapons.Magic
+namespace AssortedAdditions.Content.Items.Weapons.Magic
 {
     internal class BookOfMathematics : ModItem
     {

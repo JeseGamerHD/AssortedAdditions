@@ -3,7 +3,7 @@ using Terraria;
 using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
 
-namespace ModdingTutorial.Content.Tiles.Blocks
+namespace AssortedAdditions.Content.Tiles.Blocks
 {
     internal class RedCarpetTile : ModTile
     {

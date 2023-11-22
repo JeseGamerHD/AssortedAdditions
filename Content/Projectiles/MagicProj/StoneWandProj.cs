@@ -4,7 +4,7 @@ using Terraria.ModLoader;
 using Terraria.Audio;
 using Microsoft.Xna.Framework;
 
-namespace ModdingTutorial.Content.Projectiles.MagicProj
+namespace AssortedAdditions.Content.Projectiles.MagicProj
 {
     internal class StoneWandProj : ModProjectile
     {
@@ -36,15 +36,15 @@ namespace ModdingTutorial.Content.Projectiles.MagicProj
 
             // Face where its going
             Projectile.rotation = Projectile.velocity.ToRotation() + MathHelper.PiOver2;
-            
+
             // Slow down
             Projectile.velocity *= 0.98f;
 
             // After a bit fall down faster
-            if(Projectile.timeLeft <= 270)
+            if (Projectile.timeLeft <= 270)
             {
                 Projectile.velocity.Y += 0.25f;
-            } 
+            }
         }
 
         public override bool OnTileCollide(Vector2 oldVelocity)

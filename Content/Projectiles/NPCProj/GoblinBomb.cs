@@ -4,7 +4,7 @@ using Terraria;
 using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
 
-namespace ModdingTutorial.Content.Projectiles.NPCProj
+namespace AssortedAdditions.Content.Projectiles.NPCProj
 {
     internal class GoblinBomb : ModProjectile
     {
@@ -33,7 +33,7 @@ namespace ModdingTutorial.Content.Projectiles.NPCProj
                 return false;
             }
 
-            return true; 
+            return true;
         }
 
         public override bool OnTileCollide(Vector2 oldVelocity)
@@ -68,10 +68,10 @@ namespace ModdingTutorial.Content.Projectiles.NPCProj
                 dust.velocity.Y -= 0.12f;
             }
 
-            if(Projectile.timeLeft % 30 == 0)
+            if (Projectile.timeLeft % 30 == 0)
             {
                 // Sound effect
-                SoundEngine.PlaySound(SoundID.Item13 with { Volume = 0.8f, MaxInstances = 1}, Projectile.position);
+                SoundEngine.PlaySound(SoundID.Item13 with { Volume = 0.8f, MaxInstances = 1 }, Projectile.position);
             }
         }
 

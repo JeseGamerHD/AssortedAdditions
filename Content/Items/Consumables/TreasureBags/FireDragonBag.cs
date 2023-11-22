@@ -1,11 +1,11 @@
-﻿using Microsoft.Xna.Framework;
+﻿using AssortedAdditions.Content.Items.Misc;
+using AssortedAdditions.Content.Items.Weapons.Magic;
+using AssortedAdditions.Content.Items.Weapons.Melee;
+using AssortedAdditions.Content.Items.Weapons.Ranged;
+using AssortedAdditions.Content.Items.Weapons.Summon;
+using AssortedAdditions.Content.NPCs.BossFireDragon;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using ModdingTutorial.Content.Items.Misc;
-using ModdingTutorial.Content.Items.Weapons.Magic;
-using ModdingTutorial.Content.Items.Weapons.Melee;
-using ModdingTutorial.Content.Items.Weapons.Ranged;
-using ModdingTutorial.Content.Items.Weapons.Summon;
-using ModdingTutorial.Content.NPCs.BossFireDragon;
 using Terraria;
 using Terraria.GameContent;
 using Terraria.GameContent.Creative;
@@ -13,7 +13,7 @@ using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace ModdingTutorial.Content.Items.Consumables.TreasureBags
+namespace AssortedAdditions.Content.Items.Consumables.TreasureBags
 {
     internal class FireDragonBag : ModItem
     {
@@ -44,11 +44,11 @@ namespace ModdingTutorial.Content.Items.Consumables.TreasureBags
         public override void ModifyItemLoot(ItemLoot itemLoot)
         {
             // Drops 1 of these:
-            itemLoot.Add(ItemDropRule.OneFromOptions(1, 
+            itemLoot.Add(ItemDropRule.OneFromOptions(1,
                 ModContent.ItemType<DraconicBlade>(),
                 ModContent.ItemType<DraconicTome>(),
                 ModContent.ItemType<DragonStaff>(),
-                ModContent.ItemType<DraconicBow>()) );
+                ModContent.ItemType<DraconicBow>()));
 
             // Always drops these:
             itemLoot.Add(ItemDropRule.CoinsBasedOnNPCValue(ModContent.NPCType<FireDragonHead>()));

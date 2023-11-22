@@ -1,15 +1,15 @@
 ﻿/*using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
-using ModdingTutorial.Content.Items.Accessories;
-using ModdingTutorial.Content.Tiles.Blocks;
-using ModdingTutorial.Content.Tiles.Furniture;
+using AssortedAdditions.Content.Items.Accessories;
+using AssortedAdditions.Content.Tiles.Blocks;
+using AssortedAdditions.Content.Tiles.Furniture;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.UI;
 using Terraria.WorldBuilding;
 
-namespace ModdingTutorial.Common.Systems
+namespace AssortedAdditions.Common.Systems
 {
     // Currently testing generating a secret room at the dungeon entrance
     // Press the specified button to run the TestMethod

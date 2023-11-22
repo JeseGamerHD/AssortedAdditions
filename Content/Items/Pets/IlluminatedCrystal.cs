@@ -1,14 +1,14 @@
-﻿using ModdingTutorial.Content.Buffs;
-using Terraria.ID;
+﻿using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria;
 using Terraria.DataStructures;
 using Microsoft.Xna.Framework;
-using ModdingTutorial.Content.Projectiles.PetProj;
-using ModdingTutorial.Content.Items.Misc;
-using ModdingTutorial.Content.Tiles.CraftingStations;
+using AssortedAdditions.Content.Tiles.CraftingStations;
+using AssortedAdditions.Content.Projectiles.PetProj;
+using AssortedAdditions.Content.Buffs;
+using AssortedAdditions.Content.Items.Misc;
 
-namespace ModdingTutorial.Content.Items.Pets
+namespace AssortedAdditions.Content.Items.Pets
 {
     internal class IlluminatedCrystal : ModItem
     {

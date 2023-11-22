@@ -1,9 +1,9 @@
-﻿using ModdingTutorial.Content.Tiles;
+﻿using AssortedAdditions.Content.Tiles;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace ModdingTutorial.Content.Items.Placeables.Trophies
+namespace AssortedAdditions.Content.Items.Placeables.Trophies
 {
     internal class FireDragonTrophy : ModItem
     {

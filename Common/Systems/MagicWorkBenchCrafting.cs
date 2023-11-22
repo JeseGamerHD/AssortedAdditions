@@ -1,9 +1,9 @@
-﻿using ModdingTutorial.Content.Tiles.CraftingStations;
+﻿using AssortedAdditions.Content.Tiles.CraftingStations;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace ModdingTutorial.Common.Systems
+namespace AssortedAdditions.Common.Systems
 {
     // This class is used for adding the Magic Work Bench as the required crafting station
     // for vanilla items that would normally require bookcases or crystal ball
@@ -22,7 +22,7 @@ namespace ModdingTutorial.Common.Systems
                     recipe.AddTile(ModContent.TileType<MagicWorkbenchTile>());
                 }
 
-                if(recipe.HasTile(TileID.CrystalBall))
+                if (recipe.HasTile(TileID.CrystalBall))
                 {
                     recipe.RemoveTile(TileID.CrystalBall);
                     recipe.AddTile(ModContent.TileType<MagicWorkbenchTile>());

@@ -1,7 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Terraria.GameContent.Drawing;
 
-namespace ModdingTutorial.Content.Projectiles.MeleeProj
+namespace AssortedAdditions.Content.Projectiles.MeleeProj
 {
     internal class CosmicBladeProj : SwingTrailBase
     {
@@ -21,7 +21,7 @@ namespace ModdingTutorial.Content.Projectiles.MeleeProj
 
             SwingBackColor = new(159, 5, 255);
             SwingMiddleColor = new(134, 5, 255);
-            SwingFrontColor = new(109, 5, 255); 
+            SwingFrontColor = new(109, 5, 255);
         }
     }
 }

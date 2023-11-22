@@ -2,10 +2,10 @@
 using Terraria.ModLoader;
 using Terraria;
 using Terraria.ID;
-using ModdingTutorial.Content.Projectiles.RangedProj;
-using ModdingTutorial.Content.Items.Placeables.Ores;
+using AssortedAdditions.Content.Projectiles.RangedProj;
+using AssortedAdditions.Content.Items.Placeables.Ores;
 
-namespace ModdingTutorial.Content.Items.Weapons.Ammo
+namespace AssortedAdditions.Content.Items.Weapons.Ammo
 {
     internal class DuneArrow : ModItem
     {

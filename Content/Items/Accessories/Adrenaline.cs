@@ -2,7 +2,7 @@
 using Terraria.ModLoader;
 using Terraria;
 
-namespace ModdingTutorial.Content.Items.Accessories
+namespace AssortedAdditions.Content.Items.Accessories
 {
     internal class Adrenaline : ModItem
     {
@@ -43,7 +43,7 @@ namespace ModdingTutorial.Content.Items.Accessories
         // Can't be equipped with some accessories to prevent insane speeds
         public override bool CanAccessoryBeEquippedWith(Item equippedItem, Item incomingItem, Player player)
         {
-            if(incomingItem.type == ItemID.PanicNecklace || incomingItem.type == ItemID.SweetheartNecklace)
+            if (incomingItem.type == ItemID.PanicNecklace || incomingItem.type == ItemID.SweetheartNecklace)
             {
                 return false;
             }

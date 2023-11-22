@@ -1,10 +1,10 @@
 ﻿using Terraria.ID;
 using Terraria;
 using Terraria.ModLoader;
-using ModdingTutorial.Content.Projectiles;
-using ModdingTutorial.Content.Items.Placeables.Ores;
+using AssortedAdditions.Content.Projectiles;
+using AssortedAdditions.Content.Items.Placeables.Ores;
 
-namespace ModdingTutorial.Content.Items.Tools
+namespace AssortedAdditions.Content.Items.Tools
 {
     internal class FrostFishingRod : ModItem
     {

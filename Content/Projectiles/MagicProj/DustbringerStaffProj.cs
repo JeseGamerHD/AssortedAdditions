@@ -4,7 +4,7 @@ using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace ModdingTutorial.Content.Projectiles.MagicProj
+namespace AssortedAdditions.Content.Projectiles.MagicProj
 {
     internal class DustbringerStaffProj : ModProjectile
     {
@@ -58,8 +58,9 @@ namespace ModdingTutorial.Content.Projectiles.MagicProj
             {
                 Projectile.soundDelay = 60; // This countsdown automatically
 
-                SoundStyle WindGust = new SoundStyle("ModdingTutorial/Assets/Sounds/ProjectileSound/Dustbringer");
-                WindGust = WindGust with {
+                SoundStyle WindGust = new SoundStyle("AssortedAdditions/Assets/Sounds/ProjectileSound/Dustbringer");
+                WindGust = WindGust with
+                {
                     Volume = 2.3f,
                     MaxInstances = 3
                 };
@@ -85,7 +86,7 @@ namespace ModdingTutorial.Content.Projectiles.MagicProj
             {
                 Projectile.position.Y -= 5;
 
-                if(player.direction == 1)
+                if (player.direction == 1)
                 {
                     Projectile.velocity.X = 7;
                     setOnce = true;
@@ -105,7 +106,7 @@ namespace ModdingTutorial.Content.Projectiles.MagicProj
         }
 
         public override bool OnTileCollide(Vector2 oldVelocity)
-        {         
+        {
             if (Projectile.velocity.X != oldVelocity.X)
             {
                 return true;
@@ -131,7 +132,7 @@ namespace ModdingTutorial.Content.Projectiles.MagicProj
             }
 
             // Play a poof sound when projectile dies
-            SoundEngine.PlaySound(new SoundStyle("ModdingTutorial/Assets/Sounds/ProjectileSound/DustbringerDeath"), Projectile.position);
+            SoundEngine.PlaySound(new SoundStyle("AssortedAdditions/Assets/Sounds/ProjectileSound/DustbringerDeath"), Projectile.position);
         }
     }
 }

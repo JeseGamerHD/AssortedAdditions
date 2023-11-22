@@ -1,9 +1,9 @@
 ﻿using Terraria.ModLoader;
 using Terraria.WorldBuilding;
 using System.Collections.Generic;
-using ModdingTutorial.Common.Systems.GenPasses;
+using AssortedAdditions.Common.Systems.GenPasses;
 
-namespace ModdingTutorial.Common.Systems
+namespace AssortedAdditions.Common.Systems
 {
     // This class is used for inserting GenPasses to the world generation
     internal class WorldSystem : ModSystem
@@ -12,7 +12,7 @@ namespace ModdingTutorial.Common.Systems
         {
             // Adds some ores:
             int shiniesIndex = tasks.FindIndex(t => t.Name.Equals("Shinies"));
-            if(shiniesIndex != -1) 
+            if (shiniesIndex != -1)
             {
                 tasks.Insert(shiniesIndex + 1, new OreGenPreHard("Prehardmode modded GenPass", 320f)); // The float value affects the loading bar (how much completing this task moves it)
             }

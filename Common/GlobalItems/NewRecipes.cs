@@ -1,10 +1,10 @@
 ﻿using Terraria.ID;
 using Terraria;
 using Terraria.ModLoader;
-using ModdingTutorial.Content.Items.Placeables.Ores;
-using ModdingTutorial.Content.Tiles.CraftingStations;
+using AssortedAdditions.Content.Tiles.CraftingStations;
+using AssortedAdditions.Content.Items.Placeables.Ores;
 
-namespace ModdingTutorial.Common.GlobalItems
+namespace AssortedAdditions.Common.GlobalItems
 {
     // This class is used for adding alternative recipes
     // or new recipes for vanilla items

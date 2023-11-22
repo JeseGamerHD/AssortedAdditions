@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel;
 using Terraria.ModLoader.Config;
 
-namespace ModdingTutorial.Common.Configs
+namespace AssortedAdditions.Common.Configs
 {
     internal class VanillaChangeToggle : ModConfig
     {
@@ -18,7 +18,7 @@ namespace ModdingTutorial.Common.Configs
         [DefaultValue(true)]
         [ReloadRequired]
         public bool NoConsumeBossSummon;
-        
+
         [DefaultValue(true)]
         [ReloadRequired]
         public bool NoConsumeEventSummon;

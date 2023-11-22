@@ -4,9 +4,9 @@ using Terraria.GameContent;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using ModdingTutorial.Content.Buffs;
+using AssortedAdditions.Content.Buffs;
 
-namespace ModdingTutorial.Content.Projectiles.PetProj
+namespace AssortedAdditions.Content.Projectiles.PetProj
 {
     internal class IlluminatedCrystalPet : ModProjectile
     {
@@ -58,7 +58,7 @@ namespace ModdingTutorial.Content.Projectiles.PetProj
         {
             Main.instance.LoadProjectile(Projectile.type);
             Texture2D texture = TextureAssets.Projectile[Projectile.type].Value;
-            
+
             // Use these to limit the trail to one frame, without this the whole spritesheet would draw
             int frameHeight = texture.Height / Main.projFrames[Projectile.type];
             Rectangle frame = new Rectangle(0, Projectile.frame * frameHeight, texture.Width, frameHeight);
@@ -67,7 +67,7 @@ namespace ModdingTutorial.Content.Projectiles.PetProj
             Vector2 drawOrigin = new Vector2(texture.Width * 0.5f, Projectile.height * 0.5f);
             for (int k = 0; k < Projectile.oldPos.Length; k++)
             {
-                Vector2 drawPos = (Projectile.oldPos[k] - Main.screenPosition) + drawOrigin + new Vector2(0f, Projectile.gfxOffY);
+                Vector2 drawPos = Projectile.oldPos[k] - Main.screenPosition + drawOrigin + new Vector2(0f, Projectile.gfxOffY);
                 Color color = Projectile.GetAlpha(lightColor) * ((Projectile.oldPos.Length - k) / (float)Projectile.oldPos.Length);
                 Main.EntitySpriteDraw(texture, drawPos, frame, color, Projectile.rotation, drawOrigin, Projectile.scale, SpriteEffects.None, 0);
             }

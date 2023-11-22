@@ -1,14 +1,14 @@
 ﻿using System.Collections.Generic;
+using AssortedAdditions.Content.Items.Consumables.TreasureBags;
+using AssortedAdditions.Content.Items.Misc;
+using AssortedAdditions.Content.Items.Pets;
+using AssortedAdditions.Content.Items.Placeables.Relics;
+using AssortedAdditions.Content.Items.Placeables.Trophies;
+using AssortedAdditions.Content.Items.Weapons.Magic;
+using AssortedAdditions.Content.Items.Weapons.Melee;
+using AssortedAdditions.Content.Items.Weapons.Ranged;
+using AssortedAdditions.Content.Items.Weapons.Summon;
 using Microsoft.Xna.Framework;
-using ModdingTutorial.Content.Items.Consumables.TreasureBags;
-using ModdingTutorial.Content.Items.Misc;
-using ModdingTutorial.Content.Items.Pets;
-using ModdingTutorial.Content.Items.Placeables.Relics;
-using ModdingTutorial.Content.Items.Placeables.Trophies;
-using ModdingTutorial.Content.Items.Weapons.Magic;
-using ModdingTutorial.Content.Items.Weapons.Melee;
-using ModdingTutorial.Content.Items.Weapons.Ranged;
-using ModdingTutorial.Content.Items.Weapons.Summon;
 using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent.Bestiary;
@@ -16,7 +16,7 @@ using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace ModdingTutorial.Content.NPCs.BossFireDragon // This Boss NPC is built using FireDragonBuilder.cs
+namespace AssortedAdditions.Content.NPCs.BossFireDragon // This Boss NPC is built using FireDragonBuilder.cs
 {
     [AutoloadBossHead]
     internal class FireDragonHead : WormHead
@@ -40,7 +40,7 @@ namespace ModdingTutorial.Content.NPCs.BossFireDragon // This Boss NPC is built 
             // Beastiary stuff
             NPCID.Sets.NPCBestiaryDrawModifiers value = new NPCID.Sets.NPCBestiaryDrawModifiers()
             {
-                CustomTexturePath = "ModdingTutorial/Content/NPCs/BossFireDragon/FireDragon_Bestiary",
+                CustomTexturePath = "AssortedAdditions/Content/NPCs/BossFireDragon/FireDragon_Bestiary",
                 PortraitScale = 1.5f
             };
             NPCID.Sets.NPCBestiaryDrawOffset.Add(NPC.type, value);
@@ -89,13 +89,13 @@ namespace ModdingTutorial.Content.NPCs.BossFireDragon // This Boss NPC is built 
 
             // If the player is not playing one expert/master, treasure bag loot drops by itself
             LeadingConditionRule notExpert = new LeadingConditionRule(new Conditions.NotExpert());
-            
+
             // Drops 1 of these:
             notExpert.OnSuccess(ItemDropRule.OneFromOptions(1,
                 ModContent.ItemType<DraconicBlade>(),
                 ModContent.ItemType<DraconicTome>(),
                 ModContent.ItemType<DragonStaff>(),
-                ModContent.ItemType<DraconicBow>() ) );
+                ModContent.ItemType<DraconicBow>()));
             npcLoot.Add(notExpert); // Register the loot
 
             // Same goes for Dragon scales
@@ -146,7 +146,7 @@ namespace ModdingTutorial.Content.NPCs.BossFireDragon // This Boss NPC is built 
             // Checking if target has died
             if (target.dead || !target.active)
             {
-                if(hasDied == false)
+                if (hasDied == false)
                 {
                     Timer = 0;
                     hasDied = true;
@@ -157,7 +157,7 @@ namespace ModdingTutorial.Content.NPCs.BossFireDragon // This Boss NPC is built 
                 MoveSpeed = 20f;
 
                 Timer++; // Count up until despawn (5 seconds)
-                if(Timer >= 300) // 5 seconds from current Timer value, otherwise if 300 was already reached it would instantly despawn
+                if (Timer >= 300) // 5 seconds from current Timer value, otherwise if 300 was already reached it would instantly despawn
                 {
                     NPC.active = false; // Other parts will despawn automatically due to FireDragonBuilder.cs
                 }
@@ -170,18 +170,18 @@ namespace ModdingTutorial.Content.NPCs.BossFireDragon // This Boss NPC is built 
 
             // Set the dragon to chase the player using these:
             // when hitting the player it will continue for a bit and then smoothly turn back to chase
-            float moveTo = Utils.ToRotation(target.Center - NPC.Center);
-            float curve = Utils.ToRotation(NPC.velocity);
+            float moveTo = (target.Center - NPC.Center).ToRotation();
+            float curve = NPC.velocity.ToRotation();
             float maxTurn = MathHelper.ToRadians(4f);
-            NPC.velocity = Utils.RotatedBy(NPC.velocity, MathHelper.WrapAngle(Utils.AngleTowards(curve, moveTo, maxTurn)) - curve).SafeNormalize(Vector2.Zero) * MoveSpeed;
+            NPC.velocity = NPC.velocity.RotatedBy(MathHelper.WrapAngle(curve.AngleTowards(moveTo, maxTurn)) - curve).SafeNormalize(Vector2.Zero) * MoveSpeed;
 
             // Summons minions after 15 seconds
-            if(Timer >= 900)
+            if (Timer >= 900)
             {
                 // Do a rumbling sound when summoning begins / ends
                 if (Timer == 900 || Timer == 1320)
                 {
-                    SoundEngine.PlaySound(new SoundStyle("ModdingTutorial/Assets/Sounds/NPCSound/FireDragonSounds"), NPC.position);
+                    SoundEngine.PlaySound(new SoundStyle("AssortedAdditions/Assets/Sounds/NPCSound/FireDragonSounds"), NPC.position);
                 }
 
                 // Spawn one every second for 7 seconds (spawns 7 minions)
@@ -197,11 +197,11 @@ namespace ModdingTutorial.Content.NPCs.BossFireDragon // This Boss NPC is built 
                     }
 
                     // Only spawn them in if there are less than 7 already
-                    if(npcCount < 7)
+                    if (npcCount < 7)
                     {
                         SpawnMinions();
-                    }   
-                }  
+                    }
+                }
             }
 
             // Reset Timer
@@ -251,9 +251,9 @@ namespace ModdingTutorial.Content.NPCs.BossFireDragon // This Boss NPC is built 
 
             // Spawn the minion at the position selected
             NPC minion = NPC.NewNPCDirect(NPC.GetSource_FromAI(), xPos, yPos, ModContent.NPCType<FireDrake>(), NPC.whoAmI);
-            
+
             // Sync up
-            if(Main.netMode == NetmodeID.Server)
+            if (Main.netMode == NetmodeID.Server)
             {
                 NetMessage.SendData(MessageID.SyncNPC, number: minion.whoAmI);
             }

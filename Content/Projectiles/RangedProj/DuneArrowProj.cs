@@ -4,7 +4,7 @@ using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace ModdingTutorial.Content.Projectiles.RangedProj
+namespace AssortedAdditions.Content.Projectiles.RangedProj
 {
     internal class DuneArrowProj : ModProjectile
     {
@@ -23,7 +23,7 @@ namespace ModdingTutorial.Content.Projectiles.RangedProj
 
         public override void AI()
         {
-            Projectile.rotation = Projectile.velocity.ToRotation() +  MathHelper.PiOver2;
+            Projectile.rotation = Projectile.velocity.ToRotation() + MathHelper.PiOver2;
 
             // Basic arrow gravity
             Projectile.velocity.Y = Projectile.velocity.Y + 0.05f;

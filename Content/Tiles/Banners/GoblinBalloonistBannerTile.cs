@@ -1,8 +1,8 @@
-﻿using ModdingTutorial.Content.NPCs;
-using Terraria.ModLoader;
+﻿using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
+using AssortedAdditions.Content.NPCs;
 
-namespace ModdingTutorial.Content.Tiles.Banners
+namespace AssortedAdditions.Content.Tiles.Banners
 {
     internal class GoblinBalloonistBannerTile : MonsterBanners
     {

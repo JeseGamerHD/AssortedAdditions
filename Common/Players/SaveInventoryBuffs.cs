@@ -1,8 +1,8 @@
-﻿using ModdingTutorial.Content.Items.Misc;
+﻿using AssortedAdditions.Content.Items.Misc;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace ModdingTutorial.Common.Players
+namespace AssortedAdditions.Common.Players
 {
     // Used for giving player the buff from items that give a buff inside the inventory
     // Without this the buffs would not load after exiting and entering a world

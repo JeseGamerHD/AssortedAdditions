@@ -5,7 +5,7 @@ using Microsoft.Xna.Framework;
 using Terraria.Audio;
 
 
-namespace ModdingTutorial.Content.Projectiles.MagicProj.ConcoctionsProj;
+namespace AssortedAdditions.Content.Projectiles.MagicProj.ConcoctionsProj;
 
 internal class LightConcoctionProj : ModProjectile
 {
@@ -76,7 +76,7 @@ internal class LightConcoctionProj : ModProjectile
         SoundEngine.PlaySound(SoundID.Item43, Projectile.position);
 
         Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, Vector2.Zero, ProjectileID.PrincessWeapon, Projectile.damage, Projectile.knockBack, Projectile.owner);
-        
+
         for (int i = 0; i < 30; i++)
         {
             Dust dust = Dust.NewDustDirect(Projectile.position - Projectile.velocity, Projectile.width, Projectile.height,

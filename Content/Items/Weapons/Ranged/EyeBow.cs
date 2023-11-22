@@ -1,16 +1,16 @@
-﻿using ModdingTutorial.Content.Projectiles.RangedProj;
-using Terraria.ID;
+﻿using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria;
 using Microsoft.Xna.Framework;
+using AssortedAdditions.Content.Projectiles.RangedProj;
 
-namespace ModdingTutorial.Content.Items.Weapons.Ranged
+namespace AssortedAdditions.Content.Items.Weapons.Ranged
 {
     internal class EyeBow : ModItem
     {
         public override void SetDefaults()
         {
-            Item.width = 24; 
+            Item.width = 24;
             Item.height = 36;
             Item.damage = 18;
             Item.knockBack = 4;

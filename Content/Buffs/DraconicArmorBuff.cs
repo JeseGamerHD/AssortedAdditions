@@ -1,12 +1,12 @@
-﻿using Microsoft.Xna.Framework;
-using ModdingTutorial.Common.Players;
-using ModdingTutorial.Content.Items.Armor;
-using ModdingTutorial.Content.Projectiles;
+﻿using AssortedAdditions.Common.Players;
+using AssortedAdditions.Content.Items.Armor;
+using AssortedAdditions.Content.Projectiles;
+using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace ModdingTutorial.Content.Buffs
+namespace AssortedAdditions.Content.Buffs
 {
     internal class DraconicArmorBuff : ModBuff
     {
@@ -23,10 +23,10 @@ namespace ModdingTutorial.Content.Buffs
             // Tried making a bool in ArmorSetBuff (ModPlayer) and setting it to true inside the head pieces,
             // however, it did not work. The bool got reset to false before anything could happen and if resetEffects
             // was not used the buff would keep going when removing armor pieces
-            if ((player.armor[0].type != ModContent.ItemType<DraconicHelmet>() 
-                && player.armor[0].type != ModContent.ItemType<DraconicHood>() 
+            if (player.armor[0].type != ModContent.ItemType<DraconicHelmet>()
+                && player.armor[0].type != ModContent.ItemType<DraconicHood>()
                 && player.armor[0].type != ModContent.ItemType<DraconicHat>()
-                && player.armor[0].type != ModContent.ItemType<DraconicMask>())
+                && player.armor[0].type != ModContent.ItemType<DraconicMask>()
                 || player.armor[1].type != ModContent.ItemType<DraconicChestplate>()
                 || player.armor[2].type != ModContent.ItemType<DraconicGreaves>())
             {
@@ -35,16 +35,16 @@ namespace ModdingTutorial.Content.Buffs
                 buffIndex--;
             }
             // If player has the full set, keep buff going
-            else 
+            else
             {
                 player.buffTime[buffIndex] = 18000;
 
                 // Buff spawns five projectiles that circle around the player
                 player.GetModPlayer<ArmorSetBuffs>().DraconicArmorBuff++;
-                if(player.GetModPlayer<ArmorSetBuffs>().DraconicArmorBuff % 25 == 0 
+                if (player.GetModPlayer<ArmorSetBuffs>().DraconicArmorBuff % 25 == 0
                     && player.GetModPlayer<ArmorSetBuffs>().DraconicArmorBuff <= 125)
                 {
-                    if(Main.myPlayer == player.whoAmI)
+                    if (Main.myPlayer == player.whoAmI)
                     {
                         Projectile.NewProjectile(player.GetSource_Buff(buffIndex), player.Center, Vector2.Zero, ModContent.ProjectileType<DraconicArmorProj>(), 20, 4f, player.whoAmI);
                     }

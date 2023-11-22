@@ -1,8 +1,8 @@
 ﻿using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
-using ModdingTutorial.Content.NPCs;
+using AssortedAdditions.Content.NPCs;
 
-namespace ModdingTutorial.Content.Tiles.Banners
+namespace AssortedAdditions.Content.Tiles.Banners
 {
     internal class NightSlimeBannerTile : MonsterBanners
     {

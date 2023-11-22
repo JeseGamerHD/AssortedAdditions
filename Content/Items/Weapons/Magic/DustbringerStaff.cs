@@ -1,10 +1,10 @@
-﻿using ModdingTutorial.Content.Projectiles.MagicProj;
-using Terraria.ID;
+﻿using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria;
 using Microsoft.Xna.Framework;
+using AssortedAdditions.Content.Projectiles.MagicProj;
 
-namespace ModdingTutorial.Content.Items.Weapons.Magic
+namespace AssortedAdditions.Content.Items.Weapons.Magic
 {
     internal class DustbringerStaff : ModItem
     {

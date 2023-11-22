@@ -2,9 +2,9 @@
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.GameContent.Creative;
-using ModdingTutorial.Content.Items.Placeables.Ores;
+using AssortedAdditions.Content.Items.Placeables.Ores;
 
-namespace ModdingTutorial.Content.Items.Tools;
+namespace AssortedAdditions.Content.Items.Tools;
 
 public class DuneRod : ModItem
 {
@@ -20,7 +20,7 @@ public class DuneRod : ModItem
         Item.rare = ItemRarityID.Orange;
         Item.fishingPole = 35; // Fishing power
         Item.shootSpeed = 14f; // Speed at which the bobbers are launched.
-        
+
         Item.shoot = ModContent.ProjectileType<Projectiles.DuneRodBobber>(); // Has an unique bobber
     }
 

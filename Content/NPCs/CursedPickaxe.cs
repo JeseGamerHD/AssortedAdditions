@@ -3,11 +3,11 @@ using Terraria;
 using Terraria.ModLoader;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.GameContent.Bestiary;
-using ModdingTutorial.Content.Items.Placeables.Banners;
-using ModdingTutorial.Content.Items.Misc;
 using Microsoft.Xna.Framework;
+using AssortedAdditions.Content.Items.Misc;
+using AssortedAdditions.Content.Items.Placeables.Banners;
 
-namespace ModdingTutorial.Content.NPCs
+namespace AssortedAdditions.Content.NPCs
 {
     internal class CursedPickaxe : ModNPC
     {
@@ -72,10 +72,10 @@ namespace ModdingTutorial.Content.NPCs
                 Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.position, 13, 1f);
             }
         }
-        
+
         public override void OnHitPlayer(Player target, Player.HurtInfo hurtInfo)
         {
-            if(Main.rand.NextBool(3))
+            if (Main.rand.NextBool(3))
             {
                 target.AddBuff(BuffID.Cursed, 360);
             }

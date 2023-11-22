@@ -2,7 +2,7 @@
 using Terraria.ID;
 using Terraria;
 
-namespace ModdingTutorial.Content.Items.Misc
+namespace AssortedAdditions.Content.Items.Misc
 {
     internal class ControlChip : ModItem // Sold by Cyborg after plantera, used for guided missile launcher
     {

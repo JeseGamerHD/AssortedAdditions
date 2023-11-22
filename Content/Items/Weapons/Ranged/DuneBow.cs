@@ -2,9 +2,9 @@
 using Terraria.ModLoader;
 using Terraria;
 using Terraria.ID;
-using ModdingTutorial.Content.Items.Placeables.Ores;
+using AssortedAdditions.Content.Items.Placeables.Ores;
 
-namespace ModdingTutorial.Content.Items.Weapons.Ranged
+namespace AssortedAdditions.Content.Items.Weapons.Ranged
 {
     internal class DuneBow : ModItem
     {
@@ -22,7 +22,7 @@ namespace ModdingTutorial.Content.Items.Weapons.Ranged
             Item.shootSpeed = 8;
             Item.useTime = 20;
             Item.useAnimation = 20;
-            
+
             Item.noMelee = true;
             Item.autoReuse = true;
 

@@ -3,9 +3,9 @@ using Terraria.GameContent.Creative;
 using Terraria.ModLoader;
 using Terraria;
 using Microsoft.Xna.Framework;
-using ModdingTutorial.Content.Projectiles.MagicProj;
+using AssortedAdditions.Content.Projectiles.MagicProj;
 
-namespace ModdingTutorial.Content.Items.Weapons.Magic
+namespace AssortedAdditions.Content.Items.Weapons.Magic
 {
     internal class DraconicTome : ModItem
     {
@@ -19,7 +19,7 @@ namespace ModdingTutorial.Content.Items.Weapons.Magic
         {
             Item.width = 29;
             Item.height = 30;
-            
+
             Item.useTime = 40;
             Item.useAnimation = 40;
             Item.useStyle = ItemUseStyleID.Shoot;

@@ -2,7 +2,7 @@
 using Terraria;
 using Terraria.ID;
 
-namespace ModdingTutorial.Content.Items.Accessories
+namespace AssortedAdditions.Content.Items.Accessories
 {
     internal class MinersRing : ModItem
     {

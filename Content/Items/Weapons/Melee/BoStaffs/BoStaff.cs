@@ -1,9 +1,9 @@
-﻿using ModdingTutorial.Content.Projectiles.MeleeProj;
-using Terraria.ID;
+﻿using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria;
+using AssortedAdditions.Content.Projectiles.MeleeProj;
 
-namespace ModdingTutorial.Content.Items.Weapons.Melee.BoStaffs
+namespace AssortedAdditions.Content.Items.Weapons.Melee.BoStaffs
 {
     // Other types of BoStaff inherit this class, only changing the recipe depending on the wood type
     // Projectile visuals change inside BoStaffSpin depending on which staff is being used

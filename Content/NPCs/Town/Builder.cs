@@ -1,13 +1,13 @@
 ﻿using System.Collections.Generic;
-using ModdingTutorial.Content.Items.Placeables.Blocks;
-using ModdingTutorial.Content.Items.Vanity;
+using AssortedAdditions.Content.Items.Placeables.Blocks;
+using AssortedAdditions.Content.Items.Vanity;
 using Terraria;
 using Terraria.GameContent.Bestiary;
 using Terraria.GameContent.Personalities;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace ModdingTutorial.Content.NPCs.Town
+namespace AssortedAdditions.Content.NPCs.Town
 {
     [AutoloadHead]
     internal class Builder : ModNPC
@@ -35,7 +35,7 @@ namespace ModdingTutorial.Content.NPCs.Town
             // Which biome(s) and NPC(s) the BuilderNPC prefers
             NPC.Happiness
                 .SetBiomeAffection<ForestBiome>(AffectionLevel.Love)
-                .SetBiomeAffection<DesertBiome>(AffectionLevel.Hate)    
+                .SetBiomeAffection<DesertBiome>(AffectionLevel.Hate)
                 .SetNPCAffection(NPCID.Painter, AffectionLevel.Love)
                 .SetNPCAffection(NPCID.Guide, AffectionLevel.Like)
                 .SetNPCAffection(NPCID.Demolitionist, AffectionLevel.Hate);
@@ -63,8 +63,8 @@ namespace ModdingTutorial.Content.NPCs.Town
         public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
         {
             bestiaryEntry.Info.AddRange(new IBestiaryInfoElement[] {
-				BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.Surface,
-				new FlavorTextBestiaryInfoElement("A Simple man looking for a place to call home. He knows all about building stuff and offers supplies in exchange for a few coins"),
+                BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.Surface,
+                new FlavorTextBestiaryInfoElement("A Simple man looking for a place to call home. He knows all about building stuff and offers supplies in exchange for a few coins"),
             });
         }
 
@@ -128,7 +128,7 @@ namespace ModdingTutorial.Content.NPCs.Town
 
         public override void OnChatButtonClicked(bool firstButton, ref string shopName)
         {
-            if(firstButton)
+            if (firstButton)
             {
                 shopName = "Shop";
             }
@@ -154,7 +154,7 @@ namespace ModdingTutorial.Content.NPCs.Town
                 .Add<GreenCarpet>()
 
                 .Add<MysteriousBrick>(condition: Condition.DownedMechBossAll)
-                
+
                 .Add<BuilderHelmet>()
                 .Add<BuilderJacket>()
                 .Add<BuilderPants>();

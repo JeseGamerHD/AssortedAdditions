@@ -4,7 +4,7 @@ using Terraria.ModLoader;
 using Terraria.ID;
 using Microsoft.Xna.Framework;
 
-namespace ModdingTutorial.Content.Tiles
+namespace AssortedAdditions.Content.Tiles
 {
     internal class CoalChunk : ModTile
     {

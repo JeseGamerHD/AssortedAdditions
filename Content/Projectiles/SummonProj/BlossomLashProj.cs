@@ -1,13 +1,13 @@
 ﻿using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
-using ModdingTutorial.Content.Buffs.Whips;
 using System.Collections.Generic;
 using Terraria.GameContent;
 using Terraria.ID;
 using Terraria;
 using Terraria.ModLoader;
+using AssortedAdditions.Content.Buffs.Whips;
 
-namespace ModdingTutorial.Content.Projectiles.SummonProj
+namespace AssortedAdditions.Content.Projectiles.SummonProj
 {
     internal class BlossomLashProj : ModProjectile
     {
@@ -68,9 +68,9 @@ namespace ModdingTutorial.Content.Projectiles.SummonProj
                 dust.fadeIn = 0.3f;
                 dust.noGravity = true;
 
-                if(Main.rand.NextBool(8))
+                if (Main.rand.NextBool(8))
                 {
-                    if(Main.myPlayer == Projectile.owner)
+                    if (Main.myPlayer == Projectile.owner)
                     {
                         Projectile.NewProjectile(Projectile.GetSource_FromThis(), points[pointIndex], Vector2.Zero, ModContent.ProjectileType<BlossomLashFlower>(), 20, 0, Projectile.owner);
                     }

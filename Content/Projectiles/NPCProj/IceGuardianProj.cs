@@ -2,7 +2,7 @@
 using Terraria;
 using Terraria.ModLoader;
 
-namespace ModdingTutorial.Content.Projectiles.NPCProj
+namespace AssortedAdditions.Content.Projectiles.NPCProj
 {
     internal class IceGuardianProj : ModProjectile
     {

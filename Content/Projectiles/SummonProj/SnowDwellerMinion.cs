@@ -1,9 +1,9 @@
 ﻿using Terraria.ID;
 using Terraria;
 using Terraria.ModLoader;
-using ModdingTutorial.Content.Buffs;
+using AssortedAdditions.Content.Buffs;
 
-namespace ModdingTutorial.Content.Projectiles.SummonProj
+namespace AssortedAdditions.Content.Projectiles.SummonProj
 {
     internal class SnowDwellerMinion : ModProjectile
     {
@@ -29,7 +29,7 @@ namespace ModdingTutorial.Content.Projectiles.SummonProj
 
             Projectile.DamageType = DamageClass.Summon;
             Projectile.aiStyle = 67; // Pirate staff
-            AIType = ProjectileID.OneEyedPirate; 
+            AIType = ProjectileID.OneEyedPirate;
             // The downside to using this is that the minion poops
             // although it sort of fits the creature...
         }

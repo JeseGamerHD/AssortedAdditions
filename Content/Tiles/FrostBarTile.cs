@@ -3,7 +3,7 @@ using Terraria;
 using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
 
-namespace ModdingTutorial.Content.Tiles
+namespace AssortedAdditions.Content.Tiles
 {
     internal class FrostBarTile : ModTile
     {

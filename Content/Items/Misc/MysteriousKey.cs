@@ -1,14 +1,14 @@
-﻿using Microsoft.Xna.Framework;
-using ModdingTutorial.Common.Players;
-using ModdingTutorial.Common.Systems;
-using ModdingTutorial.Content.Tiles.CraftingStations;
+﻿using AssortedAdditions.Common.Systems;
+using AssortedAdditions.Content.Tiles.CraftingStations;
+using Microsoft.Xna.Framework;
+using AssortedAdditions.Common.Players;
 using Terraria;
 using Terraria.Audio;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace ModdingTutorial.Content.Items.Misc
+namespace AssortedAdditions.Content.Items.Misc
 {
     internal class MysteriousKey : ModItem
     {
@@ -29,7 +29,7 @@ namespace ModdingTutorial.Content.Items.Misc
 
         public override bool? UseItem(Player player)
         {
-            if(Main.myPlayer == player.whoAmI)
+            if (Main.myPlayer == player.whoAmI)
             {
                 // Remember to multiply by 16
                 Vector2 roomPos = new((Main.dungeonX + 3) * 16, (Main.dungeonY + 16) * 16);

@@ -1,9 +1,9 @@
 ﻿using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria;
-using ModdingTutorial.Content.Tiles.Blocks;
+using AssortedAdditions.Content.Tiles.Blocks;
 
-namespace ModdingTutorial.Content.Items.Placeables.Blocks
+namespace AssortedAdditions.Content.Items.Placeables.Blocks
 {
     internal class PaintBlock : ModItem
     {

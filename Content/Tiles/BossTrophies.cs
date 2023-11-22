@@ -1,5 +1,5 @@
-﻿using Microsoft.Xna.Framework;
-using ModdingTutorial.Content.Items.Placeables.Trophies;
+﻿using AssortedAdditions.Content.Items.Placeables.Trophies;
+using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.GameContent.Creative;
 using Terraria.ID;
@@ -7,7 +7,7 @@ using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
-namespace ModdingTutorial.Content.Tiles
+namespace AssortedAdditions.Content.Tiles
 {
     // This class is used for handling every boss trophy tile
     internal class BossTrophies : ModTile
@@ -37,7 +37,7 @@ namespace ModdingTutorial.Content.Tiles
                 case 0:
                     item = ModContent.ItemType<FireDragonTrophy>();
                     break;
-                // New trophies here
+                    // New trophies here
             }
             if (item > 0)
             {

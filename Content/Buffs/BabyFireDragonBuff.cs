@@ -1,8 +1,8 @@
 ﻿using Terraria;
 using Terraria.ModLoader;
-using ModdingTutorial.Content.Projectiles.PetProj;
+using AssortedAdditions.Content.Projectiles.PetProj;
 
-namespace ModdingTutorial.Content.Buffs
+namespace AssortedAdditions.Content.Buffs
 {
     internal class BabyFireDragonBuff : ModBuff
     {

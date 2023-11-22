@@ -3,7 +3,7 @@ using Terraria;
 using Terraria.ModLoader;
 using Terraria.ModLoader.IO;
 
-namespace ModdingTutorial.Common.Systems
+namespace AssortedAdditions.Common.Systems
 {
     internal class ItemFlags : ModSystem
     {
@@ -19,7 +19,7 @@ namespace ModdingTutorial.Common.Systems
 
         public override void SaveWorldData(TagCompound tag)
         {
-            if(mysteriousKeyWasUsed)
+            if (mysteriousKeyWasUsed)
             {
                 tag["mysteriousKeyWasUsed"] = true;
             }

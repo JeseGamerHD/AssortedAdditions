@@ -7,7 +7,7 @@ using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria.GameContent;
 
-namespace ModdingTutorial.Content.Projectiles.MeleeProj
+namespace AssortedAdditions.Content.Projectiles.MeleeProj
 {
     // Mostly taken from ExampleMod which in turn takes this from vanilla Excalibur
     // Made an abstract version to avoid having to spam the same code with a few value adjustments
@@ -131,8 +131,8 @@ namespace ModdingTutorial.Content.Projectiles.MeleeProj
             float adjustedRotation = MathHelper.Pi * direction * percentageOfLife + velocityRotation + direction * MathHelper.Pi + player.fullRotation;
             Projectile.rotation = adjustedRotation; // Set the rotation to our to the new rotation we calculated.
 
-            float scaleMulti = ScaleMultiplier; 
-            float scaleAdder = ScaleAdderValue; 
+            float scaleMulti = ScaleMultiplier;
+            float scaleAdder = ScaleAdderValue;
 
             Projectile.Center = player.RotatedRelativePoint(player.MountedCenter) - Projectile.velocity;
             Projectile.scale = scaleAdder + percentageOfLife * scaleMulti;
@@ -149,7 +149,7 @@ namespace ModdingTutorial.Content.Projectiles.MeleeProj
             {
                 // Original Excalibur color: Color.Gold, Color.White
                 Color dustColor = Color.Lerp(PrimaryDustColor, SecondaryDustColor, Main.rand.NextFloat() * 0.3f);
-                Dust coloredDust = Dust.NewDustPerfect(Projectile.Center + dustRotation.ToRotationVector2() * (Main.rand.NextFloat() * 80f * Projectile.scale + 20f * Projectile.scale), 
+                Dust coloredDust = Dust.NewDustPerfect(Projectile.Center + dustRotation.ToRotationVector2() * (Main.rand.NextFloat() * 80f * Projectile.scale + 20f * Projectile.scale),
                     DustType, dustVelocity * 1f, 100, dustColor, 0.4f);
                 coloredDust.fadeIn = 0.4f + Main.rand.NextFloat() * 0.15f;
                 coloredDust.noGravity = true;
@@ -238,19 +238,19 @@ namespace ModdingTutorial.Content.Projectiles.MeleeProj
             }
 
             // Set the target's hit direction to away from the player so the knockback is in the correct direction.
-            hit.HitDirection = (Main.player[Projectile.owner].Center.X < target.Center.X) ? 1 : (-1);
+            hit.HitDirection = Main.player[Projectile.owner].Center.X < target.Center.X ? 1 : -1;
         }
 
         public override void OnHitPlayer(Player target, Player.HurtInfo info)
         {
-            if(DoHitEffect)
+            if (DoHitEffect)
             {
                 ParticleOrchestrator.RequestParticleSpawn(clientOnly: false, HitEffect,
                     new ParticleOrchestraSettings { PositionInWorld = Main.rand.NextVector2FromRectangle(target.Hitbox) },
                     Projectile.owner);
             }
 
-            info.HitDirection = (Main.player[Projectile.owner].Center.X < target.Center.X) ? 1 : (-1);
+            info.HitDirection = Main.player[Projectile.owner].Center.X < target.Center.X ? 1 : -1;
         }
 
         // Taken from Main.DrawProj_Excalibur()
@@ -262,7 +262,7 @@ namespace ModdingTutorial.Content.Projectiles.MeleeProj
             Rectangle sourceRectangle = texture.Frame(1, 4); // The sourceRectangle says which frame to use.
             Vector2 origin = sourceRectangle.Size() / 2f;
             float scale = Projectile.scale * 1.1f;
-            SpriteEffects spriteEffects = ((!(Projectile.ai[0] >= 0f)) ? SpriteEffects.FlipVertically : SpriteEffects.None); // Flip the sprite based on the direction it is facing.
+            SpriteEffects spriteEffects = !(Projectile.ai[0] >= 0f) ? SpriteEffects.FlipVertically : SpriteEffects.None; // Flip the sprite based on the direction it is facing.
             float percentageOfLife = Projectile.localAI[0] / Projectile.ai[1]; // The current time over the max time.
             float lerpTime = Utils.Remap(percentageOfLife, 0f, 0.6f, 0f, 1f) * Utils.Remap(percentageOfLife, 0.6f, 1f, 1f, 0f);
             float lightingColor = Lighting.GetColor(Projectile.Center.ToTileCoordinates()).ToVector3().Length() / (float)Math.Sqrt(3.0);
@@ -297,12 +297,12 @@ namespace ModdingTutorial.Content.Projectiles.MeleeProj
             for (float i = 0f; i < 8f; i += 1f)
             {
                 float edgeRotation = Projectile.rotation + Projectile.ai[0] * i * (MathHelper.Pi * -2f) * 0.025f + Utils.Remap(percentageOfLife, 0f, 1f, 0f, MathHelper.PiOver4) * Projectile.ai[0];
-                Vector2 drawpos = position + edgeRotation.ToRotationVector2() * ((float)texture.Width * 0.5f - 6f) * scale;
+                Vector2 drawpos = position + edgeRotation.ToRotationVector2() * (texture.Width * 0.5f - 6f) * scale;
                 DrawPrettyStarSparkle(Projectile.Opacity, SpriteEffects.None, drawpos, new Color(255, 255, 255, 0) * lerpTime * (i / 9f), middleMediumColor, percentageOfLife, 0f, 0.5f, 0.5f, 1f, edgeRotation, new Vector2(0f, Utils.Remap(percentageOfLife, 0f, 1f, 3f, 0f)) * scale, Vector2.One * scale);
             }
 
             // This draws a large star sparkle at the front of the projectile.
-            Vector2 drawpos2 = position + (Projectile.rotation + Utils.Remap(percentageOfLife, 0f, 1f, 0f, MathHelper.PiOver4) * Projectile.ai[0]).ToRotationVector2() * ((float)texture.Width * 0.5f - 4f) * scale;
+            Vector2 drawpos2 = position + (Projectile.rotation + Utils.Remap(percentageOfLife, 0f, 1f, 0f, MathHelper.PiOver4) * Projectile.ai[0]).ToRotationVector2() * (texture.Width * 0.5f - 4f) * scale;
             DrawPrettyStarSparkle(Projectile.Opacity, SpriteEffects.None, drawpos2, new Color(255, 255, 255, 0) * lerpTime * 0.5f, middleMediumColor, percentageOfLife, 0f, 0.5f, 0.5f, 1f, 0f, new Vector2(2f, Utils.Remap(percentageOfLife, 0f, 1f, 4f, 1f)) * scale, Vector2.One * scale);
 
             return false;

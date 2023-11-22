@@ -1,9 +1,9 @@
-﻿using ModdingTutorial.Content.Projectiles.SummonProj;
-using Terraria.ID;
+﻿using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria;
+using AssortedAdditions.Content.Projectiles.SummonProj;
 
-namespace ModdingTutorial.Content.Items.Weapons.Summon
+namespace AssortedAdditions.Content.Items.Weapons.Summon
 {
     internal class Whip : ModItem
     {

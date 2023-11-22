@@ -1,10 +1,10 @@
-﻿using Microsoft.Xna.Framework;
-using ModdingTutorial.Content.Projectiles.MagicProj.ConcoctionsProj;
+﻿using AssortedAdditions.Content.Projectiles.MagicProj.ConcoctionsProj;
+using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace ModdingTutorial.Content.Items.Weapons.Magic.Concoctions;
+namespace AssortedAdditions.Content.Items.Weapons.Magic.Concoctions;
 
 internal class CrazyConcoction : ModItem
 {
