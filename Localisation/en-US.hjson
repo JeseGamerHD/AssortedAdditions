@@ -1024,6 +1024,16 @@ Mods: {
 				DisplayName: Spore Rod
 				Tooltip: Casts a spore orb which breaks into smaller orbs
 			}
+
+			MimicsTongue: {
+				DisplayName: Mimics Tongue
+				Tooltip:
+					'''
+					10% increased movement speed
+					Gives a chance to dodge attacks
+					Double tap left/right to dash
+					'''
+			}
 		}
 
 		Projectiles: {

@@ -1,4 +1,5 @@
-﻿using AssortedAdditions.Content.Items.Weapons.Magic;
+﻿using AssortedAdditions.Content.Items.Accessories;
+using AssortedAdditions.Content.Items.Weapons.Magic;
 using AssortedAdditions.Content.Items.Weapons.Melee;
 using AssortedAdditions.Content.Items.Weapons.Ranged;
 using AssortedAdditions.Content.Items.Weapons.Summon;
@@ -38,6 +39,8 @@ namespace AssortedAdditions.Content.NPCs
                 ModContent.ItemType<SporeRod>(),
                 ModContent.ItemType<JungleChakram>(),
                 ModContent.ItemType<BlossomLash>()));
+
+            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<MimicsTongue>(), 3)); // 33% chance
         }
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)

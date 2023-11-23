@@ -102,6 +102,11 @@ namespace AssortedAdditions.Common.GlobalNPCs
             {
                 npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<DandelionFlower>(), 3, 1, 1)); // 33% chance
             }
+
+            if(npc.type == NPCID.BigMimicCorruption || npc.type == NPCID.BigMimicCrimson || npc.type == NPCID.BigMimicHallow)
+            {
+                npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<MimicsTongue>(), 3)); // 33% chance
+            }
         }
     }
 }

@@ -30,6 +30,7 @@
     <None Remove="Content\Items\Accessories\GrabberFlower_Face.png" />
     <None Remove="Content\Items\Accessories\MedicatedDressing.png" />
     <None Remove="Content\Items\Accessories\Medkit.png" />
+    <None Remove="Content\Items\Accessories\MimicsTongue.png" />
     <None Remove="Content\Items\Accessories\SporeNecklace.png" />
     <None Remove="Content\Items\Consumables\BerserkerPotion.png" />
     <None Remove="Content\Items\Consumables\MerchantInvitation.png" />
