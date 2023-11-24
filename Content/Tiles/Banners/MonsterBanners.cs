@@ -11,11 +11,21 @@ namespace AssortedAdditions.Content.Tiles.Banners
 {
     // This class is used as a base for other banners so there is no need to repeat the same code
     // Just set the Color and BuffNPC in the other banner's SetStaticDefaults() and keep the base.SetStaticDefaults();
+
+    /// <summary>
+    /// A Base class for easily creating banner tiles
+    /// </summary>
+    /// /// <remarks>
+    /// Set these in SetStaticDefaults() and remember to leave the base:
+    /// <list type="Attributes">
+    /// <item>Color: color of the tile on the map. Use Color.name or new Color()</item>
+    /// <item>BuffNPC: which npc the player gets a buff against. Use ModContent.NPCType or NPCID</item>
+    /// </list>
+    /// </remarks>
     public abstract class MonsterBanners : ModTile
     {
         public Color Color { get; set; } // What color the tile will be on the map
         public int BuffNPC { get; set; } // What npc does this banner give a buff against
-
         public override void SetStaticDefaults()
         {
             Main.tileFrameImportant[Type] = true;
