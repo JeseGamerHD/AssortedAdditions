@@ -6,7 +6,7 @@ using Terraria.Audio;
 
 namespace AssortedAdditions.Content.Items.Accessories
 {
-    internal class MimicsTongue : ModItem // TODO other effects, chance to dodge ??
+    internal class MimicsTongue : ModItem
     {
         public override void SetDefaults()
         {
@@ -25,35 +25,54 @@ namespace AssortedAdditions.Content.Items.Accessories
         }
     }
 
+    // Dashing part is taken from example mod with slight modifications.
+    // For more detailed comments refer to
+    // https://github.com/tModLoader/tModLoader/blob/3d21ca363d71c972286e9883b3014872c87ec2ef/ExampleMod/Items/ExampleDashAccessory.cs
     public class MimicTonguePlayer : ModPlayer
     {
         public bool isWearingMimicsTongue; // Flag for accessory
 
-        public const int DashRight = 0;
-        public const int DashLeft = 1;
-        public const int DashCooldown = 70; // Time (frames) between starting dashes. If this is shorter than DashDuration you can start a new dash before an old one has finished
-        public const int DashDuration = 35; // Duration of the dash afterimage effect in frames
-        public const float DashVelocity = 13f; // The initial velocity.
-        public int DashDir = -1; // The direction the player has double tapped. Defaults to -1 for no dash double tap
-        public int DashDelay = 0; // frames remaining till we can dash again
-        public int DashTimer = 0; // frames remaining in the dash
+        private const int DashRight = 0;
+        private const int DashLeft = 1;
+        private const int DashUp = 2;
+        private const int DashDown = 3;
+
+        private const int DashCooldown = 70; // Time (frames) between starting dashes. If this is shorter than DashDuration you can start a new dash before an old one has finished
+        private const int DashDuration = 35; // Duration of the dash afterimage effect in frames
+
+        private const float DashVelocity = 13f; // The initial velocity.
+        private int DashDir = -1; // The direction the player has double tapped. Defaults to -1 for no dash double tap
+        private int DashDelay = 0; // frames remaining till we can dash again
+        private int DashTimer = 0; // frames remaining in the dash
 
         public override void PreUpdateMovement()
         {
             if (CanDash() && DashDir != -1 && DashDelay == 0)
             {
                 Vector2 newVelocity = Player.velocity;
+                float dashDirection;
 
                 // Adjust velocity accordingly depending on if the player is moving left or right
+                // or up/down
                 if (DashDir == 0 && Player.velocity.X < DashVelocity) // Right
                 {
-                    float dashDirection = DashDir == DashRight ? 1 : -1;
+                    dashDirection = DashDir == DashRight ? 1 : -1;
                     newVelocity.X = dashDirection * DashVelocity;
                 }
                 else if (DashDir == 1 && Player.velocity.X > -DashVelocity) // Left
                 {
-                    float dashDirection = DashDir == DashLeft ? -1 : 1;
+                    dashDirection = DashDir == DashLeft ? -1 : 1;
                     newVelocity.X = dashDirection * DashVelocity;
+                }
+                else if (DashDir == 2 && Player.velocity.Y > -DashVelocity) // Up
+                {
+                    dashDirection = DashDir == DashUp ? -1 : 1.3f; // 1.3 to account for gravity
+                    newVelocity.Y = dashDirection * DashVelocity;
+                }
+                else if (DashDir == 3 && Player.velocity.Y < DashVelocity) // Down
+                {
+                    dashDirection = DashDir == DashDown ? 1 : -1.3f;
+                    newVelocity.Y = dashDirection * DashVelocity;
                 }
                 else
                 {
@@ -90,12 +109,43 @@ namespace AssortedAdditions.Content.Items.Accessories
                 && !Player.mount.Active;
         }
 
+        public override void ResetEffects()
+        {
+            isWearingMimicsTongue = false;
+
+            // [0] = double tap down
+            // [1] = double tap up
+            // [2] = double tap right
+            // [3] = double tap left
+
+            if (Player.controlRight && Player.releaseRight && Player.doubleTapCardinalTimer[2] < 15)
+            {
+                DashDir = DashRight;
+            }
+            else if (Player.controlLeft && Player.releaseLeft && Player.doubleTapCardinalTimer[3] < 15)
+            {
+                DashDir = DashLeft;
+            }
+            else if (Player.controlUp && Player.releaseUp && Player.doubleTapCardinalTimer[1] < 15)
+            {
+                DashDir = DashUp;
+            }
+            else if (Player.controlDown && Player.releaseDown && Player.doubleTapCardinalTimer[0] < 15)
+            {
+                DashDir = DashDown;
+            }
+            else
+            {
+                DashDir = -1; // No dash
+            }
+        }
+
         public override bool FreeDodge(Player.HurtInfo info)
         {
             // Accessory also grants a 1/10 chance to dodge an attack
-            if(isWearingMimicsTongue)
+            if (isWearingMimicsTongue)
             {
-                if(Main.rand.NextBool(10))
+                if (Main.rand.NextBool(10))
                 {
                     Player.immune = true;
                     Player.immuneTime = 60;
@@ -113,28 +163,6 @@ namespace AssortedAdditions.Content.Items.Accessories
             }
 
             return base.FreeDodge(info);
-        }
-
-        public override void ResetEffects()
-        {
-            isWearingMimicsTongue = false;
-
-            // [0] = double tap down
-            // [1] = double tap up
-            // [2] = double tap right
-            // [3] = double tap left
-            if (Player.controlRight && Player.releaseRight && Player.doubleTapCardinalTimer[2] < 15)
-            {
-                DashDir = DashRight;
-            }
-            else if (Player.controlLeft && Player.releaseLeft && Player.doubleTapCardinalTimer[3] < 15)
-            {
-                DashDir = DashLeft;
-            }
-            else
-            {
-                DashDir = -1;
-            }
         }
     }
 }
