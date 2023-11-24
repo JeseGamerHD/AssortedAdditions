@@ -107,6 +107,11 @@ namespace AssortedAdditions.Common.GlobalNPCs
             {
                 npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<MimicsTongue>(), 3)); // 33% chance
             }
+
+            if(npc.type == NPCID.Vulture)
+            {
+                npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<VultureWings>(), 20)); // 5% chance
+            }
         }
     }
 }

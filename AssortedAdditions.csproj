@@ -32,6 +32,8 @@
     <None Remove="Content\Items\Accessories\Medkit.png" />
     <None Remove="Content\Items\Accessories\MimicsTongue.png" />
     <None Remove="Content\Items\Accessories\SporeNecklace.png" />
+    <None Remove="Content\Items\Accessories\VultureWings.png" />
+    <None Remove="Content\Items\Accessories\VultureWings_Wings.png" />
     <None Remove="Content\Items\Consumables\BerserkerPotion.png" />
     <None Remove="Content\Items\Consumables\MerchantInvitation.png" />
     <None Remove="Content\Items\Consumables\SkeletonPotion.png" />

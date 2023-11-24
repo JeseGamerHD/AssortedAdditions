@@ -1034,6 +1034,11 @@ Mods: {
 					Double tap a direction to dash
 					'''
 			}
+
+			VultureWings: {
+				DisplayName: Vulture Wings
+				Tooltip: Allows flight and slow fall
+			}
 		}
 
 		Projectiles: {
