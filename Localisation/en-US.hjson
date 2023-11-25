@@ -1217,6 +1217,16 @@ Mods: {
 					Tooltip: Toggles whether or not event summon items will be consumed.
 				}
 			}
+
+			ClientSidedToggles: {
+				DisplayName: Client settings
+				Headers.VisualToggle: Visuals
+
+				FancyWingFlightToggle: {
+					Label: Fancy Wing Flight
+					Tooltip: Player will lean slightly when using wings
+				}
+			}
 		}
 	}
 }

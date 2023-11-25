@@ -2,6 +2,7 @@
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria;
+using AssortedAdditions.Common.Configs;
 
 namespace AssortedAdditions.Content.Items.Accessories
 {
@@ -25,15 +26,18 @@ namespace AssortedAdditions.Content.Items.Accessories
 
         public override bool WingUpdate(Player player, bool inUse)
         {
-            // Make the player lean towards their direction a little while in the air
-            // Either while flying up or when gliding
-            if(inUse || (player.controlJump && player.wingTime == 0 && player.velocity.Y != 0))
+            if (ModContent.GetInstance<ClientSidedToggles>().FancyWingFlightToggle)
             {
-                player.fullRotation = player.velocity.X * 0.01f;
-            }
-            else
-            { // Otherwise reset rotation
-                player.fullRotation = default;
+                // Make the player lean towards their direction a little while in the air
+                // Either while flying up or when gliding
+                if (inUse || (player.controlJump && player.wingTime == 0 && player.velocity.Y != 0))
+                {
+                    player.fullRotation = player.velocity.X * 0.01f;
+                }
+                else
+                { // Otherwise reset rotation
+                    player.fullRotation = default;
+                }
             }
 
             return false;
