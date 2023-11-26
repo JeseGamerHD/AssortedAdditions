@@ -1,4 +1,5 @@
 ﻿using AssortedAdditions.Common.Systems;
+using AssortedAdditions.Content.Items.Accessories;
 using AssortedAdditions.Content.Items.Consumables;
 using AssortedAdditions.Content.Items.Misc;
 using AssortedAdditions.Content.Items.Pets;
@@ -18,9 +19,9 @@ namespace AssortedAdditions.Common.GlobalNPCs
     {
         public override void ModifyShop(NPCShop shop)
         {
-
             if (shop.NpcType == NPCID.Merchant)
             {
+                shop.Add(ModContent.ItemType<HangGlider>(), condition: Condition.DownedEyeOfCthulhu);
                 shop.Add<MerchantInvitation>();
             }
 

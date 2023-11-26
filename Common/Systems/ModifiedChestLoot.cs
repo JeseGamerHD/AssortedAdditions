@@ -22,6 +22,7 @@ namespace AssortedAdditions.Common.Systems
             // Containers
             int chestID = 0;
             int goldChestID = 1;
+            int skywareChestID = 13;
 
             // Containers2
             int SandstoneChestID = 10;
@@ -31,7 +32,7 @@ namespace AssortedAdditions.Common.Systems
             {
                 Chest chest = Main.chest[chestIndex];
 
-                // Regular chests
+                // Chests
                 if (chest != null && Main.tile[chest.x, chest.y].TileType == TileID.Containers && Main.tile[chest.x, chest.y].TileFrameX == chestID * chestWidth)
                 {
                     for (int inventoryIndex = 0; inventoryIndex < 40; inventoryIndex++)
@@ -67,6 +68,23 @@ namespace AssortedAdditions.Common.Systems
                     }
                 }
 
+                // Skyware chests
+                if(chest != null && Main.tile[chest.x, chest.y].TileType == TileID.Containers && Main.tile[chest.x, chest.y].TileFrameX == skywareChestID * chestWidth)
+                {
+                    for(int inventoryIndex = 0; inventoryIndex < 40; inventoryIndex++)
+                    {
+                        if (chest.item[inventoryIndex].type == ItemID.None)
+                        {
+                            if(Main.rand.NextFloat() <= 0.33f)
+                            {
+                                chest.item[inventoryIndex].SetDefaults(ModContent.ItemType<HangGlider>());
+                            }
+
+                            break;
+                        }
+                    }
+                }
+
                 // Sandstone chests
                 if (chest != null && Main.tile[chest.x, chest.y].TileType == TileID.Containers2 && Main.tile[chest.x, chest.y].TileFrameX == SandstoneChestID * chestWidth)
                 {
@@ -88,6 +106,5 @@ namespace AssortedAdditions.Common.Systems
                 // ...
             }
         }
-
     }
 }

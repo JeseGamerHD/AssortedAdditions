@@ -1039,6 +1039,15 @@ Mods: {
 				DisplayName: Vulture Wings
 				Tooltip: Allows flight and slow fall
 			}
+
+			HangGlider: {
+				DisplayName: Hang Glider
+				Tooltip:
+					'''
+					Allows gliding and slow fall
+					Weapons are disabled during the glide
+					'''
+			}
 		}
 
 		Projectiles: {

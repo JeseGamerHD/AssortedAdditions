@@ -28,6 +28,8 @@
     <None Remove="Content\Items\Accessories\EchoChamber.png" />
     <None Remove="Content\Items\Accessories\GrabberFlower.png" />
     <None Remove="Content\Items\Accessories\GrabberFlower_Face.png" />
+    <None Remove="Content\Items\Accessories\HangGlider.png" />
+    <None Remove="Content\Items\Accessories\HangGlider_Wings.png" />
     <None Remove="Content\Items\Accessories\MedicatedDressing.png" />
     <None Remove="Content\Items\Accessories\Medkit.png" />
     <None Remove="Content\Items\Accessories\MimicsTongue.png" />
