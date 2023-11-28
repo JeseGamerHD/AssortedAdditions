@@ -20,81 +20,64 @@ namespace AssortedAdditions.Content.Projectiles.MeleeProj.DoublePhasesaberProj
             Projectile.width = 112;
             Projectile.height = 112;
             Projectile.penetrate = -1;
-            Projectile.tileCollide = false;
             Projectile.DamageType = DamageClass.Melee;
-            Projectile.friendly = true;
+			
+            Projectile.tileCollide = false;
+            Projectile.ownerHitCheck = true;
+			Projectile.friendly = true;
+            Projectile.hide = true;
         }
 
-        int movePos;
-        int oldDirection;
         public override void AI()
         {
             Player player = Main.player[Projectile.owner];
+            Vector2 playerCenter = player.RotatedRelativePoint(player.MountedCenter);
 
-            // Check if Player Dead
-            if (player.dead)
+            if (Main.myPlayer == Projectile.owner)
             {
-                Projectile.Kill();
-                return;
+                if (player.channel)
+                {
+                    float holdoutDistance = player.HeldItem.shootSpeed * Projectile.scale;
+                    Vector2 holdoutOffset = holdoutDistance * Vector2.Normalize(Main.MouseWorld - playerCenter);
+
+                    if (holdoutOffset.X != Projectile.velocity.X || holdoutOffset.Y != Projectile.velocity.Y)
+                    {
+                        Projectile.netUpdate = true;
+                    }
+
+                    Projectile.velocity = holdoutOffset;
+                }
+                else
+                {
+                    Projectile.Kill();
+                }
             }
 
-            // Weapon will spin as long as player keeps channeling
-            if (player.channel)
+            if (Projectile.velocity.X > 0f)
             {
-                Projectile.position = player.Center; // Needs to be adjusted below
-                Projectile.position.Y -= 52;
-
-                if (player.direction == -1) // If player faces left adjust accordingly
-                {
-                    Projectile.position.X -= 60 + movePos;
-                    Projectile.rotation -= 0.3f; // Rotation also changes depending on direction faced
-                }
-                else // If right, adjust differently
-                {
-                    Projectile.position.X -= 55 + movePos;
-                    Projectile.rotation += 0.3f;
-                }
-
-                oldDirection = player.direction;
-                // Weapon needs to "point" towards the cursor's X position
-                if (Main.MouseWorld.X > player.Center.X)
-                {
-                    player.ChangeDir(1); // Change player to face said direction
-
-                    if (oldDirection != player.direction)
-                    {
-                        movePos = -5;
-                    }
-                }
-                else if (Main.MouseWorld.X < player.Center.X)
-                {
-                    player.ChangeDir(-1);
-
-                    if (oldDirection != player.direction)
-                    {
-                        movePos = 5;
-                    }
-                }
-
-                // Makes player hold the weapon
-                player.heldProj = Projectile.whoAmI;
-                player.itemTime = 2;
-                player.itemAnimation = 2;
-
-                // The color of the sprite is determined in a custom method
-                Visuals();
-
-                // Sound effect
-                if (Projectile.soundDelay == 0)
-                {
-                    Projectile.soundDelay = 8; // This countsdown automatically
-                    SoundEngine.PlaySound(SoundID.Item15, Projectile.position);
-                }
-
+                Projectile.rotation += 0.3f;
+                player.ChangeDir(1);
             }
-            else // When channeling stops, the projectile is destroyed
+            else if (Projectile.velocity.X < 0f)
             {
-                Projectile.Kill();
+				Projectile.rotation -= 0.3f;
+				player.ChangeDir(-1);
+            }
+
+            player.ChangeDir(Projectile.direction);
+            player.heldProj = Projectile.whoAmI;
+            player.SetDummyItemTime(2);
+            Projectile.Center = playerCenter;
+            player.itemRotation = (Projectile.velocity * Projectile.direction).ToRotation();
+
+			// The color of the sprite is determined in a custom method
+			Visuals();
+
+            // Sound effect
+            if (Projectile.soundDelay == 0)
+            {
+                Projectile.soundDelay = 9; // This countsdown automatically
+                SoundEngine.PlaySound(SoundID.Item15, Projectile.position);
             }
         }
 
@@ -122,36 +105,36 @@ namespace AssortedAdditions.Content.Projectiles.MeleeProj.DoublePhasesaberProj
                 Lighting.AddLight(player.Center, TorchID.Yellow);
             }
 
-            if (itemInUse == ModContent.ItemType<OrangeDoublePhasesaber>())
+            else if (itemInUse == ModContent.ItemType<OrangeDoublePhasesaber>())
             {
                 Projectile.frame = 1;
                 Lighting.AddLight(player.Center, TorchID.Orange);
             }
 
-            if (itemInUse == ModContent.ItemType<GreenDoublePhasesaber>())
+            else if (itemInUse == ModContent.ItemType<GreenDoublePhasesaber>())
             {
                 Projectile.frame = 2;
                 Lighting.AddLight(player.Center, TorchID.Green);
             }
 
-            if (itemInUse == ModContent.ItemType<BlueDoublePhasesaber>())
+            else if (itemInUse == ModContent.ItemType<BlueDoublePhasesaber>())
             {
                 Projectile.frame = 3;
                 Lighting.AddLight(player.Center, TorchID.Blue);
             }
 
-            if (itemInUse == ModContent.ItemType<PurpleDoublePhasesaber>())
+            else if (itemInUse == ModContent.ItemType<PurpleDoublePhasesaber>())
             {
                 Projectile.frame = 4;
                 Lighting.AddLight(player.Center, TorchID.Purple);
             }
 
-            if (itemInUse == ModContent.ItemType<RedDoublePhasesaber>())
+            else if (itemInUse == ModContent.ItemType<RedDoublePhasesaber>())
             {
                 Projectile.frame = 5;
                 Lighting.AddLight(player.Center, TorchID.Red);
             }
-            if (itemInUse == ModContent.ItemType<WhiteDoublePhasesaber>())
+            else if (itemInUse == ModContent.ItemType<WhiteDoublePhasesaber>())
             {
                 Projectile.frame = 6;
                 Lighting.AddLight(player.Center, TorchID.White);
