@@ -1,1 +1,15 @@
-NimiTanne is a pretty cool mod, it does...this. Modify this file with a description of your mod.
+Assorted Additions is a content mod which adds all kinds of things like the name implies. Currently the mod adds:
+- Over 170 items
+- 30+ tiles
+- 13 NPCs
+- 1 Boss
+
+Also some tweaks to vanilla (Most have a config toggle):
+- Hardmode ore progression changes
+- Accessory recipies, drop rate changes
+- Non consumable boss summon items
+- Jungle Mimic with unique loot
+- Lunatic Cultist boss loot
+- Other misc tweaks...
+
+More details on the Workshop or GitHub pages.
