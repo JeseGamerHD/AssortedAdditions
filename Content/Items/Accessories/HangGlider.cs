@@ -3,6 +3,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria;
 using Microsoft.Xna.Framework;
+using Terraria.Audio;
 
 namespace AssortedAdditions.Content.Items.Accessories
 {
@@ -31,6 +32,12 @@ namespace AssortedAdditions.Content.Items.Accessories
             // Player is gliding
             if (player.wingsLogic > 0 && player.controlJump && player.wingTime == 0 && player.velocity.Y != 0 && player.jump == 0)
             {
+                if(Timer == 0)
+                {
+					SoundStyle deploySound = new SoundStyle("AssortedAdditions/Assets/Sounds/Misc/HangGliderDeploy");
+					SoundEngine.PlaySound(deploySound, player.position);
+				}
+
                 landingTimer = 90;
                 if(Timer != 90)
                 {
