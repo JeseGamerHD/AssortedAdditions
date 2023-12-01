@@ -9,10 +9,8 @@ namespace AssortedAdditions.Common.Systems
         public override void AddRecipeGroups()
         {
             RecipeGroup drinks = new RecipeGroup(() => "Any Drink or Beverage",
-
                 ItemID.CreamSoda,
                 ItemID.Milkshake,
-
                 ItemID.AppleJuice,
                 ItemID.GrapeJuice,
                 ItemID.Lemonade,
@@ -24,7 +22,6 @@ namespace AssortedAdditions.Common.Systems
                 ItemID.SmoothieofDarkness,
                 ItemID.PrismaticPunch,
                 ItemID.FruitJuice,
-
                 ItemID.Teacup,
                 ItemID.MilkCarton,
                 ItemID.CoffeeCup,
@@ -32,6 +29,14 @@ namespace AssortedAdditions.Common.Systems
                 );
 
             RecipeGroup.RegisterGroup("AssortedAdditions:Drinks", drinks);
+
+
+            RecipeGroup dungeonVases = new RecipeGroup(() => "Any dungeon vase",
+                ItemID.BlueDungeonVase,
+                ItemID.GreenDungeonVase,
+                ItemID.PinkDungeonVase
+                );
+            RecipeGroup.RegisterGroup("AssortedAdditions:DungeonVases", dungeonVases);
         }
     }
 }

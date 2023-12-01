@@ -98,6 +98,7 @@
     <None Remove="Content\Items\Weapons\Magic\CosmicTome.png" />
     <None Remove="Content\Items\Weapons\Magic\DeathRay.png" />
     <None Remove="Content\Items\Weapons\Magic\IcyStaff.png" />
+    <None Remove="Content\Items\Weapons\Magic\SpiritVase.png" />
     <None Remove="Content\Items\Weapons\Magic\SporeRod.png" />
     <None Remove="Content\Items\Weapons\Magic\StoneWand.png" />
     <None Remove="Content\Items\Weapons\Magic\TrueAmberStaff.png" />
@@ -154,6 +155,7 @@
     <None Remove="Content\Projectiles\MagicProj\BookOfMathematicsProj.png" />
     <None Remove="Content\Projectiles\MagicProj\DeathRayProj.png" />
     <None Remove="Content\Projectiles\MagicProj\IcyWandProj.png" />
+    <None Remove="Content\Projectiles\MagicProj\SpiritVaseProj.png" />
     <None Remove="Content\Projectiles\MagicProj\SporeOrbSmall.png" />
     <None Remove="Content\Projectiles\MagicProj\StoneWandProj.png" />
     <None Remove="Content\Projectiles\MagicProj\TrueAmberStaffProj.png" />

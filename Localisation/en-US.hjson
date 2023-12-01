@@ -1048,6 +1048,11 @@ Mods: {
 					Weapons are disabled during the glide
 					'''
 			}
+
+			SpiritVase: {
+				DisplayName: Spirit Vase
+				Tooltip: Releases spirits which home in on your cursor
+			}
 		}
 
 		Projectiles: {
@@ -1121,6 +1126,7 @@ Mods: {
 			PetalBladeProj.DisplayName: Petal Blade Proj
 			SporeOrbBig.DisplayName: Spore Orb Big
 			SporeOrbSmall.DisplayName: Spore Orb Small
+			SpiritVaseProj.DisplayName: Spirit Vase Proj
 		}
 
 		Tiles: {
