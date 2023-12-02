@@ -67,7 +67,7 @@ namespace AssortedAdditions.Content.NPCs
 
         public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
-            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<GrabberFlower>(), 10, 1));
+            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<GrabberFlower>(), 15, 1));
         }
 
         public override void HitEffect(NPC.HitInfo hit)
