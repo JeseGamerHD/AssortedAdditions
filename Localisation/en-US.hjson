@@ -1053,6 +1053,11 @@ Mods: {
 				DisplayName: Spirit Vase
 				Tooltip: Releases spirits which home in on your cursor
 			}
+
+			GhostlyBlade: {
+				DisplayName: Ghostly Blade
+				Tooltip: Killing an enemy summons a ghost
+			}
 		}
 
 		Projectiles: {
@@ -1127,6 +1132,7 @@ Mods: {
 			SporeOrbBig.DisplayName: Spore Orb Big
 			SporeOrbSmall.DisplayName: Spore Orb Small
 			SpiritVaseProj.DisplayName: Spirit Vase Proj
+			GhostlyBladeProj.DisplayName: Ghostly Blade Proj
 		}
 
 		Tiles: {

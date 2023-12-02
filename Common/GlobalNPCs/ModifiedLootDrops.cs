@@ -112,6 +112,11 @@ namespace AssortedAdditions.Common.GlobalNPCs
             {
                 npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<VultureWings>(), 20)); // 5% chance
             }
+
+            if(npc.type == NPCID.Ghost)
+            {
+                npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<GhostlyBlade>(), 12)); // 8% chance
+            }
         }
     }
 }
