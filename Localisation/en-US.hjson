@@ -1058,6 +1058,11 @@ Mods: {
 				DisplayName: Ghostly Blade
 				Tooltip: Killing an enemy summons a ghost
 			}
+
+			TrainingDummy: {
+				DisplayName: Training Dummy
+				Tooltip: Summons a training dummy which can be targetted by minions as well
+			}
 		}
 
 		Projectiles: {
@@ -1195,6 +1200,7 @@ Mods: {
 			IceGuardianShield.DisplayName: Ice Guardian Shield
 			GoblinBalloonist.DisplayName: Goblin Balloonist
 			JungleMimic.DisplayName: Jungle Mimic
+			TrainingDummyNPC.DisplayName: Training Dummy
 		}
 
 		Conditions.SellCosmicItems: Mods.AssortedAdditions.Conditions.SellCosmicItems

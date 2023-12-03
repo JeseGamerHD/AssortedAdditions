@@ -9,7 +9,7 @@ namespace AssortedAdditions.Common.GlobalItems
     // Currently mostly used for buffing/nerfing items, but also editing tooltips
     internal class ModifiedItems : GlobalItem
     {
-        public override void SetDefaults(Item entity)
+		public override void SetDefaults(Item entity)
         {
             switch (entity.type)
             {
