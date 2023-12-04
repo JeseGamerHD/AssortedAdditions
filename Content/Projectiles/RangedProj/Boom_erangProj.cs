@@ -22,20 +22,39 @@ namespace AssortedAdditions.Content.Projectiles.RangedProj
             Projectile.DamageType = DamageClass.Ranged;
         }
 
-        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
+
+		public override void PostAI()
+		{
+            // When hitting something, an explosion spawns
+            if(Projectile.ai[2] == 5) // Done like this to sync for multiplayer
+            {
+                ExplosionEffect();
+            }
+		}
+
+		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
-            ExplosionEffect();
+            if (Projectile.ai[2] == 0)
+            {
+				Projectile.ai[2] = 5;
+			}
         }
 
         public override void OnHitPlayer(Player target, Player.HurtInfo info)
         {
-            ExplosionEffect();
-        }
+			if (Projectile.ai[2] == 0)
+			{
+				Projectile.ai[2] = 5;
+			}
+		}
 
         public override bool OnTileCollide(Vector2 oldVelocity)
         {
-            ExplosionEffect();
-            return base.OnTileCollide(oldVelocity);
+			if (Projectile.ai[2] == 0)
+			{
+				Projectile.ai[2] = 5;
+			}
+			return base.OnTileCollide(oldVelocity);
         }
 
         private void ExplosionEffect()
@@ -77,6 +96,9 @@ namespace AssortedAdditions.Content.Projectiles.RangedProj
                 dust.velocity *= 3f;
                 dust.noGravity = true;
             }
-        }
+
+            // Effect is done
+			Projectile.ai[2] = 0;
+		}
     }
 }
