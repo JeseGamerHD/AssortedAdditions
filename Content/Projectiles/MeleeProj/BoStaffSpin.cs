@@ -4,6 +4,7 @@ using Terraria;
 using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
 using AssortedAdditions.Content.Items.Weapons.Melee.BoStaffs;
+using System.Collections.Generic;
 
 namespace AssortedAdditions.Content.Projectiles.MeleeProj
 {
@@ -18,83 +19,68 @@ namespace AssortedAdditions.Content.Projectiles.MeleeProj
             Projectile.width = 82;
             Projectile.height = 82;
             Projectile.penetrate = -1;
-            Projectile.tileCollide = false;
             Projectile.DamageType = DamageClass.Melee;
-            Projectile.friendly = true;
-        }
+
+			Projectile.tileCollide = false;
+			Projectile.friendly = true;
+			Projectile.ownerHitCheck = true;
+			Projectile.hide = true;
+		}
 
         public override void AI()
         {
             Player player = Main.player[Projectile.owner];
+			Vector2 playerCenter = player.RotatedRelativePoint(player.MountedCenter);
 
-            // Check if Player Dead
-            if (player.dead)
+			if (Main.myPlayer == Projectile.owner)
             {
-                Projectile.Kill();
-                return;
-            }
+				if (player.channel)
+				{
+					float holdoutDistance = player.HeldItem.shootSpeed * Projectile.scale;
+					Vector2 holdoutOffset = holdoutDistance * Vector2.Normalize(Main.MouseWorld - playerCenter);
 
-            // Weapon will spin as long as player keeps channeling
-            if (player.channel)
-            {
-                Projectile.position = player.Center; // Needs to be adjusted below
-                Projectile.position.Y -= 40;
+					if (holdoutOffset.X != Projectile.velocity.X || holdoutOffset.Y != Projectile.velocity.Y)
+					{
+						Projectile.netUpdate = true;
+					}
 
-                if (player.direction == -1) // If player faces left adjust accordingly
-                {
-                    Projectile.position.X -= 40;
-                    Projectile.rotation -= 0.2f; // Rotation also changes depending on direction faced
-                }
-                else // If right, adjust differently
-                {
-                    Projectile.position.X -= 45;
-                    Projectile.rotation += 0.2f;
-                }
+					Projectile.velocity = holdoutOffset;
+				}
+				else
+				{
+					Projectile.Kill();
+				}
+			}
 
-                // Used for swapping the weapon position if the player switches direction
-                int switchSides = player.direction;
+			if (Projectile.velocity.X > 0f)
+			{
+				Projectile.rotation += 0.2f;
+				player.ChangeDir(1);
+			}
+			else if (Projectile.velocity.X < 0f)
+			{
+				Projectile.rotation -= 0.2f;
+				player.ChangeDir(-1);
+			}
 
-                // Weapon needs to "point" towards the cursor's X position
-                if (Main.MouseWorld.X > player.Center.X)
-                {
-                    player.ChangeDir(1); // Change player to face said direction
-                }
-                else if (Main.MouseWorld.X < player.Center.X)
-                {
-                    player.ChangeDir(-1);
-                }
+			player.ChangeDir(Projectile.direction);
+			player.heldProj = Projectile.whoAmI;
+			player.SetDummyItemTime(15);
+			Projectile.Center = playerCenter;
+			player.itemRotation = (Projectile.velocity * Projectile.direction).ToRotation();
 
-                // Replaces the old projectile with a new one after switching direction
-                // New projectile alligns properly
-                if (switchSides != player.direction)
-                {
-                    Projectile.Kill();
-                }
+			// Sprite changes depending on which staff is being used
+			Visuals();
 
-                // Makes player hold the weapon
-                player.heldProj = Projectile.whoAmI;
-                player.itemTime = 2;
-                player.itemAnimation = 2;
-                player.itemRotation = MathHelper.WrapAngle(Projectile.rotation);
+			// Sound effect
+			if (Projectile.soundDelay == 0)
+			{
+				Projectile.soundDelay = 14; // This countsdown automatically
+				SoundEngine.PlaySound(SoundID.Item1, Projectile.position);
+			}
+		}
 
-                // Sprite changes depending on which staff is being used
-                Visuals();
-
-                // Sound effect
-                if (Projectile.soundDelay == 0)
-                {
-                    Projectile.soundDelay = 14; // This countsdown automatically
-                    SoundEngine.PlaySound(SoundID.Item1, Projectile.position);
-                }
-
-            }
-            else // When channeling stops, the projectile is destroyed
-            {
-                Projectile.Kill();
-            }
-        }
-
-        private void Visuals()
+		private void Visuals()
         {
             Player player = Main.player[Projectile.owner];
             int itemInUse = player.inventory[player.selectedItem].type; // The item the player is currently using
@@ -104,47 +90,47 @@ namespace AssortedAdditions.Content.Projectiles.MeleeProj
                 Projectile.frame = 0;
             }
 
-            if (itemInUse == ModContent.ItemType<BorealBoStaff>())
+            else if (itemInUse == ModContent.ItemType<BorealBoStaff>())
             {
                 Projectile.frame = 1;
             }
 
-            if (itemInUse == ModContent.ItemType<BoStaff>())
+            else if (itemInUse == ModContent.ItemType<BoStaff>())
             {
                 Projectile.frame = 2;
             }
 
-            if (itemInUse == ModContent.ItemType<DynastyBoStaff>())
+			else if(itemInUse == ModContent.ItemType<DynastyBoStaff>())
             {
                 Projectile.frame = 3;
             }
 
-            if (itemInUse == ModContent.ItemType<EbonWoodBoStaff>())
+			else if(itemInUse == ModContent.ItemType<EbonWoodBoStaff>())
             {
                 Projectile.frame = 4;
             }
 
-            if (itemInUse == ModContent.ItemType<MahoganyBoStaff>())
+			else if(itemInUse == ModContent.ItemType<MahoganyBoStaff>())
             {
                 Projectile.frame = 5;
             }
 
-            if (itemInUse == ModContent.ItemType<PalmBoStaff>())
+			else if(itemInUse == ModContent.ItemType<PalmBoStaff>())
             {
                 Projectile.frame = 6;
             }
 
-            if (itemInUse == ModContent.ItemType<PearlWoodBoStaff>())
+			else if(itemInUse == ModContent.ItemType<PearlWoodBoStaff>())
             {
                 Projectile.frame = 7;
             }
 
-            if (itemInUse == ModContent.ItemType<ShadeWoodBoStaff>())
+			else if(itemInUse == ModContent.ItemType<ShadeWoodBoStaff>())
             {
                 Projectile.frame = 8;
             }
 
-            if (itemInUse == ModContent.ItemType<SpookyBoStaff>())
+			else if(itemInUse == ModContent.ItemType<SpookyBoStaff>())
             {
                 Projectile.frame = 9;
             }
