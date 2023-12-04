@@ -36,34 +36,38 @@ namespace AssortedAdditions.Content.Projectiles.MagicProj
 
 		public override void AI()
 		{
-			if(Main.myPlayer == Projectile.owner)
+
+			// After hitting a target the projectile will fly off in the direction it was headed when the hit occurred (ai[0] is increased)
+			// If ai[1] is not 0, then the projectile's timeLeft is running out
+			if (Projectile.ai[0] == 0 && Projectile.ai[1] == 0)
 			{
-				// After hitting a target the projectile will fly off in the direction it was headed when the hit occurred (ai[0] is increased)
-				// If ai[1] is not 0, then the projectile's timeLeft is running out
-				if (Projectile.ai[0] == 0 && Projectile.ai[1] == 0)
+				// Since the projectile follows the mouse, only the owner can set the value
+				if (Main.myPlayer == Projectile.owner)
 				{
-					// With these the projectile will move towards the target in a smooth way
-					float target = (Main.MouseWorld - Projectile.Center).ToRotation();
-					float curve = Projectile.velocity.ToRotation();
-					float maxTurn = MathHelper.ToRadians(5f); // Lower values mean faster turning
-					Projectile.velocity = Projectile.velocity.RotatedBy(MathHelper.WrapAngle(curve.AngleTowards(target, maxTurn)) - curve);
-					Projectile.rotation = Projectile.velocity.ToRotation();
+					Projectile.ai[2] = (Main.MouseWorld - Projectile.Center).ToRotation();
+					Projectile.netUpdate = true; // Value needs to be synced even though it it using the ai array
 				}
 
-				// Keep projectile alive until the trail has faded enough
-				if(Projectile.timeLeft == 1 && Projectile.ai[1] <= 60)
-				{
-					Projectile.timeLeft = 2;
-					Projectile.ai[1]++;
-				}
-
-				// Slow down the projectile to fade out the trail when the projectile starts to die
-				if (Projectile.ai[1] != 0)
-				{
-					Projectile.velocity = 0.95f * Projectile.velocity;
-				}
+				// With these the projectile will move towards the target in a smooth way
+				float curve = Projectile.velocity.ToRotation();
+				float maxTurn = MathHelper.ToRadians(5f); // Lower values mean faster turning
+				Projectile.velocity = Projectile.velocity.RotatedBy(MathHelper.WrapAngle(curve.AngleTowards(Projectile.ai[2], maxTurn)) - curve);
 			}
 
+			// Keep projectile alive until the trail has faded enough
+			if (Projectile.timeLeft == 1 && Projectile.ai[1] <= 60)
+			{
+				Projectile.timeLeft = 2;
+				Projectile.ai[1]++;
+			}
+
+			// Slow down the projectile to fade out the trail when the projectile starts to die
+			if (Projectile.ai[1] != 0)
+			{
+				Projectile.velocity = 0.95f * Projectile.velocity;
+			}
+
+			Projectile.rotation = Projectile.velocity.ToRotation();
 			Lighting.AddLight(Projectile.Center, TorchID.Blue);
 		}
 
