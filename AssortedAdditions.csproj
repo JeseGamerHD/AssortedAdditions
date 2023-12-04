@@ -215,6 +215,7 @@
     <None Remove="Content\Tiles\Blocks\RedCarpetTile.png" />
     <None Remove="Content\Tiles\Blocks\SteelBlockTile.png" />
     <None Remove="Content\Tiles\Blocks\SteelPlatingTile.png" />
+    <None Remove="Content\Tiles\CoalChunk.png" />
     <None Remove="Content\Tiles\CraftingStations\MagicWorkbenchTile.png" />
     <None Remove="Content\Tiles\FrostBarTile.png" />
     <None Remove="Content\Tiles\Furniture\MysteriousChestTile.png" />

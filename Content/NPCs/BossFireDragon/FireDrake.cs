@@ -57,7 +57,7 @@ namespace AssortedAdditions.Content.NPCs.BossFireDragon
                 direction.Normalize();
                 direction *= speed;
                 NPC.velocity = (NPC.velocity * (inertia - 1) + direction) / inertia;
-                NPC.spriteDirection = -1 * NPC.direction;
+                NPC.spriteDirection = NPC.direction;
 
                 NPC.EncourageDespawn(5);
             }
@@ -152,7 +152,7 @@ namespace AssortedAdditions.Content.NPCs.BossFireDragon
             int frameSpeed = 5;
             NPC.frameCounter++;
 
-            NPC.spriteDirection = -1 * NPC.direction; // Faces left/right correctly
+            NPC.spriteDirection = NPC.direction; // Faces left/right correctly
 
             if (NPC.frameCounter >= frameSpeed)
             {
