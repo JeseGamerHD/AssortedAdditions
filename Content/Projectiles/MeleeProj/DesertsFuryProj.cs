@@ -3,6 +3,7 @@ using Terraria.ID;
 using Terraria;
 using Terraria.ModLoader;
 using System.Collections.Generic;
+using Microsoft.Xna.Framework;
 
 namespace AssortedAdditions.Content.Projectiles.MeleeProj
 {
@@ -13,101 +14,88 @@ namespace AssortedAdditions.Content.Projectiles.MeleeProj
             Projectile.width = 110;
             Projectile.height = 110;
             Projectile.penetrate = -1;
-            Projectile.tileCollide = false;
             Projectile.DamageType = DamageClass.Melee;
-            Projectile.friendly = true;
-        }
 
-        float rotateSpeed = 0; // Used for accelerating rotation
-        float delay = 28; // Used for accelerating sound
-        public override void AI()
+			Projectile.tileCollide = false;
+			Projectile.ownerHitCheck = true;
+			Projectile.friendly = true;
+			Projectile.hide = true;
+		}
+
+		float rotateSpeed = 0; // Used for accelerating rotation
+		float delay = 28; // Used for accelerating sound
+
+		public override void AI()
         {
             Player player = Main.player[Projectile.owner];
+			Vector2 playerCenter = player.RotatedRelativePoint(player.MountedCenter);
 
-            // Check if Player Dead
-            if (player.dead)
+			// Gradually speed up the spin
+			if (rotateSpeed <= 0.2f)
             {
-                Projectile.Kill();
-                return;
+				rotateSpeed += 0.0015f;
             }
 
-            // Gradually speed up the spin
-            if (rotateSpeed <= 0.2f)
+
+            if(Main.myPlayer == Projectile.owner)
             {
-                rotateSpeed += 0.0015f;
-            }
+				if (player.channel)
+				{
+					float holdoutDistance = player.HeldItem.shootSpeed * Projectile.scale;
+					Vector2 holdoutOffset = holdoutDistance * Vector2.Normalize(Main.MouseWorld - playerCenter);
 
-            // Weapon will spin as long as player keeps channeling
-            if (player.channel)
-            {
-                Projectile.position = player.Center; // Needs to be adjusted below
-                Projectile.position.Y -= 50;
+					if (holdoutOffset.X != Projectile.velocity.X || holdoutOffset.Y != Projectile.velocity.Y)
+					{
+						Projectile.netUpdate = true;
+					}
 
-                if (player.direction == -1) // If player faces left adjust accordingly
-                {
-                    Projectile.position.X -= 58;
-                    Projectile.rotation -= rotateSpeed; // Rotation also changes depending on direction faced
-                }
-                else // If right, adjust differently
-                {
-                    Projectile.position.X -= 53;
-                    Projectile.rotation += rotateSpeed;
-                }
+					Projectile.velocity = holdoutOffset;
+				}
+				else
+				{
+					Projectile.Kill();
+				}
+			}
 
-                // Used for swapping the weapon position if the player switches direction
-                int switchSides = player.direction;
+			if (Projectile.velocity.X > 0f)
+			{
+				Projectile.rotation += rotateSpeed;
+				player.ChangeDir(1);
+			}
+			else if (Projectile.velocity.X < 0f)
+			{
+				Projectile.rotation -= rotateSpeed;
+				player.ChangeDir(-1);
+			}
 
-                // Weapon needs to "point" towards the cursor's X position
-                if (Main.MouseWorld.X > player.Center.X)
-                {
-                    player.ChangeDir(1); // Change player to face said direction
-                }
-                else if (Main.MouseWorld.X < player.Center.X)
-                {
-                    player.ChangeDir(-1);
-                }
+			player.ChangeDir(Projectile.direction);
+			player.heldProj = Projectile.whoAmI;
+			player.SetDummyItemTime(2);
+			Projectile.Center = playerCenter;
+			player.itemRotation = (Projectile.velocity * Projectile.direction).ToRotation();
 
-                // Replaces the old projectile with a new one after switching direction
-                // New projectile alligns properly
-                if (switchSides != player.direction)
-                {
-                    Projectile.Kill();
-                }
+			if (delay > 14)
+			{
+				delay -= 0.105f;
+			}
 
-                // Makes player hold the weapon
-                player.heldProj = Projectile.whoAmI;
-                player.itemTime = 2;
-                player.itemAnimation = 2;
+			// Sound effect
+			// Gets faster along with the spin
+			if (Projectile.soundDelay == 0)
+			{
+				Projectile.soundDelay = (int)delay; // This countsdown automatically
+				SoundEngine.PlaySound(SoundID.Item1, Projectile.position);
+			}
 
-                // Dust
-                if (Main.rand.NextBool(3))
-                {
-                    Dust dust = Dust.NewDustDirect(Projectile.position - Projectile.velocity, Projectile.width, Projectile.height, DustID.Sandnado, 0, 0, 100, default, 2f);
-                    dust.noGravity = true;
+			if (Main.rand.NextBool(3))
+			{
+				Dust dust = Dust.NewDustDirect(Projectile.position - Projectile.velocity, Projectile.width, Projectile.height, DustID.Sandnado, 0, 0, 100, default, 2f);
+				dust.noGravity = true;
 
-                    Dust dust2 = Dust.NewDustDirect(Projectile.position - Projectile.velocity, Projectile.width, Projectile.height, DustID.Sandstorm, 0, 0, 100, default, 2f);
-                    dust2.noGravity = true;
-                }
-
-                if (delay > 14)
-                {
-                    delay -= 0.105f;
-                }
-
-                // Sound effect
-                // Gets faster along with the spin
-                if (Projectile.soundDelay == 0)
-                {
-                    Projectile.soundDelay = (int)delay; // This countsdown automatically
-                    SoundEngine.PlaySound(SoundID.Item1, Projectile.position);
-                }
-
-            }
-            else // When channeling stops, the projectile is destroyed
-            {
-                Projectile.Kill();
-            }
-        }
+				Dust dust2 = Dust.NewDustDirect(Projectile.position - Projectile.velocity, Projectile.width, Projectile.height, DustID.Sandstorm, 0, 0, 100, default, 2f);
+				dust2.noGravity = true;
+			}
+		}
 
         public override void DrawBehind(int index, List<int> behindNPCsAndTiles, List<int> behindNPCs, List<int> behindProjectiles, List<int> overPlayers, List<int> overWiresUI)
         {
