@@ -17,9 +17,9 @@ namespace AssortedAdditions.Content.Items.Placeables.Ores
         {
             Item.width = 20;
             Item.height = 20;
-            Item.maxStack = 999;
+            Item.maxStack = Item.CommonMaxStack;
             Item.consumable = true;
-            Item.value = Item.buyPrice(silver: 19);
+            Item.value = Item.buyPrice(silver: 6);
 
             Item.useStyle = ItemUseStyleID.Swing;
             Item.useTurn = true;
@@ -33,6 +33,7 @@ namespace AssortedAdditions.Content.Items.Placeables.Ores
         }
 
         // 2 recipes because lead sometimes replaces iron
+        // Could have used recipegroup "IronBar"
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();

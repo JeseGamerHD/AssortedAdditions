@@ -20,7 +20,7 @@ namespace AssortedAdditions.Content.Items.Placeables.Ores
         {
             Item.width = 12;
             Item.height = 12;
-            Item.maxStack = 999;
+            Item.maxStack = Item.CommonMaxStack;
             Item.consumable = true;
             Item.value = Item.buyPrice(silver: 1);
 

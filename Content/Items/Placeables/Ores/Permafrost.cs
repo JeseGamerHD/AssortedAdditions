@@ -18,7 +18,7 @@ namespace AssortedAdditions.Content.Items.Placeables.Ores
         {
             Item.width = 16;
             Item.height = 16;
-            Item.maxStack = 999;
+            Item.maxStack = Item.CommonMaxStack;
             Item.useAnimation = 15;
             Item.useTime = 10;
 
@@ -26,7 +26,7 @@ namespace AssortedAdditions.Content.Items.Placeables.Ores
             Item.useTurn = true;
             Item.autoReuse = true;
 
-            Item.value = Item.sellPrice(silver: 15);
+            Item.value = Item.sellPrice(silver: 10);
             Item.rare = ItemRarityID.Orange;
             Item.useStyle = ItemUseStyleID.Swing;
             Item.createTile = ModContent.TileType<PermafrostTile>();
