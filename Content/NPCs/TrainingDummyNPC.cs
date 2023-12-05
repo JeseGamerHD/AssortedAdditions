@@ -29,6 +29,7 @@ namespace AssortedAdditions.Content.NPCs
 			NPC.lifeMax = int.MaxValue;
 			NPC.knockBackResist = 0f;
 			NPC.HitSound = SoundID.NPCHit15;
+			NPC.netAlways = true;
 		}
 
 		public override void UpdateLifeRegen(ref int damage)
@@ -46,25 +47,15 @@ namespace AssortedAdditions.Content.NPCs
 			return false;
 		}
 
-		// States for animating the dummy
-		private readonly float Idle = 0;
-		private readonly float JustHit = 1;
-		private readonly float DoingAnimation = 2;
-
-		public override void OnHitByItem(Player player, Item item, NPC.HitInfo hit, int damageDone)
+		// States for animating the dummy - NPC.ai[2]
+		// 0 = Idle
+		// 1 = just hit
+		// 2 = Looping through animation
+		public override void HitEffect(NPC.HitInfo hit)
 		{
-			// Start the animation if one is not already in progress
-			if (NPC.ai[2] != DoingAnimation)
+			if (NPC.ai[2] != 2)
 			{
-				NPC.ai[2] = JustHit;
-			}
-		}
-
-		public override void OnHitByProjectile(Projectile projectile, NPC.HitInfo hit, int damageDone)
-		{
-			if (NPC.ai[2] != DoingAnimation)
-			{
-				NPC.ai[2] = JustHit;
+				NPC.ai[2] = 1;
 			}
 		}
 
@@ -72,7 +63,7 @@ namespace AssortedAdditions.Content.NPCs
 		public override void FindFrame(int frameHeight)
 		{
 			// Idle (not being hit)
-			if (NPC.ai[2] == Idle)
+			if (NPC.ai[2] == 0)
 			{
 				frame = 3;
 				NPC.frameCounter = 0;
@@ -80,10 +71,10 @@ namespace AssortedAdditions.Content.NPCs
 			else
 			{
 				// Was Just hit, start the animation
-				if (NPC.ai[2] != DoingAnimation)
+				if (NPC.ai[2] != 2)
 				{
 					frame = 0;
-					NPC.ai[2] = DoingAnimation;
+					NPC.ai[2] = 2;
 				}
 
 				if (NPC.frameCounter % 4 == 0)
@@ -95,7 +86,7 @@ namespace AssortedAdditions.Content.NPCs
 				// Animation finished, reset to idle
 				if (frame > 4)
 				{
-					NPC.ai[2] = Idle;
+					NPC.ai[2] = 0;
 					frame = 0;
 				}
 			}
