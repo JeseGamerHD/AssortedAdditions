@@ -26,20 +26,20 @@ namespace AssortedAdditions.Content.Items.Consumables
         // Invitation works if the merchant is not already present
         public override bool CanUseItem(Player player)
         {
-            for (int i = 0; i < Main.npc.Length; i++)
+            if (NPC.AnyNPCs(NPCID.TravellingMerchant))
             {
-                if (Main.npc[i].active && Main.npc[i].type == NPCID.TravellingMerchant)
-                {
-                    return false;
-                }
+                return false;
             }
 
-            return base.CanUseItem(player);
+			return base.CanUseItem(player);
         }
 
         public override bool? UseItem(Player player)
         {
-            if (player.whoAmI == Main.myPlayer)
+			// This resets the shop items
+			Chest.SetupTravelShop(); // Without using this the shop would have the same items until a natural spawn occurs
+
+			if (player.whoAmI == Main.myPlayer)
             {
                 return true;
             }
@@ -49,25 +49,32 @@ namespace AssortedAdditions.Content.Items.Consumables
 
         public override bool ConsumeItem(Player player)
         {
-            // Dust + sound effect:
-            for (int i = 0; i < 30; i++)
+			if (player.whoAmI == Main.myPlayer)
             {
-                int dust = Dust.NewDust(player.Center, player.width, player.height, DustID.WaterCandle, 0, 0, 150, default, 3.5f);
-                Main.dust[dust].noGravity = true;
-                Main.dust[dust].velocity *= 3f;
-            }
-            SoundEngine.PlaySound(SoundID.Item8, player.position);
+				// NPC spawning should not be done on multiplayer clients
+				if (Main.netMode != NetmodeID.MultiplayerClient)
+				{
+					NPC.NewNPC(player.GetSource_ItemUse(Item), (int)player.Center.X, (int)player.Center.Y, NPCID.TravellingMerchant);
+				}
+                else
+                { // On multiplayer, the server spawns and syncs the merchant
+					var message = Mod.GetPacket();
+					message.Write((byte)AssortedAdditions.MessageType.SpawnTravellingMerchant);
+                    message.Write((int)player.Center.X);
+                    message.Write((int)player.Center.Y);
+                    message.Send();
+				}
 
-            // This resets the shop items
-            Chest.SetupTravelShop(); // Without using this the shop would have the same items until a natural spawn occurs
-
-            // NPC spawning should not be done on multiplayer clients
-            if (Main.netMode != NetmodeID.MultiplayerClient)
-            {
-                NPC.NewNPC(player.GetSource_ItemUse(Item), (int)player.Center.X, (int)player.Center.Y, NPCID.TravellingMerchant);
-            }
-
-            return base.ConsumeItem(player);
+				// Dust + sound effect:
+				for (int i = 0; i < 30; i++)
+				{
+					int dust = Dust.NewDust(player.Center, player.width, player.height, DustID.WaterCandle, 0, 0, 150, default, 3.5f);
+					Main.dust[dust].noGravity = true;
+					Main.dust[dust].velocity *= 3f;
+				}
+				SoundEngine.PlaySound(SoundID.Item8, player.position);
+			}
+			return base.ConsumeItem(player);
         }
     }
 }
