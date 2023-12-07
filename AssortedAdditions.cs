@@ -25,7 +25,9 @@ namespace AssortedAdditions
 			DespawnTrainingDummy,
 			SpawnTravellingMerchant,
 			SpawnSkeletonMerchant,
-			DespawnSkeletonMerchant
+			DespawnSkeletonMerchant,
+
+			TeleportDungeon
 		}
 
 		public override void HandlePacket(BinaryReader reader, int whoAmI)
@@ -68,6 +70,10 @@ namespace AssortedAdditions
 				case MessageType.DespawnSkeletonMerchant:
 					index = reader.ReadInt32();
 					SkeletonPotionProj.DespawnSkeletonMerchant(index);
+				break;
+
+				case MessageType.TeleportDungeon:
+					MysteriousKey.TeleportInMultiplayer(whoAmI);
 				break;
 			}
 		}
