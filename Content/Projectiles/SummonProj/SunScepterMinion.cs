@@ -30,34 +30,17 @@ namespace AssortedAdditions.Content.Projectiles.SummonProj
             Projectile.friendly = true;
             Projectile.minion = true;
 
-            Projectile.DamageType = DamageClass.Summon;
+			Projectile.DamageType = DamageClass.Summon;
             Projectile.aiStyle = 0;
-        }
-
-        // Despawn minion if buff is removed
-        public override bool PreAI()
-        {
-            Player owner = Main.player[Projectile.owner];
-
-            if (owner.HasBuff(ModContent.BuffType<SunScepterBuff>()))
-            {
-                Projectile.timeLeft = 2;
-                return true;
-            }
-            else
-            {
-                Projectile.Kill();
-                return false;
-            }
         }
 
         public override void AI()
         {
             Player owner = Main.player[Projectile.owner];
 
-            if (owner.dead || !owner.active)
+            if(!CheckActive(owner))
             {
-                owner.ClearBuff(ModContent.BuffType<SunScepterBuff>());
+                return;
             }
 
             // These are from Example Mod
@@ -76,7 +59,23 @@ namespace AssortedAdditions.Content.Projectiles.SummonProj
             }
         }
 
-        private void GeneralBehavior(Player owner, out Vector2 vectorToIdlePosition, out float distanceToIdlePosition)
+		private bool CheckActive(Player owner)
+		{
+			if (owner.dead || !owner.active)
+			{
+				owner.ClearBuff(ModContent.BuffType<SunScepterBuff>()); // If not, minion despawns
+				return false;
+			}
+
+			if (owner.HasBuff(ModContent.BuffType<SunScepterBuff>()))
+			{
+				Projectile.timeLeft = 2;
+			}
+
+			return true;
+		}
+
+		private void GeneralBehavior(Player owner, out Vector2 vectorToIdlePosition, out float distanceToIdlePosition)
         {
             Vector2 idlePosition = owner.Center;
             idlePosition.Y -= 48; // 3 tiles up from the player

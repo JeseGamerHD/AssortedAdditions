@@ -25,7 +25,7 @@ namespace AssortedAdditions.Content.Projectiles.SummonProj
             Projectile.tileCollide = false;
             Projectile.friendly = true;
             Projectile.minion = true;
-            Projectile.DamageType = DamageClass.Summon;
+			Projectile.DamageType = DamageClass.Summon;
             Projectile.minionSlots = 1; // Takes one slot
             Projectile.penetrate = -1; // Minion won't despawn upon collision with enemies/tiles
         }
@@ -70,7 +70,7 @@ namespace AssortedAdditions.Content.Projectiles.SummonProj
                 Projectile.timeLeft = 2;
             }
 
-            return true;
+			return true;
         }
 
         private void GeneralBehavior(Player owner, out Vector2 vectorToIdlePosition, out float distanceToIdlePosition)
@@ -260,6 +260,5 @@ namespace AssortedAdditions.Content.Projectiles.SummonProj
                 }
             }
         }
-
     }
 }

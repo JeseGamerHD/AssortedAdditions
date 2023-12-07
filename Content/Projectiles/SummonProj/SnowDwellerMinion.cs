@@ -40,19 +40,31 @@ namespace AssortedAdditions.Content.Projectiles.SummonProj
         {
             Player owner = Main.player[Projectile.owner];
 
-            if (owner.HasBuff(ModContent.BuffType<SnowDwellerBuff>()))
+            if (CheckActive(owner))
             {
-                Projectile.timeLeft = 2;
                 return true;
             }
-            else
-            {
-                Projectile.Kill();
-                return false;
-            }
+
+            return false;
         }
 
-        public override bool? CanCutTiles()
+		private bool CheckActive(Player owner)
+		{
+			if (owner.dead || !owner.active)
+			{
+				owner.ClearBuff(ModContent.BuffType<SnowDwellerBuff>()); // If not, minion despawns
+				return false;
+			}
+
+			if (owner.HasBuff(ModContent.BuffType<SnowDwellerBuff>()))
+			{
+				Projectile.timeLeft = 2;
+			}
+
+			return true;
+		}
+
+		public override bool? CanCutTiles()
         {
             return false;
         }
