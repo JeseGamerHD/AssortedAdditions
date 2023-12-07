@@ -31,17 +31,38 @@ namespace AssortedAdditions.Content.Items.Misc
         {
             if (Main.myPlayer == player.whoAmI)
             {
-                // Remember to multiply by 16
-                Vector2 roomPos = new((Main.dungeonX + 3) * 16, (Main.dungeonY + 16) * 16);
-                player.Teleport(roomPos, TeleportationStyleID.TeleportationPotion);
+                if(Main.netMode != NetmodeID.MultiplayerClient)
+                {
+					Vector2 roomPos = new((Main.dungeonX + 3) * 16, (Main.dungeonY + 16) * 16);
+					player.Teleport(roomPos, TeleportationStyleID.TeleportationPotion);
+				}
+                else
+                {
+					var message = Mod.GetPacket();
+                    message.Write((byte)AssortedAdditions.MessageType.TeleportDungeon);
+                    message.Send();
+				}
+                
                 SoundEngine.PlaySound(SoundID.Item6, player.position);
-
-                // After this the wizard will begin to sell items from the mysterious chest
-                // Otherwise items would be obtainable only once per world
-                ModContent.GetInstance<ItemFlags>().mysteriousKeyWasUsed = true;
             }
 
-            return true;
+			// After this the wizard will begin to sell items from the mysterious chest
+			// Otherwise items would be obtainable only once per world 
+			ModContent.GetInstance<ItemFlags>().mysteriousKeyWasUsed = true;
+
+			return true;
+        }
+
+        public static void TeleportInMultiplayer(int playerIndex)
+        {
+			Vector2 roomPos = new((Main.dungeonX + 3) * 16, (Main.dungeonY + 16) * 16);
+            Player player = Main.player[playerIndex];
+			player.Teleport(roomPos, TeleportationStyleID.TeleportationPotion);
+            player.velocity = Vector2.Zero;
+
+
+			RemoteClient.CheckSection(player.whoAmI, player.position);
+            NetMessage.SendData(MessageID.TeleportEntity, number2: player.whoAmI, number3: player.position.X, number4: player.position.Y);
         }
 
         public override void AddRecipes()
