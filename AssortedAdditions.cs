@@ -1,6 +1,8 @@
 using System.IO;
 using AssortedAdditions.Content.Items.Misc;
 using AssortedAdditions.Content.NPCs;
+using AssortedAdditions.Content.Projectiles;
+using Microsoft.Xna.Framework;
 using Steamworks;
 using Terraria;
 using Terraria.Audio;
@@ -21,7 +23,9 @@ namespace AssortedAdditions
 		{
 			SpawmTrainingDummy,
 			DespawnTrainingDummy,
-			SpawnTravellingMerchant
+			SpawnTravellingMerchant,
+			SpawnSkeletonMerchant,
+			DespawnSkeletonMerchant
 		}
 
 		public override void HandlePacket(BinaryReader reader, int whoAmI)
@@ -53,6 +57,17 @@ namespace AssortedAdditions
 					Chest.SetupTravelShop(); // Without using this the shop would have the same items until a natural spawn occurs
 					NetMessage.SendTravelShop(-1); // ^^ Also needs to be synced manually...
 					SoundEngine.PlaySound(SoundID.Item8, travellingMerchant.position);
+				break;
+
+				case MessageType.SpawnSkeletonMerchant:
+					xPos = reader.ReadInt32();
+					yPos = reader.ReadInt32();
+					NPC.NewNPCDirect(new EntitySource_WorldEvent(), xPos, yPos, NPCID.SkeletonMerchant);
+				break;
+
+				case MessageType.DespawnSkeletonMerchant:
+					index = reader.ReadInt32();
+					SkeletonPotionProj.DespawnSkeletonMerchant(index);
 				break;
 			}
 		}

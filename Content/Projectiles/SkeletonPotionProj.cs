@@ -2,6 +2,7 @@
 using Terraria.ID;
 using Terraria;
 using Terraria.ModLoader;
+using System;
 
 namespace AssortedAdditions.Content.Projectiles
 {
@@ -40,31 +41,66 @@ namespace AssortedAdditions.Content.Projectiles
                 dust.noGravity = true;
             }
 
-            // Don't spawn on multiplayer clients
-            // If one is already alive, teleport it to the player
-            // else spawn a new one
-            if (Main.netMode != NetmodeID.MultiplayerClient)
+            // Check if one is already spawned
+            // if not, spawn a new one, if yes then kill the previous one and spawn a new one
+            
+            int canSpawn = CheckIfExists();
+			if (canSpawn == -1)
             {
-                if (SummonOrTeleport())
+				// Don't spawn on multiplayer clients
+				if (Main.netMode != NetmodeID.MultiplayerClient)
                 {
-                    NPC.NewNPC(Projectile.GetSource_FromThis(), (int)Projectile.position.X, (int)Projectile.position.Y, NPCID.SkeletonMerchant);
-                }
-
+					int npc = NPC.NewNPC(Projectile.GetSource_FromThis(), (int)Projectile.position.X, (int)Projectile.position.Y, NPCID.SkeletonMerchant);
+					NetMessage.SendData(MessageID.SyncNPC, number: npc); // Spawns on the server, needs to be synced
+				}
             }
+            else
+            {
+				if (Main.netMode == NetmodeID.SinglePlayer)
+                {
+					DespawnSkeletonMerchant(canSpawn);
+
+					int npc = NPC.NewNPC(Projectile.GetSource_FromThis(), (int)Projectile.position.X, (int)Projectile.position.Y, NPCID.SkeletonMerchant);
+					NetMessage.SendData(MessageID.SyncNPC, number: npc); // Spawns on the server, needs to be synced
+				}
+                else
+                {
+                    var message = Mod.GetPacket();
+                    message.Write((byte)AssortedAdditions.MessageType.DespawnSkeletonMerchant);
+                    message.Write(canSpawn);
+                    message.Send();
+
+					var message2 = Mod.GetPacket(); // Send a message to the server telling that it should spawn the merchant
+					message2.Write((byte)AssortedAdditions.MessageType.SpawnSkeletonMerchant);
+					message2.Write((int)Projectile.position.X);
+					message2.Write((int)Projectile.position.Y);
+					message2.Send();
+				}
+			}
         }
 
-        private bool SummonOrTeleport()
+        public static void DespawnSkeletonMerchant(int index)
         {
-            for (int i = 0; i < Main.npc.Length; i++)
+			Main.npc[index].life = 0;
+			Main.npc[index].active = false;
+
+			if (Main.netMode == NetmodeID.Server)
+			{
+				NetMessage.SendData(MessageID.SyncNPC, number: index);
+			}
+		}
+
+        private int CheckIfExists()
+        {
+            for (int i = 0; i < Main.maxNPCs; i++)
             {
                 if (Main.npc[i].active && Main.npc[i].type == NPCID.SkeletonMerchant)
                 {
-                    Main.npc[i].position = Projectile.position;
-                    return false;
+                    return i;
                 }
             }
 
-            return true;
+            return -1;
         }
     }
 }
