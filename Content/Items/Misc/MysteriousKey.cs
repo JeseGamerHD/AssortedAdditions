@@ -59,11 +59,8 @@ namespace AssortedAdditions.Content.Items.Misc
             Player player = Main.player[playerIndex];
 			player.Teleport(roomPos, TeleportationStyleID.TeleportationPotion);
             player.velocity = Vector2.Zero;
-
-
-			RemoteClient.CheckSection(player.whoAmI, player.position);
-            NetMessage.SendData(MessageID.TeleportEntity, number2: player.whoAmI, number3: player.position.X, number4: player.position.Y);
-        }
+			NetMessage.SendData(MessageID.TeleportEntity, -1, -1, null, 0, (float)player.whoAmI, player.position.X, player.position.Y, 1);
+		}
 
         public override void AddRecipes()
         {

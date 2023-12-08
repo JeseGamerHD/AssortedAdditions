@@ -47,6 +47,7 @@ namespace AssortedAdditions.Content.Items.Tools
                 // Set the coordinates, in this case the mouse position
                 Vector2 teleportHere = new(Main.MouseWorld.X, Main.MouseWorld.Y);
                 player.Teleport(teleportHere, TeleportationStyleID.TeleportationPotion);
+                NetMessage.SendData(MessageID.TeleportEntity, -1, -1, null, 0, (float)player.whoAmI, teleportHere.X, teleportHere.Y, 1);
                 player.AddBuff(BuffID.ChaosState, 240); // Cooldown    
             }
 
