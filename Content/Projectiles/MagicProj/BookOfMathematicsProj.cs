@@ -57,7 +57,6 @@ namespace AssortedAdditions.Content.Projectiles.MagicProj
                 setVisual = true;
             }
             Projectile.direction = (Projectile.velocity.X > 0).ToDirectionInt();
-            Projectile.netUpdate = true;
 
             sineTimer++;
             float sine = (float)Math.Sin(MathHelper.ToRadians(sineTimer * 3f));
@@ -68,7 +67,6 @@ namespace AssortedAdditions.Content.Projectiles.MagicProj
 
             initialCenter += Projectile.velocity;
             Projectile.Center = initialCenter + offset;
-            Projectile.netUpdate = true;
         }
 
         public override void OnKill(int timeLeft)
