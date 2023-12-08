@@ -10,6 +10,7 @@ using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ModLoader.Utilities;
+using System;
 
 namespace AssortedAdditions.Content.NPCs
 {
@@ -64,8 +65,9 @@ namespace AssortedAdditions.Content.NPCs
             {
                 if (Main.netMode != NetmodeID.MultiplayerClient)
                 {
-                    NPC.NewNPC(NPC.GetSource_FromAI(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<IceGuardianShield>(), 0, NPC.whoAmI);
-                }
+                    int npc = NPC.NewNPC(NPC.GetSource_FromAI(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<IceGuardianShield>(), 0, NPC.whoAmI);
+					NetMessage.SendData(MessageID.SyncNPC, number: npc);
+				}
             }
             timer++;
 

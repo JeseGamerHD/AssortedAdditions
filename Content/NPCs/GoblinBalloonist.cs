@@ -154,11 +154,12 @@ namespace AssortedAdditions.Content.NPCs
                     Dust dust = Dust.NewDustDirect(NPC.position, NPC.width, NPC.height, DustID.Confetti, 0f, 0f, 0, default, 2f);
                     dust.velocity *= 1.4f;
                     dust.shader = GameShaders.Armor.GetShaderFromItemId(ItemID.RedandBlackDye);
-                }
+				}
 
                 if (Main.netMode != NetmodeID.MultiplayerClient)
                 {
-                    NPC.NewNPC(NPC.GetSource_FromAI(), (int)NPC.position.X, (int)NPC.position.Y, NPCID.GoblinScout, NPC.whoAmI);
+                   int npc = NPC.NewNPC(NPC.GetSource_FromAI(), (int)NPC.position.X, (int)NPC.position.Y, NPCID.GoblinScout, NPC.whoAmI);
+                    NetMessage.SendData(MessageID.SyncNPC, number: npc);
                 }
             }
         }
