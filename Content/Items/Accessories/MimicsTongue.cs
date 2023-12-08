@@ -95,13 +95,14 @@ namespace AssortedAdditions.Content.Items.Accessories
 
             if (DashTimer > 0)
             {
+                // TODO figure out how to sync the visual effect
                 Player.eocDash = DashTimer;
                 Player.armorEffectDrawShadowEOCShield = true;
                 DashTimer--;
             }
         }
 
-        private bool CanDash()
+		private bool CanDash()
         {
             return isWearingMimicsTongue
                 && Player.dashType == 0
@@ -109,7 +110,7 @@ namespace AssortedAdditions.Content.Items.Accessories
                 && !Player.mount.Active;
         }
 
-        public override void ResetEffects()
+		public override void ResetEffects()
         {
             isWearingMimicsTongue = false;
 
@@ -118,26 +119,29 @@ namespace AssortedAdditions.Content.Items.Accessories
             // [2] = double tap right
             // [3] = double tap left
 
-            if (Player.controlRight && Player.releaseRight && Player.doubleTapCardinalTimer[2] < 15)
+            if(Main.myPlayer == Player.whoAmI)
             {
-                DashDir = DashRight;
-            }
-            else if (Player.controlLeft && Player.releaseLeft && Player.doubleTapCardinalTimer[3] < 15)
-            {
-                DashDir = DashLeft;
-            }
-            else if (Player.controlUp && Player.releaseUp && Player.doubleTapCardinalTimer[1] < 15)
-            {
-                DashDir = DashUp;
-            }
-            else if (Player.controlDown && Player.releaseDown && Player.doubleTapCardinalTimer[0] < 15)
-            {
-                DashDir = DashDown;
-            }
-            else
-            {
-                DashDir = -1; // No dash
-            }
+				if (Player.controlRight && Player.releaseRight && Player.doubleTapCardinalTimer[2] < 15)
+				{
+					DashDir = DashRight;
+				}
+				else if (Player.controlLeft && Player.releaseLeft && Player.doubleTapCardinalTimer[3] < 15)
+				{
+					DashDir = DashLeft;
+				}
+				else if (Player.controlUp && Player.releaseUp && Player.doubleTapCardinalTimer[1] < 15)
+				{
+					DashDir = DashUp;
+				}
+				else if (Player.controlDown && Player.releaseDown && Player.doubleTapCardinalTimer[0] < 15)
+				{
+					DashDir = DashDown;
+				}
+				else
+				{
+					DashDir = -1; // No dash
+				}
+			}
         }
 
         public override bool FreeDodge(Player.HurtInfo info)
