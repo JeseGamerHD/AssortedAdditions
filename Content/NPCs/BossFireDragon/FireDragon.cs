@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.IO;
 using AssortedAdditions.Content.Items.Consumables.TreasureBags;
 using AssortedAdditions.Content.Items.Misc;
 using AssortedAdditions.Content.Items.Pets;
@@ -193,6 +194,7 @@ namespace AssortedAdditions.Content.NPCs.BossFireDragon // This Boss NPC is buil
                         if (Main.npc[i].active && Main.npc[i].type == ModContent.NPCType<FireDrake>())
                         {
                             npcCount++;
+                            NPC.netUpdate = true;
                         }
                     }
 
@@ -208,53 +210,74 @@ namespace AssortedAdditions.Content.NPCs.BossFireDragon // This Boss NPC is buil
             if (Timer >= 1320)
             {
                 npcCount = 0;
-                Timer = 1;
+				NPC.netUpdate = true;
+				Timer = 1;
             }
         }
 
-        private void SpawnMinions()
+		public override void SendExtraAI(BinaryWriter writer)
+		{
+            writer.Write(npcCount);
+		}
+
+		public override void ReceiveExtraAI(BinaryReader reader)
+		{
+            npcCount = reader.ReadInt32();
+		}
+
+		private void SpawnMinions()
         {
-            if (Main.netMode == NetmodeID.MultiplayerClient)
-            {
-                // Because we want to spawn minions, and minions are NPCs, we have to do this on the server (or singleplayer, "!= NetmodeID.MultiplayerClient" covers both)
-                // This means we also have to sync it after we spawned and set up the minion
-                return;
-            }
 
-            // Spawn location varies, can be any of the screen corners
-            int xPos = 0;
-            int yPos = 0;
-            int location = Main.rand.Next(0, 4);
-            switch (location)
-            {
-                case 0:
-                    // Top left corner (screenPosition defaults to top left)
-                    xPos = (int)Main.screenPosition.X;
-                    yPos = (int)Main.screenPosition.Y;
-                    break;
-                case 1:
-                    // Top right corner (We can get other corner's by adding the screen width/height accordingly)
-                    xPos = (int)Main.screenPosition.X + Main.screenWidth;
-                    yPos = (int)Main.screenPosition.Y;
-                    break;
-                case 2:
-                    // Left bottom corner
-                    xPos = (int)Main.screenPosition.X;
-                    yPos = (int)Main.screenPosition.Y + Main.screenHeight;
-                    break;
-                case 3:
-                    // Right bottom corner
-                    xPos = (int)Main.screenPosition.X + Main.screenWidth;
-                    yPos = (int)Main.screenPosition.Y + Main.screenHeight;
-                    break;
-            }
+			// Spawn location varies, can be any of the screen corners
+			int xPos = 0;
+			int yPos = 0;
+			int location = Main.rand.Next(0, 4);
+			switch (location)
+			{
+				case 0:
+					// Top left corner (screenPosition defaults to top left)
+					xPos = (int)Main.screenPosition.X;
+					yPos = (int)Main.screenPosition.Y;
+					break;
 
-            // Spawn the minion at the position selected
-            NPC minion = NPC.NewNPCDirect(NPC.GetSource_FromAI(), xPos, yPos, ModContent.NPCType<FireDrake>(), NPC.whoAmI);
-            NetMessage.SendData(MessageID.SyncNPC, number: minion.whoAmI); // Sync since spawned on the server
+				case 1:
+					// Top right corner (We can get other corner's by adding the screen width/height accordingly)
+					xPos = (int)Main.screenPosition.X + Main.screenWidth;
+					yPos = (int)Main.screenPosition.Y;
+					break;
+
+				case 2:
+					// Left bottom corner
+					xPos = (int)Main.screenPosition.X;
+					yPos = (int)Main.screenPosition.Y + Main.screenHeight;
+					break;
+
+				case 3:
+					// Right bottom corner
+					xPos = (int)Main.screenPosition.X + Main.screenWidth;
+					yPos = (int)Main.screenPosition.Y + Main.screenHeight;
+					break;
+			}
+
+			// Because we want to spawn minions, and minions are NPCs, we have to do this on the server (or singleplayer, "!= NetmodeID.MultiplayerClient" covers both)
+			// This means we also have to sync it after we spawned and set up the minion
+			if (Main.netMode != NetmodeID.MultiplayerClient)
+            {
+				// Spawn the minion at the position when in singleplayer
+				NPC.NewNPCDirect(NPC.GetSource_FromAI(), xPos, yPos, ModContent.NPCType<FireDrake>(), NPC.whoAmI);
+			}
+            else
+            { // otherwise server handles it
+                var message = Mod.GetPacket();
+                message.Write((byte)AssortedAdditions.MessageType.SpawnGenericNPC);
+                message.Write(xPos);
+                message.Write(yPos);
+                message.Write(ModContent.NPCType<FireDrake>());
+                message.Send();
+            }
         }
 
-        public override bool CanHitPlayer(Player target, ref int cooldownSlot)
+		public override bool CanHitPlayer(Player target, ref int cooldownSlot)
         {
             cooldownSlot = ImmunityCooldownID.Bosses; // use the boss immunity cooldown counter, to prevent ignoring boss attacks by taking damage from other sources
             return true;

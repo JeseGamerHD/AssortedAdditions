@@ -21,6 +21,8 @@ namespace AssortedAdditions
 		/// </summary>
 		public enum MessageType : byte
 		{
+			SpawnGenericNPC,
+
 			SpawmTrainingDummy,
 			DespawnTrainingDummy,
 			SpawnTravellingMerchant,
@@ -37,10 +39,17 @@ namespace AssortedAdditions
 
 			switch (message)
 			{
-				// Training dummy spawned from UseItem
-				case MessageType.SpawmTrainingDummy:
+				case MessageType.SpawnGenericNPC:
 					int xPos = reader.ReadInt32();
 					int yPos = reader.ReadInt32();
+					int npc = reader.ReadInt32();
+					NPC.NewNPC(new EntitySource_WorldEvent(), xPos, yPos, npc);
+				break;
+
+				// Training dummy spawned from UseItem
+				case MessageType.SpawmTrainingDummy:
+					xPos = reader.ReadInt32();
+					yPos = reader.ReadInt32();
 					int player = reader.ReadInt32();
 					NPC.NewNPC(new EntitySource_WorldEvent(), xPos, yPos, ModContent.NPCType<TrainingDummyNPC>(), 0, player);
 				break;
