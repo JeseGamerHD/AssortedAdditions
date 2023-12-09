@@ -36,24 +36,22 @@ namespace AssortedAdditions.Content.NPCs
             BannerItem = ModContent.ItemType<ShroomlingBanner>();
         }
 
-        Player target;
-
         public override bool PreAI()
         {
             // Enemy starts off in idle position
             // then switches to fighter ai
             if (NPC.aiStyle == 0)
             {
-                // Find a target
-                if (!NPC.HasValidTarget)
-                {
-                    NPC.TargetClosest();
-                    target = Main.player[NPC.target];
-                }
+				// Finding target
+				if (NPC.target < 0 || NPC.target == 255 || Main.player[NPC.target].dead || !Main.player[NPC.target].active)
+				{
+					NPC.TargetClosest();
+				}
+				Player target = Main.player[NPC.target];
 
-                // Check if the target is close enough or the NPC gets hit
-                // Then switch aiStyle to beging attacking
-                if (target.Distance(NPC.Center) < 150f || NPC.velocity != Vector2.Zero)
+				// Check if the target is close enough or the NPC gets hit
+				// Then switch aiStyle to beging attacking
+				if (target.Distance(NPC.Center) < 150f || NPC.velocity != Vector2.Zero)
                 {
                     // It also makes a noise when disturbed
                     SoundStyle shroomlingAngry = new SoundStyle("AssortedAdditions/Assets/Sounds/NPCSound/ShroomlingAngry");
