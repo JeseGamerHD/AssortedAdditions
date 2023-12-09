@@ -254,8 +254,13 @@ namespace AssortedAdditions.Content.NPCs.BossFireDragon
                 // We then use Atan2 to get a correct rotation towards that parent NPC.
                 // Assumes the sprite for the NPC points upward.
                 worm.NPC.rotation = (float)Math.Atan2(dirY, dirX) + MathHelper.PiOver2;
+                
                 // Makes the body flip when the head flips
-                worm.NPC.spriteDirection = Main.npc[following.realLife].direction = -1 * (Main.npc[following.realLife].velocity.X > 0).ToDirectionInt();
+                if(following.realLife != -1)
+                {
+					worm.NPC.spriteDirection = Main.npc[following.realLife].direction = -1 * (Main.npc[following.realLife].velocity.X > 0).ToDirectionInt();
+                    worm.NPC.netUpdate = true;
+				}
 
                 // We also get the length of the direction vector.
                 float length = (float)Math.Sqrt(dirX * dirX + dirY * dirY);

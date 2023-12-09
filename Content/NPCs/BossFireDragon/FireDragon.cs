@@ -251,12 +251,7 @@ namespace AssortedAdditions.Content.NPCs.BossFireDragon // This Boss NPC is buil
 
             // Spawn the minion at the position selected
             NPC minion = NPC.NewNPCDirect(NPC.GetSource_FromAI(), xPos, yPos, ModContent.NPCType<FireDrake>(), NPC.whoAmI);
-
-            // Sync up
-            if (Main.netMode == NetmodeID.Server)
-            {
-                NetMessage.SendData(MessageID.SyncNPC, number: minion.whoAmI);
-            }
+            NetMessage.SendData(MessageID.SyncNPC, number: minion.whoAmI); // Sync since spawned on the server
         }
 
         public override bool CanHitPlayer(Player target, ref int cooldownSlot)
@@ -312,7 +307,7 @@ namespace AssortedAdditions.Content.NPCs.BossFireDragon // This Boss NPC is buil
             NPC.aiStyle = -1;
         }
 
-        public override void Init()
+		public override void Init()
         {
             FireDragonHead.CommonWormInit(this);
         }
@@ -339,7 +334,7 @@ namespace AssortedAdditions.Content.NPCs.BossFireDragon // This Boss NPC is buil
                         DustID.FlameBurst, 3, 3, 180, default, 1f);
                 dust.noGravity = true;
             }
-        }
+		}
 
         public override bool CanHitPlayer(Player target, ref int cooldownSlot)
         {
@@ -392,7 +387,7 @@ namespace AssortedAdditions.Content.NPCs.BossFireDragon // This Boss NPC is buil
             NPC.aiStyle = -1;
         }
 
-        public override void Init()
+		public override void Init()
         {
             FireDragonHead.CommonWormInit(this);
         }
