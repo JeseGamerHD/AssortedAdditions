@@ -49,11 +49,12 @@ namespace AssortedAdditions.Content.Items.Weapons.Magic
         public override bool CanUseItem(Player player)
         {
             // Removes previous projectiles, only one of this can exist
-            for (int i = 0; i < Main.projectile.Length; i++)
+            for (int i = 0; i < Main.maxProjectiles; i++)
             {
-                if (Main.projectile[i].type == ModContent.ProjectileType<DraconicTomeProj>())
+                if (Main.projectile[i].type == ModContent.ProjectileType<DraconicTomeProj>() && Main.projectile[i].owner == Main.myPlayer)
                 {
                     Main.projectile[i].Kill();
+                    NetMessage.SendData(MessageID.SyncProjectile, -1, -1, null, i);
                 }
             }
 
