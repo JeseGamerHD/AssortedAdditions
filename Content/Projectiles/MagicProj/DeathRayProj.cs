@@ -164,12 +164,6 @@ namespace AssortedAdditions.Content.Projectiles.MagicProj
                 };
                 SoundEngine.PlaySound(laserSound);
             }
-            // The sound effect has a long duration so it needs to be stopped once the player stops using the laser
-            // Without this the sound would play until it ends
-            if (!player.channel)
-            {
-                SoundEngine.FindActiveSound(laserSound).Stop();
-            }
         }
 
         private void SpawnDusts(Player player)
