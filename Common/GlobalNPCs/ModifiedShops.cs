@@ -67,6 +67,12 @@ namespace AssortedAdditions.Common.GlobalNPCs
             {
                 shop.Add(ModContent.ItemType<StoneWand>());
             }
+
+            if(shop.NpcType == NPCID.WitchDoctor)
+            {
+                shop.Add(new Item(ItemID.GuideVoodooDoll) { shopCustomPrice = 4000 }, condition: Condition.DownedSkeletron);
+				shop.Add(new Item(ItemID.ClothierVoodooDoll) { shopCustomPrice = 4000 }, condition: Condition.DownedSkeletron);
+			}
         }
     }
 }
