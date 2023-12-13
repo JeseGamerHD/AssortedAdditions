@@ -24,7 +24,22 @@ namespace AssortedAdditions.Content.Items.Accessories
             Item.accessory = true;
         }
 
-        private int Timer = 0; // For smoothly rotating the player to glide position
+		public override void AddRecipes()
+		{
+			Recipe recipe = CreateRecipe();
+			recipe.AddIngredient(ItemID.Silk, 20);
+            recipe.AddIngredient(ItemID.SilverBar, 5);
+			recipe.AddTile(TileID.Sawmill);
+			recipe.Register();
+
+			Recipe recipe2 = CreateRecipe();
+			recipe2.AddIngredient(ItemID.Silk, 20);
+			recipe2.AddIngredient(ItemID.TungstenBar, 5);
+			recipe2.AddTile(TileID.Sawmill);
+			recipe2.Register();
+		}
+
+		private int Timer = 0; // For smoothly rotating the player to glide position
         private int landingTimer = 90; // For smoothly rotating the player back to normal position during landing
 
         public override bool WingUpdate(Player player, bool inUse)
