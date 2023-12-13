@@ -6,6 +6,37 @@
 	public static class TileStyleID
 	{
 		/// <summary>
+		/// The differents styles for torches in TileID.Torches
+		/// </summary>
+		public static class Torches
+		{
+			public const byte Torch = 0;
+			public const byte BlueTorch = 1;
+			public const byte RedTorch = 2;
+			public const byte GreenTorch = 3;
+			public const byte PurpleTorch = 4;
+			public const byte WhiteTorch = 5;
+			public const byte YellowTorch = 6;
+			public const byte DemonTorch = 7;
+			public const byte CursedTorch = 8;
+			public const byte IceTorch = 9;
+			public const byte OrangeTorch = 10;
+			public const byte IchorTorch = 11;
+			public const byte UltrabrightTorch = 12;
+			public const byte BoneTorch = 13;
+			public const byte RainbowTorch = 14;
+			public const byte PinkTorch = 15;
+			public const byte DesertTorch = 16;
+			public const byte CoralTorch = 17;
+			public const byte CorruptTorch = 18;
+			public const byte CrimsonTorch = 19;
+			public const byte HallowedTorch = 20;
+			public const byte JungleTorch = 21;
+			public const byte MushroomTorch = 22;
+			public const byte AetherTorch = 23;
+		}
+
+		/// <summary>
 		/// The differents styles for chests in TileID.Containers
 		/// </summary>
 		public static class Containers
