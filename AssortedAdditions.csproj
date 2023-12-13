@@ -58,7 +58,6 @@
     <None Remove="Content\Items\Placeables\Blocks\ArtDecoBlock.png" />
     <None Remove="Content\Items\Placeables\Blocks\BlueCarpet.png" />
     <None Remove="Content\Items\Placeables\Blocks\CheckerBlock.png" />
-    <None Remove="Content\Items\Placeables\Blocks\FiberGlass.png" />
     <None Remove="Content\Items\Placeables\Blocks\FrostBrick.png" />
     <None Remove="Content\Items\Placeables\Blocks\GreenCarpet.png" />
     <None Remove="Content\Items\Placeables\Blocks\HazardBlock.png" />
@@ -206,7 +205,6 @@
     <None Remove="Content\Tiles\Blocks\ArtDecoBlockTile.png" />
     <None Remove="Content\Tiles\Blocks\BlueCarpetTile.png" />
     <None Remove="Content\Tiles\Blocks\CheckerBlockTile.png" />
-    <None Remove="Content\Tiles\Blocks\FiberGlassTile.png" />
     <None Remove="Content\Tiles\Blocks\FrostBrickTile.png" />
     <None Remove="Content\Tiles\Blocks\GreenCarpetTile.png" />
     <None Remove="Content\Tiles\Blocks\HazardBlockTile.png" />
