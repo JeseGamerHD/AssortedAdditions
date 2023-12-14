@@ -11,6 +11,7 @@
     <None Remove="Content\Buffs\BerserkerBuff.png" />
     <None Remove="Content\Buffs\EchoChamberBuff.png" />
     <None Remove="Content\Buffs\EchoChamberDebuff.png" />
+    <None Remove="Content\Buffs\EvasionBuff.png" />
     <None Remove="Content\Buffs\IlluminatedCrystalBuff.png" />
     <None Remove="Content\Buffs\MedkitBuff.png" />
     <None Remove="Content\Buffs\MotivatorDebuff.png" />
@@ -37,6 +38,7 @@
     <None Remove="Content\Items\Accessories\VultureWings.png" />
     <None Remove="Content\Items\Accessories\VultureWings_Wings.png" />
     <None Remove="Content\Items\Consumables\BerserkerPotion.png" />
+    <None Remove="Content\Items\Consumables\EvasionPotion.png" />
     <None Remove="Content\Items\Consumables\MerchantInvitation.png" />
     <None Remove="Content\Items\Consumables\SkeletonPotion.png" />
     <None Remove="Content\Items\Consumables\WardingPotion.png" />

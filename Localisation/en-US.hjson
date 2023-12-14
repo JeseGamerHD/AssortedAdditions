@@ -83,7 +83,12 @@ Mods: {
 
 			BlossomLashDebuff: {
 				DisplayName: Blossom Lash Debuff
-				Description: Mods.AssortedAdditions.Buffs.BlossomLashDebuff.Description
+				Description: You are targeted by minions
+			}
+
+			EvasionBuff: {
+				DisplayName: Evasion Buff
+				Description: You are harder to hit
 			}
 		}
 
@@ -1062,6 +1067,11 @@ Mods: {
 			TrainingDummy: {
 				DisplayName: Training Dummy
 				Tooltip: Summons a training dummy which can be targetted by minions as well
+			}
+
+			EvasionPotion: {
+				DisplayName: Evasion Potion
+				Tooltip: 5% chance to dodge enemy attacks
 			}
 		}
 
