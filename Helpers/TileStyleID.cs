@@ -37,6 +37,61 @@
 		}
 
 		/// <summary>
+		/// The differents styles for platforms in TileID.Platforms
+		/// </summary>
+		public static class Platforms
+		{
+			public const byte WoodPlatform = 0;
+			public const byte EbonwoodPlatform = 1;
+			public const byte RichMahoganyPlatform = 2;
+			public const byte PearlwoodPlatform = 3;
+			public const byte BonePlatform = 4;
+			public const byte ShadewoodPlatform = 5;
+			public const byte BlueBrickPlatform = 6;
+			public const byte PinkBrickPlatform = 7;
+			public const byte GreenBrickPlatform = 8;
+			
+			public const byte MetalShelf = 9;
+			public const byte BrassShelf = 10;
+			public const byte WoodShelf = 11;
+			public const byte DungeonShelf = 12;
+			
+			public const byte ObsidianPlatform = 13;
+			public const byte GlassPlatform = 14;
+			public const byte PumpkinPlatform = 15;
+			public const byte SpookyWoodPlatform = 16;
+			public const byte PalmWoodPlatform = 17;
+			public const byte MushroomPlatform = 18;
+			public const byte BorealWoodPlatform = 19;
+			public const byte SlimePlatform = 20;
+			public const byte SteampunkPlatform = 21;
+			public const byte SkywarePlatform = 22;
+			public const byte LivingWoodPlatform = 23;
+			public const byte HoneyPlatform = 24;
+			public const byte CactusPlatform = 25;
+			public const byte MartianPlatform = 26;
+			public const byte MeteoritePlatform = 27;
+			public const byte GranitePlatform = 28;
+			public const byte MarblePlatform = 29;
+			public const byte CrystalPlatform =	30;
+			public const byte GoldenPlatform = 31;
+			public const byte DynastyWoodPlatform = 32;
+			public const byte LihzahrdPlatform = 33;
+			public const byte FleshPlatform = 34;
+			public const byte FrozenPlatform = 35;
+			public const byte SpiderPlatform = 36;
+			public const byte LesionPlatform = 37;
+			public const byte SolarPlatform = 38;
+			public const byte VortexPlatform = 39;
+			public const byte NevubulaPlatform = 40;
+			public const byte StardustPlatform = 41;
+			public const byte SandstonePlatform = 42;
+			public const byte StonePlatform = 43;
+			public const byte BambooPlatform = 44;
+
+		}
+
+		/// <summary>
 		/// The differents styles for chests in TileID.Containers
 		/// </summary>
 		public static class Containers

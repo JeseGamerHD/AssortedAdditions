@@ -5,6 +5,7 @@ using AssortedAdditions.Content.Items.Weapons.Ranged;
 using AssortedAdditions.Content.Items.Weapons.Summon;
 using AssortedAdditions.Content.Tiles.Blocks;
 using AssortedAdditions.Content.Tiles.Furniture;
+using AssortedAdditions.Helpers;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
@@ -57,8 +58,8 @@ namespace AssortedAdditions.Common.Systems.GenPasses
             // Place a platform and a candle on both sides below the arches
             // Note that platforms are crammed in one TileID so a style needs to be specified to pick the correct platform
             // In this case style 10 places Brass Shelves
-            WorldGen.PlaceTile(roomArchLeft.X, roomArchLeft.Y + 15, TileID.Platforms, true, true, -1, 10);
-            WorldGen.PlaceTile(roomArchRight.X, roomArchRight.Y + 15, TileID.Platforms, true, true, -1, 10);
+            WorldGen.PlaceTile(roomArchLeft.X, roomArchLeft.Y + 15, TileID.Platforms, true, true, -1, TileStyleID.Platforms.BrassShelf);
+            WorldGen.PlaceTile(roomArchRight.X, roomArchRight.Y + 15, TileID.Platforms, true, true, -1, TileStyleID.Platforms.BrassShelf);
 
             WorldGen.PlaceTile(roomArchLeft.X, roomArchLeft.Y + 14, TileID.WaterCandle, true, true);
             WorldGen.PlaceTile(roomArchRight.X, roomArchRight.Y + 14, TileID.WaterCandle, true, true);
