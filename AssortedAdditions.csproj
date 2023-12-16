@@ -34,7 +34,11 @@
     <None Remove="Content\Items\Accessories\MedicatedDressing.png" />
     <None Remove="Content\Items\Accessories\Medkit.png" />
     <None Remove="Content\Items\Accessories\MimicsTongue.png" />
+    <None Remove="Content\Items\Accessories\NebulaEmblem.png" />
+    <None Remove="Content\Items\Accessories\SolarEmblem.png" />
     <None Remove="Content\Items\Accessories\SporeNecklace.png" />
+    <None Remove="Content\Items\Accessories\StardustEmblem.png" />
+    <None Remove="Content\Items\Accessories\VortexEmblem.png" />
     <None Remove="Content\Items\Accessories\VultureWings.png" />
     <None Remove="Content\Items\Accessories\VultureWings_Wings.png" />
     <None Remove="Content\Items\Consumables\BerserkerPotion.png" />

@@ -1073,6 +1073,26 @@ Mods: {
 				DisplayName: Evasion Potion
 				Tooltip: 5% chance to dodge enemy attacks
 			}
+
+			NebulaEmblem: {
+				DisplayName: Nebula Emblem
+				Tooltip: 20% increased magic damage
+			}
+
+			SolarEmblem: {
+				DisplayName: Solar Emblem
+				Tooltip: 20% increased melee damage
+			}
+
+			StardustEmblem: {
+				DisplayName: Stardust Emblem
+				Tooltip: 20% increased summon damage
+			}
+
+			VortexEmblem: {
+				DisplayName: Vortex Emblem
+				Tooltip: 20% increased ranged damage
+			}
 		}
 
 		Projectiles: {
