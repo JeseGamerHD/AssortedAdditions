@@ -1095,7 +1095,7 @@ Mods: {
 			}
 
 			RuneOfHealth: {
-				DisplayName: Rune Of Health
+				DisplayName: Rune of Health
 				Tooltip:
 					'''
 					Increases max life by 20%
@@ -1106,6 +1106,15 @@ Mods: {
 			BlankRune: {
 				DisplayName: Blank Rune
 				Tooltip: Used for crafting runes
+			}
+
+			ManaRune: {
+				DisplayName: Mana Rune
+				Tooltip:
+					'''
+					Increases max mana by 50%
+					Won't stack with similar effects
+					'''
 			}
 		}
 

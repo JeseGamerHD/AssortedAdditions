@@ -9,6 +9,7 @@ using AssortedAdditions.Content.Items.Weapons.Ranged;
 using AssortedAdditions.Content.Items.Weapons.Magic;
 using AssortedAdditions.Content.Items.Weapons.Summon;
 using AssortedAdditions.Content.Items.Placeables.Ores;
+using AssortedAdditions.Content.Items.Accessories.Runes;
 
 namespace AssortedAdditions.Common.GlobalNPCs
 {
@@ -116,6 +117,21 @@ namespace AssortedAdditions.Common.GlobalNPCs
             if(npc.type == NPCID.Ghost)
             {
                 npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<GhostlyBlade>(), 12)); // 8% chance
+            }
+
+            if(npc.type == NPCID.RuneWizard)
+            {
+                // 50% chance to drop one of these runes
+                npcLoot.Add(ItemDropRule.OneFromOptionsWithNumerator(2, 1, 
+                    ModContent.ItemType<BlankRune>(), 
+                    ModContent.ItemType<RuneOfHealth>(), 
+                    ModContent.ItemType<ManaRune>()));
+            }
+
+            if(npc.type == NPCID.Tim)
+            {
+                npcLoot.Add(ItemDropRule.ByCondition(Condition.Hardmode.ToDropCondition(ShowItemDropInUI.Always), 
+                    ModContent.ItemType<BlankRune>()));
             }
         }
     }
