@@ -9,7 +9,6 @@ namespace AssortedAdditions.Content.Items.Misc
         public override void SetStaticDefaults()
         {
             Item.ResearchUnlockCount = 25;
-            ItemID.Sets.ItemIconPulse[Item.type] = true;
         }
 
         public override void SetDefaults()
