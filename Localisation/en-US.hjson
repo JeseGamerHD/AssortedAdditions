@@ -1093,6 +1093,20 @@ Mods: {
 				DisplayName: Vortex Emblem
 				Tooltip: 20% increased ranged damage
 			}
+
+			RuneOfHealth: {
+				DisplayName: Rune Of Health
+				Tooltip:
+					'''
+					Increases max life by 20%
+					Won't stack with similar effects
+					'''
+			}
+
+			BlankRune: {
+				DisplayName: Blank Rune
+				Tooltip: Used for crafting runes
+			}
 		}
 
 		Projectiles: {

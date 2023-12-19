@@ -50,6 +50,7 @@ namespace AssortedAdditions.Common.GlobalNPCs
             if (shop.NpcType == NPCID.Wizard)
             {
                 shop.Add(ModContent.ItemType<MagicEssence>());
+                shop.Add(ModContent.ItemType<BlankRune>());
                 shop.Add(ModContent.ItemType<AncientToken>());
 
                 // These are sold after a mysterious key has been used once

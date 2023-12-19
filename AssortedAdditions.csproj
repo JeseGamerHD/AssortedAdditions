@@ -8,6 +8,7 @@
     <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <ItemGroup>
+    <None Remove="Assets\UI\RuneIcon.png" />
     <None Remove="Content\Buffs\BerserkerBuff.png" />
     <None Remove="Content\Buffs\EchoChamberBuff.png" />
     <None Remove="Content\Buffs\EchoChamberDebuff.png" />
@@ -35,6 +36,7 @@
     <None Remove="Content\Items\Accessories\Medkit.png" />
     <None Remove="Content\Items\Accessories\MimicsTongue.png" />
     <None Remove="Content\Items\Accessories\NebulaEmblem.png" />
+    <None Remove="Content\Items\Accessories\Runes\RuneOfHealth.png" />
     <None Remove="Content\Items\Accessories\SolarEmblem.png" />
     <None Remove="Content\Items\Accessories\SporeNecklace.png" />
     <None Remove="Content\Items\Accessories\StardustEmblem.png" />
@@ -46,6 +48,7 @@
     <None Remove="Content\Items\Consumables\MerchantInvitation.png" />
     <None Remove="Content\Items\Consumables\SkeletonPotion.png" />
     <None Remove="Content\Items\Consumables\WardingPotion.png" />
+    <None Remove="Content\Items\Misc\BlankRune.png" />
     <None Remove="Content\Items\Misc\IceEssence.png" />
     <None Remove="Content\Items\Misc\LunchBox.png" />
     <None Remove="Content\Items\Misc\MagicEssence.png" />
