@@ -40,9 +40,9 @@ namespace AssortedAdditions.Common.Systems
     {
 		public override bool PreAI(NPC npc)
 		{
-            if(npc.type == NPCID.Guide)
-            {
-                if (Collision.SolidCollision(npc.position, npc.width, npc.height))
+            if(npc.type == NPCID.Guide) // Ugly hack, probably should move the guide's initial spawn somehow
+            { // or at least add a check so that this only happens when the world is fresh
+                if (Collision.SolidCollision(npc.position, npc.width / 2, npc.height / 2))
                 {
                     npc.position.Y -= 5;
                 }
