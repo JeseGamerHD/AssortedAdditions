@@ -16,6 +16,7 @@
     <None Remove="Content\Buffs\IlluminatedCrystalBuff.png" />
     <None Remove="Content\Buffs\MedkitBuff.png" />
     <None Remove="Content\Buffs\MotivatorDebuff.png" />
+    <None Remove="Content\Buffs\RuneOfShadowsCooldown.png" />
     <None Remove="Content\Buffs\SnowDwellerBuff.png" />
     <None Remove="Content\Buffs\SunScepterBuff.png" />
     <None Remove="Content\Buffs\ToyCarBuff.png" />
@@ -38,6 +39,7 @@
     <None Remove="Content\Items\Accessories\NebulaEmblem.png" />
     <None Remove="Content\Items\Accessories\Runes\ManaRune.png" />
     <None Remove="Content\Items\Accessories\Runes\RuneOfHealth.png" />
+    <None Remove="Content\Items\Accessories\Runes\RuneOfShadows.png" />
     <None Remove="Content\Items\Accessories\SolarEmblem.png" />
     <None Remove="Content\Items\Accessories\SporeNecklace.png" />
     <None Remove="Content\Items\Accessories\StardustEmblem.png" />
@@ -194,6 +196,7 @@
     <None Remove="Content\Projectiles\RangedProj\ScifiBlasterHoming.png" />
     <None Remove="Content\Projectiles\RangedProj\ScifiBlasterProj.png" />
     <None Remove="Content\Projectiles\RangedProj\ShootingStarProj.png" />
+    <None Remove="Content\Projectiles\RuneOfShadowsProj.png" />
     <None Remove="Content\Projectiles\SkeletonPotionProj.png" />
     <None Remove="Content\Projectiles\SporeNecklaceProj.png" />
     <None Remove="Content\Projectiles\SummonProj\BlossomLashFlower.png" />

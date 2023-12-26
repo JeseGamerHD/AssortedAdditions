@@ -90,6 +90,11 @@ Mods: {
 				DisplayName: Evasion Buff
 				Description: You are harder to hit
 			}
+
+			RuneOfShadowsCooldown: {
+				DisplayName: Rune of Shadows Cooldown
+				Description: Your rune is recharging
+			}
 		}
 
 		Items: {
@@ -1116,6 +1121,15 @@ Mods: {
 					Won't stack with similar effects
 					'''
 			}
+
+			RuneOfShadows: {
+				DisplayName: Rune of Shadows
+				Tooltip:
+					'''
+					Your attacks inflict shadowflames
+					Summons protective orbs
+					'''
+			}
 		}
 
 		Projectiles: {
@@ -1191,6 +1205,9 @@ Mods: {
 			SporeOrbSmall.DisplayName: Spore Orb Small
 			SpiritVaseProj.DisplayName: Spirit Vase Proj
 			GhostlyBladeProj.DisplayName: Ghostly Blade Proj
+			RuneOfShadowsProj.DisplayName: Rune Of Shadows Proj
+			RuneOfShadowsAbilityControl.DisplayName: Rune Of Shadows Ability Control
+			RuneOfShadowsAbility.DisplayName: Rune Of Shadows Ability
 		}
 
 		Tiles: {
@@ -1308,5 +1325,7 @@ Mods: {
 				}
 			}
 		}
+
+		Keybinds.Runes.DisplayName: Runes
 	}
 }
