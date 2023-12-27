@@ -30,29 +30,60 @@ namespace AssortedAdditions.Content.Projectiles
 			Projectile.tileCollide = true;
 			Projectile.friendly = true;
 			Projectile.ignoreWater = true;
+			Projectile.stopsDealingDamageAfterPenetrateHits = true;
 		}
 
 		public override void AI()
 		{
 			Projectile.velocity.Y = 18f;
-
-			// Sound effect TODO FIND COOL SOUND
-			if (Projectile.soundDelay == 0)
-			{
-				Projectile.soundDelay = 9; // This countsdown automatically
-				SoundEngine.PlaySound(SoundID.Item13, Projectile.position);
-			}
-
-			// TODO Slow down once hit target/ground
 		}
 
-		public override void OnKill(int timeLeft)
+		public override bool OnTileCollide(Vector2 oldVelocity)
 		{
-			for (int i = 0; i < 30; i++)
+			if (Projectile.ai[2] == 0)
 			{
-				Dust dust = Dust.NewDustDirect(Projectile.Center, Projectile.width * 2, Projectile.height * 2, DustID.GemAmethyst, 0f, 0f, 75, Color.Magenta, 1f);
-				dust.velocity *= 1.4f;
-				dust.noGravity = true;
+				for (int i = 0; i < 30; i++)
+				{
+					Dust dust = Dust.NewDustDirect(Projectile.Center, Projectile.width * 2, Projectile.height * 2, DustID.GemAmethyst, 0f, 0f, 75, Color.Magenta, 1f);
+					dust.velocity *= 1.4f;
+					dust.noGravity = true;
+				}
+
+				SoundEngine.PlaySound(SoundID.Item10, Projectile.position);
+			}
+
+			if (Projectile.ai[2] <= 20) 
+			{
+				Projectile.velocity *= 0.9f;
+				Projectile.ai[2]++;
+				return false;
+			}
+
+			return true;
+		}
+
+		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
+		{
+			if (Projectile.ai[2] == 0)
+			{
+				for (int i = 0; i < 30; i++)
+				{
+					Dust dust = Dust.NewDustDirect(Projectile.Center, Projectile.width * 2, Projectile.height * 2, DustID.GemAmethyst, 0f, 0f, 75, Color.Magenta, 1f);
+					dust.velocity *= 1.4f;
+					dust.noGravity = true;
+				}
+
+				SoundEngine.PlaySound(SoundID.Item10, Projectile.position);
+			}
+
+			if (Projectile.ai[2] <= 20)
+			{
+				Projectile.velocity *= 0.9f;
+				Projectile.ai[2]++;
+			}
+			else
+			{
+				Projectile.Kill();
 			}
 		}
 
@@ -83,7 +114,7 @@ namespace AssortedAdditions.Content.Projectiles
 			float num = 3f;
 			float lerpValue = Utils.GetLerpValue(0f, 0.7f, progressOnStrip, clamped: true);
 			num *= 1f - (1f - lerpValue) * (1f - lerpValue);
-			return MathHelper.Lerp(16f, 32f, num);
+			return MathHelper.Lerp(12f, 32f, num);
 		}
 	}
 }

@@ -97,7 +97,7 @@ namespace AssortedAdditions.Content.Projectiles
 				{
 					if (ActiveAbility == 1) // Sets these only once
 					{
-						Projectile.timeLeft = 120;
+						Projectile.timeLeft = 180;
 						Projectile.ai[1] = player.Center.X;
 						Projectile.ai[2] = player.Center.Y; // Store the player's position
 						Projectile.netUpdate = true;
@@ -190,8 +190,7 @@ namespace AssortedAdditions.Content.Projectiles
 				if(Main.myPlayer == Projectile.owner)
 				{
 					Projectile.NewProjectile(Projectile.GetSource_FromThis(), new Vector2(x, y), Vector2.Zero,
-						ModContent.ProjectileType<RuneOfShadowsAbilityControl>(), 0, 0, player.whoAmI, Projectile.ai[2]);
-					// ai[2] value used later on
+						ModContent.ProjectileType<RuneOfShadowsAbilityControl>(), 0, 0, player.whoAmI);
 				}
 			}
 		}
@@ -273,11 +272,11 @@ namespace AssortedAdditions.Content.Projectiles
 		}
 
 		public int timer = 0;
-		public const int MAX_TIME = 300;
+		public const int MAX_TIME = 540;
 
 		public override void AI()
 		{
-			if(timer <= 300 && timer % 5 == 0)
+			if(timer <= MAX_TIME && timer % 4 == 0)
 			{
 				// Pick a random X position from this projectile's position to spawn ability projectile at
 				// Y will be this projectile's Y position
@@ -287,8 +286,7 @@ namespace AssortedAdditions.Content.Projectiles
 				if(Main.myPlayer == Projectile.owner)
 				{
 					Projectile.NewProjectile(Projectile.GetSource_FromThis(), new Vector2(XPos, Projectile.position.Y), Vector2.Zero, 
-						ModContent.ProjectileType<RuneOfShadowsAbility>(), 44, 0f, Projectile.owner, Projectile.ai[0]);
-					// ai[0] contains the original Y position where the ability was activated, this info is used in the projectiles that this controller spawns
+						ModContent.ProjectileType<RuneOfShadowsAbility>(), 80, 0f, Projectile.owner);
 				}
 			}
 

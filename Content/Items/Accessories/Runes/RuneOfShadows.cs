@@ -9,6 +9,9 @@ using Terraria.Audio;
 using System.Collections.Generic;
 using AssortedAdditions.Common.Systems;
 using System.Linq;
+using AssortedAdditions.Content.Buffs;
+using AssortedAdditions.Content.Tiles.CraftingStations;
+using AssortedAdditions.Content.Items.Misc;
 
 namespace AssortedAdditions.Content.Items.Accessories.Runes
 {
@@ -32,7 +35,8 @@ namespace AssortedAdditions.Content.Items.Accessories.Runes
 
 		public override void ModifyTooltips(List<TooltipLine> tooltips)
 		{
-			tooltips.Add(new(Mod, "Tooltip3", "Press " + CustomKeyBinds.RuneAbility.GetAssignedKeys().FirstOrDefault("[Unbound]") + " to use an ability"));
+			tooltips.Insert(tooltips.FindLastIndex(tip => tip.Name.StartsWith("Tooltip")) + 1, 
+				new(Mod, "Tooltip3", "Press " + CustomKeyBinds.RuneAbility.GetAssignedKeys().FirstOrDefault("<Unbound>") + " to use an ability"));
 		}
 
 		public override void UpdateAccessory(Player player, bool hideVisual)
@@ -40,7 +44,8 @@ namespace AssortedAdditions.Content.Items.Accessories.Runes
 			player.GetModPlayer<RuneOfShadowsPlayer>().isWearingRuneOfShadows = true;
 
 			// If the player is wearing the rune, no projectiles already exist
-			if (player.GetModPlayer<RuneOfShadowsPlayer>().canSpawnProjectile && player.ownedProjectileCounts[ModContent.ProjectileType<RuneOfShadowsProj>()] < 1 && Main.myPlayer == player.whoAmI)
+			if (player.GetModPlayer<RuneOfShadowsPlayer>().canSpawnProjectile && player.ownedProjectileCounts[ModContent.ProjectileType<RuneOfShadowsProj>()] < 1 
+				&& Main.myPlayer == player.whoAmI && !player.HasBuff<RuneOfShadowsCooldown>())
 			{
 				Projectile.NewProjectile(player.GetSource_Accessory(Item), player.Center, Vector2.Zero, ModContent.ProjectileType<RuneOfShadowsProj>(), 65, 4f, player.whoAmI, 0f);
 				Projectile.NewProjectile(player.GetSource_Accessory(Item), player.Center, Vector2.Zero, ModContent.ProjectileType<RuneOfShadowsProj>(), 65, 4f, player.whoAmI, 3f);
@@ -63,7 +68,17 @@ namespace AssortedAdditions.Content.Items.Accessories.Runes
 			}
 		}
 
-		// TODO RECIPE
+		public override void AddRecipes()
+		{
+			Recipe recipe = CreateRecipe();
+			recipe.AddIngredient(ModContent.ItemType<BlankRune>());
+			recipe.AddIngredient(ItemID.ShadowOrb);
+			recipe.AddIngredient(ItemID.SoulofMight);
+			recipe.AddIngredient(ItemID.SoulofSight);
+			recipe.AddIngredient(ItemID.SoulofFright);
+			recipe.AddTile(ModContent.TileType<MagicWorkbenchTile>());
+			recipe.Register();
+		}
 	}
 
 	public class RuneOfShadowsPlayer : ModPlayer
