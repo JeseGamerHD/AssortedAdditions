@@ -14,7 +14,8 @@ namespace AssortedAdditions.Content.Tiles
             Main.tileMergeDirt[Type] = true;
             Main.tileBlockLight[Type] = true;
             Main.tileSpelunker[Type] = true;
-            Main.tileOreFinderPriority[Type] = 300;
+			TileID.Sets.Ore[Type] = true;
+			Main.tileOreFinderPriority[Type] = 300;
             Main.tileShine[Type] = 975; // How often tiny dust appear off this tile. Larger is less frequently
 
             LocalizedText name = CreateMapEntryName();

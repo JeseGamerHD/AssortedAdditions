@@ -15,6 +15,7 @@ namespace AssortedAdditions.Content.Tiles
             Main.tileBlockLight[Type] = true;
             Main.tileSpelunker[Type] = true;
             Main.tileOreFinderPriority[Type] = 200;
+            TileID.Sets.Ore[Type] = true;
 
             LocalizedText name = CreateMapEntryName();
             // name.SetDefault("Coal");
