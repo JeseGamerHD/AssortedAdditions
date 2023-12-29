@@ -2,6 +2,9 @@
 
 namespace AssortedAdditions.Helpers
 {
+	/// <summary>
+	/// Contains useful methods that can be used from anywhere
+	/// </summary>
 	public class HelperMethods
 	{
 		/// <summary>

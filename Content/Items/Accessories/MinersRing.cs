@@ -18,7 +18,8 @@ namespace AssortedAdditions.Content.Items.Accessories
 
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
-            player.pickSpeed += 0.25f; // Increases mining speed by 25%
+            player.pickSpeed -= 0.25f; // Increases mining speed by 25%
+            // Lower values increase speed, using + would make mining slower
         }
     }
 }
