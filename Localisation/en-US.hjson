@@ -1130,6 +1130,16 @@ Mods: {
 					Summons protective orbs
 					'''
 			}
+
+			RuneOfSpelunking: {
+				DisplayName: Rune of Spelunking
+				Tooltip:
+					'''
+					20% increased mining speed
+					Shows the location of treasure and ore
+					Increased night vision
+					'''
+			}
 		}
 
 		Projectiles: {

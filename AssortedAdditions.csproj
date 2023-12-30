@@ -40,6 +40,7 @@
     <None Remove="Content\Items\Accessories\Runes\ManaRune.png" />
     <None Remove="Content\Items\Accessories\Runes\RuneOfHealth.png" />
     <None Remove="Content\Items\Accessories\Runes\RuneOfShadows.png" />
+    <None Remove="Content\Items\Accessories\Runes\RuneOfSpelunking.png" />
     <None Remove="Content\Items\Accessories\SolarEmblem.png" />
     <None Remove="Content\Items\Accessories\SporeNecklace.png" />
     <None Remove="Content\Items\Accessories\StardustEmblem.png" />

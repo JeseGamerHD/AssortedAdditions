@@ -1,4 +1,5 @@
 ﻿using AssortedAdditions.Common.Systems;
+using AssortedAdditions.Content.Items.Accessories.Runes;
 using AssortedAdditions.Content.Items.Consumables;
 using AssortedAdditions.Content.Items.Misc;
 using AssortedAdditions.Content.Items.Pets;
@@ -65,6 +66,7 @@ namespace AssortedAdditions.Common.GlobalNPCs
             if (shop.NpcType == NPCID.SkeletonMerchant)
             {
                 shop.Add(ModContent.ItemType<StoneWand>());
+                shop.Add(new Item(ModContent.ItemType<RuneOfSpelunking>()) { shopCustomPrice = 80000});
             }
 
             if(shop.NpcType == NPCID.WitchDoctor)

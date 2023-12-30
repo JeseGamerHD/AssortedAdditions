@@ -5,13 +5,13 @@ using AssortedAdditions.Content.Items.Weapons.Ranged;
 using AssortedAdditions.Content.Items.Weapons.Magic;
 using AssortedAdditions.Content.Items.Accessories;
 using AssortedAdditions.Helpers;
+using AssortedAdditions.Content.Items.Accessories.Runes;
 
 namespace AssortedAdditions.Common.Systems
 {
     // This class is used for adding items to existing chests' loot pools
     internal class ModifiedChestLoot : ModSystem
     {
-
         public override void PostWorldGen()
         {
             int chestWidth = 36; // 36 is the width of the chest tiles
@@ -21,9 +21,15 @@ namespace AssortedAdditions.Common.Systems
             for (int chestIndex = 0; chestIndex < 8000; chestIndex++)
             {
                 Chest chest = Main.chest[chestIndex];
+                if(chest == null)
+                {
+                    continue; // Skip null chests, straight to next index
+                }
 
-                // Chests
-                if (chest != null && Main.tile[chest.x, chest.y].TileType == TileID.Containers && Main.tile[chest.x, chest.y].TileFrameX == TileStyleID.Containers.Chest * chestWidth)
+                Tile chestTile = Main.tile[chest.x, chest.y];
+
+				// Chests
+				if (chestTile.TileType == TileID.Containers && chestTile.TileFrameX == TileStyleID.Containers.Chest * chestWidth)
                 {
                     for (int inventoryIndex = 0; inventoryIndex < 40; inventoryIndex++)
                     {
@@ -42,15 +48,18 @@ namespace AssortedAdditions.Common.Systems
                 }
 
                 // Golden chests
-                if (chest != null && Main.tile[chest.x, chest.y].TileType == TileID.Containers && Main.tile[chest.x, chest.y].TileFrameX == TileStyleID.Containers.GoldenChest * chestWidth)
+                if (chestTile.TileType == TileID.Containers && chestTile.TileFrameX == TileStyleID.Containers.GoldenChest * chestWidth)
                 {
+                    int [] lootPool = { ModContent.ItemType<StoneWand>(), ModContent.ItemType<RuneOfSpelunking>() };
+
                     for (int inventoryIndex = 0; inventoryIndex < 40; inventoryIndex++)
                     {
                         if (chest.item[inventoryIndex].type == ItemID.None)
                         {
-                            if (Main.rand.NextFloat() <= 0.2f)
+							if (Main.rand.NextFloat() <= 0.51)
                             {
-                                chest.item[inventoryIndex].SetDefaults(ModContent.ItemType<StoneWand>());
+                                int lootPoolIndex = Main.rand.Next(0, lootPool.Length);
+								chest.item[inventoryIndex].SetDefaults(lootPool[lootPoolIndex]);
                             }
 
                             break;
@@ -59,7 +68,7 @@ namespace AssortedAdditions.Common.Systems
                 }
 
                 // Skyware chests
-                if(chest != null && Main.tile[chest.x, chest.y].TileType == TileID.Containers && Main.tile[chest.x, chest.y].TileFrameX == TileStyleID.Containers.SkywareChest * chestWidth)
+                if(chestTile.TileType == TileID.Containers && chestTile.TileFrameX == TileStyleID.Containers.SkywareChest * chestWidth)
                 {
                     for(int inventoryIndex = 0; inventoryIndex < 40; inventoryIndex++)
                     {
@@ -76,7 +85,7 @@ namespace AssortedAdditions.Common.Systems
                 }
 
                 // Sandstone chests
-                if (chest != null && Main.tile[chest.x, chest.y].TileType == TileID.Containers2 && Main.tile[chest.x, chest.y].TileFrameX == TileStyleID.Containers2.SandstoneChest * chestWidth)
+                if (chestTile.TileType == TileID.Containers2 && chestTile.TileFrameX == TileStyleID.Containers2.SandstoneChest * chestWidth)
                 {
                     for (int inventoryIndex = 0; inventoryIndex < 40; inventoryIndex++)
                     {
