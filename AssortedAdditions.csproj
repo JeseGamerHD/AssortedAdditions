@@ -126,6 +126,7 @@
     <None Remove="Content\Items\Weapons\Melee\CultClassic.png" />
     <None Remove="Content\Items\Weapons\Melee\GhostlyBlade.png" />
     <None Remove="Content\Items\Weapons\Melee\PetalBlade.png" />
+    <None Remove="Content\Items\Weapons\Melee\Pwnage.png" />
     <None Remove="Content\Items\Weapons\Ranged\BombLauncher.png" />
     <None Remove="Content\Items\Weapons\Ranged\Boom_erang.png" />
     <None Remove="Content\Items\Weapons\Ranged\EyeBow.png" />
@@ -187,6 +188,8 @@
     <None Remove="Content\Projectiles\MeleeProj\CultClassicProj.png" />
     <None Remove="Content\Projectiles\MeleeProj\GhostlyBladeProj.png" />
     <None Remove="Content\Projectiles\MeleeProj\PetalBladeProj.png" />
+    <None Remove="Content\Projectiles\MeleeProj\PwnageChain.png" />
+    <None Remove="Content\Projectiles\MeleeProj\PwnageProj.png" />
     <None Remove="Content\Projectiles\NPCProj\GoblinBomb.png" />
     <None Remove="Content\Projectiles\NPCProj\IceGuardianProj.png" />
     <None Remove="Content\Projectiles\PetProj\IlluminatedCrystalPet.png" />

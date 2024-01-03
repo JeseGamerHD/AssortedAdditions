@@ -1140,6 +1140,11 @@ Mods: {
 					Increased night vision
 					'''
 			}
+
+			Pwnage: {
+				DisplayName: Pwnage
+				Tooltip: ""
+			}
 		}
 
 		Projectiles: {
@@ -1218,6 +1223,7 @@ Mods: {
 			RuneOfShadowsProj.DisplayName: Rune Of Shadows Proj
 			RuneOfShadowsAbilityControl.DisplayName: Rune Of Shadows Ability Control
 			RuneOfShadowsAbility.DisplayName: Rune Of Shadows Ability
+			PwnageProj.DisplayName: Pwnage Proj
 		}
 
 		Tiles: {
