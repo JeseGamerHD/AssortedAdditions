@@ -39,6 +39,7 @@ namespace AssortedAdditions.Content.Items.Weapons.Melee
 				.AddIngredient(ItemID.Pwnhammer)
 				.AddIngredient(ItemID.HallowedBar, 10)
 				.AddIngredient(ItemID.SoulofSight)
+				.AddTile(TileID.MythrilAnvil)
 				.Register();
 		}
 	}
