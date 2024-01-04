@@ -3,6 +3,9 @@ using Terraria;
 using Terraria.ModLoader;
 using AssortedAdditions.Content.Tiles.CraftingStations;
 using AssortedAdditions.Content.Items.Misc;
+using Microsoft.Xna.Framework.Graphics;
+using Terraria.GameContent;
+using Microsoft.Xna.Framework;
 
 namespace AssortedAdditions.Content.Items.Accessories.Runes
 {
@@ -13,6 +16,7 @@ namespace AssortedAdditions.Content.Items.Accessories.Runes
 			Item.width = 28;
 			Item.height = 28;
 			Item.maxStack = 1;
+			Item.scale = 0.5f;
 			Item.value = Item.sellPrice(gold: 2);
 			Item.rare = ItemRarityID.Pink;
 			Item.accessory = true;
@@ -32,6 +36,25 @@ namespace AssortedAdditions.Content.Items.Accessories.Runes
 			recipe.AddIngredient(ItemID.LifeCrystal, 3);
 			recipe.AddTile(ModContent.TileType<MagicWorkbenchTile>());
 			recipe.Register();
+		}
+
+		// The rune icon would be too big when dropped and Item.scale did not fix this
+		// If the sprite's size is reduced then the icon is too small in the inventory so either way drawing would be required..
+		public override bool PreDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, ref float rotation, ref float scale, int whoAmI)
+		{
+			Texture2D texture = TextureAssets.Item[Type].Value; // Item's spritesheet
+
+			Rectangle? source = null;
+			if (Main.itemAnimations[Type] != null)
+			{
+				// The current frame of the animation, null check for items that have one frame
+				source = Main.itemAnimations[Type].GetFrame(texture);
+			}
+
+			// Draw item with 0.5 scale
+			Main.spriteBatch.Draw(texture, Item.position - Main.screenPosition, source, lightColor, 0, Vector2.Zero, scale * 0.5f, SpriteEffects.None, 0f);
+
+			return false;
 		}
 	}
 }
