@@ -173,8 +173,12 @@ namespace AssortedAdditions.Content.Projectiles
 		{
 			Player player = Main.player[Projectile.owner];
 			player.GetModPlayer<RuneOfShadowsPlayer>().canSpawnProjectile = true; // Allow the projectiles to respawn if the player respawns after dying or re-equips the rune
-			player.AddBuff(ModContent.BuffType<RuneOfShadowsCooldown>(), HelperMethods.MinutesToTicks(3));
-
+			
+			if(ActiveAbility != 0)
+			{
+				player.AddBuff(ModContent.BuffType<RuneOfShadowsCooldown>(), HelperMethods.MinutesToTicks(3));
+			}
+			
 			// Only one can be spawned
 			if (HelperMethods.CountProjectiles(ModContent.ProjectileType<RuneOfShadowsAbilityControl>(), player.whoAmI, true) == 0) 
 			{
