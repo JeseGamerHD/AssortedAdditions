@@ -1145,6 +1145,11 @@ Mods: {
 				DisplayName: Pwnage
 				Tooltip: ""
 			}
+
+			RuneOfMovement: {
+				DisplayName: Rune of Movement
+				Tooltip: Double tap a direction to dash
+			}
 		}
 
 		Projectiles: {

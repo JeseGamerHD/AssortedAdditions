@@ -39,6 +39,7 @@
     <None Remove="Content\Items\Accessories\NebulaEmblem.png" />
     <None Remove="Content\Items\Accessories\Runes\ManaRune.png" />
     <None Remove="Content\Items\Accessories\Runes\RuneOfHealth.png" />
+    <None Remove="Content\Items\Accessories\Runes\RuneOfMovement.png" />
     <None Remove="Content\Items\Accessories\Runes\RuneOfShadows.png" />
     <None Remove="Content\Items\Accessories\Runes\RuneOfSpelunking.png" />
     <None Remove="Content\Items\Accessories\SolarEmblem.png" />
