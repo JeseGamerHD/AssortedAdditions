@@ -188,6 +188,7 @@
     <None Remove="Content\Projectiles\MeleeProj\CultClassicOrb.png" />
     <None Remove="Content\Projectiles\MeleeProj\CultClassicProj.png" />
     <None Remove="Content\Projectiles\MeleeProj\GhostlyBladeProj.png" />
+    <None Remove="Content\Projectiles\MeleeProj\GraniteYoyoProj.png" />
     <None Remove="Content\Projectiles\MeleeProj\PetalBladeProj.png" />
     <None Remove="Content\Projectiles\MeleeProj\PwnageChain.png" />
     <None Remove="Content\Projectiles\MeleeProj\PwnageProj.png" />

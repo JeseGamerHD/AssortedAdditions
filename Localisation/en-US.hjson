@@ -1150,6 +1150,11 @@ Mods: {
 				DisplayName: Rune of Movement
 				Tooltip: Double tap a direction to dash
 			}
+
+			GraniteYoyo: {
+				DisplayName: Granite Yoyo
+				Tooltip: ""
+			}
 		}
 
 		Projectiles: {
@@ -1229,6 +1234,7 @@ Mods: {
 			RuneOfShadowsAbilityControl.DisplayName: Rune Of Shadows Ability Control
 			RuneOfShadowsAbility.DisplayName: Rune Of Shadows Ability
 			PwnageProj.DisplayName: Pwnage Proj
+			GraniteYoyoProj.DisplayName: Granite Yoyo Proj
 		}
 
 		Tiles: {
