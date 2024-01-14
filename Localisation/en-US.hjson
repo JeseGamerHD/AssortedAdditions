@@ -1155,6 +1155,11 @@ Mods: {
 				DisplayName: Granite Yoyo
 				Tooltip: ""
 			}
+
+			GraniteChakram: {
+				DisplayName: Granite Chakram
+				Tooltip: ""
+			}
 		}
 
 		Projectiles: {
@@ -1235,6 +1240,7 @@ Mods: {
 			RuneOfShadowsAbility.DisplayName: Rune Of Shadows Ability
 			PwnageProj.DisplayName: Pwnage Proj
 			GraniteYoyoProj.DisplayName: Granite Yoyo Proj
+			GraniteChakramProj.DisplayName: Granite Chakram Proj
 		}
 
 		Tiles: {

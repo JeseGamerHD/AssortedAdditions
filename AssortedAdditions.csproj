@@ -132,6 +132,7 @@
     <None Remove="Content\Items\Weapons\Ranged\Boom_erang.png" />
     <None Remove="Content\Items\Weapons\Ranged\EyeBow.png" />
     <None Remove="Content\Items\Weapons\Ranged\FrostBow.png" />
+    <None Remove="Content\Items\Weapons\Ranged\GraniteChakram.png" />
     <None Remove="Content\Items\Weapons\Ranged\IceBlaster.png" />
     <None Remove="Content\Items\Weapons\Ranged\JungleChakram.png" />
     <None Remove="Content\Items\Weapons\Ranged\ScifiBlaster.png" />
