@@ -50,7 +50,7 @@ namespace AssortedAdditions.Content.Projectiles.RangedProj
 			Main.instance.LoadProjectile(Projectile.type);
 			Texture2D texture = TextureAssets.Projectile[Projectile.type].Value;
 
-			// Use these to limit the trail to one frame, without this the whole spritesheet would draw
+			// Use these to limit the trail to one frame, without this the whole spritesheet would draw.
 			int frameHeight = texture.Height / Main.projFrames[Projectile.type];
 			Rectangle frame = new Rectangle(0, Projectile.frame * frameHeight, texture.Width, frameHeight);
 
