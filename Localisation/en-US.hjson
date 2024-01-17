@@ -1160,6 +1160,11 @@ Mods: {
 				DisplayName: Granite Chakram
 				Tooltip: ""
 			}
+
+			GeodeScepter: {
+				DisplayName: Geode Scepter
+				Tooltip: Shoots three geode chunks
+			}
 		}
 
 		Projectiles: {
@@ -1241,6 +1246,7 @@ Mods: {
 			PwnageProj.DisplayName: Pwnage Proj
 			GraniteYoyoProj.DisplayName: Granite Yoyo Proj
 			GraniteChakramProj.DisplayName: Granite Chakram Proj
+			GeodeScepterProj.DisplayName: Geode Scepter Proj
 		}
 
 		Tiles: {

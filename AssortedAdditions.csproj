@@ -111,6 +111,7 @@
     <None Remove="Content\Items\Weapons\Magic\Concoctions\FrozenConcoction.png" />
     <None Remove="Content\Items\Weapons\Magic\CosmicTome.png" />
     <None Remove="Content\Items\Weapons\Magic\DeathRay.png" />
+    <None Remove="Content\Items\Weapons\Magic\GeodeScepter.png" />
     <None Remove="Content\Items\Weapons\Magic\IcyStaff.png" />
     <None Remove="Content\Items\Weapons\Magic\SpiritVase.png" />
     <None Remove="Content\Items\Weapons\Magic\SporeRod.png" />
@@ -172,6 +173,7 @@
     <None Remove="Content\Projectiles\MagicProj\BookOfAlphabetsProj.png" />
     <None Remove="Content\Projectiles\MagicProj\BookOfMathematicsProj.png" />
     <None Remove="Content\Projectiles\MagicProj\DeathRayProj.png" />
+    <None Remove="Content\Projectiles\MagicProj\GeodeScepterProj.png" />
     <None Remove="Content\Projectiles\MagicProj\IcyWandProj.png" />
     <None Remove="Content\Projectiles\MagicProj\SpiritVaseProj.png" />
     <None Remove="Content\Projectiles\MagicProj\SporeOrbSmall.png" />
