@@ -1165,6 +1165,26 @@ Mods: {
 				DisplayName: Geode Scepter
 				Tooltip: Shoots three geode chunks
 			}
+
+			GraniteHelmet: {
+				DisplayName: Granite Helmet
+				Tooltip: Increases summon damage by 5%
+			}
+
+			GraniteBreastplate: {
+				DisplayName: Granite Breastplate
+				Tooltip: Increases your max number of minions by 1
+			}
+
+			GraniteGreaves: {
+				DisplayName: Granite Greaves
+				Tooltip: Increases whip range by 15%
+			}
+
+			GraniteArmorShard: {
+				DisplayName: Granite Armor Shard
+				Tooltip: ""
+			}
 		}
 
 		Projectiles: {
