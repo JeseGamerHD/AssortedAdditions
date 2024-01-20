@@ -37,6 +37,17 @@ namespace AssortedAdditions.Content.Projectiles.MagicProj
 				setOnce = true;
 			}
 
+			Projectile.rotation = Projectile.velocity.ToRotation() + MathHelper.PiOver2;
+
+			// Slow down
+			Projectile.velocity *= 0.98f;
+
+			// After a bit fall down faster
+			if (Projectile.timeLeft <= 270)
+			{
+				Projectile.velocity.Y += 0.25f;
+			}
+
 			if (Main.rand.NextBool())
 			{
 				Dust dust = Dust.NewDustDirect(Projectile.position - Projectile.velocity, Projectile.width, Projectile.height, dustTrailType[Projectile.frame]);

@@ -24,7 +24,7 @@ namespace AssortedAdditions.Content.Items.Weapons.Magic
 			Item.knockBack = 6f;
 			Item.useAnimation = 30;
 			Item.useTime = 30;
-			Item.shootSpeed = 10f;
+			Item.shootSpeed = 14;
 			Item.mana = 8;
 			Item.scale = 1.75f;
 
