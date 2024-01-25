@@ -72,6 +72,7 @@
     <None Remove="Content\Items\Placeables\Banners\FrostWraithBanner.png" />
     <None Remove="Content\Items\Placeables\Banners\GoblinBalloonistBanner.png" />
     <None Remove="Content\Items\Placeables\Banners\GrabberPlantBanner.png" />
+    <None Remove="Content\Items\Placeables\Banners\GraniteGruntBanner.png" />
     <None Remove="Content\Items\Placeables\Banners\IceGuardianBanner.png" />
     <None Remove="Content\Items\Placeables\Banners\LivingCactusBanner.png" />
     <None Remove="Content\Items\Placeables\Banners\ShroomlingBanner.png" />
@@ -164,8 +165,12 @@
     <None Remove="Content\NPCs\Gores\GrabberPlantGore1.png" />
     <None Remove="Content\NPCs\Gores\GrabberPlantGore2.png" />
     <None Remove="Content\NPCs\Gores\GrabberPlantGore3.png" />
+    <None Remove="Content\NPCs\Gores\GraniteGruntGore1.png" />
+    <None Remove="Content\NPCs\Gores\GraniteGruntGore2.png" />
+    <None Remove="Content\NPCs\Gores\GraniteGruntGore3.png" />
     <None Remove="Content\NPCs\Gores\ShroomlingGore.png" />
     <None Remove="Content\NPCs\GrabberPlant.png" />
+    <None Remove="Content\NPCs\GraniteGrunt.png" />
     <None Remove="Content\NPCs\IceGuardian.png" />
     <None Remove="Content\NPCs\IceGuardianShield.png" />
     <None Remove="Content\NPCs\JungleMimic.png" />
@@ -227,6 +232,7 @@
     <None Remove="Content\Tiles\Banners\FrostWraithBannerTile.png" />
     <None Remove="Content\Tiles\Banners\GoblinBalloonistBannerTile.png" />
     <None Remove="Content\Tiles\Banners\GrabberPlantBannerTile.png" />
+    <None Remove="Content\Tiles\Banners\GraniteGruntBannerTile.png" />
     <None Remove="Content\Tiles\Banners\IceGuardianBannerTile.png" />
     <None Remove="Content\Tiles\Banners\LivingCactusBannerTile.png" />
     <None Remove="Content\Tiles\Banners\ShroomlingBannerTile.png" />

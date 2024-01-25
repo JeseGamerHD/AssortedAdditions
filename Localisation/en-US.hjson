@@ -1185,6 +1185,11 @@ Mods: {
 				DisplayName: Granite Armor Shard
 				Tooltip: ""
 			}
+
+			GraniteGruntBanner: {
+				DisplayName: Granite Grunt Banner
+				Tooltip: ""
+			}
 		}
 
 		Projectiles: {
@@ -1330,6 +1335,7 @@ Mods: {
 			GoblinBalloonist.DisplayName: Goblin Balloonist
 			JungleMimic.DisplayName: Jungle Mimic
 			TrainingDummyNPC.DisplayName: Training Dummy
+			GraniteGrunt.DisplayName: Granite Grunt
 		}
 
 		Conditions.SellCosmicItems: Mods.AssortedAdditions.Conditions.SellCosmicItems
