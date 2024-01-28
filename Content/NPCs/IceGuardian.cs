@@ -2,7 +2,6 @@
 using AssortedAdditions.Content.Items.Placeables.Banners;
 using AssortedAdditions.Content.Projectiles.NPCProj;
 using Microsoft.Xna.Framework;
-using AssortedAdditions.Content.Projectiles;
 using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent.Bestiary;
@@ -10,7 +9,6 @@ using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ModLoader.Utilities;
-using System;
 
 namespace AssortedAdditions.Content.NPCs
 {
