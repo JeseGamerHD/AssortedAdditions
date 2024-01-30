@@ -99,6 +99,7 @@ namespace AssortedAdditions.Common.Systems
 								new ChestLoot(weapons, 1f)
 							};
 
+							lootPool.Shuffle(); // Shuffle the loot pool to randomize the order that the loot may appear in
                             AddItemsToChestFromLootPool(chest, lootPool); // Once a pool has been made, try adding stuff from it to the chest
 
                         break;
