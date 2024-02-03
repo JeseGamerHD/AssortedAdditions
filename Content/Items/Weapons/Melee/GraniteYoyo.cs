@@ -2,6 +2,7 @@
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria;
+using AssortedAdditions.Content.Items.Misc;
 
 namespace AssortedAdditions.Content.Items.Weapons.Melee
 {
@@ -35,6 +36,16 @@ namespace AssortedAdditions.Content.Items.Weapons.Melee
 			Item.UseSound = SoundID.Item1;
 			Item.value = Item.sellPrice(silver: 80);
 			Item.shoot = ModContent.ProjectileType<GraniteYoyoProj>();
+		}
+
+		public override void AddRecipes()
+		{
+			Recipe recipe = CreateRecipe();
+			recipe.AddIngredient(ModContent.ItemType<GraniteArmorShard>(), 7);
+			recipe.AddIngredient(ItemID.Granite, 15);
+			recipe.AddRecipeGroup("IronBar", 4);
+			recipe.AddTile(TileID.Anvils);
+			recipe.Register();
 		}
 	}
 

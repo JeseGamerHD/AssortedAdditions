@@ -13,6 +13,7 @@
     <None Remove="Content\Buffs\EchoChamberBuff.png" />
     <None Remove="Content\Buffs\EchoChamberDebuff.png" />
     <None Remove="Content\Buffs\EvasionBuff.png" />
+    <None Remove="Content\Buffs\GraniteStaffBuff.png" />
     <None Remove="Content\Buffs\IlluminatedCrystalBuff.png" />
     <None Remove="Content\Buffs\MedkitBuff.png" />
     <None Remove="Content\Buffs\MotivatorDebuff.png" />
@@ -149,6 +150,8 @@
     <None Remove="Content\Items\Weapons\Summon\BlossomLashProj.png" />
     <None Remove="Content\Items\Weapons\Summon\ChainWhip.png" />
     <None Remove="Content\Items\Weapons\Summon\CosmicWhip.png" />
+    <None Remove="Content\Items\Weapons\Summon\GraniteStaff.png" />
+    <None Remove="Content\Items\Weapons\Summon\GraniteStaffMinion.png" />
     <None Remove="Content\Items\Weapons\Summon\Motivator.png" />
     <None Remove="Content\Items\Weapons\Summon\SnowDwellerStaff.png" />
     <None Remove="Content\Items\Weapons\Summon\SunScepter.png" />
@@ -223,6 +226,7 @@
     <None Remove="Content\Projectiles\SummonProj\BlossomLashProj.png" />
     <None Remove="Content\Projectiles\SummonProj\ChainWhipProj.png" />
     <None Remove="Content\Projectiles\SummonProj\CosmicWhipProj.png" />
+    <None Remove="Content\Projectiles\SummonProj\GraniteStaffMinionOrbit.png" />
     <None Remove="Content\Projectiles\SummonProj\MotivatorProj.png" />
     <None Remove="Content\Projectiles\SummonProj\SnowDwellerMinion.png" />
     <None Remove="Content\Projectiles\SummonProj\SunScepterMinion.png" />

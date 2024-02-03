@@ -6,6 +6,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
 using Terraria.GameContent;
 using Terraria.DataStructures;
+using AssortedAdditions.Content.Items.Misc;
 
 namespace AssortedAdditions.Content.Items.Weapons.Magic
 {
@@ -69,6 +70,16 @@ namespace AssortedAdditions.Content.Items.Weapons.Magic
 				source, lightColor, 0, Vector2.Zero, scale * 1.5f, SpriteEffects.None, 0f);
 
 			return false;
+		}
+
+		public override void AddRecipes()
+		{
+			Recipe recipe = CreateRecipe();
+			recipe.AddIngredient(ItemID.Geode);
+			recipe.AddIngredient(ModContent.ItemType<GraniteArmorShard>(), 4);
+			recipe.AddIngredient(ItemID.StoneBlock, 30);
+			recipe.AddTile(TileID.Anvils);
+			recipe.Register();
 		}
 	}
 }

@@ -2,6 +2,7 @@
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria;
+using AssortedAdditions.Content.Items.Misc;
 
 namespace AssortedAdditions.Content.Items.Weapons.Ranged
 {
@@ -27,6 +28,16 @@ namespace AssortedAdditions.Content.Items.Weapons.Ranged
 			Item.UseSound = SoundID.Item1;
 			Item.useStyle = ItemUseStyleID.Swing;
 			Item.shoot = ModContent.ProjectileType<GraniteChakramProj>();
+		}
+
+		public override void AddRecipes()
+		{
+			Recipe recipe = CreateRecipe();
+			recipe.AddIngredient(ModContent.ItemType<GraniteArmorShard>(), 7);
+			recipe.AddIngredient(ItemID.Granite, 15);
+			recipe.AddRecipeGroup("IronBar", 4);
+			recipe.AddTile(TileID.Anvils);
+			recipe.Register();
 		}
 	}
 }

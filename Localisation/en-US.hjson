@@ -95,6 +95,11 @@ Mods: {
 				DisplayName: Rune of Shadows Cooldown
 				Description: Your rune is recharging
 			}
+
+			GraniteStaffBuff: {
+				DisplayName: Granite Minion
+				Description: The minion guards you.
+			}
 		}
 
 		Items: {
@@ -1190,6 +1195,11 @@ Mods: {
 				DisplayName: Granite Grunt Banner
 				Tooltip: ""
 			}
+
+			GraniteStaff: {
+				DisplayName: Granite Staff
+				Tooltip: ""
+			}
 		}
 
 		Projectiles: {
@@ -1272,6 +1282,9 @@ Mods: {
 			GraniteYoyoProj.DisplayName: Granite Yoyo Proj
 			GraniteChakramProj.DisplayName: Granite Chakram Proj
 			GeodeScepterProj.DisplayName: Geode Scepter Proj
+			GraniteStaffMinion.DisplayName: Granite Staff Minion
+			GraniteStaffMinionOrbit.DisplayName: Granite Staff Minion Orbit
+			GraniteMinionShoot.DisplayName: Granite Minion Shoot
 		}
 
 		Tiles: {

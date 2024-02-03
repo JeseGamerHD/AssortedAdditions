@@ -10,6 +10,7 @@ using AssortedAdditions.Content.Items.Consumables;
 using AssortedAdditions.Content.Items.Misc;
 using AssortedAdditions.Content.Items.Weapons.Melee;
 using System.Collections.Generic;
+using AssortedAdditions.Content.Items.Weapons.Summon;
 
 namespace AssortedAdditions.Common.Systems
 {
@@ -77,7 +78,8 @@ namespace AssortedAdditions.Common.Systems
 							int[] weapons = {
 								ModContent.ItemType<GraniteYoyo>(),
 								ModContent.ItemType<GraniteChakram>(),
-								ModContent.ItemType<GeodeScepter>()
+								ModContent.ItemType<GeodeScepter>(),
+								ModContent.ItemType<GraniteStaff>()	
 							};
 
 							List<ChestLoot> lootPool = new List<ChestLoot> { // TODO maybe clean this up

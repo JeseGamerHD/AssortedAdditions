@@ -30,9 +30,9 @@ namespace AssortedAdditions.Content.Items.Armor
 		public override void AddRecipes()
 		{
 			Recipe recipe = CreateRecipe();
-			recipe.AddIngredient(ModContent.ItemType<GraniteArmorShard>(), 6);
+			recipe.AddIngredient(ModContent.ItemType<GraniteArmorShard>(), 12);
 			recipe.AddIngredient(ItemID.Granite, 30);
-			recipe.AddRecipeGroup("IronBar", 12);
+			recipe.AddRecipeGroup("IronBar", 6);
 			recipe.AddTile(TileID.Anvils);
 			recipe.Register();
 		}
