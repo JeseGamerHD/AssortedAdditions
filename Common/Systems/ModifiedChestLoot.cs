@@ -14,61 +14,61 @@ using AssortedAdditions.Content.Items.Weapons.Summon;
 
 namespace AssortedAdditions.Common.Systems
 {
-    // This class is used for adding items to existing chests' loot pools
-    internal class ModifiedChestLoot : ModSystem
-    {
-        public override void PostWorldGen()
-        {
-            const int chestWidth = 36; // 36 is the width of the chest tiles
-            // Chests can be found within tiles_21 (TileID.Containers) and tiles_467 (TileID.Containers2) spritesheets
-            // See TileStyleID class inside the Helpers folder for the correct IDs
+	// This class is used for adding items to existing chests' loot pools
+	internal class ModifiedChestLoot : ModSystem
+	{
+		public override void PostWorldGen()
+		{
+			const int chestWidth = 36; // 36 is the width of the chest tiles
+									   // Chests can be found within tiles_21 (TileID.Containers) and tiles_467 (TileID.Containers2) spritesheets
+									   // See TileStyleID class inside the Helpers folder for the correct IDs
 
-            for (int chestIndex = 0; chestIndex < 8000; chestIndex++)
-            {
-                Chest chest = Main.chest[chestIndex];
-                if(chest == null)
-                {
-                    continue;
-                }
+			for (int chestIndex = 0; chestIndex < 8000; chestIndex++)
+			{
+				Chest chest = Main.chest[chestIndex];
+				if (chest == null)
+				{
+					continue;
+				}
 
-                Tile chestTile = Main.tile[chest.x, chest.y];
-                if(chestTile.TileType == TileID.Containers)
-                {
-                    switch (chestTile.TileFrameX)
-                    {
-                        case TileStyleID.Containers.Chest * chestWidth:
-                            AddItemToChest(chest, ModContent.ItemType<MinersRing>(), 0.2f);
-                        break;
+				Tile chestTile = Main.tile[chest.x, chest.y];
+				if (chestTile.TileType == TileID.Containers)
+				{
+					switch (chestTile.TileFrameX)
+					{
+						case TileStyleID.Containers.Chest * chestWidth:
+							AddItemToChest(chest, ModContent.ItemType<MinersRing>(), 0.2f);
+							break;
 
-                        case TileStyleID.Containers.GoldenChest * chestWidth:
+						case TileStyleID.Containers.GoldenChest * chestWidth:
 							HandleGoldenChest(chest);
-						break;
+							break;
 
-                        case TileStyleID.Containers.LockedGoldenChest * chestWidth:
-                            AddItemToChest(chest, ModContent.ItemType<RuneOfMovement>(), 0.2f);
-                        break;
+						case TileStyleID.Containers.LockedGoldenChest * chestWidth:
+							AddItemToChest(chest, ModContent.ItemType<RuneOfMovement>(), 0.2f);
+							break;
 
-                        case TileStyleID.Containers.SkywareChest * chestWidth:
-                            AddItemToChest(chest, ModContent.ItemType<HangGlider>(), 0.33f);
-                        break;
+						case TileStyleID.Containers.SkywareChest * chestWidth:
+							AddItemToChest(chest, ModContent.ItemType<HangGlider>(), 0.33f);
+							break;
 
-                        case TileStyleID.Containers.GraniteChest * chestWidth:
+						case TileStyleID.Containers.GraniteChest * chestWidth:
 							HandleGraniteChest(chest);
-                        break;
+							break;
 					}
-                }
+				}
 
-                if (chestTile.TileType == TileID.Containers2)
-                {
-                    switch(chestTile.TileFrameX) 
-                    {
-                        case TileStyleID.Containers2.SandstoneChest * chestWidth:
-                            AddItemToChest(chest, ModContent.ItemType<Dunerang>(), 0.3333f);
-                        break;
-                    }
-                }
-            }
-        }
+				if (chestTile.TileType == TileID.Containers2)
+				{
+					switch (chestTile.TileFrameX)
+					{
+						case TileStyleID.Containers2.SandstoneChest * chestWidth:
+							AddItemToChest(chest, ModContent.ItemType<Dunerang>(), 0.3333f);
+							break;
+					}
+				}
+			}
+		}
 
 		/// <summary>
 		/// If the Golden Chest is in a Granite Biome, it gets replaced by a Granite Chest.
@@ -156,7 +156,7 @@ namespace AssortedAdditions.Common.Systems
 		/// Tries to add a single item to a chest
 		/// </summary>
 		private void AddItemToChest(Chest chest, int itemToAdd, float chance, int amount = 1)
-        {
+		{
 			for (int inventoryIndex = 0; inventoryIndex < 40; inventoryIndex++)
 			{
 				if (chest.item[inventoryIndex].type == ItemID.None)
@@ -173,10 +173,10 @@ namespace AssortedAdditions.Common.Systems
 
 		/// <summary>
 		/// Tries to add a single item from given options to the chest
-        /// Item is picked randomly from the options array
+		/// Item is picked randomly from the options array
 		/// </summary>
-		private void AddItemToChestFromOptions(Chest chest, int[] options, float chance, int amount = 1 )
-        {
+		private void AddItemToChestFromOptions(Chest chest, int[] options, float chance, int amount = 1)
+		{
 			for (int inventoryIndex = 0; inventoryIndex < 40; inventoryIndex++)
 			{
 				if (chest.item[inventoryIndex].type == ItemID.None)
@@ -197,31 +197,31 @@ namespace AssortedAdditions.Common.Systems
 		/// If the entry contains multiple items, one is picked from the entry
 		/// </summary>
 		private void AddItemsToChestFromLootPool(Chest chest, List<ChestLoot> lootPool)
-        {
-            int inventoryIndex = 0;
+		{
+			int inventoryIndex = 0;
 
-            foreach(ChestLoot loot in lootPool)
-            {
-                while(inventoryIndex < 40)
-                {
-                    if (chest.item[inventoryIndex].type == ItemID.None)
-                    {
-                        if(Main.rand.NextFloat() <= loot.Chance)
-                        {
-                            chest.item[inventoryIndex].SetDefaults(loot.GetItem());
-                            chest.item[inventoryIndex].stack = loot.Amount;
+			foreach (ChestLoot loot in lootPool)
+			{
+				while (inventoryIndex < 40)
+				{
+					if (chest.item[inventoryIndex].type == ItemID.None)
+					{
+						if (Main.rand.NextFloat() <= loot.Chance)
+						{
+							chest.item[inventoryIndex].SetDefaults(loot.GetItem());
+							chest.item[inventoryIndex].stack = loot.Amount;
 						}
-                        break;
+						break;
 					}
 					inventoryIndex++;
 				}
-                
-                if(inventoryIndex >= 40)
-                {
-                    break;
-                }
-            }
-        }
+
+				if (inventoryIndex >= 40)
+				{
+					break;
+				}
+			}
+		}
 
 		/// <summary>
 		/// Removes vanilla items from the chest
@@ -272,19 +272,19 @@ namespace AssortedAdditions.Common.Systems
 	/// Can be created with a single item or multiple
 	/// </summary>
 	public class ChestLoot
-    {
+	{
 		private int[] ItemsToAdd;
 		private int ItemToAdd;
-        public float Chance { get; set; }
-        public int Amount { get; set; }
+		public float Chance { get; set; }
+		public int Amount { get; set; }
 
-        public ChestLoot(int[] itemsToAdd, float chance, int amount = 1)
-        {
-            ItemsToAdd = itemsToAdd;
-            Chance = chance;
-            Amount = amount;
+		public ChestLoot(int[] itemsToAdd, float chance, int amount = 1)
+		{
+			ItemsToAdd = itemsToAdd;
+			Chance = chance;
+			Amount = amount;
 			ItemToAdd = 0;
-        }
+		}
 
 		public ChestLoot(int itemToAdd, float chance, int amount = 1)
 		{
@@ -299,13 +299,13 @@ namespace AssortedAdditions.Common.Systems
 		/// If there are multiple items, one is picked randomly. Otherwise the only stored item is returned.
 		/// </summary>
 		public int GetItem()
-        {
-			if(ItemsToAdd == null)
+		{
+			if (ItemsToAdd == null)
 			{
 				return ItemToAdd;
 			}
 
-            return ItemsToAdd[Main.rand.Next(ItemsToAdd.Length)];
-        }
-    }
+			return ItemsToAdd[Main.rand.Next(ItemsToAdd.Length)];
+		}
+	}
 }
