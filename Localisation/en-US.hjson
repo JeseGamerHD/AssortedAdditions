@@ -1198,7 +1198,7 @@ Mods: {
 
 			GraniteStaff: {
 				DisplayName: Granite Staff
-				Tooltip: ""
+				Tooltip: Summons a Granite Minion
 			}
 		}
 
