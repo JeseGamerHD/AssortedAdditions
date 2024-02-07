@@ -62,6 +62,10 @@ namespace AssortedAdditions.Common.Systems
 				{
 					switch (chestTile.TileFrameX)
 					{
+						case TileStyleID.Containers2.DeadMansChest * chestWidth:
+							AddItemToChest(chest, ModContent.ItemType<RuneOfDeath>(), 1f);
+							break;
+
 						case TileStyleID.Containers2.SandstoneChest * chestWidth:
 							AddItemToChest(chest, ModContent.ItemType<Dunerang>(), 0.3333f);
 							break;

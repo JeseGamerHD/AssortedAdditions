@@ -39,6 +39,7 @@
     <None Remove="Content\Items\Accessories\MimicsTongue.png" />
     <None Remove="Content\Items\Accessories\NebulaEmblem.png" />
     <None Remove="Content\Items\Accessories\Runes\ManaRune.png" />
+    <None Remove="Content\Items\Accessories\Runes\RuneOfDeath.png" />
     <None Remove="Content\Items\Accessories\Runes\RuneOfHealth.png" />
     <None Remove="Content\Items\Accessories\Runes\RuneOfMovement.png" />
     <None Remove="Content\Items\Accessories\Runes\RuneOfShadows.png" />

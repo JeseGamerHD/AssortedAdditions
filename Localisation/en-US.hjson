@@ -1200,6 +1200,11 @@ Mods: {
 				DisplayName: Granite Staff
 				Tooltip: Summons a Granite Minion
 			}
+
+			RuneOfDeath: {
+				DisplayName: Rune of Death
+				Tooltip: Grants immunity to traps
+			}
 		}
 
 		Projectiles: {
