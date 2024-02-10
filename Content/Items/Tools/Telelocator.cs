@@ -29,15 +29,16 @@ namespace AssortedAdditions.Content.Items.Tools
                 return false;
             }
 
-            // Check that there is enough space for the player
-            // No teleporting inside tiles
-            if (Collision.SolidCollision(Main.MouseWorld, player.width, player.height))
-            {
-                return false;
-            }
+			// Disable teleporting into the jungle temple early or into tiles
+			int xCheck = (int)(Main.MouseWorld.X / 16f);
+            int yCheck = (int)(Main.MouseWorld.Y / 16f);
+			if ((Main.tile[xCheck, yCheck].WallType == WallID.LihzahrdBrickUnsafe && !NPC.downedPlantBoss && (Main.remixWorld || yCheck > Main.worldSurface)) || Collision.SolidCollision(Main.MouseWorld, player.width, player.height))
+			{
+				return false; 
+			}
 
-            // All good, teleport
-            return true;
+			// All good, teleport
+			return true;
         }
 
         public override bool? UseItem(Player player)
