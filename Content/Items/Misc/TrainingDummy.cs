@@ -25,6 +25,17 @@ namespace AssortedAdditions.Content.Items.Misc
 			Item.autoReuse = true;
 		}
 
+		public override bool CanUseItem(Player player)
+		{
+			// Can't use if the dummy would spawn inside a tile
+			if (Collision.SolidCollision(Main.MouseWorld, player.width, player.height))
+			{
+				return false;
+			}
+
+			return true;
+		}
+
 		// This code is maybe more messy than it needs to be
 		// Now it seems to work in multiplayer so I don't want to touch it
 		public override bool? UseItem(Player player)
