@@ -100,6 +100,11 @@ Mods: {
 				DisplayName: Granite Minion
 				Description: The minion guards you.
 			}
+
+			RuneOfRelocationCooldown: {
+				DisplayName: Rune of Relocation Cooldown
+				Description: Your rune is recharging
+			}
 		}
 
 		Items: {
@@ -1204,6 +1209,15 @@ Mods: {
 			RuneOfDeath: {
 				DisplayName: Rune of Death
 				Tooltip: Grants immunity to traps
+			}
+
+			RuneOfRelocation: {
+				DisplayName: Rune of Relocation
+				Tooltip:
+					'''
+					Grants the ability to teleport
+					Teleport has a cooldown
+					'''
 			}
 		}
 

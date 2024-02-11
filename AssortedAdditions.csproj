@@ -17,6 +17,7 @@
     <None Remove="Content\Buffs\IlluminatedCrystalBuff.png" />
     <None Remove="Content\Buffs\MedkitBuff.png" />
     <None Remove="Content\Buffs\MotivatorDebuff.png" />
+    <None Remove="Content\Buffs\RuneOfRelocationCooldown.png" />
     <None Remove="Content\Buffs\RuneOfShadowsCooldown.png" />
     <None Remove="Content\Buffs\SnowDwellerBuff.png" />
     <None Remove="Content\Buffs\SunScepterBuff.png" />
@@ -42,6 +43,7 @@
     <None Remove="Content\Items\Accessories\Runes\RuneOfDeath.png" />
     <None Remove="Content\Items\Accessories\Runes\RuneOfHealth.png" />
     <None Remove="Content\Items\Accessories\Runes\RuneOfMovement.png" />
+    <None Remove="Content\Items\Accessories\Runes\RuneOfRelocation.png" />
     <None Remove="Content\Items\Accessories\Runes\RuneOfShadows.png" />
     <None Remove="Content\Items\Accessories\Runes\RuneOfSpelunking.png" />
     <None Remove="Content\Items\Accessories\SolarEmblem.png" />

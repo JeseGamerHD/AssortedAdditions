@@ -48,7 +48,7 @@ namespace AssortedAdditions.Content.Items.Accessories.Runes
 
 			// If the player is wearing the rune, no projectiles already exist
 			if (player.GetModPlayer<RuneOfShadowsPlayer>().canSpawnProjectile && player.ownedProjectileCounts[ModContent.ProjectileType<RuneOfShadowsProj>()] < 1 
-				&& Main.myPlayer == player.whoAmI && !player.HasBuff<RuneOfShadowsCooldown>())
+				&& Main.myPlayer == player.whoAmI)
 			{
 				Projectile.NewProjectile(player.GetSource_Accessory(Item), player.Center, Vector2.Zero, ModContent.ProjectileType<RuneOfShadowsProj>(), 65, 4f, player.whoAmI, 0f);
 				Projectile.NewProjectile(player.GetSource_Accessory(Item), player.Center, Vector2.Zero, ModContent.ProjectileType<RuneOfShadowsProj>(), 65, 4f, player.whoAmI, 3f);
