@@ -55,6 +55,10 @@ namespace AssortedAdditions.Common.Systems
 						case TileStyleID.Containers.GraniteChest * chestWidth:
 							HandleGraniteChest(chest);
 							break;
+
+						case TileStyleID.Containers.MushroomChest * chestWidth:
+							HandleMushroomChest(chest);
+							break;
 					}
 				}
 
@@ -75,8 +79,8 @@ namespace AssortedAdditions.Common.Systems
 		}
 
 		/// <summary>
-		/// If the Golden Chest is in a Granite Biome, it gets replaced by a Granite Chest.
-		/// Otherwise adds some loot to the Golden Chest
+		/// Adds some loot to the Golden Chest.
+		/// If the chest is in a special biome (e.g. Granite or Mushroom), it gets replaced with that biome's chest.
 		/// </summary>
 		private void HandleGoldenChest(Chest chest)
 		{
@@ -84,29 +88,29 @@ namespace AssortedAdditions.Common.Systems
 			// +2 to y since chests are two tiles tall
 			if (Main.tile[chest.x, chest.y + 2].TileType == TileID.Granite)
 			{
-				// If it is, empty it and replace it with a Granite Chest
-				EmptyTheChest(chest);
-				int x = chest.x;
-				int y = chest.y + 1; // + 1 since the chest.y is the top left corner which is one tile too high
-				WorldGen.KillTile(chest.x, chest.y, false, false, true);
-				int replacedChest = WorldGen.PlaceChest(x, y, TileID.Containers, false, TileStyleID.Containers.GraniteChest);
-				chest = Main.chest[replacedChest];
-
-				// Fill the replaced chest with granite chest loot
-				HandleGraniteChest(chest);
-				return; // Stop here, don't want to add gold chest loot to the granite chest
+				// If it is replace it with a Granite Chest
+				chest = ReplaceChest(chest, TileID.Containers, TileStyleID.Containers.GraniteChest);
+				HandleGraniteChest(chest); // and fill the replaced chest with granite chest loot
+				return;
 			}
-
-			int[] options = {
+			else if (Main.tile[chest.x, chest.y + 2].TileType == TileID.MushroomGrass)
+			{
+				chest = ReplaceChest(chest, TileID.Containers, TileStyleID.Containers.MushroomChest);
+				HandleMushroomChest(chest);
+				return;
+			}
+			else
+			{
+				int[] options = {
 				ModContent.ItemType<StoneWand>(),
 				ModContent.ItemType<RuneOfSpelunking>()
-			};
-			AddItemToChestFromOptions(chest, options, 0.51f);
+				};
+				AddItemToChestFromOptions(chest, options, 0.51f);
+			}
 		}
 
 		/// <summary>
 		/// Removes vanilla items from the Granite Chest and fills it with a custom loot pool.
-		/// Loot pool is shuffled to be in a random order
 		/// </summary>
 		private void HandleGraniteChest(Chest chest)
 		{
@@ -114,30 +118,15 @@ namespace AssortedAdditions.Common.Systems
 
 			// Next create a lootPool
 			// These arrays are for the pool, to make it slightly less awful to read
-			int[] modPotions = {
-				ModContent.ItemType<BerserkerPotion>(),
-				ModContent.ItemType<WardingPotion>()
-			};
-
-			int[] vanillaPotions = {
-				ItemID.NightOwlPotion,
-				ItemID.IronskinPotion,
-				ItemID.TeleportationPotion,
-				ItemID.TrapsightPotion
-			};
-
-			int[] weapons = {
-				ModContent.ItemType<GraniteYoyo>(),
-				ModContent.ItemType<GraniteChakram>(),
-				ModContent.ItemType<GeodeScepter>(),
-				ModContent.ItemType<GraniteStaff>()
-			};
+			int[] modPotions = { ModContent.ItemType<BerserkerPotion>(), ModContent.ItemType<WardingPotion>() };
+			int[] vanillaPotions = { ItemID.NightOwlPotion, ItemID.IronskinPotion, ItemID.TeleportationPotion, ItemID.TrapsightPotion };
+			int[] weapons = { ModContent.ItemType<GraniteYoyo>(), ModContent.ItemType<GraniteChakram>(), ModContent.ItemType<GeodeScepter>(), ModContent.ItemType<GraniteStaff>() };
 
 			List<ChestLoot> lootPool = new List<ChestLoot> {
 				
 				// Secondary items
 				new ChestLoot(ItemID.GoldCoin, 1f, Main.rand.Next(1, 3)),
-				new ChestLoot(ModContent.ItemType<GraniteArmorShard>(), 1f, Main.rand.Next(1, 5)),
+				new ChestLoot(ModContent.ItemType < GraniteArmorShard >(), 1f, Main.rand.Next(1, 5)),
 				new ChestLoot(modPotions, 0.67f, Main.rand.Next(1, 3)),
 				new ChestLoot(ItemID.Granite, 0.5f, Main.rand.Next(25, 51)),
 				new ChestLoot(ItemID.Geode, 0.33f, Main.rand.Next(1, 5)),
@@ -157,7 +146,49 @@ namespace AssortedAdditions.Common.Systems
 		}
 
 		/// <summary>
-		/// Tries to add a single item to a chest
+		/// Removes vanilla items from the Mushroom Chest and fills it with a custom loot pool.
+		/// </summary>
+		private void HandleMushroomChest(Chest chest)
+		{
+			RemoveVanillaLoot(chest);
+
+			int[] modPotions = { ModContent.ItemType<BerserkerPotion>(), ModContent.ItemType<WardingPotion>(), ModContent.ItemType<EvasionPotion>() };
+			int[] vanillaPotions = { ItemID.NightOwlPotion, ItemID.IronskinPotion, ItemID.SpelunkerPotion, ItemID.ArcheryPotion, ItemID.InvisibilityPotion };
+			int[] weapons = { ModContent.ItemType<ShroomMacepole>(), ModContent.ItemType<ShroomPouch>(), ModContent.ItemType<Shroomzooka>() }; // TODO SUMMON WEAPON
+			int[] vanillaPrimaryItems = { ItemID.MagicMirror, ItemID.Extractinator, ItemID.LavaCharm };
+
+			List<ChestLoot> lootPool = new List<ChestLoot>
+			{
+				// Secondary items
+				new ChestLoot(ItemID.GoldCoin, 1f, Main.rand.Next(1, 3)),
+				new ChestLoot(ItemID.HealingPotion, 0.5f, Main.rand.Next(3, 6)),
+				new ChestLoot(ItemID.ShroomMinecart, 0.5f),
+				new ChestLoot(ItemID.GlowingMushroom, 0.5f, Main.rand.Next(15, 36)),
+				new ChestLoot(ItemID.StickyGlowstick, 0.5f, Main.rand.Next(15, 30)),
+				new ChestLoot(ModContent.ItemType<SkeletonPotion>(), 0.25f),
+				new ChestLoot(ItemID.MushroomStatue, 0.2f),
+				new ChestLoot(modPotions, 0.67f, Main.rand.Next(1, 3)),
+				new ChestLoot(vanillaPotions, 0.33f, Main.rand.Next(1, 3)),
+
+				// Primary items
+				new ChestLoot(vanillaPrimaryItems, 1f),
+				new ChestLoot(weapons, 1f)
+			};
+
+			lootPool.Shuffle();
+			AddItemsToChestFromLootPool(chest, lootPool);
+
+			// Add the mushroom set 50% like in vanilla
+			if (Main.rand.NextBool())
+			{
+				AddItemToChest(chest, ItemID.MushroomHat, 1f);
+				AddItemToChest(chest, ItemID.MushroomVest, 1f);
+				AddItemToChest(chest, ItemID.MushroomPants, 1f);
+			}
+		}
+
+		/// <summary>
+		/// Tries to add a single item to a chest. The given chance determines whether the item gets added.
 		/// </summary>
 		private void AddItemToChest(Chest chest, int itemToAdd, float chance, int amount = 1)
 		{
@@ -176,7 +207,7 @@ namespace AssortedAdditions.Common.Systems
 		}
 
 		/// <summary>
-		/// Tries to add a single item from given options to the chest
+		/// Tries to add a single item from given options to the chest. The given chance determines whether the item gets added.
 		/// Item is picked randomly from the options array
 		/// </summary>
 		private void AddItemToChestFromOptions(Chest chest, int[] options, float chance, int amount = 1)
@@ -197,8 +228,8 @@ namespace AssortedAdditions.Common.Systems
 		}
 
 		/// <summary>
-		/// Attempts to add each entry from the loot pool (each entry has its own chance to be in a chest)
-		/// If the entry contains multiple items, one is picked from the entry
+		/// Attempts to add each entry from the loot pool (each entry has its own chance to be in a chest).
+		/// If the entry contains multiple items (is an array), one is picked randomly.
 		/// </summary>
 		private void AddItemsToChestFromLootPool(Chest chest, List<ChestLoot> lootPool)
 		{
@@ -225,6 +256,22 @@ namespace AssortedAdditions.Common.Systems
 					break;
 				}
 			}
+		}
+
+		/// <summary>
+		/// Removes the given chest and replaces it with a new one based on the given type.
+		/// </summary>
+		/// <returns> The replaced chest. </returns>
+		private Chest ReplaceChest(Chest chest, ushort tileID, int chestType)
+		{
+			EmptyTheChest(chest);
+			int x = chest.x;
+			int y = chest.y + 1; // + 1 since the chest.y is the top left corner which is one tile too high
+			WorldGen.KillTile(chest.x, chest.y, false, false, true);
+			int replacedChest = WorldGen.PlaceChest(x, y, tileID, false, chestType);
+			chest = Main.chest[replacedChest];
+
+			return chest;
 		}
 
 		/// <summary>

@@ -1219,6 +1219,25 @@ Mods: {
 					Teleport has a cooldown
 					'''
 			}
+
+			ShroomMacepole: {
+				DisplayName: Shroom Macepole
+				Tooltip: ""
+			}
+
+			ShroomPouch: {
+				DisplayName: Shroom Pouch
+				Tooltip:
+					'''
+					Releases deadly spores
+					Killed enemies explode into spores
+					'''
+			}
+
+			Shroomzooka: {
+				DisplayName: Shroomzooka
+				Tooltip: Shoots out glowing mushrooms
+			}
 		}
 
 		Projectiles: {
@@ -1304,6 +1323,9 @@ Mods: {
 			GraniteStaffMinion.DisplayName: Granite Staff Minion
 			GraniteStaffMinionOrbit.DisplayName: Granite Staff Minion Orbit
 			GraniteMinionShoot.DisplayName: Granite Minion Shoot
+			ShroomMacepoleProj.DisplayName: Shroom Macepole Proj
+			ShroomPouchProj.DisplayName: Shroom Pouch Proj
+			ShroomzookaProj.DisplayName: Shroomzooka Proj
 		}
 
 		Tiles: {

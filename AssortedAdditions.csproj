@@ -124,6 +124,7 @@
     <None Remove="Content\Items\Weapons\Magic\DeathRay.png" />
     <None Remove="Content\Items\Weapons\Magic\GeodeScepter.png" />
     <None Remove="Content\Items\Weapons\Magic\IcyStaff.png" />
+    <None Remove="Content\Items\Weapons\Magic\ShroomPouch.png" />
     <None Remove="Content\Items\Weapons\Magic\SpiritVase.png" />
     <None Remove="Content\Items\Weapons\Magic\SporeRod.png" />
     <None Remove="Content\Items\Weapons\Magic\StoneWand.png" />
@@ -140,6 +141,7 @@
     <None Remove="Content\Items\Weapons\Melee\GhostlyBlade.png" />
     <None Remove="Content\Items\Weapons\Melee\PetalBlade.png" />
     <None Remove="Content\Items\Weapons\Melee\Pwnage.png" />
+    <None Remove="Content\Items\Weapons\Melee\ShroomMacepole.png" />
     <None Remove="Content\Items\Weapons\Ranged\BombLauncher.png" />
     <None Remove="Content\Items\Weapons\Ranged\Boom_erang.png" />
     <None Remove="Content\Items\Weapons\Ranged\EyeBow.png" />
@@ -149,6 +151,7 @@
     <None Remove="Content\Items\Weapons\Ranged\JungleChakram.png" />
     <None Remove="Content\Items\Weapons\Ranged\ScifiBlaster.png" />
     <None Remove="Content\Items\Weapons\Ranged\ShootingStar.png" />
+    <None Remove="Content\Items\Weapons\Ranged\Shroomzooka.png" />
     <None Remove="Content\Items\Weapons\Summon\BlossomLash.png" />
     <None Remove="Content\Items\Weapons\Summon\BlossomLashProj.png" />
     <None Remove="Content\Items\Weapons\Summon\ChainWhip.png" />
@@ -212,6 +215,7 @@
     <None Remove="Content\Projectiles\MeleeProj\PetalBladeProj.png" />
     <None Remove="Content\Projectiles\MeleeProj\PwnageChain.png" />
     <None Remove="Content\Projectiles\MeleeProj\PwnageProj.png" />
+    <None Remove="Content\Projectiles\MeleeProj\ShroomMacepoleProj.png" />
     <None Remove="Content\Projectiles\NPCProj\GoblinBomb.png" />
     <None Remove="Content\Projectiles\NPCProj\IceGuardianProj.png" />
     <None Remove="Content\Projectiles\PetProj\IlluminatedCrystalPet.png" />
@@ -222,6 +226,7 @@
     <None Remove="Content\Projectiles\RangedProj\ScifiBlasterHoming.png" />
     <None Remove="Content\Projectiles\RangedProj\ScifiBlasterProj.png" />
     <None Remove="Content\Projectiles\RangedProj\ShootingStarProj.png" />
+    <None Remove="Content\Projectiles\RangedProj\ShroomzookaProj.png" />
     <None Remove="Content\Projectiles\RuneOfShadowsProj.png" />
     <None Remove="Content\Projectiles\SkeletonPotionProj.png" />
     <None Remove="Content\Projectiles\SporeNecklaceProj.png" />
