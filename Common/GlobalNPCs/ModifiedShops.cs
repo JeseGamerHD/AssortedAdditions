@@ -67,9 +67,14 @@ namespace AssortedAdditions.Common.GlobalNPCs
             {
                 shop.Add(ModContent.ItemType<StoneWand>());
                 shop.Add(new Item(ModContent.ItemType<RuneOfSpelunking>()) { shopCustomPrice = 80000});
-            }
 
-            if(shop.NpcType == NPCID.WitchDoctor)
+                shop.Add(ModContent.ItemType<ShroomMacepole>(), Condition.InGlowshroom); // Sell these when in the Mushroom biome.
+                shop.Add(ModContent.ItemType<ShroomPouch>(), Condition.InGlowshroom);
+                shop.Add(ModContent.ItemType<Shroomzooka>(), Condition.InGlowshroom);
+				shop.Add(ModContent.ItemType<ShroomScepter>(), Condition.InGlowshroom);
+			}
+
+            if (shop.NpcType == NPCID.WitchDoctor)
             {
                 shop.Add(new Item(ItemID.GuideVoodooDoll) { shopCustomPrice = 4000 }, condition: Condition.DownedSkeletron);
 				shop.Add(new Item(ItemID.ClothierVoodooDoll) { shopCustomPrice = 4000 }, condition: Condition.DownedSkeletron);

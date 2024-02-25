@@ -67,17 +67,17 @@ Mods: {
 			}
 
 			WardingPotionBuff: {
-				DisplayName: Warding Potion Buff
+				DisplayName: Warding
 				Description: Immune to knockback
 			}
 
 			BerserkerBuff: {
-				DisplayName: Berserker Buff
+				DisplayName: Berserker
 				Description: Increased melee speed
 			}
 
 			IlluminatedCrystalBuff: {
-				DisplayName: Illuminated Crystal Buff
+				DisplayName: Illuminated Crystal
 				Description: The crystal lights your way
 			}
 
@@ -87,7 +87,7 @@ Mods: {
 			}
 
 			EvasionBuff: {
-				DisplayName: Evasion Buff
+				DisplayName: Evasion
 				Description: You are harder to hit
 			}
 
@@ -104,6 +104,11 @@ Mods: {
 			RuneOfRelocationCooldown: {
 				DisplayName: Rune of Relocation Cooldown
 				Description: Your rune is recharging
+			}
+
+			ShroomScepterBuff: {
+				DisplayName: Shroom Minion
+				Description: Your own mushroom friend.
 			}
 		}
 
@@ -1238,6 +1243,11 @@ Mods: {
 				DisplayName: Shroomzooka
 				Tooltip: Shoots out glowing mushrooms
 			}
+
+			ShroomScepter: {
+				DisplayName: Shroom Scepter
+				Tooltip: Summons a Shroom Minion.
+			}
 		}
 
 		Projectiles: {
@@ -1326,6 +1336,7 @@ Mods: {
 			ShroomMacepoleProj.DisplayName: Shroom Macepole Proj
 			ShroomPouchProj.DisplayName: Shroom Pouch Proj
 			ShroomzookaProj.DisplayName: Shroomzooka Proj
+			ShroomScepterMinion.DisplayName: Shroom Scepter Minion
 		}
 
 		Tiles: {

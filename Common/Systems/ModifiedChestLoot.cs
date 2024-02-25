@@ -20,8 +20,8 @@ namespace AssortedAdditions.Common.Systems
 		public override void PostWorldGen()
 		{
 			const int chestWidth = 36; // 36 is the width of the chest tiles
-									   // Chests can be found within tiles_21 (TileID.Containers) and tiles_467 (TileID.Containers2) spritesheets
-									   // See TileStyleID class inside the Helpers folder for the correct IDs
+			// Chests can be found within tiles_21 (TileID.Containers) and tiles_467 (TileID.Containers2) spritesheets
+			// See TileStyleID class inside the Helpers folder for the correct IDs
 
 			for (int chestIndex = 0; chestIndex < 8000; chestIndex++)
 			{
@@ -93,12 +93,15 @@ namespace AssortedAdditions.Common.Systems
 				HandleGraniteChest(chest); // and fill the replaced chest with granite chest loot
 				return;
 			}
-			else if (Main.tile[chest.x, chest.y + 2].TileType == TileID.MushroomGrass)
+			// This doesnt always prevent golden chest from being in a Mushroom biome but makes them a lot more common
+			// Sometimes the chest could be placed on silt (Would need to scan a larger area).
+			else if (Main.tile[chest.x, chest.y + 2].TileType == TileID.MushroomGrass) 
 			{
 				chest = ReplaceChest(chest, TileID.Containers, TileStyleID.Containers.MushroomChest);
 				HandleMushroomChest(chest);
 				return;
 			}
+			// Chest doesn't need to be replaced, add gold chest loot
 			else
 			{
 				int[] options = {
@@ -154,7 +157,7 @@ namespace AssortedAdditions.Common.Systems
 
 			int[] modPotions = { ModContent.ItemType<BerserkerPotion>(), ModContent.ItemType<WardingPotion>(), ModContent.ItemType<EvasionPotion>() };
 			int[] vanillaPotions = { ItemID.NightOwlPotion, ItemID.IronskinPotion, ItemID.SpelunkerPotion, ItemID.ArcheryPotion, ItemID.InvisibilityPotion };
-			int[] weapons = { ModContent.ItemType<ShroomMacepole>(), ModContent.ItemType<ShroomPouch>(), ModContent.ItemType<Shroomzooka>() }; // TODO SUMMON WEAPON
+			int[] weapons = { ModContent.ItemType<ShroomMacepole>(), ModContent.ItemType<ShroomPouch>(), ModContent.ItemType<Shroomzooka>(), ModContent.ItemType<ShroomScepter>() };
 			int[] vanillaPrimaryItems = { ItemID.MagicMirror, ItemID.Extractinator, ItemID.LavaCharm };
 
 			List<ChestLoot> lootPool = new List<ChestLoot>
