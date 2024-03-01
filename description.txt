@@ -1,15 +1,15 @@
-Assorted Additions is a content mod which adds all kinds of things like the name implies. Currently the mod adds:
-- Over 170 items
-- 30+ tiles
+Assorted Additions is a content mod which adds all kinds of things like the name implies. These are some of the additions:
+- Around 200 items
 - 13 NPCs
 - 1 Boss
+- New accessory category "Runes"
 
-Also some tweaks to vanilla (Most have a config toggle):
+Also a bunch of tweaks such as:
 - Hardmode ore progression changes
-- Accessory recipies, drop rate changes
+- Alternative ways to obtain some accessories
 - Non consumable boss summon items
-- Jungle Mimic with unique loot
+- Jungle Mimic in normal worlds with unique loot
 - Lunatic Cultist boss loot
-- Other misc tweaks...
+- Underground minibiome chests have unique loot
 
 More details on the Workshop or GitHub pages.
