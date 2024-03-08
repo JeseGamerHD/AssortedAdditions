@@ -137,29 +137,7 @@ namespace AssortedAdditions.Content.Projectiles.MeleeProj
             Projectile.Center = player.RotatedRelativePoint(player.MountedCenter) - Projectile.velocity;
             Projectile.scale = scaleAdder + percentageOfLife * scaleMulti;
 
-            // The other sword projectiles that use AI Style 190 have different effects.
-            // This example only includes the Excalibur.
-            // Look at AI_190_NightsEdge() in Projectile.cs for the others.
-
-            // Here we spawn some dust inside the arc of the swing.
-            float dustRotation = Projectile.rotation + Main.rand.NextFloatDirection() * MathHelper.PiOver2 * 0.7f;
-            Vector2 dustPosition = Projectile.Center + dustRotation.ToRotationVector2() * 84f * Projectile.scale;
-            Vector2 dustVelocity = (dustRotation + Projectile.ai[0] * MathHelper.PiOver2).ToRotationVector2();
-            if (Main.rand.NextFloat() * 2f < Projectile.Opacity)
-            {
-                // Original Excalibur color: Color.Gold, Color.White
-                Color dustColor = Color.Lerp(PrimaryDustColor, SecondaryDustColor, Main.rand.NextFloat() * 0.3f);
-                Dust coloredDust = Dust.NewDustPerfect(Projectile.Center + dustRotation.ToRotationVector2() * (Main.rand.NextFloat() * 80f * Projectile.scale + 20f * Projectile.scale),
-                    DustType, dustVelocity * 1f, 100, dustColor, 0.4f);
-                coloredDust.fadeIn = 0.4f + Main.rand.NextFloat() * 0.15f;
-                coloredDust.noGravity = true;
-            }
-
-            if (Main.rand.NextFloat() * 1.5f < Projectile.Opacity)
-            {
-                // 15 = Fallen Star Trail dust
-                Dust.NewDustPerfect(dustPosition, DustType, dustVelocity, 100, PrimaryDustColor * Projectile.Opacity, 1.2f * Projectile.Opacity);
-            }
+            HandleDust();
 
             Projectile.scale *= Projectile.ai[2]; // Set the scale of the projectile to the scale of the item.
 
@@ -171,6 +149,29 @@ namespace AssortedAdditions.Content.Projectiles.MeleeProj
 
             HandleWeaponImbues();
         }
+
+        public virtual void HandleDust()
+        {
+			// Here we spawn some dust inside the arc of the swing.
+			float dustRotation = Projectile.rotation + Main.rand.NextFloatDirection() * MathHelper.PiOver2 * 0.7f;
+			Vector2 dustPosition = Projectile.Center + dustRotation.ToRotationVector2() * 84f * Projectile.scale;
+			Vector2 dustVelocity = (dustRotation + Projectile.ai[0] * MathHelper.PiOver2).ToRotationVector2();
+			if (Main.rand.NextFloat() * 2f < Projectile.Opacity)
+			{
+				// Original Excalibur color: Color.Gold, Color.White
+				Color dustColor = Color.Lerp(PrimaryDustColor, SecondaryDustColor, Main.rand.NextFloat() * 0.3f);
+				Dust coloredDust = Dust.NewDustPerfect(Projectile.Center + dustRotation.ToRotationVector2() * (Main.rand.NextFloat() * 80f * Projectile.scale + 20f * Projectile.scale),
+					DustType, dustVelocity * 1f, 100, dustColor, 0.4f);
+				coloredDust.fadeIn = 0.4f + Main.rand.NextFloat() * 0.15f;
+				coloredDust.noGravity = true;
+			}
+
+			if (Main.rand.NextFloat() * 1.5f < Projectile.Opacity)
+			{
+				// 15 = Fallen Star Trail dust
+				Dust.NewDustPerfect(dustPosition, DustType, dustVelocity, 100, PrimaryDustColor * Projectile.Opacity, 1.2f * Projectile.Opacity);
+			}
+		}
 
         public virtual void HandleWeaponImbues()
         {
@@ -309,7 +310,7 @@ namespace AssortedAdditions.Content.Projectiles.MeleeProj
         }
 
         // Copied from Main.DrawPrettyStarSparkle() which is private
-        private static void DrawPrettyStarSparkle(float opacity, SpriteEffects dir, Vector2 drawpos, Color drawColor, Color shineColor, float flareCounter, float fadeInStart, float fadeInEnd, float fadeOutStart, float fadeOutEnd, float rotation, Vector2 scale, Vector2 fatness)
+        public virtual void DrawPrettyStarSparkle(float opacity, SpriteEffects dir, Vector2 drawpos, Color drawColor, Color shineColor, float flareCounter, float fadeInStart, float fadeInEnd, float fadeOutStart, float fadeOutEnd, float rotation, Vector2 scale, Vector2 fatness)
         {
             Texture2D sparkleTexture = TextureAssets.Extra[98].Value;
             Color bigColor = shineColor * opacity * 0.5f;

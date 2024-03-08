@@ -118,6 +118,7 @@
     <None Remove="Content\Items\Vanity\BuilderPants_Legs.png" />
     <None Remove="Content\Items\Vanity\ShroomHat.png" />
     <None Remove="Content\Items\Vanity\ShroomHat_Head.png" />
+    <None Remove="Content\Items\Weapons\Magic\AncientGauntlet.png" />
     <None Remove="Content\Items\Weapons\Magic\BookOfAlphabets.png" />
     <None Remove="Content\Items\Weapons\Magic\BookOfMathematics.png" />
     <None Remove="Content\Items\Weapons\Magic\Concoctions\FrozenConcoction.png" />
@@ -140,6 +141,7 @@
     <None Remove="Content\Items\Weapons\Melee\CosmicBlade.png" />
     <None Remove="Content\Items\Weapons\Melee\CultClassic.png" />
     <None Remove="Content\Items\Weapons\Melee\GhostlyBlade.png" />
+    <None Remove="Content\Items\Weapons\Melee\LihzahrdClub.png" />
     <None Remove="Content\Items\Weapons\Melee\PetalBlade.png" />
     <None Remove="Content\Items\Weapons\Melee\Pwnage.png" />
     <None Remove="Content\Items\Weapons\Melee\ShroomMacepole.png" />
@@ -150,6 +152,7 @@
     <None Remove="Content\Items\Weapons\Ranged\GraniteChakram.png" />
     <None Remove="Content\Items\Weapons\Ranged\IceBlaster.png" />
     <None Remove="Content\Items\Weapons\Ranged\JungleChakram.png" />
+    <None Remove="Content\Items\Weapons\Ranged\SawbladeLauncher.png" />
     <None Remove="Content\Items\Weapons\Ranged\ScifiBlaster.png" />
     <None Remove="Content\Items\Weapons\Ranged\ShootingStar.png" />
     <None Remove="Content\Items\Weapons\Ranged\Shroomzooka.png" />
@@ -192,6 +195,7 @@
     <None Remove="Content\NPCs\TrainingDummyNPC.png" />
     <None Remove="Content\Projectiles\EchoChamberProj.png" />
     <None Remove="Content\Projectiles\FrostBobber.png" />
+    <None Remove="Content\Projectiles\MagicProj\AncientGauntletProj.png" />
     <None Remove="Content\Projectiles\MagicProj\BookOfAlphabetsProj.png" />
     <None Remove="Content\Projectiles\MagicProj\BookOfMathematicsProj.png" />
     <None Remove="Content\Projectiles\MagicProj\DeathRayProj.png" />
@@ -214,6 +218,7 @@
     <None Remove="Content\Projectiles\MeleeProj\CultClassicProj.png" />
     <None Remove="Content\Projectiles\MeleeProj\GhostlyBladeProj.png" />
     <None Remove="Content\Projectiles\MeleeProj\GraniteYoyoProj.png" />
+    <None Remove="Content\Projectiles\MeleeProj\LihzahrdClubProj.png" />
     <None Remove="Content\Projectiles\MeleeProj\PetalBladeProj.png" />
     <None Remove="Content\Projectiles\MeleeProj\PwnageChain.png" />
     <None Remove="Content\Projectiles\MeleeProj\PwnageProj.png" />
@@ -225,6 +230,7 @@
     <None Remove="Content\Projectiles\RangedProj\EyeBowProj.png" />
     <None Remove="Content\Projectiles\RangedProj\FrostBowProj.png" />
     <None Remove="Content\Projectiles\RangedProj\JungleChakramProj.png" />
+    <None Remove="Content\Projectiles\RangedProj\SawbladeLauncherProj.png" />
     <None Remove="Content\Projectiles\RangedProj\ScifiBlasterHoming.png" />
     <None Remove="Content\Projectiles\RangedProj\ScifiBlasterProj.png" />
     <None Remove="Content\Projectiles\RangedProj\ShootingStarProj.png" />

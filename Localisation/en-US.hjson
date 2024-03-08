@@ -1248,6 +1248,21 @@ Mods: {
 				DisplayName: Shroom Scepter
 				Tooltip: Summons a Shroom Minion.
 			}
+
+			LihzahrdClub: {
+				DisplayName: Lihzahrd Club
+				Tooltip: Hit your enemies with explosive force
+			}
+
+			SawbladeLauncher: {
+				DisplayName: Sawblade Launcher
+				Tooltip: Shoots out bouncing saw blades
+			}
+
+			AncientGauntlet: {
+				DisplayName: Ancient Gauntlet
+				Tooltip: Summons fire balls towards your cursor
+			}
 		}
 
 		Projectiles: {
@@ -1337,6 +1352,9 @@ Mods: {
 			ShroomPouchProj.DisplayName: Shroom Pouch Proj
 			ShroomzookaProj.DisplayName: Shroomzooka Proj
 			ShroomScepterMinion.DisplayName: Shroom Scepter Minion
+			LihzahrdClubProj.DisplayName: Lihzahrd Club Proj
+			SawbladeLauncherProj.DisplayName: Sawblade Launcher Proj
+			AncientGauntletProj.DisplayName: Ancient Gauntlet Proj
 		}
 
 		Tiles: {

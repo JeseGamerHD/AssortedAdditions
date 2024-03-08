@@ -59,6 +59,11 @@ namespace AssortedAdditions.Common.Systems
 						case TileStyleID.Containers.MushroomChest * chestWidth:
 							HandleMushroomChest(chest);
 							break;
+
+						case TileStyleID.Containers.LihzahrdChest * chestWidth:
+							int[] options = { ModContent.ItemType<LihzahrdClub>(), ModContent.ItemType<SawbladeLauncher>(), ModContent.ItemType<AncientGauntlet>() }; // TODO rest of loot
+							AddItemToChestFromOptions(chest, options, 1f);
+							break;
 					}
 				}
 
