@@ -110,6 +110,11 @@ Mods: {
 				DisplayName: Shroom Minion
 				Description: Your own mushroom friend.
 			}
+
+			AncientHornBuff: {
+				DisplayName: Ancient Horn
+				Description: Your minions deal 20% more damage, but you take 33% more damage.
+			}
 		}
 
 		Items: {
@@ -1262,6 +1267,15 @@ Mods: {
 			AncientGauntlet: {
 				DisplayName: Ancient Gauntlet
 				Tooltip: Summons fire balls towards your cursor
+			}
+
+			AncientHorn: {
+				DisplayName: Ancient Horn
+				Tooltip:
+					'''
+					Grants a buff which strengthens your minion's attacks by 20%,
+					but you take 33% more damage in return.
+					'''
 			}
 		}
 

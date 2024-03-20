@@ -8,7 +8,7 @@ namespace AssortedAdditions.Content.Buffs.Whips
     {
         public override string Texture => "AssortedAdditions/Content/Buffs/Whips/MotivatorDebuff";
 
-        public static readonly int TagDamage = 6;
+        public static readonly int TagDamage = 5;
 
         public override void SetStaticDefaults()
         {
@@ -17,23 +17,23 @@ namespace AssortedAdditions.Content.Buffs.Whips
             BuffID.Sets.IsATagBuff[Type] = true;
             Main.debuff[Type] = true;
         }
-
-        public class CHainWhipDebuffNPC : GlobalNPC
-        {
-            public override void ModifyHitByProjectile(NPC npc, Projectile projectile, ref NPC.HitModifiers modifiers)
-            {
-                // Only player attacks should benefit from this buff, hence the NPC and trap checks.
-                if (projectile.npcProj || projectile.trap || !projectile.IsMinionOrSentryRelated)
-                    return;
-
-                // SummonTagDamageMultiplier scales down tag damage for some specific minion and sentry projectiles for balance purposes.
-                var projTagMultiplier = ProjectileID.Sets.SummonTagDamageMultiplier[projectile.type];
-                if (npc.HasBuff<ChainWhipDebuff>())
-                {
-                    // Apply a flat bonus to every hit
-                    modifiers.FlatBonusDamage += MotivatorDebuff.TagDamage * projTagMultiplier;
-                }
-            }
-        }
     }
+
+	public class CHainWhipDebuffNPC : GlobalNPC
+	{
+		public override void ModifyHitByProjectile(NPC npc, Projectile projectile, ref NPC.HitModifiers modifiers)
+		{
+			// Only player attacks should benefit from this buff, hence the NPC and trap checks.
+			if (projectile.npcProj || projectile.trap || !projectile.IsMinionOrSentryRelated)
+				return;
+
+			// SummonTagDamageMultiplier scales down tag damage for some specific minion and sentry projectiles for balance purposes.
+			var projTagMultiplier = ProjectileID.Sets.SummonTagDamageMultiplier[projectile.type];
+			if (npc.HasBuff<ChainWhipDebuff>())
+			{
+				// Apply a flat bonus to every hit
+				modifiers.FlatBonusDamage += ChainWhipDebuff.TagDamage * projTagMultiplier;
+			}
+		}
+	}
 }

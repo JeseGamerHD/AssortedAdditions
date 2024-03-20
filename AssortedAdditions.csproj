@@ -9,6 +9,7 @@
   </PropertyGroup>
   <ItemGroup>
     <None Remove="Assets\UI\RuneIcon.png" />
+    <None Remove="Content\Buffs\AncientHornBuff.png" />
     <None Remove="Content\Buffs\BerserkerBuff.png" />
     <None Remove="Content\Buffs\EchoChamberBuff.png" />
     <None Remove="Content\Buffs\EchoChamberDebuff.png" />
@@ -156,6 +157,7 @@
     <None Remove="Content\Items\Weapons\Ranged\ScifiBlaster.png" />
     <None Remove="Content\Items\Weapons\Ranged\ShootingStar.png" />
     <None Remove="Content\Items\Weapons\Ranged\Shroomzooka.png" />
+    <None Remove="Content\Items\Weapons\Summon\AncientHorn.png" />
     <None Remove="Content\Items\Weapons\Summon\BlossomLash.png" />
     <None Remove="Content\Items\Weapons\Summon\BlossomLashProj.png" />
     <None Remove="Content\Items\Weapons\Summon\ChainWhip.png" />

@@ -20,15 +20,13 @@ internal class GuidedMissileProj : ModProjectile
         Projectile.aiStyle = 0; // Custom AI style
         Projectile.timeLeft = 300; // 5 second life
         Projectile.DamageType = DamageClass.Ranged;
-        DrawOriginOffsetY = 0;
-        DrawOriginOffsetX = 0;
         Projectile.ignoreWater = true;
         Projectile.tileCollide = true;
         Projectile.friendly = true;
         Projectile.hostile = false;
     }
 
-    public override void AI()
+	public override void AI()
     {
         float maxDetectRadius = 400f; // The maximum radius at which a projectile can detect a target
 
@@ -46,85 +44,53 @@ internal class GuidedMissileProj : ModProjectile
             }
         }
 
+		Player player = Main.player[Projectile.owner];
         if (Main.myPlayer == Projectile.owner && Projectile.ai[0] == 0f)
         {
-            Player player = Main.player[Projectile.owner];
             // If the player channels the weapon, follow the cursor
-            // This check only works if item.channel is true for the weapon.
+            // Projectile check only works if item.channel is true for the weapon.
             if (player.channel)
             {
-                float maxDistance = 10f; // This also sets the maximun speed the projectile can reach while following the cursor.
-                Vector2 vectorToCursor = Main.MouseWorld - Projectile.Center;
-                float distanceToCursor = vectorToCursor.Length();
-
-                // Here we can see that the speed of the projectile depends on the distance to the cursor.
-                if (distanceToCursor > maxDistance)
-                {
-                    distanceToCursor = maxDistance / distanceToCursor;
-                    vectorToCursor *= distanceToCursor;
-                }
-
-                int velocityXBy1000 = (int)(vectorToCursor.X * 1000f);
-                int oldVelocityXBy1000 = (int)(Projectile.velocity.X * 1000f);
-                int velocityYBy1000 = (int)(vectorToCursor.Y * 1000f);
-                int oldVelocityYBy1000 = (int)(Projectile.velocity.Y * 1000f);
-
-                // This code checks if the precious velocity of the projectile is different enough from its new velocity,
-                // and if it is, syncs it with the server and the other clients in MP.
-                // We previously multiplied the speed by 1000, then casted it to int,
-                // this is to reduce its precision and prevent the speed from being synced too much.
-                if (velocityXBy1000 != oldVelocityXBy1000 || velocityYBy1000 != oldVelocityYBy1000)
-                {
-                    Projectile.netUpdate = true;
-                }
-                Projectile.velocity = vectorToCursor;
-            }
-            // If the player stops channeling, the projectile tries to home in on a target
-            else if (Projectile.ai[0] == 0f)
-            {
+                Projectile.ai[2] = (Main.MouseWorld - Projectile.Center).ToRotation();
                 Projectile.netUpdate = true;
 
-                NPC closestNPC = FindClosestNPC(maxDetectRadius);
-
-                if (closestNPC == null) // If no target is found, missile flies off
-                {
-                    if (Projectile.velocity == Vector2.Zero)
-                    {
-                        Vector2 vectorToCursor = Projectile.Center - player.Center;
-                        float distanceToCursor = vectorToCursor.Length();
-                        distanceToCursor = 18f / distanceToCursor;
-                        vectorToCursor *= distanceToCursor;
-                        Projectile.velocity = vectorToCursor;
-                    }
-
-                    return;
-                }
-
-                // If found, change the velocity of the projectile and turn it in the direction of the target
-                Projectile.velocity = (closestNPC.Center - Projectile.Center).SafeNormalize(Vector2.Zero) * 10f;
-                Projectile.rotation = Projectile.velocity.ToRotation();
-
+                // With these the projectile will move towards the target (the cursor) in a smooth way
+                float curve = Projectile.velocity.ToRotation();
+                float maxTurn = MathHelper.ToRadians(8f); // Adjusting Projectile affects the speed at which the projectile curves at the target
+                Projectile.velocity = Projectile.velocity.RotatedBy(MathHelper.WrapAngle(curve.AngleTowards(Projectile.ai[2], maxTurn)) - curve);
+                // TODO fix movement being choppy in multiplayer
+			}
+            else
+            {
                 Projectile.ai[0] = 1f;
+                Projectile.netUpdate = true;
+            }
+        }
+		// If the player stops channeling, the projectile tries to home in on a target (if there are none it continues in the direction it was heading)
+		else if (Main.myPlayer == Projectile.owner && Projectile.ai[0] == 1f)
+		{
+			NPC closestNPC = FindClosestNPC(maxDetectRadius);
+
+			if (closestNPC != null) // If no target is found, missile flies off
+			{
+				Projectile.ai[2] = (closestNPC.Center - Projectile.Center).ToRotation();
+                Projectile.netUpdate = true;
+				float curve = Projectile.velocity.ToRotation();
+				float maxTurn = MathHelper.ToRadians(4f);
+                Projectile.velocity = Projectile.velocity.RotatedBy(MathHelper.WrapAngle(curve.AngleTowards(Projectile.ai[2], maxTurn)) - curve);
             }
         }
 
         // Set the rotation so the projectile points towards where it's going.
-        if (Projectile.velocity != Vector2.Zero)
-        {
-            Projectile.rotation = Projectile.velocity.ToRotation();
-        }
-    }
-
-    public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
-    {
-        Projectile.Kill();
-    }
+        Projectile.rotation = Projectile.velocity.ToRotation();
+		Projectile.netUpdate = true;
+	}
 
     public NPC FindClosestNPC(float maxDetectDistance)
     {
         NPC closestNPC = null;
 
-        // Using squared values in distance checks will let us skip square root calculations, drastically improving this method's speed.
+        // Using squared values in distance checks will let us skip square root calculations, drastically improving Projectile method's speed.
         float sqrMaxDetectDistance = maxDetectDistance * maxDetectDistance;
 
         // Loop through all NPCs(max always 200)
@@ -159,7 +125,6 @@ internal class GuidedMissileProj : ModProjectile
             Projectile.penetrate = -1;
 
             int explosionArea = 60;
-            Vector2 oldSize = Projectile.Size;
             // Resize the projectile hitbox to be bigger.
             Projectile.position = Projectile.Center;
             Projectile.Size += new Vector2(explosionArea);

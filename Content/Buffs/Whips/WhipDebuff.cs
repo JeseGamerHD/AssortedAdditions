@@ -33,7 +33,7 @@ namespace AssortedAdditions.Content.Buffs.Whips
             if (npc.HasBuff<WhipDebuff>())
             {
                 // Apply a flat bonus to every hit
-                modifiers.FlatBonusDamage += MotivatorDebuff.TagDamage * projTagMultiplier;
+                modifiers.FlatBonusDamage += WhipDebuff.TagDamage * projTagMultiplier;
             }
         }
     }

@@ -32,7 +32,7 @@ namespace AssortedAdditions.Content.Buffs.Whips
             if (npc.HasBuff<BlossomLashDebuff>())
             {
                 // Apply a flat bonus to every hit
-                modifiers.FlatBonusDamage += MotivatorDebuff.TagDamage * projTagMultiplier;
+                modifiers.FlatBonusDamage += BlossomLashDebuff.TagDamage * projTagMultiplier;
             }
         }
     }
