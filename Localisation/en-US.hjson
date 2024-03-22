@@ -115,6 +115,11 @@ Mods: {
 				DisplayName: Ancient Horn
 				Description: Your minions deal 20% more damage, but you take 33% more damage.
 			}
+
+			RuneOfHealthCooldown: {
+				DisplayName: Rune Of Health Cooldown
+				Description: Mods.AssortedAdditions.Buffs.RuneOfHealthCooldown.Description
+			}
 		}
 
 		Items: {
@@ -1121,11 +1126,7 @@ Mods: {
 
 			RuneOfHealth: {
 				DisplayName: Rune of Health
-				Tooltip:
-					'''
-					Increases max life by 20%
-					Won't stack with similar effects
-					'''
+				Tooltip: Enemies are more likely to drop health when killed
 			}
 
 			BlankRune: {

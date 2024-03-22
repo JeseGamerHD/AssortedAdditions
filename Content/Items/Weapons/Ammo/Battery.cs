@@ -17,7 +17,7 @@ namespace AssortedAdditions.Content.Items.Weapons.Ammo
             Item.width = 18;
             Item.height = 28;
             Item.damage = 0; // Won't add any damage
-            Item.maxStack = 999;
+            Item.maxStack = 9999;
             Item.value = Item.sellPrice(copper: 20);
             Item.DamageType = DamageClass.Ranged;
             Item.consumable = true;

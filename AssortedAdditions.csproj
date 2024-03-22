@@ -18,6 +18,7 @@
     <None Remove="Content\Buffs\IlluminatedCrystalBuff.png" />
     <None Remove="Content\Buffs\MedkitBuff.png" />
     <None Remove="Content\Buffs\MotivatorDebuff.png" />
+    <None Remove="Content\Buffs\RuneOfHealthCooldown.png" />
     <None Remove="Content\Buffs\RuneOfRelocationCooldown.png" />
     <None Remove="Content\Buffs\RuneOfShadowsCooldown.png" />
     <None Remove="Content\Buffs\ShroomScepterBuff.png" />

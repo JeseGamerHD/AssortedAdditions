@@ -6,6 +6,12 @@ using AssortedAdditions.Content.Items.Misc;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria.GameContent;
 using Microsoft.Xna.Framework;
+using AssortedAdditions.Common.Systems;
+using System.Collections.Generic;
+using System.Linq;
+using AssortedAdditions.Content.Buffs;
+using AssortedAdditions.Helpers;
+using Terraria.Audio;
 
 namespace AssortedAdditions.Content.Items.Accessories.Runes
 {
@@ -24,8 +30,26 @@ namespace AssortedAdditions.Content.Items.Accessories.Runes
 
 		public override void UpdateAccessory(Player player, bool hideVisual)
 		{
-			// Only increase based on base health without buffs etc so they won't stack
-			player.statLifeMax2 = (int)(player.statLifeMax * 1.2f);
+			player.GetModPlayer<RuneOfHealthPlayer>().isWearingRuneOfHealth = true;
+
+			// The player can heal, activates a cooldown
+			if (CustomKeyBinds.RuneAbility.JustPressed && !player.HasBuff<RuneOfHealthCooldown>())
+			{
+				player.Heal(300);
+				player.AddBuff(ModContent.BuffType<RuneOfHealthCooldown>(), HelperMethods.MinutesToTicks(2));
+
+				SoundEngine.PlaySound(SoundID.DD2_DarkMageHealImpact, player.position);
+				for (int i = 0; i < 10; i++)
+				{
+					Gore.NewGoreDirect(player.GetSource_Accessory(Item), player.position, new Vector2(Main.rand.Next(-3, 4), Main.rand.Next(-2, 3)), 331);
+				}
+			}
+		}
+
+		public override void ModifyTooltips(List<TooltipLine> tooltips)
+		{
+			tooltips.Insert(tooltips.FindLastIndex(tip => tip.Name.StartsWith("Tooltip")) + 1,
+				new(Mod, "Tooltip3", "Press " + CustomKeyBinds.RuneAbility.GetAssignedKeys().FirstOrDefault("<Unbound>") + " to heal"));
 		}
 
 		public override void AddRecipes()
@@ -55,6 +79,40 @@ namespace AssortedAdditions.Content.Items.Accessories.Runes
 			Main.spriteBatch.Draw(texture, Item.position - Main.screenPosition, source, lightColor, 0, Vector2.Zero, scale * 0.5f, SpriteEffects.None, 0f);
 
 			return false;
+		}
+	}
+
+	public class RuneOfHealthNPC : GlobalNPC
+	{
+		public override void OnKill(NPC npc)
+		{
+			Player player = Main.player[npc.lastInteraction];
+			if (player.GetModPlayer<RuneOfHealthPlayer>().isWearingRuneOfHealth)
+			{
+				int heartDrop = 0;
+
+				// 8.3% chance, now the rate is basically doubled since vanilla chance is 8.3% as well
+				// only drop when health is not full as well
+				if (Main.rand.NextBool(12) && player.statLife != player.statLifeMax2) 
+				{
+					heartDrop = Item.NewItem(npc.GetSource_DropAsItem(), npc.getRect(), ItemID.Heart);
+				}
+				
+				if(Main.netMode == NetmodeID.MultiplayerClient && heartDrop >= 0)
+				{
+					NetMessage.SendData(MessageID.SyncItem, -1, -1, null, heartDrop, 1f);
+				}
+			}
+		}
+	}
+
+	public class RuneOfHealthPlayer : ModPlayer
+	{
+		public bool isWearingRuneOfHealth;
+
+		public override void ResetEffects()
+		{
+			isWearingRuneOfHealth = false;
 		}
 	}
 }

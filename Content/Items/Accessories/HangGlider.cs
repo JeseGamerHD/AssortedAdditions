@@ -42,7 +42,12 @@ namespace AssortedAdditions.Content.Items.Accessories
 		private int Timer = 0; // For smoothly rotating the player to glide position
         private int landingTimer = 90; // For smoothly rotating the player back to normal position during landing
 
-        public override bool WingUpdate(Player player, bool inUse)
+		public override void UpdateAccessory(Player player, bool hideVisual)
+		{
+            player.GetModPlayer<GlidingPlayer>().GliderIsHidden = hideVisual; // Needed to prevent buggy looking landing animation in WingUpdate()
+		}
+
+		public override bool WingUpdate(Player player, bool inUse)
         {
             // Player is gliding
             if (player.wingsLogic > 0 && player.controlJump && player.wingTime == 0 && player.velocity.Y != 0 && player.jump == 0)
@@ -97,8 +102,8 @@ namespace AssortedAdditions.Content.Items.Accessories
             }
             else
             {
-                Timer = 0;
-                if (landingTimer != 0)
+                Timer = 0; 
+                if (landingTimer != 0 && !player.GetModPlayer<GlidingPlayer>().GliderIsHidden) // Only do the landing animation if the accessory toggle is visible
                 {
                     player.fullRotation += player.direction * MathHelper.ToRadians(landingTimer);
                     landingTimer -= 10;
@@ -123,11 +128,13 @@ namespace AssortedAdditions.Content.Items.Accessories
     public class GlidingPlayer : ModPlayer
     {
         public bool playerIsGliding;
+        public bool GliderIsHidden; // If player hides the accessory, this gets set to true
 
         public override void ResetEffects()
         {
             playerIsGliding = false;
-        }
+			GliderIsHidden = false;
+		}
     }
 
     public class GlideDisableWeapons : GlobalItem

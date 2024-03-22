@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using AssortedAdditions.Content.Buffs;
+using AssortedAdditions.Content.Items.Accessories;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ModLoader;
@@ -50,8 +51,16 @@ namespace AssortedAdditions.Content.Projectiles
                 Projectile.Kill();
             }
 
-            // Keep projectile on top of player
-            Projectile.Center = player.Center;
+            if (player.GetModPlayer<GlidingPlayer>().playerIsGliding)
+            {
+                Projectile.Center = player.position;
+            }
+            else
+            {
+                Projectile.Center = player.Center;
+            }
+            
+            Projectile.rotation = player.fullRotation;
 
             // Loop through the sprite frames
             int frameSpeed = 5;
