@@ -10,15 +10,15 @@ namespace AssortedAdditions.Helpers
 		/// <summary>
 		/// Converts seconds to ticks
 		/// </summary>
-		public static int SecondsToTicks(int seconds)
+		public static int SecondsToTicks(float seconds)
 		{
-			return seconds * 60;
+			return (int) seconds * 60;
 		}
 
 		/// <summary>
 		/// Converts minutes to ticks
 		/// </summary>
-		public static int MinutesToTicks(int minutes)
+		public static int MinutesToTicks(float minutes)
 		{
 			return SecondsToTicks(minutes) * 60;
 		}
