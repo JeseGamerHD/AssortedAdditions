@@ -22,4 +22,9 @@ TODO
 
 ## License
 
-TODO
+This repository has separate license files for source code and other assets. The source code is licensed under The GNU General Public License v3.0 while the other assets are mostly all rights reserved.
+- Refer to [LICENSE.md](LICENSE.md) when dealing with the code in this repository. 
+- For non-code assets refer to [LICENSE-ASSETS.md](LICENSE-ASSETS.md).
+
+## Credits
+- Refer to [LICENSE-ASSETS.md](LICENSE-ASSETS.md)
