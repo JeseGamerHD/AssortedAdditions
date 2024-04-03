@@ -8,6 +8,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
 using AssortedAdditions.Content.Items.Weapons.Magic;
 using AssortedAdditions.Content.Items.Placeables.Banners;
+using ReLogic.Content;
 
 namespace AssortedAdditions.Content.NPCs
 {
@@ -74,20 +75,14 @@ namespace AssortedAdditions.Content.NPCs
         // Parts of the slime glow
         public override void PostDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
-            Texture2D glowMask = ModContent.Request<Texture2D>("AssortedAdditions/Content/NPCs/NightSlime_Glow").Value; // The glowmask sprite
+            Asset<Texture2D> glowMask = ModContent.Request<Texture2D>("AssortedAdditions/Content/NPCs/NightSlime_Glow");
+
+			//Texture2D glowMask = ModContent.Request<Texture2D>("AssortedAdditions/Content/NPCs/NightSlime_Glow").Value; // The glowmask sprite
             Vector2 drawPosition = NPC.position + new Vector2(0, 4) - Main.screenPosition; // Position the sprite gets drawn at
-            Rectangle frame = new Rectangle(0, NPC.frame.Y, glowMask.Width, glowMask.Height / 2); // Frame(s) of the sprite, divided by 2 here since there are two frames
+            Rectangle frame = new Rectangle(0, NPC.frame.Y, glowMask.Value.Width, glowMask.Value.Height / 2); // Frame(s) of the sprite, divided by 2 here since there are two frames
 
             // Actual drawing happens here:
-            spriteBatch.Draw(glowMask,
-                                drawPosition,
-                                frame,
-                                Color.White * 0.75f, // How bright the glow is
-                                NPC.rotation,
-                                Vector2.Zero,
-                                1f,
-                                NPC.spriteDirection == 1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None,
-                                0f);
+            spriteBatch.Draw(glowMask.Value, drawPosition, frame, Color.White * 0.75f, NPC.rotation, Vector2.Zero, 1f, NPC.spriteDirection == 1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0f);
         }
     }
 }

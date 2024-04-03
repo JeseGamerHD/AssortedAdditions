@@ -10,15 +10,15 @@ namespace AssortedAdditions.Helpers
 		/// <summary>
 		/// Converts seconds to ticks
 		/// </summary>
-		public static int SecondsToTicks(float seconds)
+		public static int SecondsToTicks(int seconds)
 		{
-			return (int) seconds * 60;
+			return seconds * 60;
 		}
 
 		/// <summary>
 		/// Converts minutes to ticks
 		/// </summary>
-		public static int MinutesToTicks(float minutes)
+		public static int MinutesToTicks(int minutes)
 		{
 			return SecondsToTicks(minutes) * 60;
 		}
@@ -27,6 +27,7 @@ namespace AssortedAdditions.Helpers
 		/// This method should be used when ownedProjectileCounts does not work properly (it has a one tick delay).
 		/// Loops through Main.projectile[] and counts how many projectiles of given type exist. Owner should be player.whoAmI, stopWhenFoundOne = true if only need to check if one exists.
 		/// </summary>
+		/// <returns>the number of projectiles matching the type (or 1 if stopWhenFoundOne = true)</returns>
 		public static int CountProjectiles(int type, int owner, bool stopWhenFoundOne = false)
 		{
 			int num = 0;

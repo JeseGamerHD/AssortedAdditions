@@ -6,6 +6,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using AssortedAdditions.Content.Buffs.Whips;
+using ReLogic.Content;
 
 namespace AssortedAdditions.Content.Projectiles.SummonProj
 {
@@ -45,15 +46,9 @@ namespace AssortedAdditions.Content.Projectiles.SummonProj
             List<Vector2> list = new List<Vector2>();
             Projectile.FillWhipControlPoints(Projectile, list);
 
-            //Main.DrawWhip_WhipBland(Projectile, list);
-            // The code below is for custom drawing.
-            // If you don't want that, you can remove it all and instead call one of vanilla's DrawWhip methods, like above.
-            // However, you must adhere to how they draw if you do.
-
             SpriteEffects flip = Projectile.spriteDirection < 0 ? SpriteEffects.None : SpriteEffects.FlipHorizontally;
 
-            Main.instance.LoadProjectile(Type);
-            Texture2D texture = TextureAssets.Projectile[Type].Value;
+			Asset<Texture2D> texture = TextureAssets.Projectile[Projectile.type];
 
             Vector2 pos = list[0];
 
@@ -103,7 +98,7 @@ namespace AssortedAdditions.Content.Projectiles.SummonProj
                 float rotation = diff.ToRotation() - MathHelper.PiOver2; // This projectile's sprite faces down, so PiOver2 is used to correct rotation.
                 Color color = Lighting.GetColor(element.ToTileCoordinates());
 
-                Main.EntitySpriteDraw(texture, pos - Main.screenPosition, frame, color, rotation, origin, scale, flip, 0);
+                Main.EntitySpriteDraw(texture.Value, pos - Main.screenPosition, frame, color, rotation, origin, scale, flip, 0);
 
                 pos += diff;
             }

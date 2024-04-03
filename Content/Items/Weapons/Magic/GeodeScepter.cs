@@ -7,6 +7,7 @@ using Microsoft.Xna.Framework;
 using Terraria.GameContent;
 using Terraria.DataStructures;
 using AssortedAdditions.Content.Items.Misc;
+using ReLogic.Content;
 
 namespace AssortedAdditions.Content.Items.Weapons.Magic
 {
@@ -57,16 +58,16 @@ namespace AssortedAdditions.Content.Items.Weapons.Magic
 		// Draw item with increased scale when dropped
 		public override bool PreDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, ref float rotation, ref float scale, int whoAmI)
 		{
-			Texture2D texture = TextureAssets.Item[Type].Value; // Item's spritesheet
+			Asset<Texture2D> texture = TextureAssets.Item[Item.type];
 
 			Rectangle? source = null;
 			if (Main.itemAnimations[Type] != null)
 			{
 				// The current frame of the animation, null check for items that have one frame
-				source = Main.itemAnimations[Type].GetFrame(texture);
+				source = Main.itemAnimations[Type].GetFrame(texture.Value);
 			}
 
-			Main.spriteBatch.Draw(texture, new Vector2(Item.position.X, Item.position.Y - 17) - Main.screenPosition, 
+			Main.spriteBatch.Draw(texture.Value, new Vector2(Item.position.X, Item.position.Y - 17) - Main.screenPosition, 
 				source, lightColor, 0, Vector2.Zero, scale * 1.5f, SpriteEffects.None, 0f);
 
 			return false;

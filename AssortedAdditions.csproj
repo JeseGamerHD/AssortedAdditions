@@ -226,6 +226,7 @@
     <None Remove="Content\Projectiles\MeleeProj\PwnageChain.png" />
     <None Remove="Content\Projectiles\MeleeProj\PwnageProj.png" />
     <None Remove="Content\Projectiles\MeleeProj\ShroomMacepoleProj.png" />
+    <None Remove="Content\Projectiles\NPCProj\FireDragonFireBall.png" />
     <None Remove="Content\Projectiles\NPCProj\GoblinBomb.png" />
     <None Remove="Content\Projectiles\NPCProj\IceGuardianProj.png" />
     <None Remove="Content\Projectiles\PetProj\IlluminatedCrystalPet.png" />

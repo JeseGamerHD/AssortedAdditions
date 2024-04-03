@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using AssortedAdditions.Common.Systems.GenPasses;
 using Terraria;
 using Terraria.ID;
+using AssortedAdditions.Common.Configs;
 
 namespace AssortedAdditions.Common.Systems
 {
@@ -27,10 +28,9 @@ namespace AssortedAdditions.Common.Systems
             }
 
             int spawnIndex = tasks.FindIndex(GenPass => GenPass.Name.Equals("Spawn Point"));
-            if (spawnIndex != -1)
+            if (spawnIndex != -1 && ModContent.GetInstance<VanillaChangeToggle>().spawnStructureToggle)
             {
                 tasks.Insert(spawnIndex + 1, new SpawnStructure("Guide", 15f));
-
             }
         }
     }

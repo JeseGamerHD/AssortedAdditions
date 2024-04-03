@@ -5,6 +5,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using AssortedAdditions.Content.Buffs;
+using ReLogic.Content;
 
 namespace AssortedAdditions.Content.Projectiles.PetProj
 {
@@ -56,20 +57,19 @@ namespace AssortedAdditions.Content.Projectiles.PetProj
 
         public override bool PreDraw(ref Color lightColor)
         {
-            Main.instance.LoadProjectile(Projectile.type);
-            Texture2D texture = TextureAssets.Projectile[Projectile.type].Value;
+			Asset<Texture2D> texture = TextureAssets.Projectile[Projectile.type];
 
-            // Use these to limit the trail to one frame, without this the whole spritesheet would draw
-            int frameHeight = texture.Height / Main.projFrames[Projectile.type];
-            Rectangle frame = new Rectangle(0, Projectile.frame * frameHeight, texture.Width, frameHeight);
+			// Use these to limit the trail to one frame, without this the whole spritesheet would draw
+			int frameHeight = texture.Value.Height / Main.projFrames[Projectile.type];
+            Rectangle frame = new Rectangle(0, Projectile.frame * frameHeight, texture.Value.Width, frameHeight);
 
             // Redraw the projectile with the color not influenced by light
-            Vector2 drawOrigin = new Vector2(texture.Width * 0.5f, Projectile.height * 0.5f);
+            Vector2 drawOrigin = new Vector2(texture.Value.Width * 0.5f, Projectile.height * 0.5f);
             for (int k = 0; k < Projectile.oldPos.Length; k++)
             {
                 Vector2 drawPos = Projectile.oldPos[k] - Main.screenPosition + drawOrigin + new Vector2(0f, Projectile.gfxOffY);
                 Color color = Projectile.GetAlpha(lightColor) * ((Projectile.oldPos.Length - k) / (float)Projectile.oldPos.Length);
-                Main.EntitySpriteDraw(texture, drawPos, frame, color, Projectile.rotation, drawOrigin, Projectile.scale, SpriteEffects.None, 0);
+                Main.EntitySpriteDraw(texture.Value, drawPos, frame, color, Projectile.rotation, drawOrigin, Projectile.scale, SpriteEffects.None, 0);
             }
 
             return true;

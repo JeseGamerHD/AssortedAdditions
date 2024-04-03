@@ -88,7 +88,7 @@ namespace AssortedAdditions.Content.NPCs.BossFireDragon
                     {
                         if (projectileCount < 4)
                         {
-                            Projectile.NewProjectile(NPC.GetSource_FromAI(), NPC.Center, direction * 10f, type, 15, 0f, Main.myPlayer);
+                            Projectile.NewProjectile(NPC.GetSource_FromAI(), NPC.Center, direction * 8f, type, 15, 0f, Main.myPlayer);
                             projectileCount++;
                         }
 

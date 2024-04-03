@@ -26,5 +26,9 @@ namespace AssortedAdditions.Common.Configs
         [Header("OreProgression")]
         [DefaultValue(true)]
         public bool HardmodeOreProgressionToggle;
-    }
+
+		[Header("WorldGeneration")]
+		[DefaultValue(true)]
+		public bool spawnStructureToggle;
+	}
 }

@@ -446,16 +446,15 @@ namespace AssortedAdditions.Content.Projectiles.MeleeProj
 			// Add a motion trail when moving forward
 			if (CurrentAIState == AIState.LaunchingForward)
 			{
-				Main.instance.LoadProjectile(Projectile.type);
-				Texture2D texture = TextureAssets.Projectile[Projectile.type].Value;
+				Asset<Texture2D> texture = TextureAssets.Projectile[Projectile.type];
 
 				// Redraw the projectile with the color not influenced by light
-				Vector2 drawOrigin = new Vector2(texture.Width * 0.5f, Projectile.height * 0.5f);
+				Vector2 drawOrigin = new Vector2(texture.Value.Width * 0.5f, Projectile.height * 0.5f);
 				for (int k = 0; k < Projectile.oldPos.Length; k++)
 				{
 					Vector2 drawPos = Projectile.oldPos[k] - Main.screenPosition + drawOrigin + new Vector2(0f, Projectile.gfxOffY);
 					Color color = Projectile.GetAlpha(lightColor) * ((Projectile.oldPos.Length - k) / (float)Projectile.oldPos.Length);
-					Main.EntitySpriteDraw(texture, drawPos, null, color, Projectile.rotation, drawOrigin, Projectile.scale, SpriteEffects.None, 0);
+					Main.EntitySpriteDraw(texture.Value, drawPos, null, color, Projectile.rotation, drawOrigin, Projectile.scale, SpriteEffects.None, 0);
 				}
 			}
 

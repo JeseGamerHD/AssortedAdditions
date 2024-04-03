@@ -1370,6 +1370,7 @@ Mods: {
 			LihzahrdClubProj.DisplayName: Lihzahrd Club Proj
 			SawbladeLauncherProj.DisplayName: Sawblade Launcher Proj
 			AncientGauntletProj.DisplayName: Ancient Gauntlet Proj
+			FireDragonFireball.DisplayName: Fire Dragon Fireball
 		}
 
 		Tiles: {
@@ -1444,8 +1445,9 @@ Mods: {
 
 				Headers: {
 					VanillaRecipes: Recipe settings
-					OreProgression: Ore Progression settings
+					OreProgression: Progression settings
 					Items: Item settings
+					WorldGeneration: World Generation
 				}
 
 				ModifiedRecipesToggle: {
@@ -1475,6 +1477,11 @@ Mods: {
 				NoConsumeEventSummon: {
 					Label: Reusable event summon items
 					Tooltip: Toggles whether or not event summon items will be consumed.
+				}
+
+				spawnStructureToggle: {
+					Label: Generate Spawn Structure
+					Tooltip: Whether or not to generate a small spawn structure when creating a new world.
 				}
 			}
 
