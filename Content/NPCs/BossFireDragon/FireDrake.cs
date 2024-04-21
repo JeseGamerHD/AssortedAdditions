@@ -26,8 +26,8 @@ namespace AssortedAdditions.Content.NPCs.BossFireDragon
 
         public override void SetDefaults()
         {
-            NPC.width = 38;
-            NPC.height = 22;
+            NPC.width = 68;
+            NPC.height = 36;
             NPC.noTileCollide = true;
             NPC.noGravity = true;
 
@@ -44,7 +44,7 @@ namespace AssortedAdditions.Content.NPCs.BossFireDragon
 
         // Used for movement in AI
         private float speed = 15f;
-        private float inertia = 30f;
+        private float inertia = 25f;
 
         public override void AI()
         {
@@ -86,7 +86,7 @@ namespace AssortedAdditions.Content.NPCs.BossFireDragon
                     // Spawn the projectile, check netmode
                     if (Main.netMode != NetmodeID.MultiplayerClient)
                     {
-                        if (projectileCount < 4)
+                        if (projectileCount < 3)
                         {
                             Projectile.NewProjectile(NPC.GetSource_FromAI(), NPC.Center, direction * 8f, type, 15, 0f, Main.myPlayer);
                             projectileCount++;
@@ -202,5 +202,5 @@ namespace AssortedAdditions.Content.NPCs.BossFireDragon
                 }
             }
         }
-    }
+	}
 }

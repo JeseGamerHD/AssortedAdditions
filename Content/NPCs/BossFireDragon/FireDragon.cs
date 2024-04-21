@@ -9,10 +9,7 @@ using AssortedAdditions.Content.Items.Weapons.Magic;
 using AssortedAdditions.Content.Items.Weapons.Melee;
 using AssortedAdditions.Content.Items.Weapons.Ranged;
 using AssortedAdditions.Content.Items.Weapons.Summon;
-using AssortedAdditions.Content.Projectiles.MagicProj;
 using AssortedAdditions.Content.Projectiles.NPCProj;
-using AssortedAdditions.Content.Projectiles.RangedProj;
-using AssortedAdditions.Content.Projectiles.SummonProj;
 using AssortedAdditions.Helpers;
 using Microsoft.Xna.Framework;
 using Terraria;
@@ -34,11 +31,13 @@ namespace AssortedAdditions.Content.NPCs.BossFireDragon // This Boss NPC is buil
         {
             NPCID.Sets.MPAllowedEnemies[Type] = true; // Summoned using an item
             NPCID.Sets.BossBestiaryPriority.Add(Type);
+            NPCID.Sets.CantTakeLunchMoney[Type] = true;
 
             // Immune to fire debuffs
             NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.OnFire] = true;
             NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.OnFire3] = true;
-            NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.ShadowFlame] = true;
+			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.CursedInferno] = true;
+			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.ShadowFlame] = true;
             NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Burning] = true;
             NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Confused] = true;
 
@@ -59,7 +58,7 @@ namespace AssortedAdditions.Content.NPCs.BossFireDragon // This Boss NPC is buil
 
             NPC.damage = 50;
             NPC.defense = 18;
-            NPC.lifeMax = 28500;
+            NPC.lifeMax = 27500;
             NPC.knockBackResist = 0f;
 
             NPC.HitSound = SoundID.NPCHit7;
@@ -76,6 +75,14 @@ namespace AssortedAdditions.Content.NPCs.BossFireDragon // This Boss NPC is buil
                 Music = MusicID.OtherworldlyWoF;
             }
         }
+
+        public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)
+        {
+            // 50% increase in health per player in multiplayer
+            // in singleplayer nothing happens
+            float multiplier = numPlayers > 1 ? 0.5f : 0;
+			NPC.lifeMax = (int)(NPC.lifeMax * (1 + multiplier * (numPlayers - 1)));
+		}
 
         public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
         {
@@ -125,7 +132,7 @@ namespace AssortedAdditions.Content.NPCs.BossFireDragon // This Boss NPC is buil
         // These control the speed/acceleration inside FireDragonBuilder.cs
         internal static void CommonWormInit(FireDragonBuilder worm)
         {
-            worm.MoveSpeed = 6f;
+            worm.MoveSpeed = 6.5f;
         }
 
         private enum State
@@ -147,7 +154,7 @@ namespace AssortedAdditions.Content.NPCs.BossFireDragon // This Boss NPC is buil
 		public ref float CurrentState => ref NPC.ai[1];
         public ref float CurrentSecondaryState => ref NPC.ai[2];
         
-        bool TargethasDied = false; // Used for despawning the boss
+        bool PlayersAreDead = false; // Used for despawning the boss
         int npcCount = 0; // Used for limiting spawned minion enemies, synced using extra ai
 
         // Since the Head controls the body and the tail, all AI stuff happens here
@@ -168,22 +175,24 @@ namespace AssortedAdditions.Content.NPCs.BossFireDragon // This Boss NPC is buil
             }
 
             // After 75 seconds, switch to circling state
-            if (Timer == HelperMethods.SecondsToTicks(31)) // 75
+            if (Timer == HelperMethods.SecondsToTicks(75))
             {
-				CurrentState = (float)State.Circling;
+                CurrentState = (float)State.Circling;
                 CurrentSecondaryState = (float)SecondaryState.SpawnProjectiles;
                 SecondaryTimer = 0;
+                npcCount = 0;
 
-				NPC.netUpdate = true;
+                NPC.netUpdate = true;
             }
 
-            // After circling for a while, return to chasing
-            if(Timer >= HelperMethods.MinutesToTicks(2))
+			// After circling for a while, return to chasing
+			if (Timer >= HelperMethods.MinutesToTicks(2))
             {
                 Timer = 1;
                 CurrentState = (float)State.Chasing;
                 CurrentSecondaryState = (float)SecondaryState.SpawnMinions;
                 SecondaryTimer = 0;
+				SoundEngine.PlaySound(new SoundStyle("AssortedAdditions/Assets/Sounds/NPCSound/FireDragonSounds"), NPC.position);
 			}
 
             // Movement stuff, what the dragon is chasing
@@ -205,10 +214,10 @@ namespace AssortedAdditions.Content.NPCs.BossFireDragon // This Boss NPC is buil
 			// Checking if target has died
 			if (target.dead || !target.active) // If yes, then start fleeing
 			{
-				if (TargethasDied == false)
+				if (PlayersAreDead == false)
 				{
 					Timer = 0;
-					TargethasDied = true;
+					PlayersAreDead = true;
                     CurrentState = (float)State.Fleeing;
 				}
 
@@ -233,18 +242,18 @@ namespace AssortedAdditions.Content.NPCs.BossFireDragon // This Boss NPC is buil
         private void MovementBasedOnState()
         {
             Player target = Main.player[NPC.target];
-            Vector2 targetCenter;
+            Vector2 targetCenter = target.Center;
 
             switch (CurrentState)
             {
                 // The dragon will chase the player
                 case (float)State.Chasing:
 
-                    MoveSpeed = 6f;
-					setCirclingPoint = false;
-					targetCenter = target.Center;
+                    MoveSpeed = 6.5f;
+                    setCirclingPoint = false;
+                    targetCenter = target.Center;
 
-                break;
+                    break;
 
                 // The dragon will start circling around a point (where player stood when this state began)
                 case (float)State.Circling:
@@ -252,32 +261,47 @@ namespace AssortedAdditions.Content.NPCs.BossFireDragon // This Boss NPC is buil
                     // Set the point once, dragon will start circling the point
                     if (!setCirclingPoint)
                     {
-						SoundEngine.PlaySound(new SoundStyle("AssortedAdditions/Assets/Sounds/NPCSound/FireDragonSounds"), NPC.position);
+                        SoundEngine.PlaySound(new SoundStyle("AssortedAdditions/Assets/Sounds/NPCSound/FireDragonSounds"), NPC.position);
                         circlingPoint = target.Center + target.velocity;
                         directionForRadius = target.direction;
-						setCirclingPoint = true;
-					}
+                        setCirclingPoint = true;
+                        NPC.netUpdate = true;
+                    }
 
-                    MoveSpeed = 12f; // Speed up so the player cant escape easily (if they got trapped)
-                    rotation += 0.026f;
-					targetCenter = circlingPoint + new Vector2(0, directionForRadius * circlingRadius).RotatedBy(rotation);
+                    // Speed up so the player cant escape easily (if they got trapped)
+                    // When circling state is ending slowdown to allow escape (6 seconds until the dragon starts chasing the player)
+                    // (At 2 minutes the state changes)
+                    MoveSpeed = Timer < HelperMethods.SecondsToTicks(114) ? 12f : 6.5f;
+                    rotation += Timer < HelperMethods.SecondsToTicks(114) ? 0.026f : 0.013f;
 
-                break;
+                    if (Timer < HelperMethods.SecondsToTicks(114))
+                    {
+                        targetCenter = circlingPoint + new Vector2(0, directionForRadius * circlingRadius).RotatedBy(rotation);
+                    }
+                    else
+                    {
+                        targetCenter = circlingPoint + new Vector2(0, directionForRadius * (circlingRadius + 200)).RotatedBy(rotation);
+                    }
 
-				// State should never be something not specified, this is here so that the compiler is happy
-				default:
-                return;
+                    break;
+
+                // State should never be something not specified, this is here so that the compiler is happy
+                default:
+                    return;
             }
 
-            // All  movement is based on this, just the target changes
-            // (whether to chase the player or an invisible point rotating around a set center depends on state)
-			float moveTo = (targetCenter - NPC.Center).ToRotation();
-			float curve = NPC.velocity.ToRotation();
-			float maxTurn = MathHelper.ToRadians(4f);
-			NPC.velocity = NPC.velocity.RotatedBy(MathHelper.WrapAngle(curve.AngleTowards(moveTo, maxTurn)) - curve).SafeNormalize(Vector2.Zero) * MoveSpeed;
-		}
+            // Catch up to the target.
+            // (When one player dies and target switches to another one far away, fly to them fast)
+            if(NPC.Center.Distance(target.Center) >= 5000) 
+            {
+                MoveSpeed = 20f;
+            }
 
-        private void AttackBasedOnSecondaryState()
+            HelperMethods.SmoothHoming(NPC, targetCenter, MoveSpeed, MoveSpeed, null);
+            NPC.netUpdate = true;
+        }
+
+		private void AttackBasedOnSecondaryState()
         {
 			Player targetPlayer = Main.player[NPC.target];
 
@@ -319,43 +343,33 @@ namespace AssortedAdditions.Content.NPCs.BossFireDragon // This Boss NPC is buil
 
                 case (float)SecondaryState.SpawnProjectiles:
 
-					if (Main.netMode != NetmodeID.MultiplayerClient)
-					{
-                        // If player got trapped by the dragon, projectiles spawn from outside the circle and fly towards the center
-                        if(targetPlayer.Center.Distance(circlingPoint) <= circlingRadius)
+                    // If player got trapped by the dragon, projectiles spawn from outside the circle and fly towards the center
+                    if (targetPlayer.Center.Distance(circlingPoint) <= circlingRadius)
+                    {
+                        int modulus = NPC.life < NPC.lifeMax / 3 ? 50 : 75; // When on low health, spawn projectiles faster
+                        if (SecondaryTimer % modulus == 0)
                         {
-                            if(SecondaryTimer % 50 == 0)
-                            {
-								float radiusX = (Main.screenWidth / 2) - 20f;
-								float radiusY = (Main.screenHeight / 2) - 10f;
-								float randomRotation = Main.rand.NextFloat(0, 6.28318531f);
+							float randomRotation = Main.rand.NextFloat(0, 6.28318531f);
+							Vector2 spawnPosition = circlingPoint + new Vector2(600, 500).RotatedBy(randomRotation);
+							Vector2 direction = circlingPoint - spawnPosition;
+                            direction.Normalize();
 
-								Vector2 spawnPosition = circlingPoint + new Vector2(radiusX, radiusY).RotatedBy(randomRotation);
-								Vector2 direction = circlingPoint - spawnPosition;
-								direction.Normalize();
+                            if (Main.netMode != NetmodeID.MultiplayerClient)
+                            {
 								Projectile.NewProjectile(NPC.GetSource_FromAI(), spawnPosition, direction * 8f, ModContent.ProjectileType<FireDragonFireball>(), 35, 4f, Main.myPlayer);
 							}
-						}
-						else // If player didnt get trapped or escapes, projectiles spawn from the center of the circle and fly towards the player
-						{
-							// TODO proper effect
-							if (Main.rand.NextBool()) 
-                            {
-								Dust dust = Dust.NewDustDirect(circlingPoint, 50, 50, DustID.Flare, Scale: 1.5f);
-								dust.noGravity = true;
-								dust.velocity *= 1.8f;
-							}
+                        }
+                    }
+                    // If player didnt get trapped or escapes, set the circling point again
+                    else
+                    {
+                        circlingPoint = targetPlayer.Center + targetPlayer.velocity;
+                        directionForRadius = targetPlayer.direction;
+                        rotation = 0;
+                        NPC.netUpdate = true;
+                    }
 
-                            if(SecondaryTimer % 75 == 0)
-                            {
-								Vector2 direction = targetPlayer.Center - circlingPoint;
-								direction.Normalize();
-								Projectile.NewProjectile(NPC.GetSource_FromAI(), circlingPoint, direction * 8f, ModContent.ProjectileType<FireDragonFireball>(), 35, 4f, Main.myPlayer);
-							}
-						}
-					}
-
-				break;	
+                    break;	
 			}
 
 			SecondaryTimer++;
@@ -417,9 +431,9 @@ namespace AssortedAdditions.Content.NPCs.BossFireDragon // This Boss NPC is buil
 			writer.Write(npcCount);
 		}
 
-		public override void ReceiveExtraAI(BinaryReader reader)
+        public override void ReceiveExtraAI(BinaryReader reader)
 		{
-			npcCount = reader.ReadInt32();
+			npcCount = reader.ReadInt32(); 
 		}
 
 		public override bool CanHitPlayer(Player target, ref int cooldownSlot)
@@ -440,7 +454,7 @@ namespace AssortedAdditions.Content.NPCs.BossFireDragon // This Boss NPC is buil
             }
         }
     }
-    // ************************************************************************************************************************************************** //
+
     internal class FireDragonBody : WormBody
     {
         public override void SetStaticDefaults()
@@ -455,10 +469,13 @@ namespace AssortedAdditions.Content.NPCs.BossFireDragon // This Boss NPC is buil
             NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.OnFire] = true;
             NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.OnFire3] = true;
             NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.ShadowFlame] = true;
-            NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Burning] = true;
+			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.CursedInferno] = true;
+			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Burning] = true;
             NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Confused] = true;
 
-            Main.npcFrameCount[Type] = 2;
+			NPCID.Sets.CantTakeLunchMoney[Type] = true;
+
+			Main.npcFrameCount[Type] = 2;
         }
 
         public override void SetDefaults()
@@ -472,7 +489,8 @@ namespace AssortedAdditions.Content.NPCs.BossFireDragon // This Boss NPC is buil
             NPC.SpawnWithHigherTime(30);
             NPC.boss = true;
             NPC.noTileCollide = true;
-            NPC.aiStyle = -1;
+			NPC.noGravity = true;
+			NPC.aiStyle = -1;
         }
 
 		public override void Init()
@@ -522,7 +540,7 @@ namespace AssortedAdditions.Content.NPCs.BossFireDragon // This Boss NPC is buil
             }
         }
     }
-    // ************************************************************************************************************************************************** //
+
     internal class FireDragonTail : WormTail
     {
         public override void SetStaticDefaults()
@@ -537,9 +555,12 @@ namespace AssortedAdditions.Content.NPCs.BossFireDragon // This Boss NPC is buil
             NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.OnFire] = true;
             NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.OnFire3] = true;
             NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.ShadowFlame] = true;
-            NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Burning] = true;
+			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.CursedInferno] = true;
+			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Burning] = true;
             NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Confused] = true;
-        }
+
+			NPCID.Sets.CantTakeLunchMoney[Type] = true;
+		}
 
         public override void SetDefaults()
         {
@@ -552,7 +573,8 @@ namespace AssortedAdditions.Content.NPCs.BossFireDragon // This Boss NPC is buil
             NPC.SpawnWithHigherTime(30);
             NPC.boss = true;
             NPC.noTileCollide = true;
-            NPC.aiStyle = -1;
+			NPC.noGravity = true;
+			NPC.aiStyle = -1;
         }
 
 		public override void Init()

@@ -17,7 +17,7 @@ namespace AssortedAdditions.Content.Projectiles.MagicProj
             Projectile.height = 50;
             Projectile.timeLeft = 3600;
             Projectile.alpha = 0;
-            Projectile.light = 0.5f;
+            Projectile.light = 0.25f;
             Projectile.scale = 2f;
 
             Projectile.DamageType = DamageClass.Magic;
@@ -55,10 +55,10 @@ namespace AssortedAdditions.Content.Projectiles.MagicProj
             }
 
 
-            Lighting.AddLight(Projectile.position, TorchID.Torch); // Emits some orange light
+			Lighting.AddLight((int)Projectile.position.X / 16, (int)Projectile.position.Y / 16, TorchID.Orange, 0.25f);
 
-            // Fade out projectile once player dies, or when reaching the end of its lifetime
-            if (Main.player[Projectile.owner].dead || Projectile.timeLeft == 130)
+			// Fade out projectile once player dies, or when reaching the end of its lifetime
+			if (Main.player[Projectile.owner].dead || Projectile.timeLeft == 130)
             {
                 Projectile.timeLeft = 127;
 

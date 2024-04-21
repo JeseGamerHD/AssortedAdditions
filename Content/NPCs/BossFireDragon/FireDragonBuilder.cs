@@ -200,6 +200,7 @@ namespace AssortedAdditions.Content.NPCs.BossFireDragon
             // Rotate the head / sprite
             NPC.rotation = NPC.velocity.ToRotation() + MathHelper.PiOver2;
             NPC.spriteDirection = NPC.direction = -1 * (NPC.velocity.X > 0).ToDirectionInt();
+            NPC.netUpdate = true;
 
             // Force a netupdate if the NPC's velocity changed sign and it was not "just hit" by a player
             if ((NPC.velocity.X > 0 && NPC.oldVelocity.X < 0 || NPC.velocity.X < 0 && NPC.oldVelocity.X > 0 || NPC.velocity.Y > 0 && NPC.oldVelocity.Y < 0 || NPC.velocity.Y < 0 && NPC.oldVelocity.Y > 0) && !NPC.justHit)
@@ -210,11 +211,13 @@ namespace AssortedAdditions.Content.NPCs.BossFireDragon
         public override void SendExtraAI(BinaryWriter writer)
         {
             writer.Write(bodyCount);
+            writer.Write(NPC.rotation);
         }
 
         public override void ReceiveExtraAI(BinaryReader reader)
         {
             bodyCount = reader.ReadInt32();
+            NPC.rotation = reader.ReadSingle();
         }
     }
 

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace AssortedAdditions.Helpers
 {
-	public static class ExtensionMethods
+	public static class ListExtensions
 	{
 		/// <summary>
 		/// Shuffles the elements in the list into a random order

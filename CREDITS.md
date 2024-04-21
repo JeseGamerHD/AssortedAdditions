@@ -1,9 +1,15 @@
-## Credits:
+# Credits:
 
-All sound effects can be used freely as they are under:</br>
-Creative Commons CC0 License: https://creativecommons.org/public-domain/cc0/
+## Code
+
+```SmoothHoming()``` method in [HelperMethods.cs](Helpers/HelperMethods.cs) is taken from the [tsorcRevamp repository](https://github.com/Zeodexic/tsorcRevamp/blob/main/tsorcRevampUtils.cs#L774) under the GPL 3.0 license.
 
 -----
+
+## Assets
+All sound effects can be used freely as they are under: Creative Commons CC0 License: https://creativecommons.org/public-domain/cc0/
+
+----
 
 By XYEzawr:</br>
 - FireDragonFireball.png

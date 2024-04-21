@@ -12,8 +12,6 @@ namespace AssortedAdditions.Content.Projectiles.NPCProj
 	{
 		public override void SetStaticDefaults()
 		{
-			Main.projFrames[Projectile.type] = 4;
-
 			ProjectileID.Sets.TrailCacheLength[Type] = 25;
 			ProjectileID.Sets.TrailingMode[Type] = 3;
 		}
@@ -22,30 +20,22 @@ namespace AssortedAdditions.Content.Projectiles.NPCProj
 		{
 			Projectile.width = 24;
 			Projectile.height = 26;
+
 			Projectile.light = 0.25f;
 			Projectile.timeLeft = 500;
 			Projectile.scale = 1.2f;
 
 			Projectile.tileCollide = false;
 			Projectile.hostile = true;
+			Projectile.friendly = false;
 			Projectile.ignoreWater = true;
+
+			Projectile.aiStyle = 0;
 		}
 
 		public override void AI()
 		{
-			// Loop through animation
-			int frameSpeed = 4;
-			Projectile.frameCounter++;
-			if (Projectile.frameCounter >= frameSpeed)
-			{
-				Projectile.frameCounter = 0;
-				Projectile.frame++;
-
-				if (Projectile.frame >= Main.projFrames[Projectile.type])
-				{
-					Projectile.frame = 0;
-				}
-			}
+			Projectile.rotation += MathHelper.ToRadians(3);
 			Projectile.spriteDirection = Projectile.direction; // Faces left/right correctly
 
 			if (Main.rand.NextBool())
@@ -60,8 +50,6 @@ namespace AssortedAdditions.Content.Projectiles.NPCProj
 			dustTrail.noGravity = true;
 			Dust dustTrail2 = Dust.NewDustPerfect(new Vector2(Projectile.Center.X - 12, Projectile.Center.Y) - Projectile.velocity, DustID.Flare, Scale: 2f);
 			dustTrail2.noGravity = true;
-
-			Lighting.AddLight((int)Projectile.position.X / 16, (int)Projectile.position.Y / 16, TorchID.Orange, 0.25f);
 		}
 
 		public override Color? GetAlpha(Color lightColor)

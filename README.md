@@ -22,9 +22,9 @@ TODO
 
 ## License
 
-The **source code** is licensed under The GNU General Public License v3.0. Note that some **non-code assets** are under different licenses as stated in [CREDITS.md](CREDITS.md). 
-- Refer to [LICENSE](LICENSE) when dealing with the code in this repository.
-- For non-code assets check [CREDITS.md](CREDITS.md).
+The **source code** is licensed under The GNU General Public License v3.0. Any code from other repositories is also using this license, however, in those cases the origin is mentioned via code comments and the credits. Note that some **non-code assets** are under different licenses as stated in [CREDITS.md](CREDITS.md). 
+- Refer to [LICENSE](LICENSE) file when dealing with the code in this repository.
+- Check [CREDITS.md](CREDITS.md) for details on non-code assets and on any code taken from other repositories.
 
 ## Credits
-- Refer to [CREDITS.md](CREDITS.md)
+- Found in a separate file: [CREDITS.md](CREDITS.md)
