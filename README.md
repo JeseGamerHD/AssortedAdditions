@@ -15,10 +15,29 @@ Note that **only closed issues are things that have been added** so when looking
 
 Labels can be used to filter issues. The labels ```Melee```, ```Magic```, ```Ranged``` or ```Summon``` refer to weapons for that class. The ```bug``` label is for found bugs / bug reports and ```idea``` is for new additions that could be added.
 
+## Bug reports
 
-## Contributing & Bug reporting
+If you encounter any bugs you can report them here or contact me on discord (link TODO). Make sure to **check the pinned issue "Known bugs"** to see if the bug has already been reported. If the bug has not been reported, you can either reply to the "Known bugs" or create a new issue. 
 
-TODO
+**How to report a bug step by step**:
+1. Check if it has already been reported in "Known bugs" issue.
+2. Reply to the "Known bugs" OR create your own issue.
+3. Report the following:
+    - Description of the bug
+    - Steps to reproduce (if possible)
+    - Were you in Singleplayer or Multiplayer?
+    - Were you using other mods? If so which ones?
+
+## Contributing
+Note: I won't be adding contributors to the repository (for now), but contributions are still welcome. Anyone who contributes will still be credited of course.
+
+Before doing anything you should check a few things depending on how you are planning to contribute. If you want to add new content to the mod, please create a new issue that describes the new content and add information that could be relevant to the player (crafting recipe, obtaining, etc). I will then check the issue and add appropriate labels to it. After this you can start working on the issue and once you are done create a pull request with the new content and either reference your issue or copy its contents in the description.
+
+If you want to fix a bug or contribute to an open issue you should first check if the issue has a label. Any issues without a label have not been reviewed yet. If an issue has label(s) you should check if someone has been assigned to it. If not, you can leave a comment stating that you wish to work on this. I will then assign you to the issue and you can begin working on it. Once finished, create a pull request.
+
+If you want to modify something that has already been added (issue is closed) you can simply add a comment explaining what you want to do and why. These are less likely to be accepted, but if your proposal makes sense and improves whatever it is associated with it can be accepted. 
+
+If you have any questions or are unsure, send me (JeseGamerHD) a message.
 
 ## License
 
