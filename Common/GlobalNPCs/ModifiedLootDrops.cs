@@ -131,7 +131,7 @@ namespace AssortedAdditions.Common.GlobalNPCs
 					ModContent.ItemType<BlankRune>()));
 			}
 
-			if(npc.type == NPCID.DarkCaster)
+			if(npc.type == NPCID.DarkCaster || npc.type == NPCID.GoblinSorcerer || npc.type == NPCID.FireImp)
 			{
 				npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<BlankRune>(), 25, 1));
 			}
