@@ -131,6 +131,11 @@ namespace AssortedAdditions.Common.GlobalNPCs
 					ModContent.ItemType<BlankRune>()));
 			}
 
+			if(npc.type == NPCID.DarkCaster)
+			{
+				npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<BlankRune>(), 25, 1));
+			}
+
 			if(npc.type == NPCID.GraniteGolem)
 			{
 				npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<GraniteArmorShard>(), 10, 1));

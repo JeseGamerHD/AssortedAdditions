@@ -55,7 +55,7 @@ namespace AssortedAdditions.Common.GlobalNPCs
                 shop.Add(ModContent.ItemType<AncientToken>());
 
                 // These are sold after a mysterious key has been used once
-                var sellCosmicItems = new Condition("Mods.AssortedAdditions.Conditions.SellCosmicItems", () => ModContent.GetInstance<ItemFlags>().mysteriousKeyWasUsed);
+                var sellCosmicItems = new Condition("Mods.AssortedAdditions.Conditions.SellCosmicItems", () => ModContent.GetInstance<WorldUnlocks>().mysteriousKeyWasUsed);
                 shop.Add(ModContent.ItemType<CosmicBlade>(), condition: sellCosmicItems);
                 shop.Add(ModContent.ItemType<ShootingStar>(), condition: sellCosmicItems);
                 shop.Add(ModContent.ItemType<CosmicTome>(), condition: sellCosmicItems);

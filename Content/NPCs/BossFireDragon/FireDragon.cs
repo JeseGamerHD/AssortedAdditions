@@ -64,11 +64,13 @@ namespace AssortedAdditions.Content.NPCs.BossFireDragon // This Boss NPC is buil
             NPC.HitSound = SoundID.NPCHit7;
             NPC.DeathSound = SoundID.DD2_BetsyDeath;
             NPC.SpawnWithHigherTime(30);
-            NPC.boss = true;
             NPC.npcSlots = 10f; // Take up open spawn slots, preventing random NPCs from spawning during the fight
+           
             NPC.noTileCollide = true;
+            NPC.noGravity = true;
+			NPC.boss = true;
 
-            NPC.aiStyle = -1;
+			NPC.aiStyle = -1;
 
             if (!Main.dedServ)
             {
@@ -166,6 +168,7 @@ namespace AssortedAdditions.Content.NPCs.BossFireDragon // This Boss NPC is buil
                 return;
             }
             Timer++;
+            NPC.noGravity = true;
 
             // If the dragon is in chasing state, it can spawn minions every 30 seconds.
             if (CurrentState == (float)State.Chasing && Timer % HelperMethods.SecondsToTicks(30) == 0)
@@ -271,19 +274,19 @@ namespace AssortedAdditions.Content.NPCs.BossFireDragon // This Boss NPC is buil
                     // Speed up so the player cant escape easily (if they got trapped)
                     // When circling state is ending slowdown to allow escape (6 seconds until the dragon starts chasing the player)
                     // (At 2 minutes the state changes)
-                    MoveSpeed = Timer < HelperMethods.SecondsToTicks(114) ? 12f : 6.5f;
+                    MoveSpeed = Timer < HelperMethods.SecondsToTicks(114) ? 14f : 7f; // These values leave a gap where the player can try to escape
                     rotation += Timer < HelperMethods.SecondsToTicks(114) ? 0.026f : 0.013f;
 
-                    if (Timer < HelperMethods.SecondsToTicks(114))
-                    {
-                        targetCenter = circlingPoint + new Vector2(0, directionForRadius * circlingRadius).RotatedBy(rotation);
-                    }
-                    else
-                    {
-                        targetCenter = circlingPoint + new Vector2(0, directionForRadius * (circlingRadius + 200)).RotatedBy(rotation);
-                    }
+					if (Timer < HelperMethods.SecondsToTicks(114))
+					{
+						targetCenter = circlingPoint + new Vector2(0, directionForRadius * circlingRadius).RotatedBy(rotation);
+					}
+					else
+					{
+						targetCenter = circlingPoint + new Vector2(0, directionForRadius * (circlingRadius + 200)).RotatedBy(rotation);
+					}
 
-                    break;
+					break;
 
                 // State should never be something not specified, this is here so that the compiler is happy
                 default:

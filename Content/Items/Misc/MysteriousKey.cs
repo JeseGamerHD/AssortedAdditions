@@ -48,7 +48,7 @@ namespace AssortedAdditions.Content.Items.Misc
 
 			// After this the wizard will begin to sell items from the mysterious chest
 			// Otherwise items would be obtainable only once per world 
-			ModContent.GetInstance<ItemFlags>().mysteriousKeyWasUsed = true;
+			ModContent.GetInstance<WorldUnlocks>().mysteriousKeyWasUsed = true;
 
 			return true;
         }

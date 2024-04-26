@@ -27,5 +27,10 @@ namespace AssortedAdditions.Common.Players
 		{
 			return item.ModItem is RuneItem;
 		}
+
+		public override bool IsEnabled()
+		{
+			return Player.GetModPlayer<PlayerUnlocks>().runeSlotUnlocked;
+		}
 	}
 }

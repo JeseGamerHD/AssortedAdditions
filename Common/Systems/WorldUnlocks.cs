@@ -5,7 +5,7 @@ using Terraria.ModLoader.IO;
 
 namespace AssortedAdditions.Common.Systems
 {
-    internal class ItemFlags : ModSystem
+    internal class WorldUnlocks : ModSystem
     {
         // When the player uses a mysterious key it sets this to true
         // After that the wizard will sell the mysterious items so there is an alternative way to obtain them
