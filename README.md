@@ -2,9 +2,11 @@
 
 # Assorted Additions
 
+![Discord Shield](https://discordapp.com/api/guilds/[1233667170572177408]/widget.png?style=shield)
+
 Assorted Additions is a content mod for Terraria which adds all sorts of things like the name implies. Currently the mod adds around 200 new items, a new category of accessory called "Runes", 13 NPCs, 1 boss and a bunch of tweaks such as improved loot for underground biome chests (mushroon, granite etc.), alternative ways of obtaining some accessories and non-consumable summoning items.  
 
-The mod does not have a proper wiki, however, an overview of the progression / class setups can be found [in this markdown file](ClassSetups.md). This GitHub page also contains information on the different items/things added (see section below).
+The mod does not have a proper wiki, however, an overview of the progression / class setups can be found in [ClassSetups.md](ClassSetups.md). This GitHub page also contains information on the different items/things added (see section below).
 
 
 ## Navigating the github page
@@ -13,11 +15,11 @@ Currently I am using the issues as a sort of wiki. Each new "thing" added to the
 
 Note that **only closed issues are things that have been added** so when looking up items you should filter issues by ```is:closed``` (or select closed) before searching for an item. Open issues are things that are being worked on or could be added in the future. 
 
-Labels can be used to filter issues. The labels ```Melee```, ```Magic```, ```Ranged``` or ```Summon``` refer to weapons for that class. The ```bug``` label is for found bugs / bug reports and ```idea``` is for new additions that could be added.
+Labels can be used to filter issues. The labels ```Melee```, ```Magic```, ```Ranged``` or ```Summon``` refer to class specific items. The ```bug``` label is for found bugs / bug reports and ```idea``` is for new additions that could be added.
 
 ## Bug reports
 
-If you encounter any bugs you can report them here or contact me on discord (link TODO). Make sure to **check the pinned issue "Known bugs"** to see if the bug has already been reported. If the bug has not been reported, you can either reply to the "Known bugs" or create a new issue. 
+If you encounter any bugs you can report them here or on the Discord server. Make sure to **check the pinned issue "Known bugs"** to see if the bug has already been reported. If the bug has not been reported, you can either reply to the "Known bugs" or create a new issue. 
 
 **How to report a bug step by step**:
 1. Check if it has already been reported in "Known bugs" issue.
