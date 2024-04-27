@@ -1,45 +1,49 @@
 <img align="left" width="80" src="icon.png" />
 
-# Assorted Additions
+# Assorted Additions 
 
-![Discord Shield](https://discordapp.com/api/guilds/[1233667170572177408]/widget.png?style=shield)
+[![Discord](https://img.shields.io/discord/1233667170572177408?style=for-the-badge&logo=discord&label=Discord)](https://discord.gg/x6ynt4cp5q)
 
 Assorted Additions is a content mod for Terraria which adds all sorts of things like the name implies. Currently the mod adds around 200 new items, a new category of accessory called "Runes", 13 NPCs, 1 boss and a bunch of tweaks such as improved loot for underground biome chests (mushroon, granite etc.), alternative ways of obtaining some accessories and non-consumable summoning items.  
 
 The mod does not have a proper wiki, however, an overview of the progression / class setups can be found in [ClassSetups.md](ClassSetups.md). This GitHub page also contains information on the different items/things added (see section below).
 
-
 ## Navigating the github page
 
 Currently I am using the issues as a sort of wiki. Each new "thing" added to the mod has its own issue which contains information about the "thing" added. 
 
-Note that **only closed issues are things that have been added** so when looking up items you should filter issues by ```is:closed``` (or select closed) before searching for an item. Open issues are things that are being worked on or could be added in the future. 
+Note that **only closed issues are things that have been added** so when looking up items you should filter issues by ```is:closed``` ([or select closed](https://github.com/JeseGamerHD/AssortedAdditions/issues?q=is%3Aissue+is%3Aclosed)) before searching for an item. Open issues are things that are being worked on or could be added in the future. 
 
 Labels can be used to filter issues. The labels ```Melee```, ```Magic```, ```Ranged``` or ```Summon``` refer to class specific items. The ```bug``` label is for found bugs / bug reports and ```idea``` is for new additions that could be added.
 
 ## Bug reports
 
-If you encounter any bugs you can report them here or on the Discord server. Make sure to **check the pinned issue "Known bugs"** to see if the bug has already been reported. If the bug has not been reported, you can either reply to the "Known bugs" or create a new issue. 
+If you encounter any bugs you can report them here or on the [Discord server](https://discord.gg/x6ynt4cp5q). Please try to see if the bug has already been reported and if so comment on the existing report with any relevant information. If the bug has not been reported, you can either create a new issue or a post on the "bug-reports" forum over in the discord. 
 
-**How to report a bug step by step**:
-1. Check if it has already been reported in "Known bugs" issue.
-2. Reply to the "Known bugs" OR create your own issue.
-3. Report the following:
-    - Description of the bug
-    - Steps to reproduce (if possible)
-    - Were you in Singleplayer or Multiplayer?
-    - Were you using other mods? If so which ones?
+**What to include in the report**:
+1. Description of the bug
+2. Steps to reproduce 
+(if possible)
+3. Were you in Singleplayer or Multiplayer?
+4. Were you using other mods? If so which ones?
+5. Any other relevant information (screenshots, clips, etc)
+(optional)
 
 ## Contributing
-Note: I won't be adding contributors to the repository (for now), but contributions are still welcome. Anyone who contributes will still be credited of course.
+I won't be adding contributors to the repository (for now), but contributions are still welcome. Anyone who contributes will still be credited of course. Before doing anything you should check a few things depending on how you are planning to contribute. Joining the [discord](https://discord.gg/x6ynt4cp5q) and discussing potential contributions is highly recommended.
 
-Before doing anything you should check a few things depending on how you are planning to contribute. If you want to add new content to the mod, please create a new issue that describes the new content and add information that could be relevant to the player (crafting recipe, obtaining, etc). I will then check the issue and add appropriate labels to it. After this you can start working on the issue and once you are done create a pull request with the new content and either reference your issue or copy its contents in the description.
+- **Adding new content**:
+Either make a post in the discord server's "suggestions" forum following its guidelines or create a new issue that describes the new content and add information that could be relevant to the player (crafting recipe, obtaining, etc). I will then check the issue and add appropriate labels to it. After this you can start working on the issue.
 
-If you want to fix a bug or contribute to an open issue you should first check if the issue has a label. Any issues without a label have not been reviewed yet. If an issue has label(s) you should check if someone has been assigned to it. If not, you can leave a comment stating that you wish to work on this. I will then assign you to the issue and you can begin working on it. Once finished, create a pull request.
+- **Contributing to open issues / suggestions**:
+  - GitHub: You should first check if the issue has a label. If an issue has label(s) you should check if someone has been assigned to it. If not, you can leave a comment stating that you wish to work on this. I will then assign you to the issue and you can begin working on it.
+  - Discord: Check the suggestions forum and see if any posts have a tag "help wanted". You should reply that you want to help with the suggestion (either check with the original poster or with me). After you've been given the OK you can start working on it.
 
+- **Modifying existing content**:
 If you want to modify something that has already been added (issue is closed) you can simply add a comment explaining what you want to do and why. These are less likely to be accepted, but if your proposal makes sense and improves whatever it is associated with it can be accepted. 
 
-If you have any questions or are unsure, send me (JeseGamerHD) a message.
+- **Creating a pull request / Adding your contributions**:
+TODO
 
 ## License
 

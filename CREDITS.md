@@ -12,7 +12,6 @@ All sound effects can be used freely as they are under: Creative Commons CC0 Lic
 ----
 
 By XYEzawr:</br>
-- FireDragonFireball.png
 - AncientGauntletProj.png 
 
 Custom License: https://xyezawr.itch.io/free-pixel-effects-pack-13-fireballs
