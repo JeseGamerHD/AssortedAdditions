@@ -2,7 +2,7 @@
 
 # Assorted Additions 
 
-[![Discord](https://img.shields.io/discord/1233667170572177408?style=for-the-badge&logo=discord&label=Discord)](https://discord.gg/x6ynt4cp5q)
+[![Discord](https://img.shields.io/discord/1233667170572177408?style=for-the-badge&logo=discord&label=Discord)](https://discord.gg/TZXJ9yGapC)
 
 Assorted Additions is a content mod for Terraria which adds all sorts of things like the name implies. Currently the mod adds around 200 new items, a new category of accessory called "Runes", 13 NPCs, 1 boss and a bunch of tweaks such as improved loot for underground biome chests (mushroon, granite etc.), alternative ways of obtaining some accessories and non-consumable summoning items.  
 
@@ -18,7 +18,7 @@ Labels can be used to filter issues. The labels ```Melee```, ```Magic```, ```Ran
 
 ## Bug reports
 
-If you encounter any bugs you can report them here or on the [Discord server](https://discord.gg/x6ynt4cp5q). Please try to see if the bug has already been reported and if so comment on the existing report with any relevant information. If the bug has not been reported, you can either create a new issue or a post on the "bug-reports" forum over in the discord. 
+If you encounter any bugs you can report them here or on the [Discord server](https://discord.gg/TZXJ9yGapC). Please try to see if the bug has already been reported and if so comment on the existing report with any relevant information. If the bug has not been reported, you can either create a new issue or a post on the "bug-reports" forum over in the discord. 
 
 **What to include in the report**:
 1. Description of the bug
@@ -30,7 +30,7 @@ If you encounter any bugs you can report them here or on the [Discord server](ht
 (optional)
 
 ## Contributing
-I won't be adding contributors to the repository (for now), but contributions are still welcome. Anyone who contributes will still be credited of course. Before doing anything you should check a few things depending on how you are planning to contribute. Joining the [discord](https://discord.gg/x6ynt4cp5q) and discussing potential contributions is highly recommended.
+I won't be adding contributors to the repository (for now), but contributions are still welcome. Anyone who contributes will still be credited of course. Before doing anything you should check a few things depending on how you are planning to contribute. Joining the [discord](https://discord.gg/TZXJ9yGapC) and discussing potential contributions is highly recommended.
 
 - **Adding new content**:
 Either make a post in the discord server's "suggestions" forum following its guidelines or create a new issue that describes the new content and add information that could be relevant to the player (crafting recipe, obtaining, etc). I will then check the issue and add appropriate labels to it. After this you can start working on the issue.
