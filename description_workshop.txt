@@ -1,0 +1,35 @@
+[h1]Assorted Additions[/h1]
+
+Assorted Additions is a content mod for which adds all sorts of things like the name implies. The mod started as a glimpse into modding and kept expanding as new ideas came up. 
+
+Currently the mod adds:
+[list]
+    [*] Around 200 new items (this includes everything)
+    [*] 13 NPCs
+    [*] 1 Boss
+    [*] New category of accessory called "Runes"
+    [*] Bunch of tweaks such as improved loot for underground biome chests (mushroon, granite etc.), alternative ways of obtaining some accessories and non-consumable summoning items
+[/list]
+
+The mod does not have a proper wiki, however, an overview of the progression/class setups can be found on the [url=https://github.com/JeseGamerHD/AssortedAdditions/blob/master/ClassSetups.md]github page[/url]. 
+The GitHub also contains information on [url=https://github.com/JeseGamerHD/AssortedAdditions/tree/master?tab=readme-ov-file#navigating-the-github-page]individual items and changes[/url] to some extent.
+
+The mod should work in multiplayer (some desync). The mod should also be compatible with other mods and there are configs for things that could cause conflicts. 
+
+If you encounter any bugs, please either report them on the github page or in the Discord. If you would like to contribute to the mod, please either see the discord or the github page.
+
+[h1]Contact[/h1]
+
+Join the [url=https://discord.gg/TZXJ9yGapC]Discord server[/url] if you would like to discuss the mod.
+Source code available [url=https://github.com/JeseGamerHD/AssortedAdditions]here[/url]
+
+[h1]Credits[/h1]
+
+Thanks to:
+[list]
+    [*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2824879484&searchtext=tsorc]tsorcRevamp[/url] for some homing code
+    [*] XYEzawr for a Ancient Gauntlet Projectile sprite
+    [*] Elthen for sprites: Toy Car, Snow Dweller, Training Dummy
+    [*] Pipoya for the Echo Chamber effect sprite
+[/list]
+More details/links available [url=https://github.com/JeseGamerHD/AssortedAdditions/blob/master/CREDITS.md]here[/url]

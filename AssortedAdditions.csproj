@@ -285,6 +285,7 @@
     <None Remove="Content\Tiles\Walls\PaintWallTile2.png" />
     <None Remove="Content\Tiles\Walls\SteelPlatingWallTile.png" />
     <None Remove="Content\Tiles\Walls\SteelWallTile.png" />
+    <None Remove="description_workshop.txt" />
     <None Remove="icon.png" />
     <None Remove="icon_small.png" />
   </ItemGroup>
