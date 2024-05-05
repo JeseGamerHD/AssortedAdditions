@@ -209,7 +209,7 @@ namespace AssortedAdditions.Content.NPCs.Town
 
         public override void TownNPCAttackStrength(ref int damage, ref float knockback)
         {
-            damage = 15;
+            damage = 16;
             knockback = 2f;
         }
 
