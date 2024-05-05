@@ -11,12 +11,12 @@ Currently the mod adds:
     [*] Bunch of tweaks such as improved loot for underground biome chests (mushroon, granite etc.), alternative ways of obtaining some accessories and non-consumable summoning items
 [/list]
 
-The mod does not have a proper wiki, however, an overview of the progression/class setups can be found on the [url=https://github.com/JeseGamerHD/AssortedAdditions/blob/master/ClassSetups.md]github page[/url]. 
-The GitHub also contains information on [url=https://github.com/JeseGamerHD/AssortedAdditions/tree/master?tab=readme-ov-file#navigating-the-github-page]individual items and changes[/url] to some extent.
+The mod does not have a proper wiki, however, an overview of the progression/class setups can be found on the [url=https://github.com/JeseGamerHD/AssortedAdditions/blob/master/ClassSetups.md]here[/url]. 
+The GitHub also contains [url=https://github.com/JeseGamerHD/AssortedAdditions/tree/master?tab=readme-ov-file#navigating-the-github-page]information[/url] on individual items and changes to some extent.
 
-The mod should work in multiplayer (some desync). The mod should also be compatible with other mods and there are configs for things that could cause conflicts. 
+The mod should work in multiplayer (some desync). The mod should also be compatible with other mods for the most part. The mod includes some configs for things that could cause issues.
 
-If you encounter any bugs, please either report them on the github page or in the Discord. If you would like to contribute to the mod, please either see the discord or the github page.
+If you encounter any bugs, please either report them on the GitHub page or in the Discord. If you would like to contribute to the mod, check the Discord or the GitHub for instructions.
 
 [h1]Contact[/h1]
 

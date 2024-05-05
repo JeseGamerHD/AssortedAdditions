@@ -7,7 +7,12 @@ namespace AssortedAdditions.Content.Items.Placeables.Blocks
 {
     internal class MysteriousBrick : ModItem
     {
-        public override void SetDefaults()
+		public override void SetStaticDefaults()
+		{
+			ItemID.Sets.DisableAutomaticPlaceableDrop[Type] = true;
+		}
+
+		public override void SetDefaults()
         {
             Item.width = 16;
             Item.height = 16;

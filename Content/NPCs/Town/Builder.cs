@@ -1,6 +1,9 @@
 ﻿using System.Collections.Generic;
 using AssortedAdditions.Content.Items.Placeables.Blocks;
 using AssortedAdditions.Content.Items.Vanity;
+using AssortedAdditions.Content.Items.Weapons.Ranged;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.GameContent.Bestiary;
 using Terraria.GameContent.Personalities;
@@ -18,7 +21,7 @@ namespace AssortedAdditions.Content.NPCs.Town
             NPCID.Sets.ExtraFramesCount[Type] = 10; // NPC does extra things such as sitting in a chair and talking to other NPCs. This is the remaining frames after the walking frames.
             NPCID.Sets.AttackFrameCount[Type] = 4; // The amount of frames in the attacking animation.
             NPCID.Sets.DangerDetectRange[Type] = 700; // The amount of pixels away from the center of the NPC that it tries to attack enemies.
-            NPCID.Sets.AttackType[Type] = 0; // The type of attack the Town NPC performs. 0 = throwing, 1 = shooting, 2 = magic, 3 = melee
+            NPCID.Sets.AttackType[Type] = 1; // The type of attack the Town NPC performs. 0 = throwing, 1 = shooting, 2 = magic, 3 = melee
             NPCID.Sets.AttackTime[Type] = 90; // The amount of time it takes for the NPC's attack animation to be over once it starts.
             NPCID.Sets.AttackAverageChance[Type] = 30; // The denominator for the chance for a Town NPC to attack. Lower numbers make the Town NPC appear more aggressive.
             NPCID.Sets.HatOffsetY[Type] = 4; // For when a party is active, the party hat spawns at a Y offset.
@@ -153,8 +156,6 @@ namespace AssortedAdditions.Content.NPCs.Town
                 .Add<BlueCarpet>()
                 .Add<GreenCarpet>()
 
-                .Add<MysteriousBrick>(condition: Condition.DownedMechBossAll)
-
                 .Add<BuilderHelmet>()
                 .Add<BuilderJacket>()
                 .Add<BuilderPants>();
@@ -220,7 +221,7 @@ namespace AssortedAdditions.Content.NPCs.Town
 
         public override void TownNPCAttackProj(ref int projType, ref int attackDelay)
         {
-            projType = ProjectileID.ThrowingKnife;
+            projType = ProjectileID.WoodenArrowFriendly;
             attackDelay = 1;
         }
 
@@ -228,5 +229,12 @@ namespace AssortedAdditions.Content.NPCs.Town
         {
             multiplier = 15f;
         }
-    }
+
+		public override void DrawTownAttackGun(ref Texture2D item, ref Rectangle itemFrame, ref float scale, ref int horizontalHoldoutOffset)
+		{
+            int itemType = ModContent.ItemType<SteelBow>();
+            Main.GetItemDrawFrame(itemType, out item, out itemFrame);
+            horizontalHoldoutOffset = (int) Main.DrawPlayerItemPos(1f, itemType).X - 12;
+		}
+	}
 }
