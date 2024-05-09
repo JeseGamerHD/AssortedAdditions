@@ -1441,7 +1441,7 @@ Mods: {
 
 		Configs: {
 			VanillaChangeToggle: {
-				DisplayName: Server settings
+				DisplayName: Server/World settings
 
 				Headers: {
 					VanillaRecipes: Recipe settings

@@ -1,5 +1,4 @@
 [h1]Assorted Additions[/h1]
-
 Assorted Additions is a content mod for which adds all sorts of things like the name implies. The mod started as a glimpse into modding and kept expanding as new ideas came up. 
 
 Currently the mod adds:
@@ -11,20 +10,18 @@ Currently the mod adds:
     [*] Bunch of tweaks such as improved loot for underground biome chests (mushroon, granite etc.), alternative ways of obtaining some accessories and non-consumable summoning items
 [/list]
 
-The mod does not have a proper wiki, however, an overview of the progression/class setups can be found on the [url=https://github.com/JeseGamerHD/AssortedAdditions/blob/master/ClassSetups.md]here[/url]. 
+The mod does not have a proper wiki, however, an overview of the progression/class setups can be found on this [url=https://github.com/JeseGamerHD/AssortedAdditions/blob/master/ClassSetups.md]GitHub page[/url]. 
 The GitHub also contains [url=https://github.com/JeseGamerHD/AssortedAdditions/tree/master?tab=readme-ov-file#navigating-the-github-page]information[/url] on individual items and changes to some extent.
 
-The mod should work in multiplayer (some desync). The mod should also be compatible with other mods for the most part. The mod includes some configs for things that could cause issues.
-
-If you encounter any bugs, please either report them on the GitHub page or in the Discord. If you would like to contribute to the mod, check the Discord or the GitHub for instructions.
+The mod should work in multiplayer (some desync). The mod should also be compatible with other mods for the most part. The mod includes some configs for things that could cause issues. 
 
 [h1]Contact[/h1]
+If you wish to discuss the mod, report bugs or contribute you can either do that by joining the Discord or on the GitHub page. Please read the instructions for bug reporting & contributing.
 
-Join the [url=https://discord.gg/TZXJ9yGapC]Discord server[/url] if you would like to discuss the mod.
-Source code available [url=https://github.com/JeseGamerHD/AssortedAdditions]here[/url]
+[url=https://discord.gg/TZXJ9yGapC][img]https://img.shields.io/discord/1233667170572177408?style=for-the-badge&logo=discord&label=Discord[/img][/url] 
+[url=https://github.com/JeseGamerHD/AssortedAdditions][img]https://img.shields.io/badge/GitHub-black?style=for-the-badge&logo=github[/img][/url]
 
 [h1]Credits[/h1]
-
 Thanks to:
 [list]
     [*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2824879484&searchtext=tsorc]tsorcRevamp[/url] for some homing code
@@ -33,3 +30,7 @@ Thanks to:
     [*] Pipoya for the Echo Chamber effect sprite
 [/list]
 More details/links available [url=https://github.com/JeseGamerHD/AssortedAdditions/blob/master/CREDITS.md]here[/url]
+
+
+
+[quote=tModLoader]Developed By Jesse.[/quote]
