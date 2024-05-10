@@ -1,0 +1,1 @@
+Updated the localisation (blank rune description, "Server" config renamed to "World/Server")
