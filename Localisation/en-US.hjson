@@ -1131,7 +1131,7 @@ Mods: {
 
 			BlankRune: {
 				DisplayName: Blank Rune
-				Tooltip: Used for crafting runes
+				Tooltip: Use to unlock the Rune Slot
 			}
 
 			ManaRune: {
