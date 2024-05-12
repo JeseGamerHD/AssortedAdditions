@@ -1,1 +1,3 @@
-Updated the localisation (blank rune description, "Server" config renamed to "World/Server")
+- Added a config toggle for using the Magic Workbench as the crafting tile for some recipies (replaced crafting at crystal ball and bookcases).
+- Added a config for adjusting the spawn chance of npcs (enemies) added by the mod (An overall slider and individual sliders for each npc).
+- Blank Rune now also drops from pots (1/125 chance).

@@ -1,4 +1,5 @@
-﻿using AssortedAdditions.Content.Items.Accessories;
+﻿using AssortedAdditions.Common.Configs;
+using AssortedAdditions.Content.Items.Accessories;
 using AssortedAdditions.Content.Items.Placeables.Banners;
 using Microsoft.Xna.Framework;
 using Terraria;
@@ -37,16 +38,19 @@ namespace AssortedAdditions.Content.NPCs
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            // Surface
-            if (spawnInfo.Player.ZoneJungle && !spawnInfo.Player.ZoneRockLayerHeight)
+			float multiplier = ServerSidedToggles.Instance.NPCSpawnMultiplier == 1f 
+                ? ServerSidedToggles.Instance.GrabberPlantSpawnMultiplier : ServerSidedToggles.Instance.NPCSpawnMultiplier;
+
+			// Surface
+			if (spawnInfo.Player.ZoneJungle && !spawnInfo.Player.ZoneRockLayerHeight)
             {
                 if (!Main.hardMode)
                 {
-                    return SpawnCondition.SurfaceJungle.Chance;
+                    return SpawnCondition.SurfaceJungle.Chance * multiplier;
                 }
                 else
                 {
-                    return SpawnCondition.SurfaceJungle.Chance * 0.5f;
+                    return SpawnCondition.SurfaceJungle.Chance * 0.5f * multiplier;
                 }
             }
             // Underground
@@ -54,11 +58,11 @@ namespace AssortedAdditions.Content.NPCs
             {
                 if (!Main.hardMode)
                 {
-                    return SpawnCondition.UndergroundJungle.Chance;
+                    return SpawnCondition.UndergroundJungle.Chance * multiplier;
                 }
                 else
                 {
-                    return SpawnCondition.UndergroundJungle.Chance * 0.5f;
+                    return SpawnCondition.UndergroundJungle.Chance * 0.5f * multiplier;
                 }
             }
 

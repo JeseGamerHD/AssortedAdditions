@@ -1,4 +1,5 @@
-﻿using AssortedAdditions.Content.Items.Weapons.Magic;
+﻿using AssortedAdditions.Common.Configs;
+using AssortedAdditions.Content.Items.Weapons.Magic;
 using AssortedAdditions.Content.Items.Weapons.Melee;
 using AssortedAdditions.Content.Items.Weapons.Ranged;
 using AssortedAdditions.Content.Items.Weapons.Summon;
@@ -51,7 +52,10 @@ namespace AssortedAdditions.Content.NPCs
         {
             if (Main.hardMode && spawnInfo.Player.ZoneUndergroundDesert)
             {
-                return SpawnCondition.DesertCave.Chance * 0.05f;
+                float multiplier = ServerSidedToggles.Instance.NPCSpawnMultiplier == 1f
+                    ? ServerSidedToggles.Instance.SandstoneMimicSpawnMultiplier : ServerSidedToggles.Instance.NPCSpawnMultiplier;
+
+				return SpawnCondition.DesertCave.Chance * 0.05f * multiplier;
             }
 
             return 0f;

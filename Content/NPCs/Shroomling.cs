@@ -1,4 +1,5 @@
-﻿using AssortedAdditions.Content.Items.Armor;
+﻿using AssortedAdditions.Common.Configs;
+using AssortedAdditions.Content.Items.Armor;
 using AssortedAdditions.Content.Items.Placeables.Banners;
 using Microsoft.Xna.Framework;
 using Terraria;
@@ -97,7 +98,10 @@ namespace AssortedAdditions.Content.NPCs
             // Only spawns in the forest biome during the day
             if (spawnInfo.Player.ZonePurity)
             {
-                return SpawnCondition.OverworldDaySlime.Chance * 0.15f;
+                float multiplier = ServerSidedToggles.Instance.NPCSpawnMultiplier == 1f
+                    ? ServerSidedToggles.Instance.ShroomlingSpawnMultiplier : ServerSidedToggles.Instance.NPCSpawnMultiplier;
+
+				return SpawnCondition.OverworldDaySlime.Chance * 0.15f * multiplier;
             }
 
             return 0f;

@@ -8,6 +8,7 @@ using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ModLoader.Utilities;
+using AssortedAdditions.Common.Configs;
 
 namespace AssortedAdditions.Content.NPCs
 {
@@ -196,12 +197,15 @@ namespace AssortedAdditions.Content.NPCs
             // less likely to spawn during hardmode
             if (spawnInfo.Player.ZoneDesert)
             {
-                if (!Main.hardMode)
+                float multiplier = ServerSidedToggles.Instance.NPCSpawnMultiplier == 1f
+                    ? ServerSidedToggles.Instance.LivingCactusSpawnMultiplier : ServerSidedToggles.Instance.NPCSpawnMultiplier;
+
+				if (!Main.hardMode)
                 {
-                    return SpawnCondition.OverworldDayDesert.Chance * 0.5f;
+                    return SpawnCondition.OverworldDayDesert.Chance * 0.5f * multiplier;
                 }
 
-                return SpawnCondition.OverworldDayDesert.Chance * 0.15f;
+                return SpawnCondition.OverworldDayDesert.Chance * 0.15f * multiplier;
             }
 
             return 0f;

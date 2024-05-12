@@ -13,7 +13,7 @@ namespace AssortedAdditions.Common.GlobalTiles
         public override bool CanKillTile(int i, int j, int type, ref bool blockDamaged)
         {
             // The player can toggle this on/off if they want to use vanilla progression
-            if (ModContent.GetInstance<VanillaChangeToggle>().HardmodeOreProgressionToggle)
+            if (ModContent.GetInstance<ServerSidedToggles>().HardmodeOreProgressionToggle)
             {
                 switch (type)
                 {

@@ -1440,7 +1440,7 @@ Mods: {
 		Conditions.SellCosmicItems: Mods.AssortedAdditions.Conditions.SellCosmicItems
 
 		Configs: {
-			VanillaChangeToggle: {
+			ServerSidedToggles: {
 				DisplayName: Server/World settings
 
 				Headers: {
@@ -1448,13 +1448,14 @@ Mods: {
 					OreProgression: Progression settings
 					Items: Item settings
 					WorldGeneration: World Generation
+					ModNPCSpawning: NPC Spawn Chance Multipliers
 				}
 
 				ModifiedRecipesToggle: {
 					Label: Modified vanilla recipes
 					Tooltip:
 						'''
-						Toggles changes done to existing vanilla recipes. 
+						Toggles changes done to existing vanilla recipes (ingredients). 
 						Does not remove new alternative recipes.
 						'''
 				}
@@ -1482,6 +1483,71 @@ Mods: {
 				spawnStructureToggle: {
 					Label: Generate Spawn Structure
 					Tooltip: Whether or not to generate a small spawn structure when creating a new world.
+				}
+
+				MagicWorkBenchCraftingToggle: {
+					Label: Use Magic Workbench for vanilla recipes
+					Tooltip: Whether or not to replace the crafting tile for some recipes with the Magic Workbench.
+				}
+
+				NPCSpawnMultiplier: {
+					Label: All NPCs
+					Tooltip:
+						'''
+						Adjusts the spawn chance of all NPCs in this mod 
+						by multiplying the original chance with this value.
+						NOTE: This will override any individual NPC multipliers.
+						'''
+				}
+
+				CursedPickaxeSpawnMultiplier: {
+					Label: Cursed Pickaxe
+					Tooltip: Adjusts the spawn chance of this specific NPC
+				}
+
+				FrostWraithSpawnMultiplier: {
+					Label: Frost Wraith
+					Tooltip: Adjusts the spawn chance of this specific NPC
+				}
+
+				GoblinBalloonistSpawnMultiplier: {
+					Label: Goblin Balloonist
+					Tooltip: Adjusts the spawn chance of this specific NPC
+				}
+
+				GrabberPlantSpawnMultiplier: {
+					Label: Grabber Plant
+					Tooltip: Adjusts the spawn chance of this specific NPC
+				}
+
+				GraniteGruntSpawnMultiplier: {
+					Label: Granite Grunt
+					Tooltip: Adjusts the spawn chance of this specific NPC
+				}
+
+				IceGuardianSpawnMultiplier: {
+					Label: Ice Guardian
+					Tooltip: Adjusts the spawn chance of this specific NPC
+				}
+
+				LivingCactusSpawnMultiplier: {
+					Label: Living Cactus
+					Tooltip: Adjusts the spawn chance of this specific NPC
+				}
+
+				NightSlimeSpawnMultiplier: {
+					Label: Night Slime
+					Tooltip: Adjusts the spawn chance of this specific NPC
+				}
+
+				SandstoneMimicSpawnMultiplier: {
+					Label: Sandstone Mimic
+					Tooltip: Adjusts the spawn chance of this specific NPC
+				}
+
+				ShroomlingSpawnMultiplier: {
+					Label: Shroomling
+					Tooltip: Adjusts the spawn chance of this specific NPC
 				}
 			}
 
