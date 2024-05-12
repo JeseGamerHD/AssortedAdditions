@@ -6,6 +6,7 @@ using Terraria.GameContent.Bestiary;
 using Microsoft.Xna.Framework;
 using AssortedAdditions.Content.Items.Misc;
 using AssortedAdditions.Content.Items.Placeables.Banners;
+using AssortedAdditions.Common.Configs;
 
 namespace AssortedAdditions.Content.NPCs
 {
@@ -50,7 +51,10 @@ namespace AssortedAdditions.Content.NPCs
         {
             if (NPC.downedMechBossAny && spawnInfo.Player.ZoneSnow && spawnInfo.Player.ZoneRockLayerHeight)
             {
-                return 0.004f;
+                float multiplier = ServerSidedToggles.Instance.NPCSpawnMultiplier == 1f
+                    ? ServerSidedToggles.Instance.CursedPickaxeSpawnMultiplier : ServerSidedToggles.Instance.NPCSpawnMultiplier;
+
+				return 0.004f * multiplier;
             }
 
             return 0f;

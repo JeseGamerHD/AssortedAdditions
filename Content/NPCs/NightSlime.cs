@@ -9,6 +9,7 @@ using Microsoft.Xna.Framework;
 using AssortedAdditions.Content.Items.Weapons.Magic;
 using AssortedAdditions.Content.Items.Placeables.Banners;
 using ReLogic.Content;
+using AssortedAdditions.Common.Configs;
 
 namespace AssortedAdditions.Content.NPCs
 {
@@ -41,14 +42,15 @@ namespace AssortedAdditions.Content.NPCs
         // Spawns at night
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            // Modders Toolkit is an excellent tool for checking the spawn % and balancing it
-            // It can be found on the tModLoader workshop
-            if (!Main.hardMode)
+            float multiplier = ServerSidedToggles.Instance.NPCSpawnMultiplier == 1f
+                ? ServerSidedToggles.Instance.NightSlimeSpawnMultiplier : ServerSidedToggles.Instance.NPCSpawnMultiplier;
+
+			if (!Main.hardMode)
             {
-                return SpawnCondition.OverworldNightMonster.Chance * 0.3f; // chance during prehardmode
+                return SpawnCondition.OverworldNightMonster.Chance * 0.3f * multiplier; // chance during prehardmode
             }
 
-            return SpawnCondition.OverworldNightMonster.Chance * 0.075f; // chance during hardmode (less likely to spawn)
+            return SpawnCondition.OverworldNightMonster.Chance * 0.075f * multiplier; // chance during hardmode (less likely to spawn)
         }
 
         public override void ModifyNPCLoot(NPCLoot npcLoot)

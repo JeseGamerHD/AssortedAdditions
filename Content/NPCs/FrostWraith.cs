@@ -1,4 +1,5 @@
-﻿using AssortedAdditions.Content.Items.Misc;
+﻿using AssortedAdditions.Common.Configs;
+using AssortedAdditions.Content.Items.Misc;
 using AssortedAdditions.Content.Items.Placeables.Banners;
 using Terraria;
 using Terraria.GameContent.Bestiary;
@@ -65,7 +66,10 @@ namespace AssortedAdditions.Content.NPCs
         {
             if (NPC.downedMechBossAny && spawnInfo.Player.ZoneSnow && spawnInfo.Player.ZoneRockLayerHeight)
             {
-                return SpawnCondition.Cavern.Chance * 0.1f;
+				float multiplier = ServerSidedToggles.Instance.NPCSpawnMultiplier == 1f 
+                    ? ServerSidedToggles.Instance.FrostWraithSpawnMultiplier : ServerSidedToggles.Instance.NPCSpawnMultiplier;
+
+				return SpawnCondition.Cavern.Chance * 0.1f * multiplier;
             }
 
             return 0f;

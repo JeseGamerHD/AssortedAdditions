@@ -1,4 +1,5 @@
-﻿using AssortedAdditions.Content.Items.Misc;
+﻿using AssortedAdditions.Common.Configs;
+using AssortedAdditions.Content.Items.Misc;
 using AssortedAdditions.Content.Items.Placeables.Banners;
 using Microsoft.Xna.Framework;
 using Terraria;
@@ -49,7 +50,10 @@ namespace AssortedAdditions.Content.NPCs
 		{
 			if (spawnInfo.Player.ZoneGranite || spawnInfo.Granite)
 			{
-				return 0.05f;
+				float multiplier = ServerSidedToggles.Instance.NPCSpawnMultiplier == 1f
+					? ServerSidedToggles.Instance.GraniteGruntSpawnMultiplier : ServerSidedToggles.Instance.NPCSpawnMultiplier;
+
+				return 0.05f * multiplier;
 			}
 
 			return 0f;

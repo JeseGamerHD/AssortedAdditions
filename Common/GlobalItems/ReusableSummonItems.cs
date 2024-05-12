@@ -40,7 +40,7 @@ namespace AssortedAdditions.Common.GlobalItems
         public override void SetDefaults(Item entity)
         {
             // This can be toggled ON/OFF in the configs
-            if (ModContent.GetInstance<VanillaChangeToggle>().NoConsumeBossSummon)
+            if (ModContent.GetInstance<ServerSidedToggles>().NoConsumeBossSummon)
             {
                 if (noConsumeBoss.Contains(entity.type))
                 {
@@ -48,7 +48,7 @@ namespace AssortedAdditions.Common.GlobalItems
                 }
             }
 
-            if (ModContent.GetInstance<VanillaChangeToggle>().NoConsumeEventSummon)
+            if (ModContent.GetInstance<ServerSidedToggles>().NoConsumeEventSummon)
             {
                 if (noConsumeEvent.Contains(entity.type))
                 {

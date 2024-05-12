@@ -28,7 +28,7 @@ namespace AssortedAdditions.Common.Systems
             }
 
             int spawnIndex = tasks.FindIndex(GenPass => GenPass.Name.Equals("Spawn Point"));
-            if (spawnIndex != -1 && ModContent.GetInstance<VanillaChangeToggle>().spawnStructureToggle)
+            if (spawnIndex != -1 && ModContent.GetInstance<ServerSidedToggles>().spawnStructureToggle)
             {
                 tasks.Insert(spawnIndex + 1, new SpawnStructure("Guide", 15f));
             }

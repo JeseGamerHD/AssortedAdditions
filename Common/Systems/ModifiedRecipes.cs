@@ -12,7 +12,7 @@ namespace AssortedAdditions.Common.Systems
         public override void PostAddRecipes()
         {
             // The player can disable these changes if they want to in the mod configs
-            if (ModContent.GetInstance<VanillaChangeToggle>().ModifiedRecipesToggle)
+            if (ModContent.GetInstance<ServerSidedToggles>().ModifiedRecipesToggle)
             {
                 for (int i = 0; i < Recipe.numRecipes; i++)
                 {

@@ -1,4 +1,5 @@
-﻿using AssortedAdditions.Content.Items.Misc;
+﻿using AssortedAdditions.Common.Configs;
+using AssortedAdditions.Content.Items.Misc;
 using AssortedAdditions.Content.Items.Placeables.Banners;
 using AssortedAdditions.Content.Projectiles.NPCProj;
 using Microsoft.Xna.Framework;
@@ -117,7 +118,10 @@ namespace AssortedAdditions.Content.NPCs
         {
             if (NPC.downedMechBossAny && spawnInfo.Player.ZoneSnow && spawnInfo.Player.ZoneRockLayerHeight)
             {
-                return SpawnCondition.Cavern.Chance * 0.05f;
+				float multiplier = ServerSidedToggles.Instance.NPCSpawnMultiplier == 1f
+					? ServerSidedToggles.Instance.IceGuardianSpawnMultiplier : ServerSidedToggles.Instance.NPCSpawnMultiplier;
+
+				return (SpawnCondition.Cavern.Chance * 0.05f) * multiplier;
             }
 
             return 0f;

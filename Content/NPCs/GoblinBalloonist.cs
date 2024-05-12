@@ -11,6 +11,7 @@ using Terraria.Graphics.Shaders;
 using AssortedAdditions.Content.Items.Tools;
 using AssortedAdditions.Content.Items.Placeables.Banners;
 using AssortedAdditions.Content.Projectiles.NPCProj;
+using AssortedAdditions.Common.Configs;
 
 namespace AssortedAdditions.Content.NPCs
 {
@@ -130,17 +131,20 @@ namespace AssortedAdditions.Content.NPCs
             NPC.frame.Y = frameHeight * frame;
         }
 
-        public override float SpawnChance(NPCSpawnInfo spawnInfo)
-        {
-            if (Main.invasionType == InvasionID.GoblinArmy)
-            {
-                return SpawnCondition.Invasion.Chance * 0.1f;
-            }
+		public override float SpawnChance(NPCSpawnInfo spawnInfo)
+		{
+			if (Main.invasionType == InvasionID.GoblinArmy)
+			{
+				float multiplier = ServerSidedToggles.Instance.NPCSpawnMultiplier == 1f
+					? ServerSidedToggles.Instance.GoblinBalloonistSpawnMultiplier : ServerSidedToggles.Instance.NPCSpawnMultiplier;
 
-            return 0f;
-        }
+				return SpawnCondition.Invasion.Chance * 0.1f * multiplier;
+			}
 
-        public override void ModifyNPCLoot(NPCLoot npcLoot)
+			return 0f;
+		}
+
+		public override void ModifyNPCLoot(NPCLoot npcLoot)
         {
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<BagOfBombs>(), 10));
         }
