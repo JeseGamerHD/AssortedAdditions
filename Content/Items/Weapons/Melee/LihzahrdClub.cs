@@ -5,6 +5,7 @@ using Terraria;
 using Microsoft.Xna.Framework;
 using Terraria.Audio;
 using AssortedAdditions.Helpers;
+using AssortedAdditions.Content.Items.Placeables.Ores;
 
 namespace AssortedAdditions.Content.Items.Weapons.Melee
 {
@@ -37,6 +38,16 @@ namespace AssortedAdditions.Content.Items.Weapons.Melee
 			}
 
 			target.AddBuff(BuffID.OnFire3, HelperMethods.SecondsToTicks(7));
+		}
+
+		public override void AddRecipes()
+		{
+			Recipe recipe = CreateRecipe();
+			recipe.AddIngredient(ItemID.LunarTabletFragment, 6);
+			recipe.AddIngredient(ModContent.ItemType<CoalChunk>(), 6);
+			recipe.AddIngredient(ItemID.MeteoriteBar, 6);
+			recipe.AddTile(TileID.MythrilAnvil);
+			recipe.Register();
 		}
 	}
 }

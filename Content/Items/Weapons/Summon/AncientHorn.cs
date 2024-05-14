@@ -4,6 +4,7 @@ using Terraria.ModLoader;
 using Terraria;
 using AssortedAdditions.Helpers;
 using Terraria.Audio;
+using AssortedAdditions.Content.Items.Placeables.Ores;
 
 namespace AssortedAdditions.Content.Items.Weapons.Summon
 {
@@ -29,12 +30,22 @@ namespace AssortedAdditions.Content.Items.Weapons.Summon
 
 		public override bool? UseItem(Player player)
 		{
-			if(player.whoAmI == Main.myPlayer)
+			if (player.whoAmI == Main.myPlayer)
 			{
 				player.AddBuff(Item.buffType, HelperMethods.SecondsToTicks(45));
 			}
 
 			return true;
+		}
+
+		public override void AddRecipes()
+		{
+			Recipe recipe = CreateRecipe();
+			recipe.AddIngredient(ItemID.LunarTabletFragment, 6);
+			recipe.AddIngredient(ModContent.ItemType<CoalChunk>(), 6);
+			recipe.AddIngredient(ItemID.MeteoriteBar, 6);
+			recipe.AddTile(TileID.MythrilAnvil);
+			recipe.Register();
 		}
 	}
 

@@ -34,5 +34,22 @@ namespace AssortedAdditions.Content.Items.Weapons.Melee
 		{
 			return player.ownedProjectileCounts[Item.shoot] < 1;
 		}
+
+		public override void AddRecipes()
+		{
+			Recipe recipe = CreateRecipe();
+			recipe.AddIngredient(ItemID.GlowingMushroom, 20);
+			recipe.AddIngredient(ItemID.TinBar, 8);
+			recipe.AddRecipeGroup("AssortedAdditions:BoStaves");
+			recipe.AddTile(TileID.Anvils);
+			recipe.Register();
+
+			Recipe recipe2 = CreateRecipe();
+			recipe2.AddIngredient(ItemID.GlowingMushroom, 20);
+			recipe2.AddIngredient(ItemID.CopperBar, 8);
+			recipe2.AddRecipeGroup("AssortedAdditions:BoStaves");
+			recipe2.AddTile(TileID.Anvils);
+			recipe2.Register();
+		}
 	}
 }

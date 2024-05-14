@@ -1,3 +1,7 @@
-- Added a config toggle for using the Magic Workbench as the crafting tile for some recipies (replaced crafting at crystal ball and bookcases).
-- Added a config for adjusting the spawn chance of npcs (enemies) added by the mod (An overall slider and individual sliders for each npc).
-- Blank Rune now also drops from pots (1/125 chance).
+[B]v0.1.0.3[/B]
+
+[LIST]
+[*] Added recipes for some items added by the mod that could previously only be found inside chests.
+[*] Reduced Dune Ore spawn rate slightly.
+[/LIST]
+

@@ -4,6 +4,8 @@ using Terraria.ModLoader;
 using Terraria;
 using Terraria.DataStructures;
 using Microsoft.Xna.Framework;
+using AssortedAdditions.Content.Tiles.CraftingStations;
+using AssortedAdditions.Content.Items.Placeables.Ores;
 
 namespace AssortedAdditions.Content.Items.Weapons.Magic
 {
@@ -61,6 +63,16 @@ namespace AssortedAdditions.Content.Items.Weapons.Magic
 			Projectile.NewProjectile(source, spawnPosition, heading, type, damage, knockback, player.whoAmI);
 
 			return false;
+		}
+
+		public override void AddRecipes()
+		{
+			Recipe recipe = CreateRecipe();
+			recipe.AddIngredient(ItemID.LunarTabletFragment, 6);
+			recipe.AddIngredient(ModContent.ItemType<CoalChunk>(), 6);
+			recipe.AddIngredient(ItemID.MeteoriteBar, 6);
+			recipe.AddTile(TileID.MythrilAnvil);
+			recipe.Register();
 		}
 	}
 
