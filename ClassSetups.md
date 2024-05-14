@@ -174,9 +174,9 @@ These tables show the earliest point when an item can be obtained and roughly wh
 |:-----------:|:---------------------:|:-----------------:|:---------:|:----------------:|
 |           |            |            |              |          |
 |   Weapons   |        Weapons        |      Weapons      |  Weapons  |     Weapons      |
-|Lihzahrd Club|Guided Missile Launcher|Book of Mathematics|           |                  |
+|Lihzahrd Club|Guided Missile Launcher|Book of Mathematics| Ancient Horn |               |
 |             |    Plasma Carbine     |    Spirit Vase    |           |                  |
-|             |   Sawblade Launcher   |                   |           |                  |
+|             |   Sawblade Launcher   |Ancient Gauntlet   |           |                  |
 |             |                       |                   |           |                  |
 | Accessories |      Accessories      |    Accessories    |Accessories|   Accessories    |
 |             |                       |                   |           |                  |

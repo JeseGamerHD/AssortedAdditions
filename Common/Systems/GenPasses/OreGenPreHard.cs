@@ -26,19 +26,17 @@ namespace AssortedAdditions.Common.Systems.GenPasses
             }
 
             // Dune Ore
-            maxtoSpawn = (int)(Main.maxTilesX * Main.maxTilesY * 0.008);
+            maxtoSpawn = (int)(Main.maxTilesX * Main.maxTilesY * 0.006);
             for (int i = 0; i < maxtoSpawn; i++)
             {
                 int x = WorldGen.genRand.Next(150, Main.maxTilesX - 150); // 150 should be outside oceans
                 int y = WorldGen.genRand.Next((int)GenVars.worldSurface, Main.maxTilesY - 300);
 
                 Tile tile = Framing.GetTileSafely(x, y); // This ore only spawns in the desert underground
-                if (tile.TileType == TileID.HardenedSand ||
-                    tile.TileType == TileID.DesertFossil)
+                if (tile.TileType == TileID.HardenedSand || tile.TileType == TileID.DesertFossil)
                 {
-                    WorldGen.TileRunner(x, y, WorldGen.genRand.Next(4, 10), WorldGen.genRand.Next(4, 10), ModContent.TileType<DuneOre>());
+                    WorldGen.TileRunner(x, y, WorldGen.genRand.Next(3, 9), WorldGen.genRand.Next(4, 9), ModContent.TileType<DuneOre>());
                 }
-
             }
         }
     }

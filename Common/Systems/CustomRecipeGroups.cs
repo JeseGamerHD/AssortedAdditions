@@ -1,4 +1,5 @@
-﻿using Terraria;
+﻿using AssortedAdditions.Content.Items.Weapons.Melee.BoStaffs;
+using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -37,6 +38,21 @@ namespace AssortedAdditions.Common.Systems
                 ItemID.PinkDungeonVase
                 );
             RecipeGroup.RegisterGroup("AssortedAdditions:DungeonVases", dungeonVases);
+
+
+            RecipeGroup boStaves = new RecipeGroup(() => "Any Bo Staff",
+                ModContent.ItemType<BoStaff>(),
+				ModContent.ItemType<MahoganyBoStaff>(),
+				ModContent.ItemType<AshBoStaff>(),
+				ModContent.ItemType<BorealBoStaff>(),
+				ModContent.ItemType<DynastyBoStaff>(),
+				ModContent.ItemType<EbonWoodBoStaff>(),
+				ModContent.ItemType<PalmBoStaff>(),
+				ModContent.ItemType<PearlWoodBoStaff>(),
+				ModContent.ItemType<ShadeWoodBoStaff>(),
+				ModContent.ItemType<SpookyBoStaff>()
+				);
+            RecipeGroup.RegisterGroup("AssortedAdditions:BoStaves", boStaves);
         }
     }
 }

@@ -28,5 +28,15 @@ namespace AssortedAdditions.Content.Items.Weapons.Magic
 			Item.useStyle = ItemUseStyleID.Swing;
 			Item.shoot = ModContent.ProjectileType<ShroomPouchProj>();
 		}
+
+		public override void AddRecipes()
+		{
+			Recipe recipe = CreateRecipe();
+			recipe.AddIngredient(ItemID.GlowingMushroom, 20);
+			recipe.AddIngredient(ItemID.Rope);
+			recipe.AddIngredient(ItemID.Silk, 8);
+			recipe.AddTile(TileID.Anvils);
+			recipe.Register();
+		}
 	}
 }

@@ -48,5 +48,22 @@ namespace AssortedAdditions.Content.Items.Weapons.Summon
 			// Since we spawned the projectile manually already, we do not need the game to spawn it for ourselves anymore, so return false
 			return false;
 		}
+
+		public override void AddRecipes()
+		{
+			Recipe recipe = CreateRecipe();
+			recipe.AddIngredient(ItemID.GlowingMushroom, 20);
+			recipe.AddIngredient(ItemID.TinBar, 8);
+			recipe.AddRecipeGroup("Wood", 12);
+			recipe.AddTile(TileID.Anvils);
+			recipe.Register();
+
+			Recipe recipe2 = CreateRecipe();
+			recipe2.AddIngredient(ItemID.GlowingMushroom, 20);
+			recipe2.AddIngredient(ItemID.CopperBar, 8);
+			recipe2.AddRecipeGroup("Wood", 12);
+			recipe2.AddTile(TileID.Anvils);
+			recipe2.Register();
+		}
 	}
 }

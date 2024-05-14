@@ -4,13 +4,14 @@ using Terraria.ModLoader;
 using Terraria;
 using Microsoft.Xna.Framework;
 using Terraria.Audio;
+using AssortedAdditions.Content.Items.Placeables.Ores;
 
 namespace AssortedAdditions.Content.Items.Weapons.Ranged
 {
 	internal class SawbladeLauncher : ModItem
 	{
-		public override void SetDefaults() 
-		{ 
+		public override void SetDefaults()
+		{
 			Item.width = 56;
 			Item.height = 34;
 			Item.damage = 82;
@@ -39,6 +40,16 @@ namespace AssortedAdditions.Content.Items.Weapons.Ranged
 			{
 				position += muzzleOffset;
 			}
+		}
+
+		public override void AddRecipes()
+		{
+			Recipe recipe = CreateRecipe();
+			recipe.AddIngredient(ItemID.LunarTabletFragment, 6);
+			recipe.AddIngredient(ModContent.ItemType<CoalChunk>(), 6);
+			recipe.AddIngredient(ItemID.MeteoriteBar, 6);
+			recipe.AddTile(TileID.MythrilAnvil);
+			recipe.Register();
 		}
 	}
 }
