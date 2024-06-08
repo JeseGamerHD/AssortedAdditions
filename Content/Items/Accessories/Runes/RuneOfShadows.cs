@@ -39,6 +39,7 @@ namespace AssortedAdditions.Content.Items.Accessories.Runes
 
 		public override void ModifyTooltips(List<TooltipLine> tooltips)
 		{
+			base.ModifyTooltips(tooltips); // Call base so RuneItem can replace the "Equipable" tip with a custom one
 			tooltips.Insert(tooltips.FindLastIndex(tip => tip.Name.StartsWith("Tooltip")) + 1, 
 				new(Mod, "Tooltip3", "Press " + CustomKeyBinds.RuneAbility.GetAssignedKeys().FirstOrDefault("<Unbound>") + " to use an ability"));
 		}

@@ -1,7 +1,7 @@
-[B]v0.1.0.3[/B]
+[B]v0.1.0.4[/B]
 
 [LIST]
-[*] Added recipes for some items added by the mod that could previously only be found inside chests.
-[*] Reduced Dune Ore spawn rate slightly.
+[*] Fixed a bug where runes could be quick swapped with regular accessories when the Rune Slot is not unlocked. (Runes could be equipped into regular slots)
+[*] Edited the tooltip for all runes to indicate that they can only be equipped in the Rune Slot.
 [/LIST]
 
