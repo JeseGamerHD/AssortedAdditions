@@ -1,7 +1,10 @@
-[B]v0.1.0.4[/B]
+[B]v0.1.0.5[/B]
 
 [LIST]
-[*] Fixed a bug where runes could be quick swapped with regular accessories when the Rune Slot is not unlocked. (Runes could be equipped into regular slots)
-[*] Edited the tooltip for all runes to indicate that they can only be equipped in the Rune Slot.
+[*] Fixed Rune of Death not giving proper immunity to Flame Traps. Apparently the traps shoot two different types of projectile and the rune gave immunity to one of them.
+[*] Cleaned up the localization at the Projectiles section.
+[*] Updates to Fire Drakes: They now spawn during hardmode in the underworld (previously only during the Fire Dragon fight). Their health was sligthly increased, a new sound was added, they drop Ancient Tokens.
+[*] Slightly reduced Goblin Balloonist's health.
+[*] Added a message that appears in chat when unlocking the Mysterious Chest (with the key) to indicate that the Wizard has some new stock.
 [/LIST]
 

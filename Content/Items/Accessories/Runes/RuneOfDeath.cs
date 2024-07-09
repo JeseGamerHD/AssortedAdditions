@@ -57,6 +57,7 @@ namespace AssortedAdditions.Content.Items.Accessories.Runes
 			ProjectileID.SpikyBallTrap,
 			ProjectileID.SpearTrap,
 			ProjectileID.FlamethrowerTrap,
+			ProjectileID.FlamesTrap,
 			ProjectileID.Boulder,
 			ProjectileID.Explosives
 		};
@@ -100,7 +101,7 @@ namespace AssortedAdditions.Content.Items.Accessories.Runes
 				}
 			}
 			
-			orig(self, tileId, x, y); // otherwise call orig
+			orig(self, tileId, x, y); // otherwise call original method
 		}
 	}
 }

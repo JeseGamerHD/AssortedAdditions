@@ -6,6 +6,10 @@ using Terraria.ModLoader;
 using Terraria.GameContent.Bestiary;
 using System;
 using AssortedAdditions.Content.Projectiles.NPCProj;
+using AssortedAdditions.Common.Configs;
+using Terraria.ModLoader.Utilities;
+using AssortedAdditions.Content.Items.Consumables;
+using Terraria.GameContent.ItemDropRules;
 
 namespace AssortedAdditions.Content.NPCs.BossFireDragon
 {
@@ -31,7 +35,7 @@ namespace AssortedAdditions.Content.NPCs.BossFireDragon
             NPC.noTileCollide = true;
             NPC.noGravity = true;
 
-            NPC.lifeMax = 50;
+            NPC.lifeMax = 60;
             NPC.defense = 5;
             NPC.damage = 25;
             NPC.knockBackResist = 0.5f;
@@ -45,11 +49,13 @@ namespace AssortedAdditions.Content.NPCs.BossFireDragon
         // Used for movement in AI
         private float speed = 15f;
         private float inertia = 25f;
+		public ref float Timer => ref NPC.ai[0];
 
-        public override void AI()
+		public override void AI()
         {
             Player target = Main.player[NPC.target];
             float distanceFromTarget = Vector2.Distance(target.Center, NPC.Center);
+            Timer++;
 
             if (target.dead)
             {
@@ -66,6 +72,20 @@ namespace AssortedAdditions.Content.NPCs.BossFireDragon
                 Movement(target, distanceFromTarget);
             }
 
+            // Make a growl sound every now and then (and when spawning)
+            if(Timer % 600 == 0 || Timer == 1)
+            {
+                SoundStyle growl = new SoundStyle("AssortedAdditions/Assets/Sounds/NPCSound/FireDrakeGrowl");
+                growl = growl with
+                {
+                    Pitch = -0.4f,
+                    PitchVariance = 0.1f,
+                    MaxInstances = 3,
+                    Volume = 0.4f
+                };
+
+                SoundEngine.PlaySound(growl, NPC.position);
+            }
         }
 
         // Limit the amount of projectiles
@@ -202,5 +222,22 @@ namespace AssortedAdditions.Content.NPCs.BossFireDragon
                 }
             }
         }
+
+		public override float SpawnChance(NPCSpawnInfo spawnInfo)
+		{
+			if (Main.hardMode && spawnInfo.Player.ZoneUnderworldHeight)
+			{
+                float multiplier = ServerSidedToggles.Instance.NPCSpawnMultiplier;
+
+                return SpawnCondition.Underworld.Chance * 0.2f * multiplier;
+			}
+
+			return 0f;
+		}
+
+		public override void ModifyNPCLoot(NPCLoot npcLoot)
+		{
+            npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<AncientToken>(), 12, 1));
+		}
 	}
 }

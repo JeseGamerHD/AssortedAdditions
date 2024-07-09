@@ -1281,95 +1281,95 @@ Mods: {
 		}
 
 		Projectiles: {
-			BouncingConcoctionProj.DisplayName: Bouncing Concoction Proj
-			ExplosiveConcoctionProj.DisplayName: Explosive Concoction Proj
-			FrozenConcoctionProj.DisplayName: Frozen Concoction Proj
-			IchorConcoctionProj.DisplayName: Ichor Concoction Proj
-			LightConcoctionProj.DisplayName: Light Concoction Proj
-			ShadowConcoctionProj.DisplayName: Shadow Concoction Proj
-			GuidedMissileProj.DisplayName: Guided Missile Proj
-			DragonMinionProj.DisplayName: Dragon Minion Proj
+			BouncingConcoctionProj.DisplayName: Bouncing Concoction
+			ExplosiveConcoctionProj.DisplayName: Explosive Concoction
+			FrozenConcoctionProj.DisplayName: Frozen Concoction
+			IchorConcoctionProj.DisplayName: Ichor Concoction
+			LightConcoctionProj.DisplayName: Light Concoction
+			ShadowConcoctionProj.DisplayName: Shadow Concoction
+			GuidedMissileProj.DisplayName: Guided Missile
+			DragonMinionProj.DisplayName: Dragon Minion
 			DuneRodBobber.DisplayName: Dune Rod Bobber
-			DraconicTomeProj.DisplayName: Draconic Tome Proj
-			DoublePhasesaberSpin.DisplayName: Double Phasesaber Spin
-			DoublePhasesaberThrow.DisplayName: Double Phasesaber Throw
-			DraconicBladeProj.DisplayName: Draconic Blade Proj
-			DuneSpearProj.DisplayName: Dune Spear Proj
+			DraconicTomeProj.DisplayName: Draconic Tome Flames
+			DoublePhasesaberSpin.DisplayName: Double Phasesaber
+			DoublePhasesaberThrow.DisplayName: Double Phasesaber
+			DraconicBladeProj.DisplayName: Draconic Blade Projectile
+			DuneSpearProj.DisplayName: Dune Spear
 			FireDrakeProj.DisplayName: Fire Drake
-			DraconicBowProj.DisplayName: Draconic Bow Proj
-			DunerangProj.DisplayName: Dunerang Proj
-			PlasmaCarbineProj.DisplayName: Plasma Carbine Proj
-			DuneArrowProj.DisplayName: Dune Arrow Proj
-			DraconicArmorProj.DisplayName: Draconic Armor Proj
+			DraconicBowProj.DisplayName: Draconic Bow Arrow
+			DunerangProj.DisplayName: Dunerang
+			PlasmaCarbineProj.DisplayName: Plasma Carbine Shot
+			DuneArrowProj.DisplayName: Dune Arrow
+			DraconicArmorProj.DisplayName: Draconic Armor Flames
 			BabyFireDragon.DisplayName: Baby Fire Dragon
-			StarryWandProj.DisplayName: Starry Wand Proj
-			BoStaffSpin.DisplayName: Bo Staff Spin
-			DesertsFuryProj.DisplayName: Deserts Fury Proj
-			DustbringerStaffProj.DisplayName: Dustbringer Staff Proj
+			StarryWandProj.DisplayName: Starry Wand
+			BoStaffSpin.DisplayName: Bo Staff
+			DesertsFuryProj.DisplayName: Deserts Fury
+			DustbringerStaffProj.DisplayName: Dustbringer Staff Tornado
 			SunScepterMinion.DisplayName: Sun Scepter Minion
-			IcyWandProj.DisplayName: Icy Wand Proj
-			AuroraBladeProj.DisplayName: Aurora Blade Proj
-			FrostBowProj.DisplayName: Frost Bow Proj
-			DeathRayProj.DisplayName: Death Ray Proj
-			ScifiBlasterProj.DisplayName: Scifi Blaster Proj
-			ScifiBlasterHoming.DisplayName: Scifi Blaster Homing
+			IcyWandProj.DisplayName: Icy Wand Snowflakes
+			AuroraBladeProj.DisplayName: Aurora Blade
+			FrostBowProj.DisplayName: Frost Bow Arrow
+			DeathRayProj.DisplayName: Death Ray
+			ScifiBlasterProj.DisplayName: Scifi Blaster Shot
+			ScifiBlasterHoming.DisplayName: Scifi Blaster Shot
 			CultClassicOrb.DisplayName: Cult Classic Orb
-			CultClassicProj.DisplayName: Cult Classic Proj
-			MotivatorProj.DisplayName: Motivator Proj
-			EchoChamberProj.DisplayName: Echo Chamber Proj
-			TrueDiamondStaffProj.DisplayName: True Diamond Staff Proj
-			TrueRubyStaffProj.DisplayName: True Ruby Staff Proj
-			TrueEmeraldStaffProj.DisplayName: True Emerald Staff Proj
-			TrueAmethystStaffProj.DisplayName: True Amethyst Staff Proj
-			TrueSapphireStaffProj.DisplayName: True Sapphire Staff Proj
-			TrueTopazStaffProj.DisplayName: True Topaz Staff Proj
-			TrueAmberStaffProj.DisplayName: True Amber Staff Proj
-			BookOfAlphabetsProj.DisplayName: Book Of Alphabets Proj
+			CultClassicProj.DisplayName: Cult Classic
+			MotivatorProj.DisplayName: Motivator
+			EchoChamberProj.DisplayName: Echo Chamber
+			TrueDiamondStaffProj.DisplayName: True Diamond Staff
+			TrueRubyStaffProj.DisplayName: True Ruby Staff
+			TrueEmeraldStaffProj.DisplayName: True Emerald Staff
+			TrueAmethystStaffProj.DisplayName: True Amethyst Staff
+			TrueSapphireStaffProj.DisplayName: True Sapphire Staff
+			TrueTopazStaffProj.DisplayName: True Topaz Staff
+			TrueAmberStaffProj.DisplayName: True Amber Staff
+			BookOfAlphabetsProj.DisplayName: Book Of Alphabets Projectile
 			FrostBobber.DisplayName: Frost Bobber
-			CosmicBladeProj.DisplayName: Cosmic Blade Proj
-			CosmicBladeHoming.DisplayName: Cosmic Blade Homing
-			ShootingStarProj.DisplayName: Shooting Star Proj
-			CosmicTomeProj.DisplayName: Cosmic Tome Proj
-			CosmicWhipProj.DisplayName: Cosmic Whip Proj
+			CosmicBladeProj.DisplayName: Cosmic Blade
+			CosmicBladeHoming.DisplayName: Cosmic Blade Projectile
+			ShootingStarProj.DisplayName: Shooting Star Projectile
+			CosmicTomeProj.DisplayName: Cosmic Tome Projectile
+			CosmicWhipProj.DisplayName: Cosmic Whip
 			SnowDwellerMinion.DisplayName: Snow Dweller Minion
-			SkeletonPotionProj.DisplayName: Skeleton Potion Proj
-			BookOfMathematicsProj.DisplayName: Book Of Mathematics Proj
-			EyeBowProj.DisplayName: Eye Bow Proj
-			WhipProj.DisplayName: Whip Proj
-			ChainWhipProj.DisplayName: Chain Whip Proj
+			SkeletonPotionProj.DisplayName: Skeleton Potion
+			BookOfMathematicsProj.DisplayName: Book Of Mathematics Projectile
+			EyeBowProj.DisplayName: Eye Bow Arrow
+			WhipProj.DisplayName: Whip
+			ChainWhipProj.DisplayName: Chain Whip
 			ToyCar.DisplayName: Toy Car
 			IceGuardianProj.DisplayName: Ice Guardian
-			StoneWandProj.DisplayName: Stone Wand Proj
-			Boom_erangProj.DisplayName: Boom_erang Proj
+			StoneWandProj.DisplayName: Stone Wand Projectile
+			Boom_erangProj.DisplayName: BOOMerang explosion
 			GoblinBomb.DisplayName: Goblin Bomb
 			IlluminatedCrystalPet.DisplayName: Illuminated Crystal Pet
-			BombLauncherProj.DisplayName: Bomb Launcher Proj
-			SporeNecklaceProj.DisplayName: Spore Necklace Proj
-			JungleChakramProj.DisplayName: Jungle Chakram Proj
-			BlossomLashProj.DisplayName: Blossom Lash Proj
+			BombLauncherProj.DisplayName: Bomb Launcher Projectile
+			SporeNecklaceProj.DisplayName: Spore Necklace Projectile
+			JungleChakramProj.DisplayName: Jungle Chakram
+			BlossomLashProj.DisplayName: Blossom Lash
 			BlossomLashFlower.DisplayName: Blossom Lash Flower
-			PetalBladeProj.DisplayName: Petal Blade Proj
-			SporeOrbBig.DisplayName: Spore Orb Big
-			SporeOrbSmall.DisplayName: Spore Orb Small
-			SpiritVaseProj.DisplayName: Spirit Vase Proj
-			GhostlyBladeProj.DisplayName: Ghostly Blade Proj
-			RuneOfShadowsProj.DisplayName: Rune Of Shadows Proj
-			RuneOfShadowsAbilityControl.DisplayName: Rune Of Shadows Ability Control
+			PetalBladeProj.DisplayName: Petal Blade Projectile
+			SporeOrbBig.DisplayName: Big Spore Orb
+			SporeOrbSmall.DisplayName: Small Spore Orb
+			SpiritVaseProj.DisplayName: Spirit Vase Projectile
+			GhostlyBladeProj.DisplayName: Ghostly Blade Projectile
+			RuneOfShadowsProj.DisplayName: Rune Of Shadows Orb
+			RuneOfShadowsAbilityControl.DisplayName: Rune Of Shadows Ability
 			RuneOfShadowsAbility.DisplayName: Rune Of Shadows Ability
-			PwnageProj.DisplayName: Pwnage Proj
-			GraniteYoyoProj.DisplayName: Granite Yoyo Proj
-			GraniteChakramProj.DisplayName: Granite Chakram Proj
-			GeodeScepterProj.DisplayName: Geode Scepter Proj
+			PwnageProj.DisplayName: Pwnage
+			GraniteYoyoProj.DisplayName: Granite Yoyo
+			GraniteChakramProj.DisplayName: Granite Chakram
+			GeodeScepterProj.DisplayName: Geode Scepter Projectile
 			GraniteStaffMinion.DisplayName: Granite Staff Minion
-			GraniteStaffMinionOrbit.DisplayName: Granite Staff Minion Orbit
-			GraniteMinionShoot.DisplayName: Granite Minion Shoot
-			ShroomMacepoleProj.DisplayName: Shroom Macepole Proj
-			ShroomPouchProj.DisplayName: Shroom Pouch Proj
-			ShroomzookaProj.DisplayName: Shroomzooka Proj
+			GraniteStaffMinionOrbit.DisplayName: Granite Staff Minion
+			GraniteMinionShoot.DisplayName: Granite Minion Projectile
+			ShroomMacepoleProj.DisplayName: Shroom Macepole
+			ShroomPouchProj.DisplayName: Shroom Pouch Spores
+			ShroomzookaProj.DisplayName: Shroomzooka Projectile
 			ShroomScepterMinion.DisplayName: Shroom Scepter Minion
-			LihzahrdClubProj.DisplayName: Lihzahrd Club Proj
-			SawbladeLauncherProj.DisplayName: Sawblade Launcher Proj
-			AncientGauntletProj.DisplayName: Ancient Gauntlet Proj
+			LihzahrdClubProj.DisplayName: Lihzahrd Club Explosion
+			SawbladeLauncherProj.DisplayName: Sawblade
+			AncientGauntletProj.DisplayName: Ancient Gauntlet Projectile
 			FireDragonFireball.DisplayName: Fire Dragon Fireball
 		}
 
@@ -1393,7 +1393,7 @@ Mods: {
 			LivingCactusBannerTile.MapEntry: Banner
 			GrabberPlantBannerTile.MapEntry: Banner
 			MonsterBanners.MapEntry: Monster Banners
-			IceGuardianBannerTile.MapEntry: Ice Guardian Banner Tile
+			IceGuardianBannerTile.MapEntry: Banner
 		}
 
 		NPCs: {

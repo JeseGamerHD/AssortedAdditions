@@ -36,7 +36,7 @@ namespace AssortedAdditions.Content.NPCs
             NPC.height = 132;
             NPC.damage = 15;
             NPC.defense = 4;
-            NPC.lifeMax = 300;
+            NPC.lifeMax = 280;
             NPC.knockBackResist = 0.4f; // 60% resist
             NPC.HitSound = SoundID.NPCHit1;
             NPC.DeathSound = SoundID.NPCDeath63;
