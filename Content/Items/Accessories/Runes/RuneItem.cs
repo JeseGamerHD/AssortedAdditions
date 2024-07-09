@@ -17,7 +17,7 @@ namespace AssortedAdditions.Content.Items.Accessories.Runes
 	{
 		public override bool CanEquipAccessory(Player player, int slot, bool modded)
 		{
-			return modded & slot == ModContent.GetInstance<RuneSlot>().Type; // Can only be equipped in the rune slot
+			return modded && slot == ModContent.GetInstance<RuneSlot>().Type; // Can only be equipped in the rune slot
 		}
 
 		public override bool? PrefixChance(int pre, UnifiedRandom rand)

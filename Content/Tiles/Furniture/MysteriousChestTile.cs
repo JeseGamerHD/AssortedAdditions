@@ -83,6 +83,7 @@ namespace AssortedAdditions.Content.Tiles.Furniture
         public override bool UnlockChest(int i, int j, ref short frameXAdjustment, ref int dustType, ref bool manual)
         {
             DustType = dustType;
+            Main.NewText("The Wizard has unlocked Cosmic Secrets", Color.BlueViolet);
             return true;
         }
 
