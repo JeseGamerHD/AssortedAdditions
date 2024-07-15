@@ -81,6 +81,7 @@
     <None Remove="Content\Items\Placeables\Banners\GraniteGruntBanner.png" />
     <None Remove="Content\Items\Placeables\Banners\IceGuardianBanner.png" />
     <None Remove="Content\Items\Placeables\Banners\LivingCactusBanner.png" />
+    <None Remove="Content\Items\Placeables\Banners\PhantomMageBanner.png" />
     <None Remove="Content\Items\Placeables\Banners\ShroomlingBanner.png" />
     <None Remove="Content\Items\Placeables\Blocks\ArtDecoBlock.png" />
     <None Remove="Content\Items\Placeables\Blocks\BlueCarpet.png" />
@@ -187,10 +188,13 @@
     <None Remove="Content\NPCs\Gores\ShroomlingGore.png" />
     <None Remove="Content\NPCs\GrabberPlant.png" />
     <None Remove="Content\NPCs\GraniteGrunt.png" />
+    <None Remove="Content\NPCs\HauntedPot.png" />
     <None Remove="Content\NPCs\IceGuardian.png" />
     <None Remove="Content\NPCs\IceGuardianShield.png" />
     <None Remove="Content\NPCs\JungleMimic.png" />
     <None Remove="Content\NPCs\LivingCactus.png" />
+    <None Remove="Content\NPCs\PhantomMage.png" />
+    <None Remove="Content\NPCs\PhantomMage_Glow.png" />
     <None Remove="Content\NPCs\Shroomling.png" />
     <None Remove="Content\NPCs\Town\Builder.png" />
     <None Remove="Content\NPCs\Town\Builder_Head.png" />
@@ -228,6 +232,7 @@
     <None Remove="Content\Projectiles\NPCProj\FireDragonFireBall.png" />
     <None Remove="Content\Projectiles\NPCProj\GoblinBomb.png" />
     <None Remove="Content\Projectiles\NPCProj\IceGuardianProj.png" />
+    <None Remove="Content\Projectiles\NPCProj\PhantomMageProj.png" />
     <None Remove="Content\Projectiles\PetProj\IlluminatedCrystalPet.png" />
     <None Remove="Content\Projectiles\RangedProj\Boom_erangProj.png" />
     <None Remove="Content\Projectiles\RangedProj\EyeBowProj.png" />
@@ -259,6 +264,7 @@
     <None Remove="Content\Tiles\Banners\GraniteGruntBannerTile.png" />
     <None Remove="Content\Tiles\Banners\IceGuardianBannerTile.png" />
     <None Remove="Content\Tiles\Banners\LivingCactusBannerTile.png" />
+    <None Remove="Content\Tiles\Banners\PhantomMageBannerTile.png" />
     <None Remove="Content\Tiles\Banners\ShroomlingBannerTile.png" />
     <None Remove="Content\Tiles\Blocks\ArtDecoBlockTile.png" />
     <None Remove="Content\Tiles\Blocks\BlueCarpetTile.png" />

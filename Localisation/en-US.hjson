@@ -1278,6 +1278,11 @@ Mods: {
 					but you take 33% more damage in return.
 					'''
 			}
+
+			PhantomMageBanner: {
+				DisplayName: Phantom Mage Banner
+				Tooltip: ""
+			}
 		}
 
 		Projectiles: {
@@ -1371,6 +1376,7 @@ Mods: {
 			SawbladeLauncherProj.DisplayName: Sawblade
 			AncientGauntletProj.DisplayName: Ancient Gauntlet Projectile
 			FireDragonFireball.DisplayName: Fire Dragon Fireball
+			PhantomMageProj.DisplayName: Phantom Mage's spell
 		}
 
 		Tiles: {
@@ -1435,6 +1441,8 @@ Mods: {
 			JungleMimic.DisplayName: Jungle Mimic
 			TrainingDummyNPC.DisplayName: Training Dummy
 			GraniteGrunt.DisplayName: Granite Grunt
+			PhantomMage.DisplayName: Phantom Mage
+			HauntedPot.DisplayName: Haunted Pot
 		}
 
 		Conditions.SellCosmicItems: Mods.AssortedAdditions.Conditions.SellCosmicItems
