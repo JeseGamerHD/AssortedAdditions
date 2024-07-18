@@ -1,10 +1,10 @@
-[B]v0.1.0.5[/B]
+[B]v0.1.0.6[/B]
 
 [LIST]
-[*] Fixed Rune of Death not giving proper immunity to Flame Traps. Apparently the traps shoot two different types of projectile and the rune gave immunity to one of them.
-[*] Cleaned up the localization at the Projectiles section.
-[*] Updates to Fire Drakes: They now spawn during hardmode in the underworld (previously only during the Fire Dragon fight). Their health was sligthly increased, a new sound was added, they drop Ancient Tokens.
-[*] Slightly reduced Goblin Balloonist's health.
-[*] Added a message that appears in chat when unlocking the Mysterious Chest (with the key) to indicate that the Wizard has some new stock.
+[*] Added 2 new enemies (and banners for them)
+[*] Added a new item
+[*] Localization cleanup
+[*] Grabber Plant should no longer spawn submerged. Also reduced spawn chance.
+[*] Fire Drake's projectile makes a dig sound on collision
 [/LIST]
 

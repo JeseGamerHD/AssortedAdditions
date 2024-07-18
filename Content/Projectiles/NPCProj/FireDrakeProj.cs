@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -67,7 +68,14 @@ namespace AssortedAdditions.Content.Projectiles.NPCProj
                 Dust dust2 = Dust.NewDustDirect(Projectile.position - Projectile.velocity, Projectile.width, Projectile.height,
                     DustID.OrangeTorch, 0, 0, 150, default, 1f);
                 dust2.noGravity = true;
-            }
+            }    
         }
-    }
+
+		public override bool OnTileCollide(Vector2 oldVelocity)
+		{
+			SoundEngine.PlaySound(SoundID.Dig, Projectile.position);
+            
+            return true;
+		}
+	}
 }

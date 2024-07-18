@@ -7,6 +7,8 @@ using Terraria.GameContent.Bestiary;
 using Terraria.Audio;
 using AssortedAdditions.Common.Configs;
 using Terraria.ModLoader.Utilities;
+using Terraria.GameContent.ItemDropRules;
+using AssortedAdditions.Content.Items.Weapons.Melee;
 
 namespace AssortedAdditions.Content.NPCs
 {
@@ -235,6 +237,11 @@ namespace AssortedAdditions.Content.NPCs
 
 				SoundEngine.PlaySound(SoundID.NPCDeath6, NPC.position);
 			}
+		}
+
+		public override void ModifyNPCLoot(NPCLoot npcLoot)
+		{
+			npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<GhostlyBlade>(), 16));
 		}
 
 		public override float SpawnChance(NPCSpawnInfo spawnInfo)

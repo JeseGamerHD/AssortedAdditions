@@ -20,6 +20,7 @@
     <None Remove="Content\Buffs\RuneOfHealthCooldown.png" />
     <None Remove="Content\Buffs\RuneOfRelocationCooldown.png" />
     <None Remove="Content\Buffs\RuneOfShadowsCooldown.png" />
+    <None Remove="Content\Buffs\ShellHornBuff.png" />
     <None Remove="Content\Buffs\ShroomScepterBuff.png" />
     <None Remove="Content\Buffs\SnowDwellerBuff.png" />
     <None Remove="Content\Buffs\SunScepterBuff.png" />
@@ -166,6 +167,7 @@
     <None Remove="Content\Items\Weapons\Summon\GraniteStaff.png" />
     <None Remove="Content\Items\Weapons\Summon\GraniteStaffMinion.png" />
     <None Remove="Content\Items\Weapons\Summon\Motivator.png" />
+    <None Remove="Content\Items\Weapons\Summon\ShellHorn.png" />
     <None Remove="Content\Items\Weapons\Summon\ShroomScepter.png" />
     <None Remove="Content\Items\Weapons\Summon\SnowDwellerStaff.png" />
     <None Remove="Content\Items\Weapons\Summon\SunScepter.png" />

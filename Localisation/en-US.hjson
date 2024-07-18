@@ -118,7 +118,12 @@ Mods: {
 
 			RuneOfHealthCooldown: {
 				DisplayName: Rune Of Health Cooldown
-				Description: Mods.AssortedAdditions.Buffs.RuneOfHealthCooldown.Description
+				Description: Your rune is recharging
+			}
+
+			ShellHornBuff: {
+				DisplayName: Shell Horn Buff
+				Description: Your minions deal 10% more damage, but you take 20% more damage.
 			}
 		}
 
@@ -1282,6 +1287,15 @@ Mods: {
 			PhantomMageBanner: {
 				DisplayName: Phantom Mage Banner
 				Tooltip: ""
+			}
+
+			ShellHorn: {
+				DisplayName: Shell Horn
+				Tooltip:
+					'''
+					Grants a buff which strengthens your minion's attacks by 10%,
+					but you take 20% more damage in return.
+					'''
 			}
 		}
 
