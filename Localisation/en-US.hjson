@@ -1391,6 +1391,12 @@ Mods: {
 			AncientGauntletProj.DisplayName: Ancient Gauntlet Projectile
 			FireDragonFireball.DisplayName: Fire Dragon Fireball
 			PhantomMageProj.DisplayName: Phantom Mage's spell
+			HauntGraveStone.DisplayName: Haunted Gravestone
+			HauntCandelabra.DisplayName: Haunt Candelabra
+			HauntChair.DisplayName: Haunt Chair
+			HauntGravestone.DisplayName: Haunt Gravestone
+			HauntTombstone.DisplayName: Haunt Tombstone
+			HauntTrashcan.DisplayName: Haunt Trashcan
 		}
 
 		Tiles: {
@@ -1457,6 +1463,7 @@ Mods: {
 			GraniteGrunt.DisplayName: Granite Grunt
 			PhantomMage.DisplayName: Phantom Mage
 			HauntedPot.DisplayName: Haunted Pot
+			TheHaunt.DisplayName: The Haunt
 		}
 
 		Conditions.SellCosmicItems: Mods.AssortedAdditions.Conditions.SellCosmicItems

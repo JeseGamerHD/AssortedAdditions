@@ -175,6 +175,9 @@
     <None Remove="Content\NPCs\BossFireDragon\FireDragonBody.png" />
     <None Remove="Content\NPCs\BossFireDragon\FireDragonHead.png" />
     <None Remove="Content\NPCs\BossFireDragon\FireDragon_Bestiary.png" />
+    <None Remove="Content\NPCs\BossTheHaunt\TheHaunt.png" />
+    <None Remove="Content\NPCs\BossTheHaunt\TheHaunt_Glow.png" />
+    <None Remove="Content\NPCs\BossTheHaunt\TheHaunt_Head_Boss.png" />
     <None Remove="Content\NPCs\CursedPickaxe.png" />
     <None Remove="Content\NPCs\FrostWraith.png" />
     <None Remove="Content\NPCs\GoblinBalloonist.png" />
@@ -295,7 +298,5 @@
     <None Remove="description_workshop.txt" />
     <None Remove="icon.png" />
     <None Remove="icon_small.png" />
-  </ItemGroup>
-  <ItemGroup>
   </ItemGroup>
 </Project>

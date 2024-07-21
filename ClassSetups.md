@@ -12,7 +12,7 @@ These tables show the earliest point when an item can be obtained and roughly wh
 |   Bo Staffs    |    Dunerang    | Stone Wand  |  Chain Whip  |                  |
 |  Granite Yoyo  |    Eye Bow     |Geode Scepter|Granite Staff |                  |
 |Shroom Macepole |   BOOMerang    |Shroom Pouch |Shroom Scepter|                  |
-|                |Granite Chakram |             |              |                  |
+|                |Granite Chakram |             | Shell Horn   |                  |
 |                |  Shroomzooka   |             |              |                  |
 |                |                |             |              |                  |
 |  Accessories   |  Accessories   | Accessories | Accessories  |   Accessories    |
