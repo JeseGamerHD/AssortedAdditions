@@ -71,23 +71,24 @@ namespace AssortedAdditions.Content.NPCs.BossTheHaunt
 			potionType = ItemID.GreaterHealingPotion; // Drop healing potions (default is lesser healing)
 		}
 
-		private float speed = 4f;
-		private float inertia = 10f;
-		private int timer = 0;
 
-		// All the different main states the boss has
+		// All the different states the boss has
 		private enum States
 		{
-			Chase,
-			Dash,
-			Flee
+			Chase, // Chase is the base state, haunt slowly chases the player
+			ThrowFurniture, // Haunt will slowdown and start throwing furniture at the player
+			
+			Dash, // Haunt will stop and turn invisible, then teleport to a spot, turn back visible and dash at the player, repeat
+			Flee // Haunt will vanish, all players are dead
 		}
 
 		public ref float State => ref NPC.ai[0];
+		public ref float Timer => ref NPC.ai[2];
+		public ref float SecondaryTimer => ref NPC.ai[3];
 
 		public override void AI()
 		{
-			// TEST CODE TODO PROPER MOVEMENT
+			// Targetting
 			if (NPC.target < 0 || NPC.target == 255 || Main.player[NPC.target].dead || !Main.player[NPC.target].active)
 			{
 				NPC.TargetClosest();
@@ -95,42 +96,52 @@ namespace AssortedAdditions.Content.NPCs.BossTheHaunt
 			Player target = Main.player[NPC.target];
 			float distanceFromTarget = Vector2.Distance(target.Center, NPC.Center);
 
-			// Attack, fly towards the player
-			if (distanceFromTarget > 40f && State != (float)States.Dash)
+			// TODO flee stuff here?
+			
+			Timer++; // Keep running the timer
+			/*if (State != (float)States.Chase)
 			{
-				// The immediate range around the target (so it doesn't latch onto it when close)
-				Vector2 direction = target.Center - NPC.Center;
-				direction.Normalize();
-				direction *= speed;
+				SecondaryTimer++;
+			}*/
 
-				NPC.velocity = (NPC.velocity * (inertia - 1) + direction) / inertia;
-				NPC.spriteDirection = target.Center.X < NPC.Center.X ? -1 : 1;
+			// State specific behaviour:
+			// Basic movement applies to almost all states
+			if (State != (float)States.Dash)
+			{
+				BasicMovement(target, distanceFromTarget);
 			}
 
-			if (timer >= 900)
+			if(State == (float)States.Dash)
 			{
-				if(timer == 900)
-				{
-					dashStateJustStarted = true;
-					State = (float)States.Dash;
-				}
-				//ThrowFurniture(target);
 				DashState(target);
 			}
-			timer++;
-
-			if (timer >= 1800)
+			
+			if(State == (float)States.ThrowFurniture)
 			{
-				if(timer == 1800)
-				{
-					dashStateJustEnded = true;
-				}
-
-				timer = 0;
-				State = (float)States.Chase;
-				NPC.velocity = Vector2.Zero;
+				ThrowFurniture(target);
 			}
 
+			// Choose next state (if in the default chase state)
+			// Each state runs SecondaryTimer and once the state ends it resets it along with the Timer
+			// So the haunt returns to Chase state and can then choose the next state...
+			if (Timer >= 1100 && State == (float)States.Chase)
+			{
+				switch(Main.rand.Next(1, 3))
+				{
+					case 1:
+						State = (float)States.ThrowFurniture;
+						break;
+					
+					case 2:
+						State = (float)States.Dash;
+						break;
+				}
+
+				NPC.netUpdate = true;
+			}
+
+			// Dash state messes with the alpha, return the haunt to normal alpha
+			// when dash has ended
 			if (dashStateJustEnded && NPC.alpha > 0)
 			{
 				NPC.alpha -= 5;
@@ -146,6 +157,34 @@ namespace AssortedAdditions.Content.NPCs.BossTheHaunt
 			}
 		}
 
+		private float speed = 6f; // How fast the haunt moves towards the player
+		private float inertia = 17f; // The "floatiness" of the movement
+		private void BasicMovement(Player target, float distanceFromTarget)
+		{
+			if (distanceFromTarget > 80f) // The immediate range around the target (so it doesn't latch onto it when close)
+			{
+				switch (State) // Adjust speed based on state
+				{
+					case (float)States.Chase:
+						speed = 6f;
+						inertia = 17f;
+						break;
+
+					case (float)States.ThrowFurniture:
+						speed = 1f;
+						break;
+				}
+
+				// Set the velocity, and sprite direction
+				Vector2 direction = target.Center - NPC.Center;
+				direction.Normalize();
+				direction *= speed;
+
+				NPC.velocity = (NPC.velocity * (inertia - 1) + direction) / inertia;
+				NPC.spriteDirection = target.Center.X < NPC.Center.X ? -1 : 1;
+			}
+		}
+
 		// All the different types of furniture the boss can throw at the player
 		private readonly int[] furniture = {
 			ModContent.ProjectileType<HauntGravestone>(),
@@ -155,13 +194,12 @@ namespace AssortedAdditions.Content.NPCs.BossTheHaunt
 			ModContent.ProjectileType<HauntTrashcan>()
 		};
 
-		private int projectileSpawnTimer = 0;
 		private void ThrowFurniture(Player target)
 		{
-			if (projectileSpawnTimer % 60 == 0)
+			if (SecondaryTimer % 60 == 0)
 			{
 				float angle = 0;
-				switch (projectileSpawnTimer)
+				switch (SecondaryTimer)
 				{
 					case 0:
 						angle = MathHelper.ToRadians(300);
@@ -192,15 +230,16 @@ namespace AssortedAdditions.Content.NPCs.BossTheHaunt
 				}
 			}
 
-			if (projectileSpawnTimer >= 300)
+			if (SecondaryTimer >= 300)
 			{
-				projectileSpawnTimer = 0;
-				timer = 0;
+				Timer = 0;
+				SecondaryTimer = 0;
+				State = (float)States.Chase;
+				NPC.netUpdate = true;
 				return;
-				// STOP THROWING STATE TODO
 			}
 
-			projectileSpawnTimer++;
+			SecondaryTimer++;
 		}
 
 		private float randomRotation = 0;
@@ -209,8 +248,13 @@ namespace AssortedAdditions.Content.NPCs.BossTheHaunt
 		private bool dashStateJustEnded = false;
 		private void DashState(Player target)
 		{
+			if(SecondaryTimer == 0)
+			{
+				dashStateJustStarted = true;
+			}
+
 			// When Dash State begins, slow the haunt down and make it turn invisible
-			if(dashStateJustStarted)
+			if (dashStateJustStarted)
 			{
 				NPC.alpha += 5;
 				NPC.velocity *= 0.7f;
@@ -224,8 +268,21 @@ namespace AssortedAdditions.Content.NPCs.BossTheHaunt
 			}
 
 			// Otherwise keep increasing alpha
-			if(dashStateJustStarted && NPC.alpha < 255)
+			if (dashStateJustStarted && NPC.alpha < 255)
 			{
+				return;
+			}
+
+			// Dash state ends
+			if (SecondaryTimer >= 900)
+			{
+				dashStateJustEnded = true;
+				Timer = 0;
+				SecondaryTimer = 0;
+				State = (float)States.Chase;
+				NPC.velocity = Vector2.Zero;
+				NPC.netUpdate = true;
+				
 				return;
 			}
 
@@ -244,6 +301,7 @@ namespace AssortedAdditions.Content.NPCs.BossTheHaunt
 			}
 
 			dashTimer++;
+			SecondaryTimer++;
 
 			if (dashTimer == 30)
 			{
@@ -287,6 +345,12 @@ namespace AssortedAdditions.Content.NPCs.BossTheHaunt
 		public override void ReceiveExtraAI(BinaryReader reader)
 		{
 			randomRotation = reader.ReadSingle();
+		}
+
+		public override bool CanHitPlayer(Player target, ref int cooldownSlot)
+		{
+			cooldownSlot = ImmunityCooldownID.Bosses; // use the boss immunity cooldown counter, to prevent ignoring boss attacks by taking damage from other sources
+			return true;
 		}
 
 		private int currentFrame = 0;

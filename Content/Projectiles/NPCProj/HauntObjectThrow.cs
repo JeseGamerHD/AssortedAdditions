@@ -93,6 +93,7 @@ namespace AssortedAdditions.Content.Projectiles.NPCProj
 			Projectile.height = 32;
 			Projectile.timeLeft = 300;
 			Projectile.hostile = true;
+			CooldownSlot = ImmunityCooldownID.Bosses;
 		}
 	}
 
@@ -106,6 +107,7 @@ namespace AssortedAdditions.Content.Projectiles.NPCProj
 			Projectile.height = 30;
 			Projectile.timeLeft = 300;
 			Projectile.hostile = true;
+			CooldownSlot = ImmunityCooldownID.Bosses;
 		}
 	}
 
@@ -119,6 +121,7 @@ namespace AssortedAdditions.Content.Projectiles.NPCProj
 			Projectile.height = 32;
 			Projectile.timeLeft = 300;
 			Projectile.hostile = true;
+			CooldownSlot = ImmunityCooldownID.Bosses;
 		}
 	}
 
@@ -132,6 +135,7 @@ namespace AssortedAdditions.Content.Projectiles.NPCProj
 			Projectile.height = 28;
 			Projectile.timeLeft = 300;
 			Projectile.hostile = true;
+			CooldownSlot = ImmunityCooldownID.Bosses;
 		}
 	}
 
@@ -145,6 +149,7 @@ namespace AssortedAdditions.Content.Projectiles.NPCProj
 			Projectile.height = 32;
 			Projectile.timeLeft = 300;
 			Projectile.hostile = true;
+			CooldownSlot = ImmunityCooldownID.Bosses;
 		}
 	}
 }
