@@ -1,8 +1,10 @@
-[B]v0.1.0.6[/B]
+[B]v0.1.1.0[/B]
 
 [LIST]
-[*] Added 2 new enemies (and banners for them)
+[*] Added a new boss for the graveyard biome
+[*] Added 3 new enemies
 [*] Added a new item
+[*] Rune Slot is now always visible, but a lock icon displays along with a tooltip when it is locked.
 [*] Localization cleanup
 [*] Grabber Plant should no longer spawn submerged. Also reduced spawn chance.
 [*] Fire Drake's projectile makes a dig sound on collision

@@ -50,6 +50,64 @@ namespace AssortedAdditions.Helpers
 			return num;
 		}
 
+		/// <summary>
+		/// Loops through the NPCs and checks if the given npc overlaps with another one. If it does, its velocity will be adjusted using the strength.
+		/// </summary>
+		public static void StopNPCOverlap(NPC npc, float strength = 0.04f)
+		{
+			// Fix overlap:
+			for (int i = 0; i < Main.maxNPCs; i++)
+			{
+				NPC other = Main.npc[i];
+
+				if (i != npc.whoAmI && other.active && Math.Abs(npc.position.X - other.position.X) + Math.Abs(npc.position.Y - other.position.Y) < npc.width)
+				{
+					if (npc.position.X < other.position.X)
+					{
+						npc.velocity.X -= strength;
+					}
+					else
+					{
+						npc.velocity.X += strength;
+					}
+
+					if (npc.position.Y < other.position.Y)
+					{
+						npc.velocity.Y -= strength;
+					}
+					else
+					{
+						npc.velocity.Y += strength;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// Goes through Main.ActiveNPCs and checks how many of the given type of npc are active.
+		/// If you only need to check if one or a specific amount exists, you can specify the stopWhenFoundAmount.
+		/// </summary>
+		/// <returns>the number of NPCs matching the type (or up until the stopWhenFoundAmount)</returns>
+		public static int CountNPCs(int type, int stopWhenFoundAmount = -1)
+		{
+			int num = 0;
+
+			foreach(var npc in Main.ActiveNPCs)
+			{
+				if (npc.type == type)
+				{
+					num++;
+				}
+
+				if(num == stopWhenFoundAmount)
+				{
+					break;
+				}
+			}
+
+			return num;
+		}
+
 		// The following method is taken from the tsorcRevamp repository under GPL 3.0: https://github.com/Zeodexic/tsorcRevamp/blob/main/tsorcRevampUtils.cs#L774
 		// Modifications made: incorporated the GenerateTargetingVector into this method, cleaned up the doc comments.
 		///<summary> 

@@ -7,6 +7,7 @@
   </PropertyGroup>
   <ItemGroup>
     <None Remove="Assets\UI\RuneIcon.png" />
+    <None Remove="Assets\UI\RuneIconLocked.png" />
     <None Remove="changelog.txt" />
     <None Remove="Content\Buffs\AncientHornBuff.png" />
     <None Remove="Content\Buffs\BerserkerBuff.png" />
@@ -100,6 +101,7 @@
     <None Remove="Content\Items\Placeables\Ores\FrostBar.png" />
     <None Remove="Content\Items\Placeables\Ores\Permafrost.png" />
     <None Remove="Content\Items\Placeables\PaintBlock.png" />
+    <None Remove="Content\Items\Placeables\Trophies\HauntTrophy.png" />
     <None Remove="Content\Items\Placeables\Walls\ArtDecoWall.png" />
     <None Remove="Content\Items\Placeables\Walls\CheckerWall.png" />
     <None Remove="Content\Items\Placeables\Walls\ExampleWall.png" />
@@ -175,6 +177,8 @@
     <None Remove="Content\NPCs\BossFireDragon\FireDragonBody.png" />
     <None Remove="Content\NPCs\BossFireDragon\FireDragonHead.png" />
     <None Remove="Content\NPCs\BossFireDragon\FireDragon_Bestiary.png" />
+    <None Remove="Content\NPCs\BossTheHaunt\Hauntling.png" />
+    <None Remove="Content\NPCs\BossTheHaunt\Hauntling_Glow.png" />
     <None Remove="Content\NPCs\BossTheHaunt\TheHaunt.png" />
     <None Remove="Content\NPCs\BossTheHaunt\TheHaunt_Glow.png" />
     <None Remove="Content\NPCs\BossTheHaunt\TheHaunt_Head_Boss.png" />
@@ -282,11 +286,13 @@
     <None Remove="Content\Tiles\Blocks\RedCarpetTile.png" />
     <None Remove="Content\Tiles\Blocks\SteelBlockTile.png" />
     <None Remove="Content\Tiles\Blocks\SteelPlatingTile.png" />
+    <None Remove="Content\Tiles\BossTrophies.png" />
     <None Remove="Content\Tiles\CoalChunk.png" />
     <None Remove="Content\Tiles\CraftingStations\MagicWorkbenchTile.png" />
     <None Remove="Content\Tiles\FrostBarTile.png" />
     <None Remove="Content\Tiles\Furniture\MysteriousChestTile.png" />
     <None Remove="Content\Tiles\Furniture\MysteriousChestTile_Highlight.png" />
+    <None Remove="Content\Tiles\HauntTrophyTile.png" />
     <None Remove="Content\Tiles\PaintBlockTile.png" />
     <None Remove="Content\Tiles\PermafrostTile.png" />
     <None Remove="Content\Tiles\Walls\CheckerWallTile.png" />

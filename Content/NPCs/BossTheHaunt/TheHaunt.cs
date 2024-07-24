@@ -1,12 +1,18 @@
 ﻿using System.Collections.Generic;
 using System.IO;
+using AssortedAdditions.Content.Items.Placeables.Trophies;
+using AssortedAdditions.Content.NPCs.BossFireDragon;
 using AssortedAdditions.Content.Projectiles.NPCProj;
+using AssortedAdditions.Helpers;
+using Microsoft.CodeAnalysis.FlowAnalysis;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using Terraria;
+using Terraria.Audio;
 using Terraria.GameContent;
 using Terraria.GameContent.Bestiary;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -77,6 +83,7 @@ namespace AssortedAdditions.Content.NPCs.BossTheHaunt
 		{
 			Chase, // Chase is the base state, haunt slowly chases the player
 			ThrowFurniture, // Haunt will slowdown and start throwing furniture at the player
+			SummonGhosts,
 			
 			Dash, // Haunt will stop and turn invisible, then teleport to a spot, turn back visible and dash at the player, repeat
 			Flee // Haunt will vanish, all players are dead
@@ -99,10 +106,6 @@ namespace AssortedAdditions.Content.NPCs.BossTheHaunt
 			// TODO flee stuff here?
 			
 			Timer++; // Keep running the timer
-			/*if (State != (float)States.Chase)
-			{
-				SecondaryTimer++;
-			}*/
 
 			// State specific behaviour:
 			// Basic movement applies to almost all states
@@ -121,12 +124,17 @@ namespace AssortedAdditions.Content.NPCs.BossTheHaunt
 				ThrowFurniture(target);
 			}
 
+			if(State == (float)States.SummonGhosts)
+			{
+				SummonGhosts(target);
+			}
+
 			// Choose next state (if in the default chase state)
 			// Each state runs SecondaryTimer and once the state ends it resets it along with the Timer
 			// So the haunt returns to Chase state and can then choose the next state...
 			if (Timer >= 1100 && State == (float)States.Chase)
 			{
-				switch(Main.rand.Next(1, 3))
+				switch(Main.rand.Next(1, 4))
 				{
 					case 1:
 						State = (float)States.ThrowFurniture;
@@ -134,6 +142,10 @@ namespace AssortedAdditions.Content.NPCs.BossTheHaunt
 					
 					case 2:
 						State = (float)States.Dash;
+						break;
+
+					case 3:
+						State = (float)States.SummonGhosts;
 						break;
 				}
 
@@ -172,6 +184,10 @@ namespace AssortedAdditions.Content.NPCs.BossTheHaunt
 
 					case (float)States.ThrowFurniture:
 						speed = 1f;
+						break;
+
+					case (float)States.SummonGhosts:
+						speed = 3f;
 						break;
 				}
 
@@ -228,6 +244,11 @@ namespace AssortedAdditions.Content.NPCs.BossTheHaunt
 					Vector2 spawnPos = new Vector2(NPC.Center.X, NPC.Center.Y - 100).RotatedBy(angle, NPC.Center);
 					Projectile.NewProjectile(NPC.GetSource_FromAI(), spawnPos, Vector2.Zero, type, 45, 5f, Main.myPlayer, 0, target.whoAmI, NPC.whoAmI);
 				}
+
+				// Sound effect when the furniture projectile spawns
+				SoundStyle furnitureSpawn = new SoundStyle("AssortedAdditions/Assets/Sounds/NPCSound/HauntFurnitureSpawn");
+				furnitureSpawn = furnitureSpawn with { Pitch = 1f, PitchVariance = 0.1f, Volume = 1.5f };
+				SoundEngine.PlaySound(furnitureSpawn, NPC.position);
 			}
 
 			if (SecondaryTimer >= 300)
@@ -307,6 +328,9 @@ namespace AssortedAdditions.Content.NPCs.BossTheHaunt
 			{
 				Vector2 dashDirection = target.Center - NPC.Center;
 				NPC.velocity = dashDirection.SafeNormalize(Vector2.Zero) * 12f;
+				SoundStyle dashSound = new SoundStyle("AssortedAdditions/Assets/Sounds/NPCSound/HauntDash");
+				dashSound = dashSound with { Pitch = 0f, PitchVariance = 0.1f };
+				SoundEngine.PlaySound(dashSound, NPC.position);
 			}
 
 			if (dashTimer >= 30)
@@ -337,6 +361,44 @@ namespace AssortedAdditions.Content.NPCs.BossTheHaunt
 			}
 		}
 
+		private const int maxHauntlings = 5;
+		private void SummonGhosts(Player target)
+		{
+			int type = ModContent.NPCType<Hauntling>();
+			if (SecondaryTimer % 60 == 0 && HelperMethods.CountNPCs(type) < maxHauntlings && SecondaryTimer < 800) 
+			{
+				randomRotation = Main.rand.NextFloat(0, 6.2f);
+				Vector2 spawnPos = new Vector2(target.Center.X + 1000, target.Center.Y).RotatedBy(randomRotation, target.Center);
+				int xPos = (int)spawnPos.X;
+				int yPos = (int)spawnPos.Y; // int since the sync message requires these as int (im too lazy to switch to floats instead)
+				
+				if (Main.netMode != NetmodeID.MultiplayerClient)
+				{
+					// Spawn the hauntling at the position when in singleplayer
+					NPC.NewNPCDirect(NPC.GetSource_FromAI(), xPos, yPos, type, NPC.whoAmI);
+				}
+				else
+				{ // otherwise server handles it
+					var message = Mod.GetPacket();
+					message.Write((byte)AssortedAdditions.MessageType.SpawnGenericNPC);
+					message.Write(xPos);
+					message.Write(yPos);
+					message.Write(type);
+					message.Send();
+				}
+			}
+
+			SecondaryTimer++;
+
+			// Stop this state after 7 seconds or when the max amount of the hauntling has been spawned
+			if(SecondaryTimer >= 800)
+			{
+				State = (float)States.Chase;
+				Timer = 0;
+				SecondaryTimer = 0;
+			}
+		}
+
 		public override void SendExtraAI(BinaryWriter writer)
 		{
 			writer.Write(randomRotation);
@@ -351,6 +413,16 @@ namespace AssortedAdditions.Content.NPCs.BossTheHaunt
 		{
 			cooldownSlot = ImmunityCooldownID.Bosses; // use the boss immunity cooldown counter, to prevent ignoring boss attacks by taking damage from other sources
 			return true;
+		}
+
+		public override void ModifyNPCLoot(NPCLoot npcLoot)
+		{
+			// TODO bag
+			npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<HauntTrophy>(), 10)); // 10% chance for trophy
+			// TODO relic
+			// TODO pet
+
+			// TODO non expert version
 		}
 
 		private int currentFrame = 0;

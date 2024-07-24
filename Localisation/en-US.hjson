@@ -1297,6 +1297,11 @@ Mods: {
 					but you take 20% more damage in return.
 					'''
 			}
+
+			HauntTrophy: {
+				DisplayName: Haunt Trophy
+				Tooltip: ""
+			}
 		}
 
 		Projectiles: {
@@ -1464,6 +1469,7 @@ Mods: {
 			PhantomMage.DisplayName: Phantom Mage
 			HauntedPot.DisplayName: Haunted Pot
 			TheHaunt.DisplayName: The Haunt
+			Hauntling.DisplayName: Hauntling
 		}
 
 		Conditions.SellCosmicItems: Mods.AssortedAdditions.Conditions.SellCosmicItems
