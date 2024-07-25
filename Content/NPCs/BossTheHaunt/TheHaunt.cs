@@ -1,10 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.IO;
+using AssortedAdditions.Content.Items.Placeables.Relics;
 using AssortedAdditions.Content.Items.Placeables.Trophies;
-using AssortedAdditions.Content.NPCs.BossFireDragon;
 using AssortedAdditions.Content.Projectiles.NPCProj;
 using AssortedAdditions.Helpers;
-using Microsoft.CodeAnalysis.FlowAnalysis;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
@@ -103,15 +102,32 @@ namespace AssortedAdditions.Content.NPCs.BossTheHaunt
 			Player target = Main.player[NPC.target];
 			float distanceFromTarget = Vector2.Distance(target.Center, NPC.Center);
 
-			// TODO flee stuff here?
-			
-			Timer++; // Keep running the timer
+			// Check if all the players are dead (targetClosest didnt return alive player)
+			if(target.dead || !target.active)
+			{
+				State = (float)States.Flee;
+			}
 
-			// State specific behaviour:
-			// Basic movement applies to almost all states
-			if (State != (float)States.Dash)
+			// Keep running the timer, each state resets this
+			Timer++; 
+
+			// ** STATE BEHAVIOUR **
+			if (State == (float)States.Flee)
+			{
+				NPC.alpha++;
+
+				if (NPC.alpha >= 255)
+				{
+					NPC.active = false;
+				}
+
+				return;
+			}
+
+			if (State == (float)States.Chase)
 			{
 				BasicMovement(target, distanceFromTarget);
+				// TODO shoot projectiles?
 			}
 
 			if(State == (float)States.Dash)
@@ -122,17 +138,22 @@ namespace AssortedAdditions.Content.NPCs.BossTheHaunt
 			if(State == (float)States.ThrowFurniture)
 			{
 				ThrowFurniture(target);
+				BasicMovement(target, distanceFromTarget);
 			}
 
-			if(State == (float)States.SummonGhosts)
+			if (State == (float)States.SummonGhosts)
 			{
 				SummonGhosts(target);
+				speed = 3f;
+				SummonGhostsMovement(target, distanceFromTarget);
 			}
+
+			// TODO State that spawns many projectiles
 
 			// Choose next state (if in the default chase state)
 			// Each state runs SecondaryTimer and once the state ends it resets it along with the Timer
 			// So the haunt returns to Chase state and can then choose the next state...
-			if (Timer >= 1100 && State == (float)States.Chase)
+			if (Timer >= 800 && State == (float)States.Chase)
 			{
 				switch(Main.rand.Next(1, 4))
 				{
@@ -184,10 +205,6 @@ namespace AssortedAdditions.Content.NPCs.BossTheHaunt
 
 					case (float)States.ThrowFurniture:
 						speed = 1f;
-						break;
-
-					case (float)States.SummonGhosts:
-						speed = 3f;
 						break;
 				}
 
@@ -361,17 +378,17 @@ namespace AssortedAdditions.Content.NPCs.BossTheHaunt
 			}
 		}
 
-		private const int maxHauntlings = 5;
+		private const int maxHauntlings = 5; // A maximum of 5 can be active at the same time
 		private void SummonGhosts(Player target)
 		{
 			int type = ModContent.NPCType<Hauntling>();
-			if (SecondaryTimer % 60 == 0 && HelperMethods.CountNPCs(type) < maxHauntlings && SecondaryTimer < 800) 
+			if (SecondaryTimer % 60 == 0 && HelperMethods.CountNPCs(type) < maxHauntlings && SecondaryTimer < 800)
 			{
 				randomRotation = Main.rand.NextFloat(0, 6.2f);
 				Vector2 spawnPos = new Vector2(target.Center.X + 1000, target.Center.Y).RotatedBy(randomRotation, target.Center);
 				int xPos = (int)spawnPos.X;
 				int yPos = (int)spawnPos.Y; // int since the sync message requires these as int (im too lazy to switch to floats instead)
-				
+
 				if (Main.netMode != NetmodeID.MultiplayerClient)
 				{
 					// Spawn the hauntling at the position when in singleplayer
@@ -390,12 +407,46 @@ namespace AssortedAdditions.Content.NPCs.BossTheHaunt
 
 			SecondaryTimer++;
 
-			// Stop this state after 7 seconds or when the max amount of the hauntling has been spawned
-			if(SecondaryTimer >= 800)
+			// Stop this state after 15 seconds
+			if (SecondaryTimer >= 900)
 			{
 				State = (float)States.Chase;
 				Timer = 0;
 				SecondaryTimer = 0;
+			}
+		}
+
+		private void SummonGhostsMovement(Player target, float distanceFromTarget)
+		{
+			if (distanceFromTarget > 100f) // The immediate range around the target (so it doesn't latch onto it when close)
+			{
+				// Set the velocity, and sprite direction
+				Vector2 direction;
+
+				// When spawning ghosts, just wander around the player
+				// Could randomize, but would need to sync
+				if(SecondaryTimer < 200)
+				{
+					direction = new Vector2(target.Center.X + 400, target.Center.Y - 200) - NPC.Center;
+				}
+				else if (SecondaryTimer >= 200 && SecondaryTimer < 400)
+				{
+					direction = new Vector2(target.Center.X - 600, target.Center.Y + 200) - NPC.Center;
+				}
+				else if (SecondaryTimer >= 400 && SecondaryTimer < 600)
+				{
+					direction = new Vector2(target.Center.X + 100, target.Center.Y - 50) - NPC.Center;
+				}
+				else
+				{
+					direction = new Vector2(target.Center.X - 300, target.Center.Y) - NPC.Center;
+				}
+
+				direction.Normalize();
+				direction *= speed;
+
+				NPC.velocity = (NPC.velocity * (inertia - 1) + direction) / inertia;
+				NPC.spriteDirection = target.Center.X < NPC.Center.X ? -1 : 1;
 			}
 		}
 
@@ -419,7 +470,7 @@ namespace AssortedAdditions.Content.NPCs.BossTheHaunt
 		{
 			// TODO bag
 			npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<HauntTrophy>(), 10)); // 10% chance for trophy
-			// TODO relic
+			npcLoot.Add(ItemDropRule.MasterModeCommonDrop(ModContent.ItemType<HauntRelic>())); // Master mode relic
 			// TODO pet
 
 			// TODO non expert version

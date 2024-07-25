@@ -1302,6 +1302,16 @@ Mods: {
 				DisplayName: Haunt Trophy
 				Tooltip: ""
 			}
+
+			GraveFlowers: {
+				DisplayName: Grave Flowers
+				Tooltip: Summons The Haunt
+			}
+
+			HauntRelic: {
+				DisplayName: Haunt Relic
+				Tooltip: ""
+			}
 		}
 
 		Projectiles: {

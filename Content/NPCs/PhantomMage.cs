@@ -1,4 +1,5 @@
 ﻿using AssortedAdditions.Common.Configs;
+using AssortedAdditions.Content.Items.Consumables;
 using AssortedAdditions.Content.Items.Placeables.Banners;
 using AssortedAdditions.Content.Projectiles.NPCProj;
 using Microsoft.Xna.Framework;
@@ -8,6 +9,7 @@ using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;
 using Terraria.GameContent.Bestiary;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -364,6 +366,11 @@ namespace AssortedAdditions.Content.NPCs
 					dust.velocity *= 1.25f;
 				}
 			}
+		}
+
+		public override void ModifyNPCLoot(NPCLoot npcLoot)
+		{
+			npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<GraveFlowers>(), 20));
 		}
 
 		public override float SpawnChance(NPCSpawnInfo spawnInfo)

@@ -10,6 +10,7 @@ using AssortedAdditions.Content.Items.Weapons.Magic;
 using AssortedAdditions.Content.Items.Weapons.Summon;
 using AssortedAdditions.Content.Items.Placeables.Ores;
 using AssortedAdditions.Content.Items.Accessories.Runes;
+using AssortedAdditions.Content.Items.Consumables;
 
 namespace AssortedAdditions.Common.GlobalNPCs
 {
@@ -114,6 +115,8 @@ namespace AssortedAdditions.Common.GlobalNPCs
 			if (npc.type == NPCID.Ghost)
 			{
 				npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<GhostlyBlade>(), 12)); // 8% chance
+				// 5% chance to drop in hardmode
+				npcLoot.Add(ItemDropRule.ByCondition(Condition.Hardmode.ToDropCondition(ShowItemDropInUI.Always), ModContent.ItemType<GraveFlowers>(), 20, 1));
 			}
 
 			if (npc.type == NPCID.RuneWizard)

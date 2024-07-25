@@ -3,10 +3,12 @@
 [LIST]
 [*] Added a new boss for the graveyard biome
 [*] Added 3 new enemies
-[*] Added a new item
-[*] Rune Slot is now always visible, but a lock icon displays along with a tooltip when it is locked.
-[*] Localization cleanup
+[*] Added X new weapons
+[*] Added X new items
+[*] Changes to Rune Slot: It's now always visible, but a lock icon displays along with a tooltip when it is locked.
 [*] Grabber Plant should no longer spawn submerged. Also reduced spawn chance.
 [*] Fire Drake's projectile makes a dig sound on collision
+[*] Fixed Fire Dragon relic duplication bug
+[*] Localization cleanup
 [/LIST]
 

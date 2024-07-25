@@ -10,6 +10,8 @@ using AssortedAdditions.Helpers;
 using System.Collections.Generic;
 using Terraria.GameContent.Bestiary;
 using AssortedAdditions.Common.Configs;
+using Terraria.GameContent.ItemDropRules;
+using AssortedAdditions.Content.Items.Consumables;
 
 namespace AssortedAdditions.Content.NPCs.BossTheHaunt
 {
@@ -28,9 +30,9 @@ namespace AssortedAdditions.Content.NPCs.BossTheHaunt
 			NPC.width = 40;
 			NPC.height = 40;
 			NPC.value = 200;
-			NPC.damage = 35;
-			NPC.defense = 15;
-			NPC.lifeMax = 175;
+			NPC.damage = 45;
+			NPC.defense = 18;
+			NPC.lifeMax = 195;
 			NPC.knockBackResist = 0.5f;
 
 			NPC.HitSound = new SoundStyle("AssortedAdditions/Assets/Sounds/NPCSound/PhantomMageHit");
@@ -45,7 +47,7 @@ namespace AssortedAdditions.Content.NPCs.BossTheHaunt
 		private ref float Dash => ref NPC.ai[0];
 		private ref float Timer => ref NPC.ai[1];
 
-		private float speed = 9f;
+		private float speed = 10f;
 		private float inertia = 25f;
 		public override void AI()
 		{
@@ -55,6 +57,12 @@ namespace AssortedAdditions.Content.NPCs.BossTheHaunt
 			}
 			Player target = Main.player[NPC.target];
 			float distanceFromTarget = Vector2.Distance(target.Center, NPC.Center);
+
+			if(target.dead || !target.active)
+			{
+				DespawnBehaviour();
+				return;
+			}
 
 			if (Timer > 0)
 			{
@@ -80,7 +88,7 @@ namespace AssortedAdditions.Content.NPCs.BossTheHaunt
 			else if (distanceFromTarget <= 200f && Timer == 0)
 			{
 				Dash = 1;
-				Timer = 90;
+				Timer = 75;
 				NPC.netUpdate = true;
 			}
 
@@ -102,6 +110,23 @@ namespace AssortedAdditions.Content.NPCs.BossTheHaunt
 			}
 		}
 
+		int timer = 0;
+		private void DespawnBehaviour()
+		{
+			timer++;
+
+            if (timer >= 300)
+            {
+				NPC.active = false;
+            }
+
+            Vector2 direction = new Vector2(NPC.Center.X - 700, NPC.Center.Y + 300) - NPC.Center;
+			direction.Normalize();
+			direction *= speed;
+
+			NPC.velocity = (NPC.velocity * (inertia - 1) + direction) / inertia;
+		}
+
 		public override void PostAI()
 		{
 			HelperMethods.StopNPCOverlap(NPC, 0.1f);
@@ -115,6 +140,11 @@ namespace AssortedAdditions.Content.NPCs.BossTheHaunt
 				Gore.NewGore(NPC.GetSource_Death(), NPC.position, Vector2.Zero, 12, 1f);
 				Gore.NewGore(NPC.GetSource_Death(), NPC.position, Vector2.Zero, 13, 1f);
 			}
+		}
+
+		public override void ModifyNPCLoot(NPCLoot npcLoot)
+		{
+			npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<GraveFlowers>(), 30));
 		}
 
 		public override float SpawnChance(NPCSpawnInfo spawnInfo)
