@@ -300,7 +300,7 @@ namespace AssortedAdditions.Content.NPCs.BossFireDragon // This Boss NPC is buil
                 MoveSpeed = 20f;
             }
 
-            HelperMethods.SmoothHoming(NPC, targetCenter, MoveSpeed, MoveSpeed, null);
+            HelperMethods.SmoothHoming(NPC, targetCenter, MoveSpeed, MoveSpeed, null, true, 0.25f);
             NPC.netUpdate = true;
         }
 

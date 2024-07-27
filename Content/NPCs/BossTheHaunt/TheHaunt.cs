@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.IO;
+using AssortedAdditions.Content.Items.Consumables.TreasureBags;
+using AssortedAdditions.Content.Items.Pets;
 using AssortedAdditions.Content.Items.Placeables.Relics;
 using AssortedAdditions.Content.Items.Placeables.Trophies;
 using AssortedAdditions.Content.Projectiles.NPCProj;
@@ -40,9 +42,9 @@ namespace AssortedAdditions.Content.NPCs.BossTheHaunt
 
 			NPC.value = 100000;
 
-			NPC.damage = 65;
-			NPC.defense = 25;
-			NPC.lifeMax = 29500;
+			NPC.damage = 50;
+			NPC.defense = 22;
+			NPC.lifeMax = 27000;
 			NPC.knockBackResist = 0f;
 
 			NPC.HitSound = SoundID.NPCHit7;
@@ -59,7 +61,6 @@ namespace AssortedAdditions.Content.NPCs.BossTheHaunt
 			if (!Main.dedServ)
 			{
 				Music = MusicID.OtherworldlyPlantera;
-				// maybe 79 (underground hallow otherwordly)
 			}
 		}
 
@@ -80,9 +81,9 @@ namespace AssortedAdditions.Content.NPCs.BossTheHaunt
 		// All the different states the boss has
 		private enum States
 		{
-			Chase, // Chase is the base state, haunt slowly chases the player
+			Chase, // Chase is the base state, haunt chases the player and shoots projectiles
 			ThrowFurniture, // Haunt will slowdown and start throwing furniture at the player
-			SummonGhosts,
+			SummonGhosts, // The haunt will wander around the player and summon Hauntlings
 			
 			Dash, // Haunt will stop and turn invisible, then teleport to a spot, turn back visible and dash at the player, repeat
 			Flee // Haunt will vanish, all players are dead
@@ -124,13 +125,15 @@ namespace AssortedAdditions.Content.NPCs.BossTheHaunt
 				return;
 			}
 
+			// TODO enrage when not in graveyard, check target.ZoneGraveyard
+
 			if (State == (float)States.Chase)
 			{
-				BasicMovement(target, distanceFromTarget);
-				// TODO shoot projectiles?
+				ChaseState(target, distanceFromTarget);
+				BasicMovement(target, distanceFromTarget, 6f);
 			}
 
-			if(State == (float)States.Dash)
+			if (State == (float)States.Dash)
 			{
 				DashState(target);
 			}
@@ -138,14 +141,13 @@ namespace AssortedAdditions.Content.NPCs.BossTheHaunt
 			if(State == (float)States.ThrowFurniture)
 			{
 				ThrowFurniture(target);
-				BasicMovement(target, distanceFromTarget);
+				BasicMovement(target, distanceFromTarget, 1f);
 			}
 
 			if (State == (float)States.SummonGhosts)
 			{
 				SummonGhosts(target);
-				speed = 3f;
-				SummonGhostsMovement(target, distanceFromTarget);
+				SummonGhostsMovement(target, distanceFromTarget, 3f);
 			}
 
 			// TODO State that spawns many projectiles
@@ -170,6 +172,7 @@ namespace AssortedAdditions.Content.NPCs.BossTheHaunt
 						break;
 				}
 
+				SecondaryTimer = 0; // Safety reset incase some state did not reset this properly
 				NPC.netUpdate = true;
 			}
 
@@ -190,24 +193,10 @@ namespace AssortedAdditions.Content.NPCs.BossTheHaunt
 			}
 		}
 
-		private float speed = 6f; // How fast the haunt moves towards the player
-		private float inertia = 17f; // The "floatiness" of the movement
-		private void BasicMovement(Player target, float distanceFromTarget)
+		private void BasicMovement(Player target, float distanceFromTarget, float speed = 6f, float inertia = 17f)
 		{
 			if (distanceFromTarget > 80f) // The immediate range around the target (so it doesn't latch onto it when close)
 			{
-				switch (State) // Adjust speed based on state
-				{
-					case (float)States.Chase:
-						speed = 6f;
-						inertia = 17f;
-						break;
-
-					case (float)States.ThrowFurniture:
-						speed = 1f;
-						break;
-				}
-
 				// Set the velocity, and sprite direction
 				Vector2 direction = target.Center - NPC.Center;
 				direction.Normalize();
@@ -215,6 +204,36 @@ namespace AssortedAdditions.Content.NPCs.BossTheHaunt
 
 				NPC.velocity = (NPC.velocity * (inertia - 1) + direction) / inertia;
 				NPC.spriteDirection = target.Center.X < NPC.Center.X ? -1 : 1;
+			}
+		}
+
+		private void ChaseState(Player target, float distanceFromTarget)
+		{
+			SecondaryTimer++;
+
+			// During the chase state, the haunt will attempt to spawn three projectiles
+			// if the player is far enough away (max every 3 seconds). 
+			if (distanceFromTarget > 350f && SecondaryTimer % 180 == 0 && SecondaryTimer != 0)
+			{
+				if (Main.netMode != NetmodeID.MultiplayerClient)
+				{
+					// Basic straight line velocity
+					Vector2 direction = target.Center - NPC.Center;
+					direction.Normalize();
+					direction *= 4f;
+
+					// Spawn up to three, rotate each ones basic velocity
+					float numberProjectiles = 6; // or maybe just 3 and 60 degrees
+					float rotation = MathHelper.ToRadians(180);
+
+					// Spawn the projectiles
+					for (int i = 0; i < numberProjectiles; i++)
+					{
+						Vector2 perturbedSpeed = direction.RotatedBy(MathHelper.Lerp(-rotation, rotation, i / (numberProjectiles - 1)));
+						Projectile.NewProjectile(NPC.GetSource_FromAI(), NPC.Center + NPC.velocity, perturbedSpeed, ModContent.ProjectileType<TheHauntGhost>(), 25, 5f, Main.myPlayer);
+					}
+				}
+				SoundEngine.PlaySound(SoundID.Item8 with { Pitch = 0.5f,}, NPC.position);
 			}
 		}
 
@@ -416,7 +435,7 @@ namespace AssortedAdditions.Content.NPCs.BossTheHaunt
 			}
 		}
 
-		private void SummonGhostsMovement(Player target, float distanceFromTarget)
+		private void SummonGhostsMovement(Player target, float distanceFromTarget, float speed = 6f, float inertia = 17f)
 		{
 			if (distanceFromTarget > 100f) // The immediate range around the target (so it doesn't latch onto it when close)
 			{
@@ -468,12 +487,20 @@ namespace AssortedAdditions.Content.NPCs.BossTheHaunt
 
 		public override void ModifyNPCLoot(NPCLoot npcLoot)
 		{
-			// TODO bag
+			npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<HauntBag>()));
 			npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<HauntTrophy>(), 10)); // 10% chance for trophy
 			npcLoot.Add(ItemDropRule.MasterModeCommonDrop(ModContent.ItemType<HauntRelic>())); // Master mode relic
-			// TODO pet
+			npcLoot.Add(ItemDropRule.MasterModeDropOnAllPlayers(ModContent.ItemType<CursedCandle>(), 4));
 
 			// TODO non expert version
+/*			LeadingConditionRule notExpert = new LeadingConditionRule(new Conditions.NotExpert());
+
+			notExpert.OnSuccess(ItemDropRule.OneFromOptions(1,
+                ModContent.ItemType<>(),
+                ModContent.ItemType<>(),
+                ModContent.ItemType<>(),
+                ModContent.ItemType<>()));
+            npcLoot.Add(notExpert);*/
 		}
 
 		private int currentFrame = 0;

@@ -43,8 +43,8 @@ namespace AssortedAdditions.Content.Projectiles.MeleeProj.DoublePhasesaberProj
             // Sound effect
             if (Projectile.soundDelay == 0)
             {
-                Projectile.soundDelay = 8; // This countsdown automatically
-                SoundEngine.PlaySound(SoundID.Item15, Projectile.position);
+                Projectile.soundDelay = 12; // This countsdown automatically
+                SoundEngine.PlaySound(SoundID.Item15 with { MaxInstances = 5, Pitch = 0.1f }, Projectile.position);
             }
 
             // Custom method for choosing sprite and light color

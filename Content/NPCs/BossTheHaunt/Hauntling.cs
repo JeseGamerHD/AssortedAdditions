@@ -31,8 +31,8 @@ namespace AssortedAdditions.Content.NPCs.BossTheHaunt
 			NPC.height = 40;
 			NPC.value = 200;
 			NPC.damage = 45;
-			NPC.defense = 18;
-			NPC.lifeMax = 195;
+			NPC.defense = 12;
+			NPC.lifeMax = 155;
 			NPC.knockBackResist = 0.5f;
 
 			NPC.HitSound = new SoundStyle("AssortedAdditions/Assets/Sounds/NPCSound/PhantomMageHit");
@@ -47,7 +47,7 @@ namespace AssortedAdditions.Content.NPCs.BossTheHaunt
 		private ref float Dash => ref NPC.ai[0];
 		private ref float Timer => ref NPC.ai[1];
 
-		private float speed = 10f;
+		private float speed = 12f;
 		private float inertia = 25f;
 		public override void AI()
 		{
@@ -88,15 +88,15 @@ namespace AssortedAdditions.Content.NPCs.BossTheHaunt
 			else if (distanceFromTarget <= 200f && Timer == 0)
 			{
 				Dash = 1;
-				Timer = 75;
+				Timer = 45;
 				NPC.netUpdate = true;
 			}
 
 			if (Dash == 1)
 			{
 				NPC.velocity = Vector2.Zero;
-				NPC.velocity.X = NPC.DirectionTo(target.Center).X * 15f;
-				NPC.velocity.Y = NPC.DirectionTo(target.Center).Y * 3f;
+				NPC.velocity.X = NPC.DirectionTo(target.Center).X * 18f;
+				NPC.velocity.Y = NPC.DirectionTo(target.Center).Y * 4f;
 				Dash = 0;
 				NPC.netUpdate = true;
 			}
@@ -145,6 +145,7 @@ namespace AssortedAdditions.Content.NPCs.BossTheHaunt
 		public override void ModifyNPCLoot(NPCLoot npcLoot)
 		{
 			npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<GraveFlowers>(), 30));
+			npcLoot.Add(ItemDropRule.Common(ItemID.Heart, 12));
 		}
 
 		public override float SpawnChance(NPCSpawnInfo spawnInfo)

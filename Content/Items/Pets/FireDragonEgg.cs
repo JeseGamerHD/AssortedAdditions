@@ -3,8 +3,8 @@ using Terraria.ModLoader;
 using Terraria;
 using Terraria.DataStructures;
 using Microsoft.Xna.Framework;
-using AssortedAdditions.Content.Buffs;
 using AssortedAdditions.Content.Projectiles.PetProj;
+using AssortedAdditions.Content.Buffs.Pets;
 
 namespace AssortedAdditions.Content.Items.Pets
 {

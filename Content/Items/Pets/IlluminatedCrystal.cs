@@ -5,8 +5,8 @@ using Terraria.DataStructures;
 using Microsoft.Xna.Framework;
 using AssortedAdditions.Content.Tiles.CraftingStations;
 using AssortedAdditions.Content.Projectiles.PetProj;
-using AssortedAdditions.Content.Buffs;
 using AssortedAdditions.Content.Items.Misc;
+using AssortedAdditions.Content.Buffs.Pets;
 
 namespace AssortedAdditions.Content.Items.Pets
 {

@@ -125,6 +125,11 @@ Mods: {
 				DisplayName: Shell Horn Buff
 				Description: Your minions deal 10% more damage, but you take 20% more damage.
 			}
+
+			PetHauntlingBuff: {
+				DisplayName: Pet Hauntling
+				Description: Your own little ghost
+			}
 		}
 
 		Items: {
@@ -1312,6 +1317,16 @@ Mods: {
 				DisplayName: Haunt Relic
 				Tooltip: ""
 			}
+
+			CursedCandle: {
+				DisplayName: Cursed Candle
+				Tooltip: Summons a pet Hauntling
+			}
+
+			HauntBag: {
+				DisplayName: Haunt Bag
+				Tooltip: ""
+			}
 		}
 
 		Projectiles: {
@@ -1412,6 +1427,8 @@ Mods: {
 			HauntGravestone.DisplayName: Haunt Gravestone
 			HauntTombstone.DisplayName: Haunt Tombstone
 			HauntTrashcan.DisplayName: Haunt Trashcan
+			TheHauntGhost.DisplayName: The Haunt's Projectile
+			PetHauntling.DisplayName: Pet Hauntling
 		}
 
 		Tiles: {

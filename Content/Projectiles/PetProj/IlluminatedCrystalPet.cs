@@ -4,8 +4,8 @@ using Terraria.GameContent;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using AssortedAdditions.Content.Buffs;
 using ReLogic.Content;
+using AssortedAdditions.Content.Buffs.Pets;
 
 namespace AssortedAdditions.Content.Projectiles.PetProj
 {
