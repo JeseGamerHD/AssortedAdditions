@@ -116,7 +116,7 @@ namespace AssortedAdditions.Common.GlobalNPCs
 			{
 				npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<GhostlyBlade>(), 12)); // 8% chance
 				// 5% chance to drop in hardmode
-				npcLoot.Add(ItemDropRule.ByCondition(Condition.Hardmode.ToDropCondition(ShowItemDropInUI.Always), ModContent.ItemType<GraveFlowers>(), 20, 1));
+				npcLoot.Add(ItemDropRule.ByCondition(Condition.DownedMechBossAll.ToDropCondition(ShowItemDropInUI.Always), ModContent.ItemType<GraveFlowers>(), 20, 1));
 			}
 
 			if (npc.type == NPCID.RuneWizard)
