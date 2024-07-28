@@ -43,12 +43,12 @@ namespace AssortedAdditions.Content.NPCs.BossTheHaunt
 			NPC.value = 100000;
 
 			NPC.damage = 50;
-			NPC.defense = 22;
-			NPC.lifeMax = 27000;
+			NPC.defense = 28;
+			NPC.lifeMax = 29500;
 			NPC.knockBackResist = 0f;
 
 			NPC.HitSound = SoundID.NPCHit7;
-			NPC.DeathSound = SoundID.DD2_BetsyDeath;
+			NPC.DeathSound = new SoundStyle("AssortedAdditions/Assets/Sounds/NPCSound/HauntDeath");
 			NPC.SpawnWithHigherTime(30);
 			NPC.npcSlots = 6f;
 
@@ -90,8 +90,8 @@ namespace AssortedAdditions.Content.NPCs.BossTheHaunt
 			Flee, // Haunt will vanish, all players are dead
 		}
 
-		public ref float State => ref NPC.ai[0];
-		public ref float PreviousState => ref NPC.ai[1];
+		public ref float State => ref NPC.ai[0]; // The Current active state of the Haunt
+		public ref float PreviousState => ref NPC.ai[1]; // The previous active state (other than Chase since its the default)
 		public ref float Timer => ref NPC.ai[2];
 		public ref float SecondaryTimer => ref NPC.ai[3];
 
@@ -132,7 +132,7 @@ namespace AssortedAdditions.Content.NPCs.BossTheHaunt
 			if (State == (float)States.Chase)
 			{
 				ChaseState(target, distanceFromTarget);
-				BasicMovement(target, distanceFromTarget, 5.25f);
+				BasicMovement(target, distanceFromTarget, 6f);
 			}
 
 			if (State == (float)States.Dash)
@@ -154,8 +154,8 @@ namespace AssortedAdditions.Content.NPCs.BossTheHaunt
 
 			if(State == (float)States.SummonProjectiles)
 			{
-				SummonProjectiles(target); // WIP
-				SummonProjectilesMovement(target, 4.5f);
+				SummonProjectiles(target);
+				SummonProjectilesMovement(target, 5f);
 			}
 
 			// Choose next state (if in the default chase state)
@@ -165,7 +165,6 @@ namespace AssortedAdditions.Content.NPCs.BossTheHaunt
 			{
 				// Prevent choosing the same state twice in a row
 				int choice = Main.rand.Next(1, 5);
-				Main.NewText(PreviousState);
 				if(choice == PreviousState)
 				{
 					if(choice != 4)
@@ -242,7 +241,7 @@ namespace AssortedAdditions.Content.NPCs.BossTheHaunt
 
 			// During the chase state, the haunt will attempt to spawn three projectiles
 			// if the player is far enough away (max every 3 seconds). 
-			if (distanceFromTarget > 350f && SecondaryTimer % 180 == 0 && SecondaryTimer != 0)
+			if (distanceFromTarget > 300f && SecondaryTimer % 180 == 0 && SecondaryTimer != 0)
 			{
 				if (Main.netMode != NetmodeID.MultiplayerClient)
 				{
@@ -307,7 +306,7 @@ namespace AssortedAdditions.Content.NPCs.BossTheHaunt
 				{
 					int type = furniture[Main.rand.Next(0, furniture.Length)];
 					Vector2 spawnPos = new Vector2(NPC.Center.X, NPC.Center.Y - 100).RotatedBy(angle, NPC.Center);
-					Projectile.NewProjectile(NPC.GetSource_FromAI(), spawnPos, Vector2.Zero, type, 45, 5f, Main.myPlayer, 0, target.whoAmI, NPC.whoAmI);
+					Projectile.NewProjectile(NPC.GetSource_FromAI(), spawnPos, Vector2.Zero, type, 50, 5f, Main.myPlayer, 0, target.whoAmI, NPC.whoAmI);
 				}
 
 				// Sound effect when the furniture projectile spawns
@@ -453,6 +452,17 @@ namespace AssortedAdditions.Content.NPCs.BossTheHaunt
 				}
 			}
 
+			if(SecondaryTimer % 150 == 0)
+			{
+				if(Main.netMode != NetmodeID.MultiplayerClient)
+				{
+					Vector2 spawnPos = new Vector2(target.Center.X + 1000, target.Center.Y).RotatedBy(Main.rand.NextFloat(0, 6.2f), target.Center);
+					Vector2 direction = target.Center - spawnPos;
+					direction.Normalize();
+					Projectile.NewProjectile(NPC.GetSource_FromAI(), spawnPos, direction * 2f, ModContent.ProjectileType<TheHauntGhost>(), 35, 5f, Main.myPlayer);
+				}
+			}
+
 			SecondaryTimer++;
 
 			// Stop this state after 15 seconds
@@ -501,27 +511,16 @@ namespace AssortedAdditions.Content.NPCs.BossTheHaunt
 
 		private void SummonProjectiles(Player target)
 		{
-
 			// Summon projectiles from around the player:
-			if (SecondaryTimer % 60 == 0)
+			if (SecondaryTimer % 45 == 0)
 			{
 				if (Main.netMode != NetmodeID.MultiplayerClient)
 				{
-					/*Vector2 spawnPos = new Vector2(target.Center.X + 1000, target.Center.Y).RotatedBy(Main.rand.NextFloat(0, 6.2f), target.Center);
-					Vector2 direction = target.Center - spawnPos;
-					direction.Normalize();
-					Projectile.NewProjectile(NPC.GetSource_FromAI(), spawnPos, direction * 2f, ModContent.ProjectileType<TheHauntGhost>(), 25, 5f, Main.myPlayer);*/
-
 					int xOffSet = Main.rand.Next(-600, 600);
 					Vector2 spawnPos = new Vector2(target.Center.X + xOffSet, target.Center.Y + 1000);
 					Vector2 direction = new Vector2(target.Center.X + xOffSet, target.Center.Y) - spawnPos;
 					direction.Normalize();
-					Projectile.NewProjectile(NPC.GetSource_FromAI(), spawnPos, direction * 4f, ModContent.ProjectileType<TheHauntProj>(), 25, 5f, Main.myPlayer);
-
-					/*Vector2 spawnPos = new Vector2(target.Center.X + 1000, target.Center.Y).RotatedBy(Main.rand.NextFloat(0, 6.2f), target.Center);
-					Vector2 direction = target.Center - spawnPos;
-					direction.Normalize();
-					Projectile.NewProjectile(NPC.GetSource_FromAI(), spawnPos, direction * 4f, ModContent.ProjectileType<TheHauntProj>(), 25, 5f, Main.myPlayer);*/
+					Projectile.NewProjectile(NPC.GetSource_FromAI(), spawnPos, direction * 4f, ModContent.ProjectileType<TheHauntProj>(), 30, 5f, Main.myPlayer);
 				}
 			}
 
@@ -597,6 +596,19 @@ namespace AssortedAdditions.Content.NPCs.BossTheHaunt
 		{
 			cooldownSlot = ImmunityCooldownID.Bosses; // use the boss immunity cooldown counter, to prevent ignoring boss attacks by taking damage from other sources
 			return true;
+		}
+
+		public override void HitEffect(NPC.HitInfo hit)
+		{
+			if (Main.netMode != NetmodeID.Server && NPC.life <= 0)
+			{
+				for(int i = 0; i < 5; i++)
+				{
+					Gore.NewGore(NPC.GetSource_Death(), NPC.Center, Vector2.Zero, 11, Main.rand.NextFloat(1f, 2f));
+					Gore.NewGore(NPC.GetSource_Death(), NPC.Center, Vector2.Zero, 12, Main.rand.NextFloat(1f, 2f));
+					Gore.NewGore(NPC.GetSource_Death(), NPC.Center, Vector2.Zero, 13, Main.rand.NextFloat(1f, 2f));
+				}
+			}
 		}
 
 		public override void ModifyNPCLoot(NPCLoot npcLoot)

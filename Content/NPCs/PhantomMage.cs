@@ -370,7 +370,7 @@ namespace AssortedAdditions.Content.NPCs
 
 		public override void ModifyNPCLoot(NPCLoot npcLoot)
 		{
-			npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<GraveFlowers>(), 20));
+			npcLoot.Add(ItemDropRule.ByCondition(Condition.DownedMechBossAll.ToDropCondition(ShowItemDropInUI.Always), ModContent.ItemType<GraveFlowers>(), 20));
 		}
 
 		public override float SpawnChance(NPCSpawnInfo spawnInfo)

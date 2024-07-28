@@ -144,7 +144,7 @@ namespace AssortedAdditions.Content.NPCs.BossTheHaunt
 
 		public override void ModifyNPCLoot(NPCLoot npcLoot)
 		{
-			npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<GraveFlowers>(), 30));
+			npcLoot.Add(ItemDropRule.ByCondition(Condition.DownedMechBossAll.ToDropCondition(ShowItemDropInUI.Always), ModContent.ItemType<GraveFlowers>(), 30));
 			npcLoot.Add(ItemDropRule.Common(ItemID.Heart, 12));
 		}
 

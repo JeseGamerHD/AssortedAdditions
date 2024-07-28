@@ -64,7 +64,7 @@ namespace AssortedAdditions.Content.Items.Consumables
 		{
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.JungleRose, 4);
-			recipe.AddIngredient(ItemID.SoulofNight, 10);
+			recipe.AddIngredient(ItemID.SoulofFright, 1);
 			recipe.AddIngredient(ModContent.ItemType<MagicEssence>());
 			recipe.AddTile(ModContent.TileType<MagicWorkbenchTile>());
 			recipe.Register();
