@@ -242,40 +242,49 @@ namespace AssortedAdditions.Content.NPCs.BossFireDragon // This Boss NPC is buil
         
         private const int circlingRadius = 550; // The radius of the circle that the dragon moves along
         private int directionForRadius = 1;
+
+        private int HeadHitCooldown = 0; // When the head hits the player (hitbox intersects), this gets set
+        // This is to prevent the dragon from latching onto the player
         private void MovementBasedOnState()
         {
             Player target = Main.player[NPC.target];
             Vector2 targetCenter = target.Center;
 
-            switch (CurrentState)
+			if (NPC.Hitbox.Intersects(target.Hitbox))
             {
-                // The dragon will chase the player
-                case (float)State.Chasing:
+                HeadHitCooldown = 120;
+                NPC.netUpdate = true;
+            }
 
-                    MoveSpeed = 6.5f;
-                    setCirclingPoint = false;
-                    targetCenter = target.Center;
+			switch (CurrentState)
+			{
+				// The dragon will chase the player
+				case (float)State.Chasing:
 
-                    break;
+					MoveSpeed = 6.5f;
+					setCirclingPoint = false;
+					targetCenter = target.Center;
 
-                // The dragon will start circling around a point (where player stood when this state began)
-                case (float)State.Circling:
+					break;
 
-                    // Set the point once, dragon will start circling the point
-                    if (!setCirclingPoint)
-                    {
-                        SoundEngine.PlaySound(new SoundStyle("AssortedAdditions/Assets/Sounds/NPCSound/FireDragonSounds"), NPC.position);
-                        circlingPoint = target.Center + target.velocity;
-                        directionForRadius = target.direction;
-                        setCirclingPoint = true;
-                        NPC.netUpdate = true;
-                    }
+				// The dragon will start circling around a point (where player stood when this state began)
+				case (float)State.Circling:
 
-                    // Speed up so the player cant escape easily (if they got trapped)
-                    // When circling state is ending slowdown to allow escape (6 seconds until the dragon starts chasing the player)
-                    // (At 2 minutes the state changes)
-                    MoveSpeed = Timer < HelperMethods.SecondsToTicks(114) ? 14f : 7f; // These values leave a gap where the player can try to escape
-                    rotation += Timer < HelperMethods.SecondsToTicks(114) ? 0.026f : 0.013f;
+					// Set the point once, dragon will start circling the point
+					if (!setCirclingPoint)
+					{
+						SoundEngine.PlaySound(new SoundStyle("AssortedAdditions/Assets/Sounds/NPCSound/FireDragonSounds"), NPC.position);
+						circlingPoint = target.Center + target.velocity;
+						directionForRadius = target.direction;
+						setCirclingPoint = true;
+						NPC.netUpdate = true;
+					}
+
+					// Speed up so the player cant escape easily (if they got trapped)
+					// When circling state is ending slowdown to allow escape (6 seconds until the dragon starts chasing the player)
+					// (At 2 minutes the state changes)
+					MoveSpeed = Timer < HelperMethods.SecondsToTicks(114) ? 14f : 7f; // These values leave a gap where the player can try to escape
+					rotation += Timer < HelperMethods.SecondsToTicks(114) ? 0.026f : 0.013f;
 
 					if (Timer < HelperMethods.SecondsToTicks(114))
 					{
@@ -288,19 +297,41 @@ namespace AssortedAdditions.Content.NPCs.BossFireDragon // This Boss NPC is buil
 
 					break;
 
-                // State should never be something not specified, this is here so that the compiler is happy
-                default:
-                    return;
-            }
+				// State should never be something not specified, this is here so that the compiler is happy
+				default:
+					return;
+			}
 
-            // Catch up to the target.
-            // (When one player dies and target switches to another one far away, fly to them fast)
-            if(NPC.Center.Distance(target.Center) >= 5000) 
+			// Catch up to the target.
+			// (When one player dies and target switches to another one far away, fly to them fast)
+			if (NPC.Center.Distance(target.Center) >= 5000) 
             {
                 MoveSpeed = 20f;
             }
 
-            HelperMethods.SmoothHoming(NPC, targetCenter, MoveSpeed, MoveSpeed, null, true, 0.25f);
+            // If the cooldown is active, switch homing style to prevent latching onto the player
+            // Only apply during non circling states
+            if(HeadHitCooldown == 0 || CurrentState == (float)State.Circling)
+            {
+				HelperMethods.SmoothHoming(NPC, targetCenter, MoveSpeed, MoveSpeed, null, false);
+			}
+
+            if(HeadHitCooldown <= 60 && HeadHitCooldown != 0 && CurrentState != (float)State.Circling)
+            {
+				// With these the projectile will move towards the target in a smooth way
+				// instead of snapping it moves in a curved way
+				float targetPos = (target.Center - NPC.Center).ToRotation();
+				float curve = NPC.velocity.ToRotation();
+				float maxTurn = MathHelper.ToRadians(3f);
+
+				// Set the velocity and rotation:
+				NPC.velocity = NPC.velocity.RotatedBy(MathHelper.WrapAngle(curve.AngleTowards(targetPos, maxTurn)) - curve);
+			}
+            
+            if(HeadHitCooldown != 0)
+            {
+                HeadHitCooldown--;
+            }
             NPC.netUpdate = true;
         }
 
@@ -432,11 +463,13 @@ namespace AssortedAdditions.Content.NPCs.BossFireDragon // This Boss NPC is buil
 		public override void SendExtraAI(BinaryWriter writer)
 		{
 			writer.Write(npcCount);
+            writer.Write(HeadHitCooldown);
 		}
 
         public override void ReceiveExtraAI(BinaryReader reader)
 		{
-			npcCount = reader.ReadInt32(); 
+			npcCount = reader.ReadInt32();
+            HeadHitCooldown = reader.ReadInt32();
 		}
 
 		public override bool CanHitPlayer(Player target, ref int cooldownSlot)

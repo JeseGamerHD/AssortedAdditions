@@ -1429,6 +1429,8 @@ Mods: {
 			HauntTrashcan.DisplayName: Haunt Trashcan
 			TheHauntGhost.DisplayName: The Haunt's Projectile
 			PetHauntling.DisplayName: Pet Hauntling
+			HauntProj.DisplayName: Haunt Proj
+			TheHauntProj.DisplayName: The Haunt Proj
 		}
 
 		Tiles: {

@@ -248,6 +248,7 @@
     <None Remove="Content\Projectiles\NPCProj\IceGuardianProj.png" />
     <None Remove="Content\Projectiles\NPCProj\PhantomMageProj.png" />
     <None Remove="Content\Projectiles\NPCProj\TheHauntGhost.png" />
+    <None Remove="Content\Projectiles\NPCProj\TheHauntProj.png" />
     <None Remove="Content\Projectiles\PetProj\IlluminatedCrystalPet.png" />
     <None Remove="Content\Projectiles\PetProj\PetHauntling.png" />
     <None Remove="Content\Projectiles\RangedProj\Boom_erangProj.png" />

@@ -8,6 +8,7 @@
 [*] Grabber Plant should no longer spawn submerged. Also reduced spawn chance.
 [*] Fire Drake's projectile makes a dig sound on collision.
 [*] Improved Double Phasesaber sound effect.
+[*] Improved Fire Dragon: Smoother movement after the head hits the player.
 [*] Fixed Fire Dragon relic duplication bug.
 [*] Localization cleanup.
 [/LIST]

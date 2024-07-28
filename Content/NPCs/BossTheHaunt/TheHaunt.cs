@@ -84,14 +84,17 @@ namespace AssortedAdditions.Content.NPCs.BossTheHaunt
 			Chase, // Chase is the base state, haunt chases the player and shoots projectiles
 			ThrowFurniture, // Haunt will slowdown and start throwing furniture at the player
 			SummonGhosts, // The haunt will wander around the player and summon Hauntlings
+			SummonProjectiles,
 			
 			Dash, // Haunt will stop and turn invisible, then teleport to a spot, turn back visible and dash at the player, repeat
-			Flee // Haunt will vanish, all players are dead
+			Flee, // Haunt will vanish, all players are dead
 		}
 
 		public ref float State => ref NPC.ai[0];
+		public ref float PreviousState => ref NPC.ai[1];
 		public ref float Timer => ref NPC.ai[2];
 		public ref float SecondaryTimer => ref NPC.ai[3];
+
 
 		public override void AI()
 		{
@@ -113,6 +116,7 @@ namespace AssortedAdditions.Content.NPCs.BossTheHaunt
 			Timer++; 
 
 			// ** STATE BEHAVIOUR **
+			// Each state works independently at least mostly (Dash has a transition with the alpha value)
 			if (State == (float)States.Flee)
 			{
 				NPC.alpha++;
@@ -125,12 +129,10 @@ namespace AssortedAdditions.Content.NPCs.BossTheHaunt
 				return;
 			}
 
-			// TODO enrage when not in graveyard, check target.ZoneGraveyard
-
 			if (State == (float)States.Chase)
 			{
 				ChaseState(target, distanceFromTarget);
-				BasicMovement(target, distanceFromTarget, 6f);
+				BasicMovement(target, distanceFromTarget, 5.25f);
 			}
 
 			if (State == (float)States.Dash)
@@ -150,29 +152,56 @@ namespace AssortedAdditions.Content.NPCs.BossTheHaunt
 				SummonGhostsMovement(target, distanceFromTarget, 3f);
 			}
 
-			// TODO State that spawns many projectiles
+			if(State == (float)States.SummonProjectiles)
+			{
+				SummonProjectiles(target); // WIP
+				SummonProjectilesMovement(target, 4.5f);
+			}
 
 			// Choose next state (if in the default chase state)
 			// Each state runs SecondaryTimer and once the state ends it resets it along with the Timer
 			// So the haunt returns to Chase state and can then choose the next state...
 			if (Timer >= 800 && State == (float)States.Chase)
 			{
-				switch(Main.rand.Next(1, 4))
+				// Prevent choosing the same state twice in a row
+				int choice = Main.rand.Next(1, 5);
+				Main.NewText(PreviousState);
+				if(choice == PreviousState)
+				{
+					if(choice != 4)
+					{
+						choice++;
+					}
+					else if(choice != 1)
+					{
+						choice--;
+					}	
+				}
+
+				switch (choice)
 				{
 					case 1:
 						State = (float)States.ThrowFurniture;
+						PreviousState = (float)States.ThrowFurniture;
 						break;
 					
 					case 2:
-						State = (float)States.Dash;
+						State = (float)States.SummonGhosts;
+						PreviousState = (float)States.SummonGhosts;
 						break;
 
 					case 3:
-						State = (float)States.SummonGhosts;
+						State = (float)States.SummonProjectiles;
+						PreviousState = (float)States.SummonProjectiles;
+						break;
+
+					case 4:
+						State = (float)States.Dash;
+						PreviousState = (float)States.Dash;
 						break;
 				}
 
-				SecondaryTimer = 0; // Safety reset incase some state did not reset this properly
+				SecondaryTimer = 0; // Safety reset incase some state did not reset this properly (Chase state)
 				NPC.netUpdate = true;
 			}
 
@@ -233,7 +262,7 @@ namespace AssortedAdditions.Content.NPCs.BossTheHaunt
 						Projectile.NewProjectile(NPC.GetSource_FromAI(), NPC.Center + NPC.velocity, perturbedSpeed, ModContent.ProjectileType<TheHauntGhost>(), 25, 5f, Main.myPlayer);
 					}
 				}
-				SoundEngine.PlaySound(SoundID.Item8 with { Pitch = 0.5f,}, NPC.position);
+				SoundEngine.PlaySound(SoundID.Item8 with { Pitch = 0.5f }, NPC.position);
 			}
 		}
 
@@ -401,7 +430,7 @@ namespace AssortedAdditions.Content.NPCs.BossTheHaunt
 		private void SummonGhosts(Player target)
 		{
 			int type = ModContent.NPCType<Hauntling>();
-			if (SecondaryTimer % 60 == 0 && HelperMethods.CountNPCs(type) < maxHauntlings && SecondaryTimer < 800)
+			if (SecondaryTimer % 100 == 0 && HelperMethods.CountNPCs(type) < maxHauntlings && SecondaryTimer < 800)
 			{
 				randomRotation = Main.rand.NextFloat(0, 6.2f);
 				Vector2 spawnPos = new Vector2(target.Center.X + 1000, target.Center.Y).RotatedBy(randomRotation, target.Center);
@@ -432,6 +461,7 @@ namespace AssortedAdditions.Content.NPCs.BossTheHaunt
 				State = (float)States.Chase;
 				Timer = 0;
 				SecondaryTimer = 0;
+				NPC.netUpdate = true;
 			}
 		}
 
@@ -469,14 +499,98 @@ namespace AssortedAdditions.Content.NPCs.BossTheHaunt
 			}
 		}
 
+		private void SummonProjectiles(Player target)
+		{
+
+			// Summon projectiles from around the player:
+			if (SecondaryTimer % 60 == 0)
+			{
+				if (Main.netMode != NetmodeID.MultiplayerClient)
+				{
+					/*Vector2 spawnPos = new Vector2(target.Center.X + 1000, target.Center.Y).RotatedBy(Main.rand.NextFloat(0, 6.2f), target.Center);
+					Vector2 direction = target.Center - spawnPos;
+					direction.Normalize();
+					Projectile.NewProjectile(NPC.GetSource_FromAI(), spawnPos, direction * 2f, ModContent.ProjectileType<TheHauntGhost>(), 25, 5f, Main.myPlayer);*/
+
+					int xOffSet = Main.rand.Next(-600, 600);
+					Vector2 spawnPos = new Vector2(target.Center.X + xOffSet, target.Center.Y + 1000);
+					Vector2 direction = new Vector2(target.Center.X + xOffSet, target.Center.Y) - spawnPos;
+					direction.Normalize();
+					Projectile.NewProjectile(NPC.GetSource_FromAI(), spawnPos, direction * 4f, ModContent.ProjectileType<TheHauntProj>(), 25, 5f, Main.myPlayer);
+
+					/*Vector2 spawnPos = new Vector2(target.Center.X + 1000, target.Center.Y).RotatedBy(Main.rand.NextFloat(0, 6.2f), target.Center);
+					Vector2 direction = target.Center - spawnPos;
+					direction.Normalize();
+					Projectile.NewProjectile(NPC.GetSource_FromAI(), spawnPos, direction * 4f, ModContent.ProjectileType<TheHauntProj>(), 25, 5f, Main.myPlayer);*/
+				}
+			}
+
+			SecondaryTimer++;
+
+			if (SecondaryTimer % 240 == 0)
+			{
+				if (Main.netMode != NetmodeID.MultiplayerClient)
+				{
+					// Basic straight line velocity
+					Vector2 direction = target.Center - NPC.Center;
+					direction.Normalize();
+					direction *= 2f;
+
+					// Spawn up to three, rotate each ones basic velocity
+					float numberProjectiles = 3;
+					float rotation = MathHelper.ToRadians(75);
+
+					// Spawn the projectiles
+					for (int i = 0; i < numberProjectiles; i++)
+					{
+						Vector2 perturbedSpeed = direction.RotatedBy(MathHelper.Lerp(-rotation, rotation, i / (numberProjectiles - 1)));
+						Projectile.NewProjectile(NPC.GetSource_FromAI(), NPC.Center + NPC.velocity, perturbedSpeed, ModContent.ProjectileType<TheHauntGhost>(), 25, 5f, Main.myPlayer);
+					}
+					SoundEngine.PlaySound(SoundID.Item8 with { Pitch = 0.5f }, NPC.position);
+				}
+			}
+
+			if (SecondaryTimer > 1920)
+			{
+				SecondaryTimer = 0;
+				Timer = 0;
+				State = (float)States.Chase;
+				NPC.netUpdate = true;
+			}
+		}
+
+		private float randomXPos;
+		private float randomYPos;
+		private void SummonProjectilesMovement(Player target, float speed = 6f, float inertia = 17f)
+		{
+			if (SecondaryTimer % 120 == 0)
+			{
+				randomXPos = Main.rand.Next(-600, 600);
+				randomYPos = Main.rand.Next(-500, 500);
+				NPC.netUpdate = true; // ^^ Values need to be synced
+			}
+
+			// Basically moves around randomly within the ranges given above
+			Vector2 direction = new Vector2(target.Center.X + randomXPos, target.Center.Y + randomYPos) - NPC.Center;
+			direction.Normalize();
+			direction *= speed;
+
+			NPC.velocity = (NPC.velocity * (inertia - 1) + direction) / inertia;
+			NPC.spriteDirection = target.Center.X < NPC.Center.X ? -1 : 1;
+		}
+
 		public override void SendExtraAI(BinaryWriter writer)
 		{
 			writer.Write(randomRotation);
+			writer.Write(randomXPos);
+			writer.Write(randomYPos);
 		}
 
 		public override void ReceiveExtraAI(BinaryReader reader)
 		{
 			randomRotation = reader.ReadSingle();
+			randomXPos = reader.ReadSingle();
+			randomYPos = reader.ReadSingle();
 		}
 
 		public override bool CanHitPlayer(Player target, ref int cooldownSlot)

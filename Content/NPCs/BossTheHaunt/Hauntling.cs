@@ -31,8 +31,8 @@ namespace AssortedAdditions.Content.NPCs.BossTheHaunt
 			NPC.height = 40;
 			NPC.value = 200;
 			NPC.damage = 45;
-			NPC.defense = 12;
-			NPC.lifeMax = 155;
+			NPC.defense = 10;
+			NPC.lifeMax = 145;
 			NPC.knockBackResist = 0.5f;
 
 			NPC.HitSound = new SoundStyle("AssortedAdditions/Assets/Sounds/NPCSound/PhantomMageHit");
