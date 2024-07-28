@@ -1,6 +1,6 @@
 # Class Setups
 
-These tables show the earliest point when an item can be obtained and roughly when they are relevant during the game's progression. Some items can still be viable later on. There are some changes to vanilla progression and those changes are noted down here as well. The [vanilla class setups](https://terraria.wiki.gg/wiki/Guide:Class_setups) can be used along side this (mostly).
+These tables show the earliest point when an item can be obtained. Many items can still be viable later on. There are some changes to vanilla progression and those changes are noted down here as well. The [vanilla class setups](https://terraria.wiki.gg/wiki/Guide:Class_setups) can be used along side this (mostly).
 
 ## Pre-bosses
 
@@ -65,16 +65,14 @@ These tables show the earliest point when an item can be obtained and roughly wh
 |             |             |                  |           |     Tools      |
 |             |             |                  |           |  Bag of Bombs  |
 
-
 ----------------------
 
-## Pre-Destroyer
+## Pre-Fire Dragon (MODDED BOSS)
 
 |Melee          |Ranged         |Magic              |Summoning      |All               |
 |:-------------:|:-------------:|:-----------------:|:-------------:|:----------------:|
 |           |            |            |              |          |
 |    Weapons    |    Weapons    |      Weapons      |    Weapons    |     Weapons      |
-|Draconic Blade | Draconic Bow  |   Draconic Tome   | Dragon Staff  |                  |
 | Desert's Fury |Desert Blaster | Dustbringer Staff |  Sun Scepter  |                  |
 |               |  Ice Blaster  | True Amber Staff  |               |                  |
 |               |               |True Amethyst Staff|               |                  |
@@ -99,12 +97,26 @@ These tables show the earliest point when an item can be obtained and roughly wh
 |               |               |     Mana Rune     |               |  Rune of Health  |
 |               |               |                   |               |                  |
 |     Armor     |     Armor     |       Armor       |     Armor     |      Armor       |
-|Draconic Armor |Draconic Armor |  Draconic Armor   |Draconic Armor |                  |
 |Palladium Armor|Palladium Armor|  Palladium Armor  |Palladium Armor|                  |
 | Cobalt Armor  | Cobalt Armor  |   Cobalt Armor    | Cobalt Armor  |                  |
 |               |               |                   |               |                  |
 |               |               |                   |               |  Buffs/Potions   |
 |               |               |                   |               |    Lunch Box     |
+
+----------------------
+
+## Pre-Destroyer
+
+|Melee          |Ranged         |Magic              |Summoning      |All               |
+|:-------------:|:-------------:|:-----------------:|:-------------:|:----------------:|
+|           |            |            |              |          |
+|    Weapons    |    Weapons    |      Weapons      |    Weapons    |     Weapons      |
+|Draconic Blade | Draconic Bow  |   Draconic Tome   | Dragon Staff  |                  |
+|               |               |                   |               |                  |
+|               |               |                   |               |                  |
+|     Armor     |     Armor     |       Armor       |     Armor     |      Armor       |
+|Draconic Armor |Draconic Armor |  Draconic Armor   |Draconic Armor |                  |
+|               |               |                   |               |                  |
 
 ----------------------
 
@@ -150,13 +162,14 @@ These tables show the earliest point when an item can be obtained and roughly wh
 | Titanium Armor | Titanium Armor | Titanium Armor | Titanium Armor |           |
 
 ----------------------
-## Pre-Plantera
+## Pre-The Haunt (MODDED BOSS)
 
 |Melee       |Ranged       |Magic      |Summoning  |All            |
 |:----------:|:-----------:|:---------:|:---------:|:-------------:|
-|           |            |            |              |          |
+|            |             |           |           |               |
 |  Weapons   |   Weapons   |  Weapons  |  Weapons  |    Weapons    |
 |Cosmic Blade|Shooting Star|Cosmic Tome|Cosmic Whip|               |
+|            |             |           |           |               |
 |            |             |           |           |               |
 |Accessories | Accessories |Accessories|Accessories|  Accessories  |
 |            |             |           |           |               |
@@ -165,6 +178,16 @@ These tables show the earliest point when an item can be obtained and roughly wh
 |            |             |           |           |               |
 |            |             |           |           |     Tools     |
 |            |             |           |           |  Telelocator  |
+
+----------------------
+## Pre-Plantera
+
+|Melee       |Ranged       |Magic      |Summoning  |All            |
+|:----------:|:-----------:|:---------:|:---------:|:-------------:|
+|            |             |           |           |               |
+|  Weapons   |   Weapons   |  Weapons  |  Weapons  |    Weapons    |
+|            |Phantasmic Bow          |           |           |            |
+|            |             |           |           |               |
 
 ----------------------
 

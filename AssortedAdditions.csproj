@@ -162,6 +162,7 @@
     <None Remove="Content\Items\Weapons\Ranged\GraniteChakram.png" />
     <None Remove="Content\Items\Weapons\Ranged\IceBlaster.png" />
     <None Remove="Content\Items\Weapons\Ranged\JungleChakram.png" />
+    <None Remove="Content\Items\Weapons\Ranged\PhantasmicBow.png" />
     <None Remove="Content\Items\Weapons\Ranged\SawbladeLauncher.png" />
     <None Remove="Content\Items\Weapons\Ranged\ScifiBlaster.png" />
     <None Remove="Content\Items\Weapons\Ranged\ShootingStar.png" />

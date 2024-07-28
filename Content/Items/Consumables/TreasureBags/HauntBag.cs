@@ -47,7 +47,7 @@ namespace AssortedAdditions.Content.Items.Consumables.TreasureBags
 				ModContent.ItemType<DraconicBlade>(),
 				ModContent.ItemType<DraconicTome>(),
 				ModContent.ItemType<DragonStaff>(),
-				ModContent.ItemType<DraconicBow>()));
+				ModContent.ItemType<PhantasmicBow>()));
 
 			// Always drops these:
 			itemLoot.Add(ItemDropRule.CoinsBasedOnNPCValue(ModContent.NPCType<TheHaunt>()));

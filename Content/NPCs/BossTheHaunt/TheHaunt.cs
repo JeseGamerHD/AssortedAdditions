@@ -4,6 +4,7 @@ using AssortedAdditions.Content.Items.Consumables.TreasureBags;
 using AssortedAdditions.Content.Items.Pets;
 using AssortedAdditions.Content.Items.Placeables.Relics;
 using AssortedAdditions.Content.Items.Placeables.Trophies;
+using AssortedAdditions.Content.Items.Weapons.Ranged;
 using AssortedAdditions.Content.Projectiles.NPCProj;
 using AssortedAdditions.Helpers;
 using Microsoft.Xna.Framework;
@@ -622,11 +623,11 @@ namespace AssortedAdditions.Content.NPCs.BossTheHaunt
 /*			LeadingConditionRule notExpert = new LeadingConditionRule(new Conditions.NotExpert());
 
 			notExpert.OnSuccess(ItemDropRule.OneFromOptions(1,
-                ModContent.ItemType<>(),
-                ModContent.ItemType<>(),
-                ModContent.ItemType<>(),
-                ModContent.ItemType<>()));
-            npcLoot.Add(notExpert);*/
+				ModContent.ItemType<PhantasmicBow>(),
+				ModContent.ItemType<>(),
+				ModContent.ItemType<>(),
+				ModContent.ItemType<>()));
+			npcLoot.Add(notExpert);*/
 		}
 
 		private int currentFrame = 0;

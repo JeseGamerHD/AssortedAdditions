@@ -1327,6 +1327,11 @@ Mods: {
 				DisplayName: Haunt Bag
 				Tooltip: ""
 			}
+
+			PhantasmicBow: {
+				DisplayName: Phantasmic Bow
+				Tooltip: Shoots a burst of homing projectiles
+			}
 		}
 
 		Projectiles: {
@@ -1430,6 +1435,7 @@ Mods: {
 			TheHauntGhost.DisplayName: The Haunt's Projectile
 			PetHauntling.DisplayName: Pet Hauntling
 			TheHauntProj.DisplayName: The Haunt's Projectile
+			PhantasmicBowProj.DisplayName: Phantasmic Bow Projectile
 		}
 
 		Tiles: {
