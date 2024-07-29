@@ -31,8 +31,8 @@ namespace AssortedAdditions.Content.NPCs.BossTheHaunt
 			NPC.height = 40;
 			NPC.value = 200;
 			NPC.damage = 45;
-			NPC.defense = 10;
-			NPC.lifeMax = 145;
+			NPC.defense = 12;
+			NPC.lifeMax = 175;
 			NPC.knockBackResist = 0.5f;
 
 			NPC.HitSound = new SoundStyle("AssortedAdditions/Assets/Sounds/NPCSound/PhantomMageHit");
@@ -95,8 +95,8 @@ namespace AssortedAdditions.Content.NPCs.BossTheHaunt
 			if (Dash == 1)
 			{
 				NPC.velocity = Vector2.Zero;
-				NPC.velocity.X = NPC.DirectionTo(target.Center).X * 18f;
-				NPC.velocity.Y = NPC.DirectionTo(target.Center).Y * 4f;
+				NPC.velocity.X = NPC.DirectionTo(target.Center).X * 16f;
+				NPC.velocity.Y = NPC.DirectionTo(target.Center).Y * 9f;
 				Dash = 0;
 				NPC.netUpdate = true;
 			}

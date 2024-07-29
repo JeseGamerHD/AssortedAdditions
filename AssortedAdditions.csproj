@@ -19,6 +19,7 @@
     <None Remove="Content\Buffs\MedkitBuff.png" />
     <None Remove="Content\Buffs\MotivatorDebuff.png" />
     <None Remove="Content\Buffs\Pets\PetHauntlingBuff.png" />
+    <None Remove="Content\Buffs\PhantasmicDaggerDebuff.png" />
     <None Remove="Content\Buffs\RuneOfHealthCooldown.png" />
     <None Remove="Content\Buffs\RuneOfRelocationCooldown.png" />
     <None Remove="Content\Buffs\RuneOfShadowsCooldown.png" />
@@ -136,6 +137,7 @@
     <None Remove="Content\Items\Weapons\Magic\DeathRay.png" />
     <None Remove="Content\Items\Weapons\Magic\GeodeScepter.png" />
     <None Remove="Content\Items\Weapons\Magic\IcyStaff.png" />
+    <None Remove="Content\Items\Weapons\Magic\PhantasmicGauntlet.png" />
     <None Remove="Content\Items\Weapons\Magic\ShroomPouch.png" />
     <None Remove="Content\Items\Weapons\Magic\SpiritVase.png" />
     <None Remove="Content\Items\Weapons\Magic\SporeRod.png" />
@@ -176,6 +178,7 @@
     <None Remove="Content\Items\Weapons\Summon\GraniteStaff.png" />
     <None Remove="Content\Items\Weapons\Summon\GraniteStaffMinion.png" />
     <None Remove="Content\Items\Weapons\Summon\Motivator.png" />
+    <None Remove="Content\Items\Weapons\Summon\PhantasmicDagger.png" />
     <None Remove="Content\Items\Weapons\Summon\ShellHorn.png" />
     <None Remove="Content\Items\Weapons\Summon\ShroomScepter.png" />
     <None Remove="Content\Items\Weapons\Summon\SnowDwellerStaff.png" />
@@ -223,6 +226,7 @@
     <None Remove="Content\Projectiles\MagicProj\DeathRayProj.png" />
     <None Remove="Content\Projectiles\MagicProj\GeodeScepterProj.png" />
     <None Remove="Content\Projectiles\MagicProj\IcyWandProj.png" />
+    <None Remove="Content\Projectiles\MagicProj\PhantasmicGauntletProj.png" />
     <None Remove="Content\Projectiles\MagicProj\SpiritVaseProj.png" />
     <None Remove="Content\Projectiles\MagicProj\SporeOrbSmall.png" />
     <None Remove="Content\Projectiles\MagicProj\StoneWandProj.png" />

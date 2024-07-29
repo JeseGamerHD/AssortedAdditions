@@ -1,6 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
 using Terraria;
-using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -31,7 +30,7 @@ namespace AssortedAdditions.Content.Projectiles.MeleeProj
 		{
 			base.OnHitNPC(target, hit, damageDone);
 
-			if(Main.netMode != NetmodeID.MultiplayerClient && HitCounter % 2 == 0)
+			if(Main.myPlayer == Projectile.owner && HitCounter % 2 == 0)
 			{
 				Vector2 spawnPos = new Vector2(target.Center.X, target.Center.Y - 400).RotatedBy(Main.rand.NextFloat(-1f, 1f), target.Center);
 				int owner = Main.player[Projectile.owner].whoAmI;

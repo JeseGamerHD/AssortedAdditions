@@ -4,7 +4,6 @@ using Terraria.ModLoader;
 using Terraria;
 using Terraria.DataStructures;
 using Microsoft.Xna.Framework;
-using AssortedAdditions.Content.Tiles.CraftingStations;
 using AssortedAdditions.Content.Items.Placeables.Ores;
 
 namespace AssortedAdditions.Content.Items.Weapons.Magic
@@ -76,7 +75,7 @@ namespace AssortedAdditions.Content.Items.Weapons.Magic
 		}
 	}
 
-	public class AncientStaffPlayer : ModPlayer
+	public class AncientGauntletPlayer : ModPlayer
 	{
 		public override void PostUpdateMiscEffects()
 		{

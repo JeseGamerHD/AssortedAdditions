@@ -39,14 +39,13 @@ namespace AssortedAdditions.Content.Items.Consumables.TreasureBags
 			return true;
 		}
 
-		// TODO:
 		public override void ModifyItemLoot(ItemLoot itemLoot)
 		{
 			// Drops 1 of these:
 			itemLoot.Add(ItemDropRule.OneFromOptions(1,
 				ModContent.ItemType<PhantasmicBlade>(),
-				ModContent.ItemType<DraconicTome>(),
-				ModContent.ItemType<DragonStaff>(),
+				ModContent.ItemType<PhantasmicGauntlet>(),
+				ModContent.ItemType<PhantasmicDagger>(),
 				ModContent.ItemType<PhantasmicBow>()));
 
 			// Always drops these:

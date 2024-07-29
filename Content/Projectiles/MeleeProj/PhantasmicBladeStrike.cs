@@ -38,7 +38,8 @@ namespace AssortedAdditions.Content.Projectiles.MeleeProj
 		private ref float Target => ref Projectile.ai[0];
 		private ref float CanHit => ref Projectile.ai[1];
 
-		private float speed = 0;
+		private ref float Speed => ref Projectile.ai[2];
+
 		public override void AI()
 		{
 			if(Projectile.timeLeft == 300)
@@ -48,15 +49,17 @@ namespace AssortedAdditions.Content.Projectiles.MeleeProj
 
 			if (CanHit == 0)
 			{
-				// Accelerate
-				speed += 0.8f;
+				// Accelerate until target is hit
+				Speed += 0.8f;
+				Projectile.netUpdate = true;
 			}
 
 			if (CanHit != 0)
 			{
+				// Slow down after going through the target
 				Projectile.velocity *= 0.96f;
 
-				if(speed <= 0)
+				if(Speed <= 0)
 				{
 					Projectile.Kill();
 				}
@@ -67,7 +70,7 @@ namespace AssortedAdditions.Content.Projectiles.MeleeProj
 				Vector2 direction = Main.npc[(int)Target].Center - Projectile.Center;
 				direction.Normalize();
 
-				Projectile.velocity = direction * speed;
+				Projectile.velocity = direction * Speed;
 			}
 		}
 
@@ -79,6 +82,7 @@ namespace AssortedAdditions.Content.Projectiles.MeleeProj
 			}
 
 			CanHit++; // Fly off after hitting a target
+			Projectile.netUpdate = true;
 		}
 
 		public override bool? CanHitNPC(NPC target)

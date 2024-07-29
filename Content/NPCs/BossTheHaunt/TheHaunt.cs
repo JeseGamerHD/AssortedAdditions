@@ -4,7 +4,10 @@ using AssortedAdditions.Content.Items.Consumables.TreasureBags;
 using AssortedAdditions.Content.Items.Pets;
 using AssortedAdditions.Content.Items.Placeables.Relics;
 using AssortedAdditions.Content.Items.Placeables.Trophies;
+using AssortedAdditions.Content.Items.Weapons.Magic;
+using AssortedAdditions.Content.Items.Weapons.Melee;
 using AssortedAdditions.Content.Items.Weapons.Ranged;
+using AssortedAdditions.Content.Items.Weapons.Summon;
 using AssortedAdditions.Content.Projectiles.NPCProj;
 using AssortedAdditions.Helpers;
 using Microsoft.Xna.Framework;
@@ -503,7 +506,7 @@ namespace AssortedAdditions.Content.NPCs.BossTheHaunt
 
 			SecondaryTimer++;
 
-			if (SecondaryTimer % 190 == 0)
+			if (SecondaryTimer % 240 == 0)
 			{
 				if (Main.netMode != NetmodeID.MultiplayerClient)
 				{
@@ -526,7 +529,7 @@ namespace AssortedAdditions.Content.NPCs.BossTheHaunt
 				}
 			}
 
-			if (SecondaryTimer > 1900)
+			if (SecondaryTimer > 1920)
 			{
 				SecondaryTimer = 0;
 				Timer = 0;
@@ -595,15 +598,14 @@ namespace AssortedAdditions.Content.NPCs.BossTheHaunt
 			npcLoot.Add(ItemDropRule.MasterModeCommonDrop(ModContent.ItemType<HauntRelic>())); // Master mode relic
 			npcLoot.Add(ItemDropRule.MasterModeDropOnAllPlayers(ModContent.ItemType<CursedCandle>(), 4));
 
-			// TODO non expert version
-/*			LeadingConditionRule notExpert = new LeadingConditionRule(new Conditions.NotExpert());
-
+			// non expert version
+			LeadingConditionRule notExpert = new LeadingConditionRule(new Conditions.NotExpert());
 			notExpert.OnSuccess(ItemDropRule.OneFromOptions(1,
 				ModContent.ItemType<PhantasmicBow>(),
-				ModContent.ItemType<>(),
-				ModContent.ItemType<>(),
-				ModContent.ItemType<>()));
-			npcLoot.Add(notExpert);*/
+				ModContent.ItemType<PhantasmicBlade>(),
+				ModContent.ItemType<PhantasmicGauntlet>(),
+				ModContent.ItemType<PhantasmicDagger>()));
+			npcLoot.Add(notExpert);
 		}
 
 		private int currentFrame = 0;
