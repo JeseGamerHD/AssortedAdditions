@@ -23,10 +23,10 @@ namespace AssortedAdditions.Content.Items.Weapons.Ranged
 			Item.autoReuse = true;
 			Item.consumeAmmoOnLastShotOnly = true;
 
-			Item.rare = ItemRarityID.LightPurple;
+			Item.rare = ItemRarityID.Lime;
 			Item.DamageType = DamageClass.Ranged;
 			Item.useStyle = ItemUseStyleID.Shoot;
-			Item.UseSound = SoundID.Item5;
+			//Item.UseSound = SoundID.Item5;
 			Item.value = Item.sellPrice(gold: 8);
 			Item.useAmmo = AmmoID.Arrow;
 			Item.shoot = ModContent.ProjectileType<PhantasmicBowProj>();
@@ -36,6 +36,12 @@ namespace AssortedAdditions.Content.Items.Weapons.Ranged
 
 		public override void ModifyShootStats(Player player, ref Vector2 position, ref Vector2 velocity, ref int type, ref int damage, ref float knockback)
 		{
+			Vector2 muzzleOffset = Vector2.Normalize(velocity) * -20f;
+			if (Collision.CanHit(position, 0, 0, position + muzzleOffset, 0, 0))
+			{
+				position += muzzleOffset;
+			}
+
 			// Always shoots custom projectile no matter which arrow was used
 			type = ModContent.ProjectileType<PhantasmicBowProj>();
 		}

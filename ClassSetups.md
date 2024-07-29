@@ -186,7 +186,7 @@ These tables show the earliest point when an item can be obtained. Many items ca
 |:----------:|:-----------:|:---------:|:---------:|:-------------:|
 |            |             |           |           |               |
 |  Weapons   |   Weapons   |  Weapons  |  Weapons  |    Weapons    |
-|            |Phantasmic Bow          |           |           |            |
+| Phantasmic Blade         | Phantasmic Bow |           |           |            |
 |            |             |           |           |               |
 
 ----------------------

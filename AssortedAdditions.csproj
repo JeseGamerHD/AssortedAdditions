@@ -153,6 +153,7 @@
     <None Remove="Content\Items\Weapons\Melee\GhostlyBlade.png" />
     <None Remove="Content\Items\Weapons\Melee\LihzahrdClub.png" />
     <None Remove="Content\Items\Weapons\Melee\PetalBlade.png" />
+    <None Remove="Content\Items\Weapons\Melee\PhantasmicBlade.png" />
     <None Remove="Content\Items\Weapons\Melee\Pwnage.png" />
     <None Remove="Content\Items\Weapons\Melee\ShroomMacepole.png" />
     <None Remove="Content\Items\Weapons\Ranged\BombLauncher.png" />

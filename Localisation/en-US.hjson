@@ -1332,6 +1332,11 @@ Mods: {
 				DisplayName: Phantasmic Bow
 				Tooltip: Shoots a burst of homing projectiles
 			}
+
+			PhantasmicBlade: {
+				DisplayName: Phantasmic Blade
+				Tooltip: Summons spirits on hit
+			}
 		}
 
 		Projectiles: {
@@ -1436,6 +1441,8 @@ Mods: {
 			PetHauntling.DisplayName: Pet Hauntling
 			TheHauntProj.DisplayName: The Haunt's Projectile
 			PhantasmicBowProj.DisplayName: Phantasmic Bow Projectile
+			PhantasmicBladeTrail.DisplayName: Phantasmic Blade Trail
+			PhantasmicBladeStrike.DisplayName: Phantasmic Blade Strike
 		}
 
 		Tiles: {

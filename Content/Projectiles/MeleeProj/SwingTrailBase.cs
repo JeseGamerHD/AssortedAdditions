@@ -87,7 +87,9 @@ namespace AssortedAdditions.Content.Projectiles.MeleeProj
         /// </summary>
         public Color SwingFrontColor { get; set; } = Color.White;
 
-        public override void SetStaticDefaults()
+        public override string Texture => "Terraria/Images/Projectile_" + ProjectileID.Excalibur;
+
+		public override void SetStaticDefaults()
         {
             ProjectileID.Sets.AllowsContactDamageFromJellyfish[Type] = true;
             Main.projFrames[Type] = 4;

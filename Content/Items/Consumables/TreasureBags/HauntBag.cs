@@ -44,7 +44,7 @@ namespace AssortedAdditions.Content.Items.Consumables.TreasureBags
 		{
 			// Drops 1 of these:
 			itemLoot.Add(ItemDropRule.OneFromOptions(1,
-				ModContent.ItemType<DraconicBlade>(),
+				ModContent.ItemType<PhantasmicBlade>(),
 				ModContent.ItemType<DraconicTome>(),
 				ModContent.ItemType<DragonStaff>(),
 				ModContent.ItemType<PhantasmicBow>()));

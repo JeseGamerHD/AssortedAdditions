@@ -67,9 +67,9 @@ namespace AssortedAdditions.Content.NPCs.BossTheHaunt
 
 		public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)
 		{
-			// 20% increase in health per player in multiplayer
+			// 40% increase in health per player in multiplayer
 			// in singleplayer nothing happens
-			float multiplier = numPlayers > 1 ? 0.2f : 0;
+			float multiplier = numPlayers > 1 ? 0.4f : 0;
 			NPC.lifeMax = (int)(NPC.lifeMax * (1 + multiplier * (numPlayers - 1)));
 		}
 
@@ -133,7 +133,7 @@ namespace AssortedAdditions.Content.NPCs.BossTheHaunt
 			if (State == (float)States.Chase)
 			{
 				ChaseState(target, distanceFromTarget);
-				BasicMovement(target, distanceFromTarget, 6f);
+				BasicMovement(target, distanceFromTarget, 8.5f, 30f);
 			}
 
 			if (State == (float)States.Dash)
@@ -144,19 +144,20 @@ namespace AssortedAdditions.Content.NPCs.BossTheHaunt
 			if(State == (float)States.ThrowFurniture)
 			{
 				ThrowFurniture(target);
-				BasicMovement(target, distanceFromTarget, 1f);
+				BasicMovement(target, distanceFromTarget, 2f);
 			}
 
 			if (State == (float)States.SummonGhosts)
 			{
 				SummonGhosts(target);
-				SummonGhostsMovement(target, distanceFromTarget, 3f);
+				//SummonGhostsMovement(target, distanceFromTarget, 3f);
+				RandomMovementAroundPlayer(target, 7f);
 			}
 
 			if(State == (float)States.SummonProjectiles)
 			{
 				SummonProjectiles(target);
-				SummonProjectilesMovement(target, 5f);
+				RandomMovementAroundPlayer(target, 5.5f);
 			}
 
 			// Choose next state (if in the default chase state)
@@ -203,6 +204,9 @@ namespace AssortedAdditions.Content.NPCs.BossTheHaunt
 
 				SecondaryTimer = 0; // Safety reset incase some state did not reset this properly (Chase state)
 				NPC.netUpdate = true;
+
+				SoundStyle stateChange = new SoundStyle("AssortedAdditions/Assets/Sounds/NPCSound/HauntStateChange");
+				SoundEngine.PlaySound(stateChange with { Pitch = -0.7f, Volume = 1.3f }, NPC.position);
 			}
 
 			// Dash state messes with the alpha, return the haunt to normal alpha
@@ -238,11 +242,17 @@ namespace AssortedAdditions.Content.NPCs.BossTheHaunt
 
 		private void ChaseState(Player target, float distanceFromTarget)
 		{
+
+			if(SecondaryTimer == 0)
+			{
+				SoundStyle chaseStart = new SoundStyle("AssortedAdditions/Assets/Sounds/NPCSound/HauntChaseStart");
+				SoundEngine.PlaySound(chaseStart with { Pitch = -0.3f }, NPC.position);
+			}
 			SecondaryTimer++;
 
 			// During the chase state, the haunt will attempt to spawn three projectiles
 			// if the player is far enough away (max every 3 seconds). 
-			if (distanceFromTarget > 300f && SecondaryTimer % 180 == 0 && SecondaryTimer != 0)
+			if (distanceFromTarget > 350f && SecondaryTimer % 180 == 0 && SecondaryTimer != 0)
 			{
 				if (Main.netMode != NetmodeID.MultiplayerClient)
 				{
@@ -453,14 +463,14 @@ namespace AssortedAdditions.Content.NPCs.BossTheHaunt
 				}
 			}
 
-			if(SecondaryTimer % 150 == 0)
+			if(SecondaryTimer % 120 == 0)
 			{
 				if(Main.netMode != NetmodeID.MultiplayerClient)
 				{
 					Vector2 spawnPos = new Vector2(target.Center.X + 1000, target.Center.Y).RotatedBy(Main.rand.NextFloat(0, 6.2f), target.Center);
 					Vector2 direction = target.Center - spawnPos;
 					direction.Normalize();
-					Projectile.NewProjectile(NPC.GetSource_FromAI(), spawnPos, direction * 2f, ModContent.ProjectileType<TheHauntGhost>(), 35, 5f, Main.myPlayer);
+					Projectile.NewProjectile(NPC.GetSource_FromAI(), spawnPos, direction * 2f, ModContent.ProjectileType<TheHauntGhost>(), 30, 5f, Main.myPlayer);
 				}
 			}
 
@@ -476,40 +486,6 @@ namespace AssortedAdditions.Content.NPCs.BossTheHaunt
 			}
 		}
 
-		private void SummonGhostsMovement(Player target, float distanceFromTarget, float speed = 6f, float inertia = 17f)
-		{
-			if (distanceFromTarget > 100f) // The immediate range around the target (so it doesn't latch onto it when close)
-			{
-				// Set the velocity, and sprite direction
-				Vector2 direction;
-
-				// When spawning ghosts, just wander around the player
-				// Could randomize, but would need to sync
-				if(SecondaryTimer < 200)
-				{
-					direction = new Vector2(target.Center.X + 400, target.Center.Y - 200) - NPC.Center;
-				}
-				else if (SecondaryTimer >= 200 && SecondaryTimer < 400)
-				{
-					direction = new Vector2(target.Center.X - 600, target.Center.Y + 200) - NPC.Center;
-				}
-				else if (SecondaryTimer >= 400 && SecondaryTimer < 600)
-				{
-					direction = new Vector2(target.Center.X + 100, target.Center.Y - 50) - NPC.Center;
-				}
-				else
-				{
-					direction = new Vector2(target.Center.X - 300, target.Center.Y) - NPC.Center;
-				}
-
-				direction.Normalize();
-				direction *= speed;
-
-				NPC.velocity = (NPC.velocity * (inertia - 1) + direction) / inertia;
-				NPC.spriteDirection = target.Center.X < NPC.Center.X ? -1 : 1;
-			}
-		}
-
 		private void SummonProjectiles(Player target)
 		{
 			// Summon projectiles from around the player:
@@ -518,23 +494,23 @@ namespace AssortedAdditions.Content.NPCs.BossTheHaunt
 				if (Main.netMode != NetmodeID.MultiplayerClient)
 				{
 					int xOffSet = Main.rand.Next(-600, 600);
-					Vector2 spawnPos = new Vector2(target.Center.X + xOffSet, target.Center.Y + 1000);
+					Vector2 spawnPos = new Vector2(target.Center.X + xOffSet, target.Center.Y + 800);
 					Vector2 direction = new Vector2(target.Center.X + xOffSet, target.Center.Y) - spawnPos;
 					direction.Normalize();
-					Projectile.NewProjectile(NPC.GetSource_FromAI(), spawnPos, direction * 4f, ModContent.ProjectileType<TheHauntProj>(), 30, 5f, Main.myPlayer);
+					Projectile.NewProjectile(NPC.GetSource_FromAI(), spawnPos, direction * 5f, ModContent.ProjectileType<TheHauntProj>(), 30, 0f, Main.myPlayer);
 				}
 			}
 
 			SecondaryTimer++;
 
-			if (SecondaryTimer % 240 == 0)
+			if (SecondaryTimer % 190 == 0)
 			{
 				if (Main.netMode != NetmodeID.MultiplayerClient)
 				{
 					// Basic straight line velocity
 					Vector2 direction = target.Center - NPC.Center;
 					direction.Normalize();
-					direction *= 2f;
+					direction *= 3f;
 
 					// Spawn up to three, rotate each ones basic velocity
 					float numberProjectiles = 3;
@@ -544,13 +520,13 @@ namespace AssortedAdditions.Content.NPCs.BossTheHaunt
 					for (int i = 0; i < numberProjectiles; i++)
 					{
 						Vector2 perturbedSpeed = direction.RotatedBy(MathHelper.Lerp(-rotation, rotation, i / (numberProjectiles - 1)));
-						Projectile.NewProjectile(NPC.GetSource_FromAI(), NPC.Center + NPC.velocity, perturbedSpeed, ModContent.ProjectileType<TheHauntGhost>(), 25, 5f, Main.myPlayer);
+						Projectile.NewProjectile(NPC.GetSource_FromAI(), NPC.Center + NPC.velocity, perturbedSpeed, ModContent.ProjectileType<TheHauntGhost>(), 30, 6f, Main.myPlayer);
 					}
 					SoundEngine.PlaySound(SoundID.Item8 with { Pitch = 0.5f }, NPC.position);
 				}
 			}
 
-			if (SecondaryTimer > 1920)
+			if (SecondaryTimer > 1900)
 			{
 				SecondaryTimer = 0;
 				Timer = 0;
@@ -561,7 +537,7 @@ namespace AssortedAdditions.Content.NPCs.BossTheHaunt
 
 		private float randomXPos;
 		private float randomYPos;
-		private void SummonProjectilesMovement(Player target, float speed = 6f, float inertia = 17f)
+		private void RandomMovementAroundPlayer(Player target, float speed = 6f, float inertia = 17f)
 		{
 			if (SecondaryTimer % 120 == 0)
 			{

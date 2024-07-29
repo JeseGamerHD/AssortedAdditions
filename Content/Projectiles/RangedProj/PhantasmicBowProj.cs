@@ -4,6 +4,7 @@ using Terraria.Graphics;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria.Audio;
 
 namespace AssortedAdditions.Content.Projectiles.RangedProj
 {
@@ -38,6 +39,11 @@ namespace AssortedAdditions.Content.Projectiles.RangedProj
 
 		public override void AI()
 		{
+			if(Projectile.timeLeft == 300)
+			{
+				SoundEngine.PlaySound(SoundID.Item5, Main.player[Projectile.owner].position);
+			}
+
 			float range = 600f; // Max radius that the projectile can detect a target
 
 			NPC closestNPC = FindClosestNPC(range);
@@ -104,7 +110,7 @@ namespace AssortedAdditions.Content.Projectiles.RangedProj
 
 		public override bool? CanHitNPC(NPC target)
 		{
-			if (FlyOff > 0) // Can only hit three times
+			if (FlyOff > 0)
 			{
 				return false;
 			}

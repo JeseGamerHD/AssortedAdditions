@@ -1,14 +1,14 @@
 [B]v0.1.1.0[/B]
 
 [LIST]
-[*] Added a new boss for the graveyard biome
+[*] Added a new boss!! (Graveyard biome)
 [*] Added 3 new enemies
-[*] Added 6 new items
+[*] Added 7 new items (3 weapons)
 [*] Changes to Rune Slot: It's now always visible, but a lock icon displays along with a tooltip when it is locked.
 [*] Grabber Plant should no longer spawn submerged. Also reduced spawn chance.
 [*] Fire Drake's projectile makes a dig sound on collision.
 [*] Improved Double Phasesaber sound effect.
-[*] Improved Fire Dragon: Smoother movement after the head hits the player.
+[*] Improved Fire Dragon boss: Smoother movement after the head hits the player.
 [*] Fixed Fire Dragon relic duplication bug.
 [*] Localization cleanup.
 [/LIST]
