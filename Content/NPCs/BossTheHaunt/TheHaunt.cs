@@ -48,7 +48,7 @@ namespace AssortedAdditions.Content.NPCs.BossTheHaunt
 
 			NPC.damage = 50;
 			NPC.defense = 28;
-			NPC.lifeMax = 29500;
+			NPC.lifeMax = 28500;
 			NPC.knockBackResist = 0f;
 
 			NPC.HitSound = SoundID.NPCHit7;
@@ -687,7 +687,6 @@ namespace AssortedAdditions.Content.NPCs.BossTheHaunt
 		{
 			// DASH ATTACK PART
 			float maxStrength = Main.IsItDay() ? 0.85f : 0.55f; // Limit the amount of darkness, during night 0.85f would be too dark.
-			// TODO better check for day/night, should become 0.55f during dusk
 			if (State == (float)States.Dash || strength > 0) // Dashing state or darkness has not yet fully lifted
 			{
 				// strenght is initially 0f, increase it to the full when the state begins

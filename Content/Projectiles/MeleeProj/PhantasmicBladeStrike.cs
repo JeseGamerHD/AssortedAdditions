@@ -47,14 +47,19 @@ namespace AssortedAdditions.Content.Projectiles.MeleeProj
 				SoundEngine.PlaySound(SoundID.Item8 with { Pitch = -0.3f, MaxInstances = 3 }, Projectile.position);
 			}
 
+			if (!Main.npc[(int)Target].active)
+			{
+				CanHit++;
+				Projectile.netUpdate = true;
+			}
+
 			if (CanHit == 0)
 			{
 				// Accelerate until target is hit
 				Speed += 0.8f;
 				Projectile.netUpdate = true;
 			}
-
-			if (CanHit != 0)
+			else
 			{
 				// Slow down after going through the target
 				Projectile.velocity *= 0.96f;

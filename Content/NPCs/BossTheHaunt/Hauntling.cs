@@ -47,7 +47,7 @@ namespace AssortedAdditions.Content.NPCs.BossTheHaunt
 		private ref float Dash => ref NPC.ai[0];
 		private ref float Timer => ref NPC.ai[1];
 
-		private float speed = 12f;
+		private float speed = 10f;
 		private float inertia = 25f;
 		public override void AI()
 		{
@@ -96,7 +96,7 @@ namespace AssortedAdditions.Content.NPCs.BossTheHaunt
 			{
 				NPC.velocity = Vector2.Zero;
 				NPC.velocity.X = NPC.DirectionTo(target.Center).X * 16f;
-				NPC.velocity.Y = NPC.DirectionTo(target.Center).Y * 9f;
+				NPC.velocity.Y = NPC.DirectionTo(target.Center).Y * 6f;
 				Dash = 0;
 				NPC.netUpdate = true;
 			}

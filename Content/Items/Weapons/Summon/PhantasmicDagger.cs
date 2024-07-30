@@ -45,6 +45,13 @@ namespace AssortedAdditions.Content.Items.Weapons.Summon
 				{
 					if (projectile.minion && projectile.owner == Main.myPlayer)
 					{
+						for (int i = 0; i < 30; i++)
+						{
+							Vector2 speed = Main.rand.NextVector2CircularEdge(1.5f, 1.5f); // Creates a circle of dust
+							Dust dust = Dust.NewDustPerfect(projectile.Center, DustID.Smoke, speed * 2, 75, Color.White, 1.5f);
+							dust.noGravity = false;
+						}
+
 						Vector2 direction = Main.player[projectile.owner].Center - projectile.Center;
 						direction.Normalize();
 						Projectile.NewProjectile(player.GetSource_ItemUse(Item), projectile.position, direction * 2f, ModContent.ProjectileType<PhantasmicDaggerSoul>(), 0, 0, Main.myPlayer);
