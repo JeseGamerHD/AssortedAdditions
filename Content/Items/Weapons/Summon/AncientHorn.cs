@@ -23,9 +23,14 @@ namespace AssortedAdditions.Content.Items.Weapons.Summon
 			Item.rare = ItemRarityID.Lime;
 			Item.DamageType = DamageClass.Summon;
 			Item.useStyle = ItemUseStyleID.RaiseLamp;
-			Item.UseSound = new SoundStyle("AssortedAdditions/Assets/Sounds/WeaponSound/AncientHornSound") with { Pitch = -0.2f };
+			Item.UseSound = new SoundStyle("AssortedAdditions/Assets/Sounds/WeaponSound/HornBlow") with { Pitch = -0.2f };
 			Item.value = Item.sellPrice(gold: 8);
 			Item.buffType = ModContent.BuffType<AncientHornBuff>();
+		}
+
+		public override bool CanUseItem(Player player)
+		{
+			return !player.HasBuff(ModContent.BuffType<ShellHornBuff>());
 		}
 
 		public override bool? UseItem(Player player)
@@ -49,7 +54,7 @@ namespace AssortedAdditions.Content.Items.Weapons.Summon
 		}
 	}
 
-	public class AtestPlayer : ModPlayer
+	public class AncientHornPlayer : ModPlayer
 	{
 		public override void ModifyHurt(ref Player.HurtModifiers modifiers)
 		{

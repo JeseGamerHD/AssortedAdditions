@@ -15,6 +15,7 @@ namespace AssortedAdditions.Content.Projectiles.SummonProj
 
 			Projectile.tileCollide = false;
 			Projectile.friendly = true;
+			Projectile.minion = true;
 
 			Projectile.DamageType = DamageClass.Summon;
 		}

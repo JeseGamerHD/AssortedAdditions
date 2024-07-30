@@ -7,15 +7,24 @@ namespace AssortedAdditions.Common.Players
 	internal class RuneSlot : ModAccessorySlot
 	{
 		public override string FunctionalBackgroundTexture => "Terraria/Images/Inventory_Back10";
-		public override string FunctionalTexture => "AssortedAdditions/Assets/UI/RuneIcon";
-		
+
+		// If the slot is locked, display a lock icon instead of the rune icon
+		public override string FunctionalTexture => Player.GetModPlayer<PlayerUnlocks>().runeSlotUnlocked ? "AssortedAdditions/Assets/UI/RuneIcon" : "AssortedAdditions/Assets/UI/RuneIconLocked";
+
 		// This slot does not have dye or vanity slots with it
 		public override bool DrawDyeSlot => false;
 		public override bool DrawVanitySlot => false;
 
 		public override void OnMouseHover(AccessorySlotType context)
 		{
-			Main.hoverItemName = "Runes";
+			if (Player.GetModPlayer<PlayerUnlocks>().runeSlotUnlocked)
+			{
+				Main.hoverItemName = "Runes";
+			}
+			else
+			{
+				Main.hoverItemName = "Locked - Blank Rune required";
+			}	
 		}
 
 		public override bool CanAcceptItem(Item checkItem, AccessorySlotType context)
@@ -31,6 +40,11 @@ namespace AssortedAdditions.Common.Players
 		public override bool IsEnabled()
 		{
 			return Player.GetModPlayer<PlayerUnlocks>().runeSlotUnlocked;
+		}
+
+		public override bool IsVisibleWhenNotEnabled()
+		{
+			return true;
 		}
 	}
 }

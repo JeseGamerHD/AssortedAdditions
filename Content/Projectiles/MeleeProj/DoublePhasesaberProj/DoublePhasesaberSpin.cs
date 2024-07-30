@@ -76,8 +76,8 @@ namespace AssortedAdditions.Content.Projectiles.MeleeProj.DoublePhasesaberProj
             // Sound effect
             if (Projectile.soundDelay == 0)
             {
-                Projectile.soundDelay = 9; // This countsdown automatically
-                SoundEngine.PlaySound(SoundID.Item15, Projectile.position);
+                Projectile.soundDelay = 15; // This countsdown automatically
+                SoundEngine.PlaySound(SoundID.Item15 with { MaxInstances = 5 }, Projectile.position);
             }
         }
 

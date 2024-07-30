@@ -294,8 +294,15 @@ namespace AssortedAdditions.Content.Projectiles.SummonProj
 		{
 			// When minion slots are full and the player "respawns" the same minion,
 			// the orbiters would not die. Killing them manually seems to work though.
-			childProjectile.first.Kill();
-			childProjectile.second.Kill();
+			if(childProjectile.first != null)
+			{
+				childProjectile.first.Kill();
+			}
+			
+			if(childProjectile.second != null)
+			{
+				childProjectile.second.Kill();
+			}	
 		}
 	}
 	#endregion

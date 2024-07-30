@@ -68,6 +68,10 @@ namespace AssortedAdditions.Common.Systems
 								ModContent.ItemType<AncientHorn>() };
 							AddItemToChestFromOptions(chest, options, 1f);
 							break;
+
+						case TileStyleID.Containers.WaterChest * chestWidth:
+							AddItemToChest(chest, ModContent.ItemType<ShellHorn>(), 0.4f);
+							break;
 					}
 				}
 

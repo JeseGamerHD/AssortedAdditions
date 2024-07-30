@@ -2,7 +2,7 @@
 using Terraria;
 using Terraria.ModLoader;
 using System.Collections.Generic;
-using AssortedAdditions.Content.Buffs;
+using AssortedAdditions.Content.Buffs.Pets;
 
 namespace AssortedAdditions.Content.Projectiles.PetProj
 {

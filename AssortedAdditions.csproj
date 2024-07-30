@@ -7,6 +7,7 @@
   </PropertyGroup>
   <ItemGroup>
     <None Remove="Assets\UI\RuneIcon.png" />
+    <None Remove="Assets\UI\RuneIconLocked.png" />
     <None Remove="changelog.txt" />
     <None Remove="Content\Buffs\AncientHornBuff.png" />
     <None Remove="Content\Buffs\BerserkerBuff.png" />
@@ -17,9 +18,12 @@
     <None Remove="Content\Buffs\IlluminatedCrystalBuff.png" />
     <None Remove="Content\Buffs\MedkitBuff.png" />
     <None Remove="Content\Buffs\MotivatorDebuff.png" />
+    <None Remove="Content\Buffs\Pets\PetHauntlingBuff.png" />
+    <None Remove="Content\Buffs\PhantasmicDaggerDebuff.png" />
     <None Remove="Content\Buffs\RuneOfHealthCooldown.png" />
     <None Remove="Content\Buffs\RuneOfRelocationCooldown.png" />
     <None Remove="Content\Buffs\RuneOfShadowsCooldown.png" />
+    <None Remove="Content\Buffs\ShellHornBuff.png" />
     <None Remove="Content\Buffs\ShroomScepterBuff.png" />
     <None Remove="Content\Buffs\SnowDwellerBuff.png" />
     <None Remove="Content\Buffs\SunScepterBuff.png" />
@@ -61,8 +65,10 @@
     <None Remove="Content\Items\Armor\GraniteHelmet_Head.png" />
     <None Remove="Content\Items\Consumables\BerserkerPotion.png" />
     <None Remove="Content\Items\Consumables\EvasionPotion.png" />
+    <None Remove="Content\Items\Consumables\GraveFlowers.png" />
     <None Remove="Content\Items\Consumables\MerchantInvitation.png" />
     <None Remove="Content\Items\Consumables\SkeletonPotion.png" />
+    <None Remove="Content\Items\Consumables\TreasureBags\HauntBag.png" />
     <None Remove="Content\Items\Consumables\WardingPotion.png" />
     <None Remove="Content\Items\Misc\BlankRune.png" />
     <None Remove="Content\Items\Misc\GraniteArmorShard.png" />
@@ -72,6 +78,7 @@
     <None Remove="Content\Items\Misc\MysteriousKey.png" />
     <None Remove="Content\Items\Misc\SharkTooth.png" />
     <None Remove="Content\Items\Misc\TrainingDummy.png" />
+    <None Remove="Content\Items\Pets\CursedCandle.png" />
     <None Remove="Content\Items\Pets\IlluminatedCrystal.png" />
     <None Remove="Content\Items\Pets\ToyCarRemote.png" />
     <None Remove="Content\Items\Placeables\Banners\CursedPickaxeBanner.png" />
@@ -81,6 +88,7 @@
     <None Remove="Content\Items\Placeables\Banners\GraniteGruntBanner.png" />
     <None Remove="Content\Items\Placeables\Banners\IceGuardianBanner.png" />
     <None Remove="Content\Items\Placeables\Banners\LivingCactusBanner.png" />
+    <None Remove="Content\Items\Placeables\Banners\PhantomMageBanner.png" />
     <None Remove="Content\Items\Placeables\Banners\ShroomlingBanner.png" />
     <None Remove="Content\Items\Placeables\Blocks\ArtDecoBlock.png" />
     <None Remove="Content\Items\Placeables\Blocks\BlueCarpet.png" />
@@ -98,6 +106,8 @@
     <None Remove="Content\Items\Placeables\Ores\FrostBar.png" />
     <None Remove="Content\Items\Placeables\Ores\Permafrost.png" />
     <None Remove="Content\Items\Placeables\PaintBlock.png" />
+    <None Remove="Content\Items\Placeables\Relics\HauntRelic.png" />
+    <None Remove="Content\Items\Placeables\Trophies\HauntTrophy.png" />
     <None Remove="Content\Items\Placeables\Walls\ArtDecoWall.png" />
     <None Remove="Content\Items\Placeables\Walls\CheckerWall.png" />
     <None Remove="Content\Items\Placeables\Walls\ExampleWall.png" />
@@ -127,6 +137,7 @@
     <None Remove="Content\Items\Weapons\Magic\DeathRay.png" />
     <None Remove="Content\Items\Weapons\Magic\GeodeScepter.png" />
     <None Remove="Content\Items\Weapons\Magic\IcyStaff.png" />
+    <None Remove="Content\Items\Weapons\Magic\PhantasmicGauntlet.png" />
     <None Remove="Content\Items\Weapons\Magic\ShroomPouch.png" />
     <None Remove="Content\Items\Weapons\Magic\SpiritVase.png" />
     <None Remove="Content\Items\Weapons\Magic\SporeRod.png" />
@@ -144,6 +155,7 @@
     <None Remove="Content\Items\Weapons\Melee\GhostlyBlade.png" />
     <None Remove="Content\Items\Weapons\Melee\LihzahrdClub.png" />
     <None Remove="Content\Items\Weapons\Melee\PetalBlade.png" />
+    <None Remove="Content\Items\Weapons\Melee\PhantasmicBlade.png" />
     <None Remove="Content\Items\Weapons\Melee\Pwnage.png" />
     <None Remove="Content\Items\Weapons\Melee\ShroomMacepole.png" />
     <None Remove="Content\Items\Weapons\Ranged\BombLauncher.png" />
@@ -153,6 +165,7 @@
     <None Remove="Content\Items\Weapons\Ranged\GraniteChakram.png" />
     <None Remove="Content\Items\Weapons\Ranged\IceBlaster.png" />
     <None Remove="Content\Items\Weapons\Ranged\JungleChakram.png" />
+    <None Remove="Content\Items\Weapons\Ranged\PhantasmicBow.png" />
     <None Remove="Content\Items\Weapons\Ranged\SawbladeLauncher.png" />
     <None Remove="Content\Items\Weapons\Ranged\ScifiBlaster.png" />
     <None Remove="Content\Items\Weapons\Ranged\ShootingStar.png" />
@@ -165,6 +178,8 @@
     <None Remove="Content\Items\Weapons\Summon\GraniteStaff.png" />
     <None Remove="Content\Items\Weapons\Summon\GraniteStaffMinion.png" />
     <None Remove="Content\Items\Weapons\Summon\Motivator.png" />
+    <None Remove="Content\Items\Weapons\Summon\PhantasmicDagger.png" />
+    <None Remove="Content\Items\Weapons\Summon\ShellHorn.png" />
     <None Remove="Content\Items\Weapons\Summon\ShroomScepter.png" />
     <None Remove="Content\Items\Weapons\Summon\SnowDwellerStaff.png" />
     <None Remove="Content\Items\Weapons\Summon\SunScepter.png" />
@@ -172,6 +187,11 @@
     <None Remove="Content\NPCs\BossFireDragon\FireDragonBody.png" />
     <None Remove="Content\NPCs\BossFireDragon\FireDragonHead.png" />
     <None Remove="Content\NPCs\BossFireDragon\FireDragon_Bestiary.png" />
+    <None Remove="Content\NPCs\BossTheHaunt\Hauntling.png" />
+    <None Remove="Content\NPCs\BossTheHaunt\Hauntling_Glow.png" />
+    <None Remove="Content\NPCs\BossTheHaunt\TheHaunt.png" />
+    <None Remove="Content\NPCs\BossTheHaunt\TheHaunt_Glow.png" />
+    <None Remove="Content\NPCs\BossTheHaunt\TheHaunt_Head_Boss.png" />
     <None Remove="Content\NPCs\CursedPickaxe.png" />
     <None Remove="Content\NPCs\FrostWraith.png" />
     <None Remove="Content\NPCs\GoblinBalloonist.png" />
@@ -187,10 +207,13 @@
     <None Remove="Content\NPCs\Gores\ShroomlingGore.png" />
     <None Remove="Content\NPCs\GrabberPlant.png" />
     <None Remove="Content\NPCs\GraniteGrunt.png" />
+    <None Remove="Content\NPCs\HauntedPot.png" />
     <None Remove="Content\NPCs\IceGuardian.png" />
     <None Remove="Content\NPCs\IceGuardianShield.png" />
     <None Remove="Content\NPCs\JungleMimic.png" />
     <None Remove="Content\NPCs\LivingCactus.png" />
+    <None Remove="Content\NPCs\PhantomMage.png" />
+    <None Remove="Content\NPCs\PhantomMage_Glow.png" />
     <None Remove="Content\NPCs\Shroomling.png" />
     <None Remove="Content\NPCs\Town\Builder.png" />
     <None Remove="Content\NPCs\Town\Builder_Head.png" />
@@ -203,6 +226,7 @@
     <None Remove="Content\Projectiles\MagicProj\DeathRayProj.png" />
     <None Remove="Content\Projectiles\MagicProj\GeodeScepterProj.png" />
     <None Remove="Content\Projectiles\MagicProj\IcyWandProj.png" />
+    <None Remove="Content\Projectiles\MagicProj\PhantasmicGauntletProj.png" />
     <None Remove="Content\Projectiles\MagicProj\SpiritVaseProj.png" />
     <None Remove="Content\Projectiles\MagicProj\SporeOrbSmall.png" />
     <None Remove="Content\Projectiles\MagicProj\StoneWandProj.png" />
@@ -228,7 +252,11 @@
     <None Remove="Content\Projectiles\NPCProj\FireDragonFireBall.png" />
     <None Remove="Content\Projectiles\NPCProj\GoblinBomb.png" />
     <None Remove="Content\Projectiles\NPCProj\IceGuardianProj.png" />
+    <None Remove="Content\Projectiles\NPCProj\PhantomMageProj.png" />
+    <None Remove="Content\Projectiles\NPCProj\TheHauntGhost.png" />
+    <None Remove="Content\Projectiles\NPCProj\TheHauntProj.png" />
     <None Remove="Content\Projectiles\PetProj\IlluminatedCrystalPet.png" />
+    <None Remove="Content\Projectiles\PetProj\PetHauntling.png" />
     <None Remove="Content\Projectiles\RangedProj\Boom_erangProj.png" />
     <None Remove="Content\Projectiles\RangedProj\EyeBowProj.png" />
     <None Remove="Content\Projectiles\RangedProj\FrostBowProj.png" />
@@ -259,6 +287,7 @@
     <None Remove="Content\Tiles\Banners\GraniteGruntBannerTile.png" />
     <None Remove="Content\Tiles\Banners\IceGuardianBannerTile.png" />
     <None Remove="Content\Tiles\Banners\LivingCactusBannerTile.png" />
+    <None Remove="Content\Tiles\Banners\PhantomMageBannerTile.png" />
     <None Remove="Content\Tiles\Banners\ShroomlingBannerTile.png" />
     <None Remove="Content\Tiles\Blocks\ArtDecoBlockTile.png" />
     <None Remove="Content\Tiles\Blocks\BlueCarpetTile.png" />
@@ -271,13 +300,16 @@
     <None Remove="Content\Tiles\Blocks\RedCarpetTile.png" />
     <None Remove="Content\Tiles\Blocks\SteelBlockTile.png" />
     <None Remove="Content\Tiles\Blocks\SteelPlatingTile.png" />
+    <None Remove="Content\Tiles\BossTrophies.png" />
     <None Remove="Content\Tiles\CoalChunk.png" />
     <None Remove="Content\Tiles\CraftingStations\MagicWorkbenchTile.png" />
     <None Remove="Content\Tiles\FrostBarTile.png" />
     <None Remove="Content\Tiles\Furniture\MysteriousChestTile.png" />
     <None Remove="Content\Tiles\Furniture\MysteriousChestTile_Highlight.png" />
+    <None Remove="Content\Tiles\HauntTrophyTile.png" />
     <None Remove="Content\Tiles\PaintBlockTile.png" />
     <None Remove="Content\Tiles\PermafrostTile.png" />
+    <None Remove="Content\Tiles\Relics\HauntRelicTile.png" />
     <None Remove="Content\Tiles\Walls\CheckerWallTile.png" />
     <None Remove="Content\Tiles\Walls\HazardWallTile.png" />
     <None Remove="Content\Tiles\Walls\PaintWallTile.png" />
@@ -287,7 +319,5 @@
     <None Remove="description_workshop.txt" />
     <None Remove="icon.png" />
     <None Remove="icon_small.png" />
-  </ItemGroup>
-  <ItemGroup>
   </ItemGroup>
 </Project>

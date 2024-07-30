@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using AssortedAdditions.Content.Buffs;
+using AssortedAdditions.Content.Buffs.Pets;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;

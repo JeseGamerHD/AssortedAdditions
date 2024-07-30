@@ -50,6 +50,106 @@ namespace AssortedAdditions.Helpers
 			return num;
 		}
 
+		/// <summary>
+		/// Loops through the NPCs and checks if the given npc overlaps with another one. If it does, its velocity will be adjusted using the strength.
+		/// </summary>
+		public static void StopNPCOverlap(NPC npc, float strength = 0.04f)
+		{
+			// Fix overlap:
+			for (int i = 0; i < Main.maxNPCs; i++)
+			{
+				NPC other = Main.npc[i];
+
+				if (i != npc.whoAmI && other.active && Math.Abs(npc.position.X - other.position.X) + Math.Abs(npc.position.Y - other.position.Y) < npc.width)
+				{
+					if (npc.position.X < other.position.X)
+					{
+						npc.velocity.X -= strength;
+					}
+					else
+					{
+						npc.velocity.X += strength;
+					}
+
+					if (npc.position.Y < other.position.Y)
+					{
+						npc.velocity.Y -= strength;
+					}
+					else
+					{
+						npc.velocity.Y += strength;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// Goes through Main.ActiveNPCs and checks how many of the given type of npc are active.
+		/// If you only need to check if one or a specific amount exists, you can specify the stopWhenFoundAmount.
+		/// </summary>
+		/// <returns>the number of NPCs matching the type (or up until the stopWhenFoundAmount)</returns>
+		public static int CountNPCs(int type, int stopWhenFoundAmount = -1)
+		{
+			int num = 0;
+
+			foreach(var npc in Main.ActiveNPCs)
+			{
+				if (npc.type == type)
+				{
+					num++;
+				}
+
+				if(num == stopWhenFoundAmount)
+				{
+					break;
+				}
+			}
+
+			return num;
+		}
+
+		/// <summary>
+		/// Goes through Main.ActiveNPCs and checks how many of the given type of npc are active.
+		/// If you only need to check if one or a specific amount exists, you can specify the stopWhenFoundAmount.
+		/// </summary>
+		/// <param name="entityCenter">The center of the entity (Projectile.Center)</param>
+		/// <param name="range">How far away to look for NPCs</param>
+		/// <returns>The closest NPC or null if none are within the given range</returns>
+		public static NPC FindClosesNPC(Vector2 entityCenter, float range = 0)
+		{
+			NPC closestNPC = null;
+
+			// Using squared values in distance checks will let us skip square root calculations, drastically improving this method's speed.
+			float sqrMaxDetectDistance = range * range;
+
+			// Loop through all NPCs(max always 200)
+			for (int k = 0; k < Main.maxNPCs; k++)
+			{
+				NPC target = Main.npc[k];
+				// Check if NPC able to be targeted. It means that NPC is
+				// 1. active (alive)
+				// 2. chaseable (e.g. not a cultist archer)
+				// 3. max life bigger than 5 (e.g. not a critter)
+				// 4. can take damage (e.g. moonlord core after all it's parts are downed)
+				// 5. hostile (!friendly)
+				// 6. not immortal (e.g. not a target dummy)
+				if (target.CanBeChasedBy())
+				{
+					// The DistanceSquared function returns a squared distance between 2 points, skipping relatively expensive square root calculations
+					float sqrDistanceToTarget = Vector2.DistanceSquared(target.Center, entityCenter);
+
+					// Check if it is within the radius
+					if (sqrDistanceToTarget < sqrMaxDetectDistance)
+					{
+						sqrMaxDetectDistance = sqrDistanceToTarget;
+						closestNPC = target;
+					}
+				}
+			}
+
+			return closestNPC;
+		}
+
 		// The following method is taken from the tsorcRevamp repository under GPL 3.0: https://github.com/Zeodexic/tsorcRevamp/blob/main/tsorcRevampUtils.cs#L774
 		// Modifications made: incorporated the GenerateTargetingVector into this method, cleaned up the doc comments.
 		///<summary> 

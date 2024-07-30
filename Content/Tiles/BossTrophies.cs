@@ -9,9 +9,10 @@ using Terraria.ObjectData;
 
 namespace AssortedAdditions.Content.Tiles
 {
-    // This class is used for handling every boss trophy tile
     internal class BossTrophies : ModTile
     {
+        // OLD CODE, still working for single trophy. Simplified version in HauntTrophyTile.cs
+        // The previous idea was to have all trophies in one sprite / tile but that method does not work
         public override void SetStaticDefaults()
         {
             CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
@@ -37,8 +38,8 @@ namespace AssortedAdditions.Content.Tiles
                 case 0:
                     item = ModContent.ItemType<FireDragonTrophy>();
                     break;
-                    // New trophies here
             }
+
             if (item > 0)
             {
                 Item.NewItem(WorldGen.GetItemSource_FromTileBreak(i, j), i * 16, j * 16, 48, 48, item);

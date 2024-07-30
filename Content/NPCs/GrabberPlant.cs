@@ -42,7 +42,7 @@ namespace AssortedAdditions.Content.NPCs
                 ? ServerSidedToggles.Instance.GrabberPlantSpawnMultiplier : ServerSidedToggles.Instance.NPCSpawnMultiplier;
 
 			// Surface
-			if (spawnInfo.Player.ZoneJungle && !spawnInfo.Player.ZoneRockLayerHeight)
+			if (spawnInfo.Player.ZoneJungle && !spawnInfo.Player.ZoneRockLayerHeight && !spawnInfo.Water)
             {
                 if (!Main.hardMode)
                 {
@@ -50,11 +50,11 @@ namespace AssortedAdditions.Content.NPCs
                 }
                 else
                 {
-                    return SpawnCondition.SurfaceJungle.Chance * 0.5f * multiplier;
+                    return SpawnCondition.SurfaceJungle.Chance * 0.4f * multiplier;
                 }
             }
             // Underground
-            else if (spawnInfo.Player.ZoneJungle && spawnInfo.Player.ZoneRockLayerHeight)
+            else if (spawnInfo.Player.ZoneJungle && spawnInfo.Player.ZoneRockLayerHeight && !spawnInfo.Water)
             {
                 if (!Main.hardMode)
                 {
@@ -62,7 +62,7 @@ namespace AssortedAdditions.Content.NPCs
                 }
                 else
                 {
-                    return SpawnCondition.UndergroundJungle.Chance * 0.5f * multiplier;
+                    return SpawnCondition.UndergroundJungle.Chance * 0.4f * multiplier;
                 }
             }
 

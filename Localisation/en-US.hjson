@@ -118,7 +118,22 @@ Mods: {
 
 			RuneOfHealthCooldown: {
 				DisplayName: Rune Of Health Cooldown
-				Description: Mods.AssortedAdditions.Buffs.RuneOfHealthCooldown.Description
+				Description: Your rune is recharging
+			}
+
+			ShellHornBuff: {
+				DisplayName: Shell Horn Buff
+				Description: Your minions deal 10% more damage, but you take 20% more damage.
+			}
+
+			PetHauntlingBuff: {
+				DisplayName: Pet Hauntling
+				Description: Your own little ghost
+			}
+
+			PhantasmicDaggerDebuff: {
+				DisplayName: Phantasmic Dagger Debuff
+				Description: Summon damage decreased by 15%
 			}
 		}
 
@@ -1278,6 +1293,65 @@ Mods: {
 					but you take 33% more damage in return.
 					'''
 			}
+
+			PhantomMageBanner: {
+				DisplayName: Phantom Mage Banner
+				Tooltip: ""
+			}
+
+			ShellHorn: {
+				DisplayName: Shell Horn
+				Tooltip:
+					'''
+					Grants a buff which strengthens your minion's attacks by 10%,
+					but you take 20% more damage in return.
+					'''
+			}
+
+			HauntTrophy: {
+				DisplayName: Haunt Trophy
+				Tooltip: ""
+			}
+
+			GraveFlowers: {
+				DisplayName: Grave Flowers
+				Tooltip: Summons The Haunt
+			}
+
+			HauntRelic: {
+				DisplayName: Haunt Relic
+				Tooltip: ""
+			}
+
+			CursedCandle: {
+				DisplayName: Cursed Candle
+				Tooltip: Summons a pet Hauntling
+			}
+
+			HauntBag: {
+				DisplayName: Haunt Bag
+				Tooltip: ""
+			}
+
+			PhantasmicBow: {
+				DisplayName: Phantasmic Bow
+				Tooltip: Shoots a burst of homing projectiles
+			}
+
+			PhantasmicBlade: {
+				DisplayName: Phantasmic Blade
+				Tooltip: Summons spirits on hit
+			}
+
+			PhantasmicGauntlet: {
+				DisplayName: Phantasmic Gauntlet
+				Tooltip: Shoots out five spirits
+			}
+
+			PhantasmicDagger: {
+				DisplayName: Phantasmic Dagger
+				Tooltip: Sacrifice your minions for health but at what cost?
+			}
 		}
 
 		Projectiles: {
@@ -1371,6 +1445,21 @@ Mods: {
 			SawbladeLauncherProj.DisplayName: Sawblade
 			AncientGauntletProj.DisplayName: Ancient Gauntlet Projectile
 			FireDragonFireball.DisplayName: Fire Dragon Fireball
+			PhantomMageProj.DisplayName: Phantom Mage's spell
+			HauntGraveStone.DisplayName: Haunted Gravestone
+			HauntCandelabra.DisplayName: Haunt Candelabra
+			HauntChair.DisplayName: Haunt Chair
+			HauntGravestone.DisplayName: Haunt Gravestone
+			HauntTombstone.DisplayName: Haunt Tombstone
+			HauntTrashcan.DisplayName: Haunt Trashcan
+			TheHauntGhost.DisplayName: The Haunt's Projectile
+			PetHauntling.DisplayName: Pet Hauntling
+			TheHauntProj.DisplayName: The Haunt's Projectile
+			PhantasmicBowProj.DisplayName: Phantasmic Bow Projectile
+			PhantasmicBladeTrail.DisplayName: Phantasmic Blade Trail
+			PhantasmicBladeStrike.DisplayName: Phantasmic Blade Strike
+			PhantasmicGauntletProj.DisplayName: Phantasmic Gauntlet Proj
+			PhantasmicDaggerSoul.DisplayName: Phantasmic Dagger Soul
 		}
 
 		Tiles: {
@@ -1435,6 +1524,10 @@ Mods: {
 			JungleMimic.DisplayName: Jungle Mimic
 			TrainingDummyNPC.DisplayName: Training Dummy
 			GraniteGrunt.DisplayName: Granite Grunt
+			PhantomMage.DisplayName: Phantom Mage
+			HauntedPot.DisplayName: Haunted Pot
+			TheHaunt.DisplayName: The Haunt
+			Hauntling.DisplayName: Hauntling
 		}
 
 		Conditions.SellCosmicItems: Mods.AssortedAdditions.Conditions.SellCosmicItems
