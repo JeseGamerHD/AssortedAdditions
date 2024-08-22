@@ -28,9 +28,23 @@ namespace AssortedAdditions.Common.Systems.GenPasses
         {
             progress.Message = "Adding a secret room";
 
-            // This point is 13 blocks from roughly the middle of the dungeon entrance towards the door
+            // This point is 13 blocks from roughly the middle of the dungeon entrance
             // and 13 blocks down:
-            Point roomWalls = new Point(Main.dungeonX - 13, Main.dungeonY + 13);
+            // This is the top left corner of the room
+            int xOffset = 13;
+            int yOffset = 13;
+
+            // Remnants mod compatibility, room needs to be moved further down and away
+            // since that mod does some cool stuff with the dungeon
+            if(ModLoader.TryGetMod("Remnants", out Mod remnants))
+            {
+                xOffset = 50;
+                yOffset = 80;
+            }
+            // ^^ Not the best fix, would be better to check the area and gradually move in a direction until a good spot is found
+            // This works because the entrance seems to be always the same like in vanilla
+
+            Point roomWalls = new Point(Main.dungeonX - xOffset, Main.dungeonY + yOffset);
 
             // Create a rectangle from that point
             WorldUtils.Gen(roomWalls, new Shapes.Rectangle(30, 20), new Actions.SetTile((ushort)ModContent.TileType<MysteriousBrickTile>()));

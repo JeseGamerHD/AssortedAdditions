@@ -1,6 +1,6 @@
-﻿/*using AssortedAdditions.Helpers;
+﻿using AssortedAdditions.Helpers;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Input;
+/*using Microsoft.Xna.Framework.Input;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -19,12 +19,11 @@ namespace AssortedAdditions.Common.Systems
         public override void PostUpdateInput()
         {
             if (JustPressed(Keys.D1)) // 1 on the keyboard
-                TestMethod(Main.spawnTileX, Main.spawnTileY);
+                TestMethod(Main.dungeonX - 50, Main.dungeonY + 80);
         }
 
         private void TestMethod(int x, int y)
         {
-
-		}
+        }
     }
 }*/

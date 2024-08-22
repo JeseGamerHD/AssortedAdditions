@@ -28,5 +28,10 @@ namespace AssortedAdditions.Content.Tiles
             MineResist = 1.3f;
             MinPick = 65; // Alternative to hellstone
         }
-    }
+
+		public override bool CanExplode(int i, int j)
+		{
+            return Main.hardMode;
+		}
+	}
 }
