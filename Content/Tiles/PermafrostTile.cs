@@ -28,5 +28,10 @@ namespace AssortedAdditions.Content.Tiles
             MineResist = 3f;
             MinPick = 150; // Alternative to titanium/adamantite
         }
-    }
+
+		public override bool CanExplode(int i, int j)
+		{
+            return false;
+		}
+	}
 }

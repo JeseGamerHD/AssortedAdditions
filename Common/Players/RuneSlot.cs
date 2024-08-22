@@ -23,7 +23,7 @@ namespace AssortedAdditions.Common.Players
 			}
 			else
 			{
-				Main.hoverItemName = "Locked - Blank Rune required";
+				Main.hoverItemName = "Unlock by using a Blank Rune";
 			}	
 		}
 

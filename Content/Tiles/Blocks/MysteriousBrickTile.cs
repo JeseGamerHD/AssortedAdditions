@@ -20,5 +20,10 @@ namespace AssortedAdditions.Content.Tiles.Blocks
             MineResist = 1.3f;
             MinPick = 200;
         }
-    }
+
+		public override bool CanExplode(int i, int j)
+		{
+            return false;
+		}
+	}
 }
