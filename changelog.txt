@@ -1,7 +1,7 @@
 [B]v0.1.1.1[/B]
 
 [LIST]
-[*] Dune Ore can no longer be bombed until hardmode is active. Permafrost can no longer be bombed along with Mysterious Bricks.
+[*] Dune Ore can only be bombed when hardmode is active. Permafrost can no longer be bombed along with Mysterious Bricks.
 [*] Mysterious chest room generation should now be compatibile with the "Remnants" mod.
 [/LIST]
 
