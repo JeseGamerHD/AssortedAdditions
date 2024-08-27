@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.IO;
+using AssortedAdditions.Common.Systems;
 using AssortedAdditions.Content.Items.Consumables.TreasureBags;
 using AssortedAdditions.Content.Items.Misc;
 using AssortedAdditions.Content.Items.Pets;
@@ -118,7 +119,12 @@ namespace AssortedAdditions.Content.NPCs.BossFireDragon // This Boss NPC is buil
             npcLoot.Add(notExpert2);
         }
 
-        public override void BossLoot(ref string name, ref int potionType)
+		public override void OnKill()
+		{
+            NPC.SetEventFlagCleared(ref DownedBossSystem.downedFireDragon, -1);
+		}
+
+		public override void BossLoot(ref string name, ref int potionType)
         {
             potionType = ItemID.HealingPotion; // Drop healing potions (default is lesser healing)
         }

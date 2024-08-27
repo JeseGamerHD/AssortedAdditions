@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.IO;
+using AssortedAdditions.Common.Systems;
 using AssortedAdditions.Content.Items.Consumables.TreasureBags;
 using AssortedAdditions.Content.Items.Pets;
 using AssortedAdditions.Content.Items.Placeables.Relics;
@@ -606,6 +607,11 @@ namespace AssortedAdditions.Content.NPCs.BossTheHaunt
 				ModContent.ItemType<PhantasmicGauntlet>(),
 				ModContent.ItemType<PhantasmicDagger>()));
 			npcLoot.Add(notExpert);
+		}
+
+		public override void OnKill()
+		{
+			NPC.SetEventFlagCleared(ref DownedBossSystem.downedTheHaunt, -1);
 		}
 
 		private int currentFrame = 0;

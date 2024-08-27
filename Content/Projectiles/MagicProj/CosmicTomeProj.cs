@@ -5,6 +5,7 @@ using Terraria.Graphics;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Audio;
+using System;
 
 namespace AssortedAdditions.Content.Projectiles.MagicProj
 {
@@ -26,8 +27,9 @@ namespace AssortedAdditions.Content.Projectiles.MagicProj
             Projectile.light = 1f;
             Projectile.alpha = 50;
             Projectile.aiStyle = 0;
+            Projectile.timeLeft = 300;
 
-            Projectile.tileCollide = true;
+            Projectile.tileCollide = false;
             Projectile.ignoreWater = true;
             Projectile.friendly = true;
 
@@ -42,7 +44,7 @@ namespace AssortedAdditions.Content.Projectiles.MagicProj
 
         public override void AI()
         {
-            // The movement is handeled in the weapon's Shoot() method
+            // Setting the velocity is handled in the shoot() of CosmicTome.cs
 
             Timer++;
             Projectile.rotation = MathHelper.ToRadians(Timer * 5f); // Rotates the star smoothly
@@ -58,9 +60,12 @@ namespace AssortedAdditions.Content.Projectiles.MagicProj
                             DustID.PlatinumCoin, 0, 0, 150, default, 2f);
                 dust2.noGravity = true;
             }
-        }
 
-        public override void OnKill(int timeLeft)
+            // ai[1] set by the shoot method
+			Projectile.tileCollide = Projectile.Bottom.Y >= Projectile.ai[1];
+		}
+
+		public override void OnKill(int timeLeft)
         {
             for (int i = 0; i < 30; i++)
             {

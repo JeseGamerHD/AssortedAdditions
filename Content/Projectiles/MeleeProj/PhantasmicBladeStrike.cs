@@ -97,7 +97,7 @@ namespace AssortedAdditions.Content.Projectiles.MeleeProj
 				return false;
 			}
 
-			return true;
+			return base.CanHitNPC(target);
 		}
 
 		public override void OnKill(int timeLeft)

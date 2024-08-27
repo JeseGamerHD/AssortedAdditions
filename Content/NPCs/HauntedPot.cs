@@ -247,14 +247,16 @@ namespace AssortedAdditions.Content.NPCs
 		public override float SpawnChance(NPCSpawnInfo spawnInfo)
 		{
 			float multiplier = ServerSidedToggles.Instance.NPCSpawnMultiplier;
+			float cavernChance = Main.hardMode ? 0.075f : 0.12f; // Hardmode Chance : Nonhardmode Chance
+			float undergroundChance = Main.hardMode ? 0.2f : 0.28f;
 
 			if(spawnInfo.Player.ZoneRockLayerHeight)
 			{
-				return SpawnCondition.Cavern.Chance * 0.15f * multiplier;
+				return SpawnCondition.Cavern.Chance * cavernChance * multiplier;
 			}
 			else if(spawnInfo.Player.ZoneDirtLayerHeight)
 			{
-				return SpawnCondition.Underground.Chance * 0.4f * multiplier;
+				return SpawnCondition.Underground.Chance * undergroundChance * multiplier;
 			}
 
 			return 0;

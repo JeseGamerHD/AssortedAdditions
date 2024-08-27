@@ -1,7 +1,12 @@
-[B]v0.1.1.1[/B]
+[B]v0.1.1.2[/B]
 
 [LIST]
-[*] Dune Ore can only be bombed when hardmode is active. Permafrost can no longer be bombed along with Mysterious Bricks.
-[*] Mysterious chest room generation should now be compatibile with the "Remnants" mod.
+[*] Added Boss Checklist support
+[*] Reduced the spawn chance of Haunted Pots by around 33%
+[*] Swords that don't fire anything when swung now allow the player to turn while swinging.
+[*] Cosmic Tome's projectiles now work underground (tile collision logic similar to starfury)
+[*] Shooting Star (bow) projectiles are now homing
+[*] Phantasmic Blade's projectiles no longer hit friendly NPCs
+[*] Added a shader trail to Draconic Bow's projectile
 [/LIST]
 

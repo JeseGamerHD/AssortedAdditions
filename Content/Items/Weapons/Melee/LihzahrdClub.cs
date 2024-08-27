@@ -21,6 +21,7 @@ namespace AssortedAdditions.Content.Items.Weapons.Melee
 			Item.height = 46;
 
 			Item.autoReuse = true;
+			Item.useTurn = true;
 
 			Item.value = Item.sellPrice(gold: 6);
 			Item.UseSound = SoundID.Item1;
