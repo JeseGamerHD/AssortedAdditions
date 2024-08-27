@@ -115,7 +115,7 @@ namespace AssortedAdditions.Content.Projectiles.RangedProj
 				return false;
 			}
 
-			return true;
+			return base.CanHitNPC(target);
 		}
 
 		public override bool PreDraw(ref Color lightColor)

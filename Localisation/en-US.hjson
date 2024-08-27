@@ -834,7 +834,7 @@ Mods: {
 
 			ShootingStar: {
 				DisplayName: Shooting Star
-				Tooltip: Turn your arrows into shooting stars
+				Tooltip: Turn your arrows into homing shooting stars
 			}
 
 			CosmicTome: {
@@ -1656,5 +1656,10 @@ Mods: {
 		}
 
 		Keybinds.Runes.DisplayName: Runes
+
+		BossChecklist: {
+			FireDragon: Use the Ancient Token in the underworld for a battle. Ancient tokens can be obtained from Fire Drakes (~8%) or from the Wizard.
+			TheHaunt: Use Grave Flowers in a Graveyard biome. Grave Flowers can be crafted or obtained from: Hauntling (3.33%), Phantom Mage (5%), Ghost (5%).
+		}
 	}
 }

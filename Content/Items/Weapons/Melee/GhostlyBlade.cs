@@ -3,6 +3,7 @@ using Terraria.ModLoader;
 using Terraria;
 using Microsoft.Xna.Framework;
 using AssortedAdditions.Content.Projectiles.MeleeProj;
+using Terraria.DataStructures;
 
 namespace AssortedAdditions.Content.Items.Weapons.Melee
 {
@@ -20,12 +21,21 @@ namespace AssortedAdditions.Content.Items.Weapons.Melee
 			Item.scale = 1.25f;
 
 			Item.autoReuse = true;
+			// Shoot is set so the player will change direction based on their cursors location when swinging
+			// similar to Excalibur or swords that shoot projectiles
+			Item.ChangePlayerDirectionOnShoot = true;
+			Item.shoot = ProjectileID.PurificationPowder;
 
 			Item.value = Item.sellPrice(silver: 50);
 			Item.UseSound = SoundID.Item1;
 			Item.rare = ItemRarityID.Green;
 			Item.DamageType = DamageClass.Melee;
 			Item.useStyle = ItemUseStyleID.Swing;
+		}
+
+		public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
+		{
+			return false; // False so it wont actually shoot anything
 		}
 
 		public override void OnHitNPC(Player player, NPC target, NPC.HitInfo hit, int damageDone)

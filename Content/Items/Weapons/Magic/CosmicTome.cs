@@ -36,9 +36,9 @@ namespace AssortedAdditions.Content.Items.Weapons.Magic
         {
             Vector2 target = Main.screenPosition + new Vector2(Main.mouseX, Main.mouseY);
             float ceilingLimit = target.Y;
-            if (ceilingLimit > player.Center.Y - 200f)
+            if (ceilingLimit > player.Center.Y - 50f)
             {
-                ceilingLimit = player.Center.Y - 200f;
+                ceilingLimit = player.Center.Y - 50f;
             }
 
             position = player.Center - new Vector2(Main.rand.NextFloat(401) * player.direction, 600f);

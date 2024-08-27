@@ -9,12 +9,10 @@ using Terraria.ModLoader;
 
 namespace AssortedAdditions.Content.Items.Weapons.Melee;
 
-// This is a copy of the Excalibur (from ExampleMod)
 public class AuroraBlade : ModItem
 {
     public override void SetDefaults()
     {
-
         Item.useAnimation = 16;
         Item.useTime = 16;
         Item.damage = 70;

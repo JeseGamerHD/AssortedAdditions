@@ -4,6 +4,8 @@ using Terraria.Graphics.Shaders;
 using Terraria.Graphics;
 using Terraria.ID;
 using Terraria.ModLoader;
+using AssortedAdditions.Helpers;
+using System;
 
 namespace AssortedAdditions.Content.Projectiles.RangedProj
 {
@@ -39,20 +41,47 @@ namespace AssortedAdditions.Content.Projectiles.RangedProj
 
         public override void AI()
         {
-            Timer++;
-            Projectile.rotation = Projectile.velocity.ToRotation();
+            NPC target = HelperMethods.FindClosesNPC(Projectile.Center, 1000f);
 
-            if (Timer > 30)
-            {
-                Projectile.velocity.Y = Projectile.velocity.Y + 0.3f; // 0.1f for arrow gravity, 0.4f for knife gravity
-                if (Projectile.velocity.Y > 16f) // This check implements "terminal velocity". We don't want the projectile to keep getting faster and faster. Past 16f this projectile will travel through blocks, so this check is useful.
-                {
-                    Projectile.velocity.Y = 16f;
-                }
+			Projectile.ai[1]++;
+			if (Projectile.ai[1] < 120f && Projectile.ai[1] > 15f && target != null)
+			{
+				float speed = Projectile.velocity.Length();
+				Vector2 direction = target.Center - Projectile.Center;
+				direction.Normalize();
+				direction *= speed;
+
+				Projectile.velocity = (Projectile.velocity * 5f + direction) / 30f;
+				Projectile.velocity.Normalize();
+				Projectile.velocity *= speed;
             }
 
-            // Leave a dust trail
-            if (Main.rand.NextBool(2))
+            if(target == null)
+            {
+				Projectile.velocity.Y = Projectile.velocity.Y + 0.3f; // 0.1f for arrow gravity, 0.4f for knife gravity
+				if (Projectile.velocity.Y > 16f)
+				{
+					Projectile.velocity.Y = 16f;
+				}
+			}
+
+            if (Projectile.velocity.Length() < 12f)
+            {
+                Projectile.velocity *= 1.03f;
+            }
+
+			Projectile.spriteDirection = Projectile.direction;
+			if (Projectile.direction < 0)
+			{
+				Projectile.rotation = (float)Math.Atan2(0f - Projectile.velocity.Y, 0f - Projectile.velocity.X);
+			}
+			else
+			{
+				Projectile.rotation = (float)Math.Atan2(Projectile.velocity.Y, Projectile.velocity.X);
+			}
+
+			// Leave a dust trail
+			if (Main.rand.NextBool(2))
             {
                 Dust dust = Dust.NewDustDirect(Projectile.position - Projectile.velocity, Projectile.width, Projectile.height,
                             DustID.CorruptTorch, 0, 0, 150, default, 1f);

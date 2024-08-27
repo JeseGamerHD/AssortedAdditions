@@ -24,6 +24,7 @@ namespace AssortedAdditions.Content.Items.Weapons.Ranged
 			Item.noMelee = true;
 			Item.autoReuse = true;
 
+			Item.DamageType = DamageClass.Ranged;
 			Item.value = Item.sellPrice(gold: 8);
 			Item.rare = ItemRarityID.Lime;
 			Item.UseSound = new SoundStyle("AssortedAdditions/Assets/Sounds/WeaponSound/SawbladeLauncherSound") with { PitchVariance = 0.2f, Pitch = -0.5f };
