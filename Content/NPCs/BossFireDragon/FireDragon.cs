@@ -59,7 +59,7 @@ namespace AssortedAdditions.Content.NPCs.BossFireDragon // This Boss NPC is buil
 
             NPC.damage = 50;
             NPC.defense = 18;
-            NPC.lifeMax = 27500;
+            NPC.lifeMax = 28500;
             NPC.knockBackResist = 0f;
 
             NPC.HitSound = SoundID.NPCHit7;
@@ -176,15 +176,15 @@ namespace AssortedAdditions.Content.NPCs.BossFireDragon // This Boss NPC is buil
             Timer++;
             NPC.noGravity = true;
 
-            // If the dragon is in chasing state, it can spawn minions every 30 seconds.
-            if (CurrentState == (float)State.Chasing && Timer % HelperMethods.SecondsToTicks(30) == 0)
+            // If the dragon is in chasing state, it can spawn minions every X seconds.
+            if (CurrentState == (float)State.Chasing && Timer % HelperMethods.SecondsToTicks(20) == 0)
             {
 				SoundEngine.PlaySound(new SoundStyle("AssortedAdditions/Assets/Sounds/NPCSound/FireDragonSounds"), NPC.position);
 				CurrentSecondaryState = (float)SecondaryState.SpawnMinions;
             }
 
-            // After 75 seconds, switch to circling state
-            if (Timer == HelperMethods.SecondsToTicks(75))
+            // After X seconds, switch to circling state
+            if (Timer == HelperMethods.SecondsToTicks(40))
             {
                 CurrentState = (float)State.Circling;
                 CurrentSecondaryState = (float)SecondaryState.SpawnProjectiles;
@@ -195,7 +195,7 @@ namespace AssortedAdditions.Content.NPCs.BossFireDragon // This Boss NPC is buil
             }
 
 			// After circling for a while, return to chasing
-			if (Timer >= HelperMethods.MinutesToTicks(2))
+			if (Timer >= HelperMethods.SecondsToTicks(70))
             {
                 Timer = 1;
                 CurrentState = (float)State.Chasing;
@@ -267,7 +267,7 @@ namespace AssortedAdditions.Content.NPCs.BossFireDragon // This Boss NPC is buil
 				// The dragon will chase the player
 				case (float)State.Chasing:
 
-					MoveSpeed = 6.5f;
+					MoveSpeed = 9f;
 					setCirclingPoint = false;
 					targetCenter = target.Center;
 
@@ -319,7 +319,14 @@ namespace AssortedAdditions.Content.NPCs.BossFireDragon // This Boss NPC is buil
             // Only apply during non circling states
             if(HeadHitCooldown == 0 || CurrentState == (float)State.Circling)
             {
-				HelperMethods.SmoothHoming(NPC, targetCenter, MoveSpeed, MoveSpeed, null, false);
+                if(CurrentState == (float)State.Circling)
+                {
+					HelperMethods.SmoothHoming(NPC, targetCenter, MoveSpeed, MoveSpeed, null, false);
+				}
+                else
+                {
+					HelperMethods.SmoothHoming(NPC, targetCenter, 0.3f, MoveSpeed, null, false);
+				}	
 			}
 
             if(HeadHitCooldown <= 60 && HeadHitCooldown != 0 && CurrentState != (float)State.Circling)
@@ -525,7 +532,7 @@ namespace AssortedAdditions.Content.NPCs.BossFireDragon // This Boss NPC is buil
             NPC.width = 50;
             NPC.height = 45;
             NPC.damage = 25;
-            NPC.defense = 24;
+            NPC.defense = 36;
             NPC.lifeMax = 28500;
             NPC.HitSound = SoundID.NPCHit7;
             NPC.SpawnWithHigherTime(30);

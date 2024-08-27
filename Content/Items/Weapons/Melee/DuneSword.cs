@@ -26,23 +26,24 @@ namespace AssortedAdditions.Content.Items.Weapons.Melee
             Item.crit = 6;
 
 			Item.autoReuse = true;
-			Item.useTurn = true;
-            //Item.ChangePlayerDirectionOnShoot = true;
-            //Item.shoot = ProjectileID.PurificationPowder;
+            // Shoot is set so the player will change direction based on their cursors location when swinging
+            // similar to Excalibur or swords that shoot projectiles
+            Item.ChangePlayerDirectionOnShoot = true;
+            Item.shoot = ProjectileID.PurificationPowder;
 
-			Item.useStyle = ItemUseStyleID.Swing;
+            Item.useStyle = ItemUseStyleID.Swing;
 			Item.rare = ItemRarityID.Orange;
             Item.UseSound = SoundID.Item1;
 			Item.DamageType = DamageClass.Melee;
 			Item.value = Item.sellPrice(silver: 54);
         }
 
-/*		public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
-		{
-            return false;
-		}*/
+        public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
+        {
+            return false; // False so it wont actually shoot anything
+        }
 
-		public override void AddRecipes()
+        public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ModContent.ItemType<DuneBar>(), 15);

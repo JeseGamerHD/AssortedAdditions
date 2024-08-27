@@ -1658,8 +1658,8 @@ Mods: {
 		Keybinds.Runes.DisplayName: Runes
 
 		BossChecklist: {
-			FireDragon: Use the Ancient Token in the underworld for a battle.
-			TheHaunt: Use Grave Flowers in a Graveyard biome
+			FireDragon: Use the Ancient Token in the underworld for a battle. Ancient tokens can be obtained from Fire Drakes (~8%) or from the Wizard.
+			TheHaunt: Use Grave Flowers in a Graveyard biome. Grave Flowers can be crafted or obtained from: Hauntling (3.33%), Phantom Mage (5%), Ghost (5%).
 		}
 	}
 }

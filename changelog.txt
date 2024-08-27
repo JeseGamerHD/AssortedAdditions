@@ -2,11 +2,13 @@
 
 [LIST]
 [*] Added Boss Checklist support
+[*] Fire Dragon boss improvements: It now flies a lot faster when going straight, but turns slower. Also tweaked the attack pattern to change states faster and slightly increased max health and defense
+[*] All swords now allow the player to turn while swinging
 [*] Reduced the spawn chance of Haunted Pots by around 33%
-[*] Swords that don't fire anything when swung now allow the player to turn while swinging.
 [*] Cosmic Tome's projectiles now work underground (tile collision logic similar to starfury)
 [*] Shooting Star (bow) projectiles are now homing
 [*] Phantasmic Blade's projectiles no longer hit friendly NPCs
 [*] Added a shader trail to Draconic Bow's projectile
+[*] Improved steel weapon/tool sprites
 [/LIST]
 
