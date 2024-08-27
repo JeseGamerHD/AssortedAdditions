@@ -21,7 +21,8 @@ namespace AssortedAdditions.Content.Items.Weapons.Ranged
             Item.autoReuse = true;
             Item.noUseGraphic = true;
 
-            Item.value = Item.sellPrice(gold: 2);
+			Item.DamageType = DamageClass.Ranged;
+			Item.value = Item.sellPrice(gold: 2);
             Item.rare = ItemRarityID.Green;
             Item.UseSound = SoundID.Item1;
             Item.useStyle = ItemUseStyleID.Swing;

@@ -7,8 +7,9 @@
 [*] Reduced the spawn chance of Haunted Pots by around 33%
 [*] Cosmic Tome's projectiles now work underground (tile collision logic similar to starfury)
 [*] Shooting Star (bow) projectiles are now homing
-[*] Phantasmic Blade's projectiles no longer hit friendly NPCs
+[*] Phantasmic Blade's & Phantasmic Bow's projectiles no longer hit friendly NPCs
 [*] Added a shader trail to Draconic Bow's projectile
 [*] Improved steel weapon/tool sprites
+[*] Assigined "DamageType" to some weapons that had it missing (They should now show up on lists that rely on this info). The weapons in question did not deal damage themselves, but their projectiles did so the damage values are still going to be the same.
 [/LIST]
 

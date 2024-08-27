@@ -23,6 +23,7 @@ namespace AssortedAdditions.Content.Items.Weapons.Ranged
 			Item.autoReuse = true;
 			Item.noUseGraphic = true;
 
+			Item.DamageType = DamageClass.Ranged;
 			Item.value = Item.sellPrice(silver: 70);
 			Item.rare = ItemRarityID.Green;
 			Item.UseSound = SoundID.Item1;
