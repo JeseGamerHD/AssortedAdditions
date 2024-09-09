@@ -39,6 +39,14 @@ namespace AssortedAdditions.Common.Players
 
 		public override bool IsEnabled()
 		{
+			// For some reason GetModPlayer causes an error during loading
+			// Everything would work 99.9% of the time, could very rarely crash
+			// This is how calamity dealt with the issue
+			if (!Player.active) 
+			{
+				return false;
+			}
+
 			return Player.GetModPlayer<PlayerUnlocks>().runeSlotUnlocked;
 		}
 
