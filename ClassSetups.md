@@ -95,6 +95,8 @@ These tables show the earliest point when an item can be obtained. Many items ca
 |               |               |                   |               |                  |
 |     Runes     |     Runes     |       Runes       |     Runes     |      Runes       |
 |               |               |     Mana Rune     |               |  Rune of Health  |
+|               |               |                   |               |  Rune of Prosperity|
+|               |               |                   |               |  Rune of Flight  |
 |               |               |                   |               |                  |
 |     Armor     |     Armor     |       Armor       |     Armor     |      Armor       |
 |Palladium Armor|Palladium Armor|  Palladium Armor  |Palladium Armor|                  |

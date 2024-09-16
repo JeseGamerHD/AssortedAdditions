@@ -1,7 +1,8 @@
-[B]v0.1.1.3[/B]
+[B]v0.1.1.4[/B]
 
 [LIST]
-[*] Fixed banner tiles not loading properly (unsure if this ever caused actual problems other than warnings in the logs)
-[*] Fixed rune slot loading (should no longer crash in very rare cases)
+[*] Added 2 new runes to discover
+[*] Added a notification for when the player is using the Chinese translation mod, but their game language is not set to Chinese. This is to indicate that they can disable the translation mod if they wish the mod to be in English instead.
+[*] Some internal code cleanup
 [/LIST]
 

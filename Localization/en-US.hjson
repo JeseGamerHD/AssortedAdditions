@@ -1352,6 +1352,24 @@ Mods: {
 				DisplayName: Phantasmic Dagger
 				Tooltip: Sacrifice your minions for health but at what cost?
 			}
+
+			RuneOfProsperity: {
+				DisplayName: Rune Of Prosperity
+				Tooltip:
+					'''
+					Enemies killed will drop more money
+					Mined ores have a chance to drop twice
+					'''
+			}
+
+			RuneOfFlight: {
+				DisplayName: Rune Of Flight
+				Tooltip:
+					'''
+					Allows flight and slow fall
+					Hold down while flying to hover
+					'''
+			}
 		}
 
 		Projectiles: {

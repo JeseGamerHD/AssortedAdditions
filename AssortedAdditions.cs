@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.IO;
 using AssortedAdditions.Content.Items.Misc;
 using AssortedAdditions.Content.NPCs;
@@ -15,6 +16,40 @@ namespace AssortedAdditions
     public class AssortedAdditions : Mod
     {
         public const string ASSET_PATH = "AssortedAdditions/Assets/";
+
+		internal static Dictionary<ushort, int> vanillaOreTileDrops;
+
+		public override void Load()
+		{
+			vanillaOreTileDrops = new()
+			{
+				[TileID.Copper] = ItemID.CopperOre,
+				[TileID.Iron] = ItemID.IronOre,
+				[TileID.Silver] = ItemID.SilverOre,
+				[TileID.Gold] = ItemID.GoldOre,
+				[TileID.Tin] = ItemID.TinOre,
+				[TileID.Lead] = ItemID.LeadOre,
+				[TileID.Tungsten] = ItemID.TungstenOre,
+				[TileID.Platinum] = ItemID.PlatinumOre,
+				[TileID.Demonite] = ItemID.DemoniteOre,
+				[TileID.Crimtane] = ItemID.CrimtaneOre,
+				[TileID.Meteorite] = ItemID.Meteorite,
+				[TileID.Hellstone] = ItemID.Hellstone,
+				[TileID.Cobalt] = ItemID.CobaltOre,
+				[TileID.Mythril] = ItemID.MythrilOre,
+				[TileID.Adamantite] = ItemID.AdamantiteOre,
+				[TileID.Palladium] = ItemID.PalladiumOre,
+				[TileID.Orichalcum] = ItemID.OrichalcumOre,
+				[TileID.Titanium] = ItemID.TitaniumOre,
+				[TileID.Chlorophyte] = ItemID.ChlorophyteOre,
+				[TileID.LunarOre] = ItemID.LunarOre
+			};
+		}
+
+		public override void Unload()
+		{
+			vanillaOreTileDrops = null;
+		}
 
 		/// <summary>
 		/// Different net message types for syncing stuff in multiplayer. Accessed using AssortedAdditions.MessageType.namehere

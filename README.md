@@ -30,7 +30,7 @@ If you encounter any bugs you can report them here or on the [Discord server](ht
 (optional)
 
 ## Contributing
-I won't be adding contributors to the repository (for now), but contributions are still welcome. Anyone who contributes will still be credited of course. Before doing anything you should check a few things depending on how you are planning to contribute. Joining the [discord](https://discord.gg/TZXJ9yGapC) and discussing potential contributions is highly recommended. If you have any questions, please send me a message over on discord.
+Contributions are welcome! Before doing anything you should check a few things depending on how you are planning to contribute. Joining the [discord](https://discord.gg/TZXJ9yGapC) and discussing potential contributions is highly recommended. If you have any questions, please send me a message over on discord.
 
 - **Adding new content**:
 Either make a post in the discord server's "suggestions" forum following its guidelines or create a new issue that describes the new content and add information that could be relevant to the player (crafting recipe, obtaining, etc). I will then check the issue and add appropriate labels to it. After this you can start working on the issue.
@@ -43,7 +43,7 @@ Either make a post in the discord server's "suggestions" forum following its gui
 If you want to modify something that has already been added (issue is closed) you can simply add a comment explaining what you want to do and why (and maybe message me). These are less likely to be accepted, but if your proposal makes sense and improves whatever it is associated with it can be accepted. 
 
 <u> **Creating a pull request / Adding your contributions**:</u> 
-After whatever you are contributing has been give the green light and you are done with it, you can simply create a pull request. Please reference your issue or discord post in the pull request (you can just copy the contents in to the description). I will then review the changes and if they are good, add them.
+After whatever you are contributing is done (and approved), you can simply create a pull request to the **development branch**. Please reference your issue or discord post in the pull request (you can just copy the contents in to the description). I will then review the changes and if they are good, add them.
 
 ## License
 

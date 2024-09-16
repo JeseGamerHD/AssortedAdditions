@@ -47,8 +47,11 @@
     <None Remove="Content\Items\Accessories\NebulaEmblem.png" />
     <None Remove="Content\Items\Accessories\Runes\ManaRune.png" />
     <None Remove="Content\Items\Accessories\Runes\RuneOfDeath.png" />
+    <None Remove="Content\Items\Accessories\Runes\RuneOfFlight.png" />
+    <None Remove="Content\Items\Accessories\Runes\RuneOfFlight_Wings.png" />
     <None Remove="Content\Items\Accessories\Runes\RuneOfHealth.png" />
     <None Remove="Content\Items\Accessories\Runes\RuneOfMovement.png" />
+    <None Remove="Content\Items\Accessories\Runes\RuneOfProsperity.png" />
     <None Remove="Content\Items\Accessories\Runes\RuneOfRelocation.png" />
     <None Remove="Content\Items\Accessories\Runes\RuneOfShadows.png" />
     <None Remove="Content\Items\Accessories\Runes\RuneOfSpelunking.png" />
