@@ -37,7 +37,7 @@ namespace AssortedAdditions.Content.Items.Accessories.Runes
 			if (CustomKeyBinds.RuneAbility.JustPressed && !player.HasBuff<RuneOfHealthCooldown>())
 			{
 				player.Heal(300);
-				player.AddBuff(ModContent.BuffType<RuneOfHealthCooldown>(), HelperMethods.MinutesToTicks(2));
+				player.AddBuff(ModContent.BuffType<RuneOfHealthCooldown>(), HelperMethods.MinutesToTicks(3));
 
 				SoundEngine.PlaySound(SoundID.DD2_DarkMageHealImpact, player.position);
 				for (int i = 0; i < 10; i++)
@@ -50,8 +50,13 @@ namespace AssortedAdditions.Content.Items.Accessories.Runes
 		public override void ModifyTooltips(List<TooltipLine> tooltips)
 		{
 			base.ModifyTooltips(tooltips); // Call base so RuneItem can replace the "Equipable" tip with a custom one
-			tooltips.Insert(tooltips.FindLastIndex(tip => tip.Name.StartsWith("Tooltip")) + 1,
-				new(Mod, "Tooltip3", "Press " + CustomKeyBinds.RuneAbility.GetAssignedKeys().FirstOrDefault("<Unbound>") + " to heal"));
+
+			int index = tooltips.FindIndex(static line => line.Text.Contains("{0}"));
+			if (index >= 0)
+			{
+				ref string text = ref tooltips[index].Text;
+				text = text.Replace("{0}", CustomKeyBinds.RuneAbility.GetAssignedKeys().FirstOrDefault("<Unbound>"));
+			}
 		}
 
 		public override void AddRecipes()

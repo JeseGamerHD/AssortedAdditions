@@ -78,6 +78,7 @@ namespace AssortedAdditions.Common.GlobalNPCs
             {
                 shop.Add(new Item(ItemID.GuideVoodooDoll) { shopCustomPrice = 4000 }, condition: Condition.DownedSkeletron);
 				shop.Add(new Item(ItemID.ClothierVoodooDoll) { shopCustomPrice = 4000 }, condition: Condition.DownedSkeletron);
+                shop.Add(new Item(ModContent.ItemType<RuneOfGuarding>()) { shopCustomPrice = Item.buyPrice(gold: 15) }, condition: Condition.DownedMechBossAny);
 			}
 
             if(shop.NpcType == NPCID.Steampunker)

@@ -33,18 +33,15 @@ namespace AssortedAdditions.Content.Projectiles.RangedProj
             Projectile.DamageType = DamageClass.Ranged;
         }
 
-        public float Timer
-        {
-            get => Projectile.ai[0];
-            set => Projectile.ai[0] = value;
-        }
+        public ref float Timer => ref Projectile.ai[0];
+
 
         public override void AI()
         {
-            NPC target = HelperMethods.FindClosesNPC(Projectile.Center, 1000f);
+            NPC target = HelperMethods.FindClosestNPC(Projectile.Center, 1000f);
 
-			Projectile.ai[1]++;
-			if (Projectile.ai[1] < 120f && Projectile.ai[1] > 15f && target != null)
+			Timer++;
+			if (Timer < 120f && Timer > 15f && target != null)
 			{
 				float speed = Projectile.velocity.Length();
 				Vector2 direction = target.Center - Projectile.Center;

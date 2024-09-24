@@ -34,12 +34,14 @@ namespace AssortedAdditions.Content.Projectiles.MagicProj
 			Projectile.aiStyle = 0;
 		}
 
+		public ref float Timer => ref Projectile.ai[0];
+
 		public override void AI()
 		{
-			NPC target = HelperMethods.FindClosesNPC(Projectile.Center, 1000f);
+			NPC target = HelperMethods.FindClosestNPC(Projectile.Center, 1000f);
 
-			Projectile.ai[1]++;
-			if (Projectile.ai[1] < 120f && Projectile.ai[1] > 30f && target != null)
+			Timer++;
+			if (Timer < 120f && Timer > 30f && target != null)
 			{
 				float speed = Projectile.velocity.Length();
 				Vector2 direction = target.Center - Projectile.Center;

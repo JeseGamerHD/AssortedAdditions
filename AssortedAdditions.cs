@@ -1,4 +1,6 @@
+using System.Collections.Generic;
 using System.IO;
+using AssortedAdditions.Common.Players;
 using AssortedAdditions.Content.Items.Misc;
 using AssortedAdditions.Content.NPCs;
 using AssortedAdditions.Content.Projectiles;
@@ -29,7 +31,8 @@ namespace AssortedAdditions
 			SpawnSkeletonMerchant,
 			DespawnSkeletonMerchant,
 
-			TeleportDungeon
+			TeleportDungeon,
+			SyncPlayerUnlocks
 		}
 
 		public override void HandlePacket(BinaryReader reader, int whoAmI)
@@ -84,6 +87,17 @@ namespace AssortedAdditions
 				case MessageType.TeleportDungeon:
 					MysteriousKey.TeleportInMultiplayer(whoAmI);
 				break;
+
+				case MessageType.SyncPlayerUnlocks:
+					byte playerNumber = reader.ReadByte();
+					PlayerUnlocks playerUnlocks = Main.player[playerNumber].GetModPlayer<PlayerUnlocks>();
+					playerUnlocks.ReceivePlayerSync(reader);
+
+					if(Main.netMode == NetmodeID.Server)
+					{
+						playerUnlocks.SyncPlayer(-1, whoAmI, false);
+					}
+					break;
 			}
 		}
 	}

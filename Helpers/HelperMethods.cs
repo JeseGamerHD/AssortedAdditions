@@ -109,40 +109,30 @@ namespace AssortedAdditions.Helpers
 		}
 
 		/// <summary>
-		/// Goes through Main.ActiveNPCs and checks how many of the given type of npc are active.
-		/// If you only need to check if one or a specific amount exists, you can specify the stopWhenFoundAmount.
+		/// Goes through Main.ActiveNPCs and finds the closest NPC to the entityCenter.
 		/// </summary>
-		/// <param name="entityCenter">The center of the entity (Projectile.Center)</param>
+		/// <param name="entityCenter">The center of the entity (e.g. Projectile.Center)</param>
 		/// <param name="range">How far away to look for NPCs</param>
 		/// <returns>The closest NPC or null if none are within the given range</returns>
-		public static NPC FindClosesNPC(Vector2 entityCenter, float range = 0)
+		public static NPC FindClosestNPC(Vector2 entityCenter, float range = 0)
 		{
 			NPC closestNPC = null;
 
 			// Using squared values in distance checks will let us skip square root calculations, drastically improving this method's speed.
 			float sqrMaxDetectDistance = range * range;
 
-			// Loop through all NPCs(max always 200)
-			for (int k = 0; k < Main.maxNPCs; k++)
+			foreach(var npc in Main.ActiveNPCs)
 			{
-				NPC target = Main.npc[k];
-				// Check if NPC able to be targeted. It means that NPC is
-				// 1. active (alive)
-				// 2. chaseable (e.g. not a cultist archer)
-				// 3. max life bigger than 5 (e.g. not a critter)
-				// 4. can take damage (e.g. moonlord core after all it's parts are downed)
-				// 5. hostile (!friendly)
-				// 6. not immortal (e.g. not a target dummy)
-				if (target.CanBeChasedBy())
+				if (npc.CanBeChasedBy())
 				{
 					// The DistanceSquared function returns a squared distance between 2 points, skipping relatively expensive square root calculations
-					float sqrDistanceToTarget = Vector2.DistanceSquared(target.Center, entityCenter);
+					float sqrDistanceToTarget = Vector2.DistanceSquared(npc.Center, entityCenter);
 
 					// Check if it is within the radius
 					if (sqrDistanceToTarget < sqrMaxDetectDistance)
 					{
 						sqrMaxDetectDistance = sqrDistanceToTarget;
-						closestNPC = target;
+						closestNPC = npc;
 					}
 				}
 			}

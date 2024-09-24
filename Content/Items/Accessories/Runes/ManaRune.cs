@@ -34,6 +34,7 @@ namespace AssortedAdditions.Content.Items.Accessories.Runes
 		{
 			// Only increase based on base mana without buffs etc so they won't stack
 			player.statManaMax2 = (int)(player.statManaMax * 1.5f);
+			player.GetModPlayer<ManaRunePlayer>().isWearingManaRune = true;
 		}
 
 		public override void AddRecipes()
@@ -64,6 +65,40 @@ namespace AssortedAdditions.Content.Items.Accessories.Runes
 			Main.spriteBatch.Draw(texture.Value, Item.position - Main.screenPosition, source, lightColor, 0, Vector2.Zero, scale * 0.5f, SpriteEffects.None, 0f);
 
 			return false;
+		}
+	}
+
+	public class ManaRunePlayer : ModPlayer
+	{
+		public bool isWearingManaRune;
+
+		public override void ResetEffects()
+		{
+			isWearingManaRune = false;
+		}
+	}
+
+	public class ManaRuneNPC : GlobalNPC
+	{
+		public override void OnKill(NPC npc)
+		{
+			Player player = Main.player[npc.lastInteraction];
+			if (player.GetModPlayer<ManaRunePlayer>().isWearingManaRune)
+			{
+				int heartDrop = 0;
+
+				// 8.3% chance, now the rate is basically doubled since vanilla chance is 8.3% as well
+				// only drop when mana is not full as well
+				if (Main.rand.NextBool(12) && player.statMana != player.statManaMax2)
+				{
+					heartDrop = Item.NewItem(npc.GetSource_DropAsItem(), npc.getRect(), ItemID.Star);
+				}
+
+				if (Main.netMode == NetmodeID.MultiplayerClient && heartDrop >= 0)
+				{
+					NetMessage.SendData(MessageID.SyncItem, -1, -1, null, heartDrop, 1f);
+				}
+			}
 		}
 	}
 }
