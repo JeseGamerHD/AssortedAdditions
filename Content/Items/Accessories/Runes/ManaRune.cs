@@ -88,8 +88,8 @@ namespace AssortedAdditions.Content.Items.Accessories.Runes
 				int heartDrop = 0;
 
 				// 8.3% chance, now the rate is basically doubled since vanilla chance is 8.3% as well
-				// only drop when health is not full as well
-				if (Main.rand.NextBool(12) && player.statLife != player.statLifeMax2)
+				// only drop when mana is not full as well
+				if (Main.rand.NextBool(12) && player.statMana != player.statManaMax2)
 				{
 					heartDrop = Item.NewItem(npc.GetSource_DropAsItem(), npc.getRect(), ItemID.Star);
 				}
