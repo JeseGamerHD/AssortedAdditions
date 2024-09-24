@@ -41,7 +41,7 @@ namespace AssortedAdditions.Content.Projectiles.RangedProj
 
         public override void AI()
         {
-            NPC target = HelperMethods.FindClosesNPC(Projectile.Center, 1000f);
+            NPC target = HelperMethods.FindClosestNPC(Projectile.Center, 1000f);
 
 			Projectile.ai[1]++;
 			if (Projectile.ai[1] < 120f && Projectile.ai[1] > 15f && target != null)

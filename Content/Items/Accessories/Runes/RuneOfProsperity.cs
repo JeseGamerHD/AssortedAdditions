@@ -73,9 +73,39 @@ namespace AssortedAdditions.Content.Items.Accessories.Runes
 
 	public class RuneOfProsperityDetour : ModSystem
 	{
+		internal static Dictionary<ushort, int> vanillaOreTileDrops;
 		public override void Load()
 		{
+			vanillaOreTileDrops = new()
+			{
+				[TileID.Copper] = ItemID.CopperOre,
+				[TileID.Iron] = ItemID.IronOre,
+				[TileID.Silver] = ItemID.SilverOre,
+				[TileID.Gold] = ItemID.GoldOre,
+				[TileID.Tin] = ItemID.TinOre,
+				[TileID.Lead] = ItemID.LeadOre,
+				[TileID.Tungsten] = ItemID.TungstenOre,
+				[TileID.Platinum] = ItemID.PlatinumOre,
+				[TileID.Demonite] = ItemID.DemoniteOre,
+				[TileID.Crimtane] = ItemID.CrimtaneOre,
+				[TileID.Meteorite] = ItemID.Meteorite,
+				[TileID.Hellstone] = ItemID.Hellstone,
+				[TileID.Cobalt] = ItemID.CobaltOre,
+				[TileID.Mythril] = ItemID.MythrilOre,
+				[TileID.Adamantite] = ItemID.AdamantiteOre,
+				[TileID.Palladium] = ItemID.PalladiumOre,
+				[TileID.Orichalcum] = ItemID.OrichalcumOre,
+				[TileID.Titanium] = ItemID.TitaniumOre,
+				[TileID.Chlorophyte] = ItemID.ChlorophyteOre,
+				[TileID.LunarOre] = ItemID.LunarOre
+			};
+
 			Terraria.On_Player.PickTile += CanDoubleOreDrop;
+		}
+
+		public override void Unload()
+		{
+			vanillaOreTileDrops = null;
 		}
 
 		// Note: This does nothing to prevent double drops from player placed ores
@@ -101,7 +131,7 @@ namespace AssortedAdditions.Content.Items.Accessories.Runes
 				if (!tile.HasTile)
 				{
 					// If the tile was not modded, get the vanilla item drop from the dictionary
-					if (modTile == null && AssortedAdditions.vanillaOreTileDrops.TryGetValue(type, out int itemDrop))
+					if (modTile == null && vanillaOreTileDrops.TryGetValue(type, out int itemDrop))
 					{
 						self.QuickSpawnItem(WorldGen.GetItemSource_FromTileBreak(x, y), itemDrop, 1);
 					}

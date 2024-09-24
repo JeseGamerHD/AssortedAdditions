@@ -1354,7 +1354,7 @@ Mods: {
 			}
 
 			RuneOfProsperity: {
-				DisplayName: Rune Of Prosperity
+				DisplayName: Rune of Prosperity
 				Tooltip:
 					'''
 					Enemies killed will drop more money
@@ -1363,11 +1363,20 @@ Mods: {
 			}
 
 			RuneOfFlight: {
-				DisplayName: Rune Of Flight
+				DisplayName: Rune of Flight
 				Tooltip:
 					'''
 					Allows flight and slow fall
-					Hold down while flying to hover
+					Can't be equipped with other wings
+					'''
+			}
+
+			RuneOfGuarding: {
+				DisplayName: Rune of Guarding
+				Tooltip:
+					'''
+					Press {0} to summon a Rune Sentry
+					Increases your max number of minions by 2
 					'''
 			}
 		}
@@ -1476,8 +1485,11 @@ Mods: {
 			PhantasmicBowProj.DisplayName: Phantasmic Bow Projectile
 			PhantasmicBladeTrail.DisplayName: Phantasmic Blade Trail
 			PhantasmicBladeStrike.DisplayName: Phantasmic Blade Strike
-			PhantasmicGauntletProj.DisplayName: Phantasmic Gauntlet Proj
+			PhantasmicGauntletProj.DisplayName: Phantasmic Gauntlet Projectile
 			PhantasmicDaggerSoul.DisplayName: Phantasmic Dagger Soul
+			RuneSentryController.DisplayName: Rune Sentry Controller
+			RuneSentry.DisplayName: Rune Sentry
+			RuneSentryShot.DisplayName: Rune Sentry Projectile
 		}
 
 		Tiles: {

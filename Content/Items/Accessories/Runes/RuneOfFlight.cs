@@ -2,10 +2,9 @@
 using Terraria.ID;
 using Terraria;
 using Terraria.ModLoader;
-using Microsoft.Xna.Framework;
-using Terraria.Audio;
 using AssortedAdditions.Content.Items.Misc;
 using AssortedAdditions.Content.Tiles.CraftingStations;
+using Microsoft.Xna.Framework;
 
 namespace AssortedAdditions.Content.Items.Accessories.Runes
 {
@@ -17,7 +16,7 @@ namespace AssortedAdditions.Content.Items.Accessories.Runes
 			Main.RegisterItemAnimation(Item.type, new DrawAnimationVertical(12, 4, true));
 			ItemID.Sets.AnimatesAsSoul[Item.type] = true;
 
-			ArmorIDs.Wing.Sets.Stats[Item.wingSlot] = new WingStats(150, 11f, 1.8f, true, 13f, 2.5f);
+			ArmorIDs.Wing.Sets.Stats[Item.wingSlot] = new WingStats(160, 10f, 1f);
 		}
 
 		public override void SetDefaults()
@@ -29,51 +28,78 @@ namespace AssortedAdditions.Content.Items.Accessories.Runes
 			Item.accessory = true;
 		}
 
+		public override void UpdateAccessory(Player player, bool hideVisual)
+		{
+			if (player.controlJump)
+			{
+				int offSet = player.direction == 1 ? -20 : 20;
+				Vector2 position = new Vector2(player.position.X + offSet, player.position.Y);
+				if (Main.rand.NextBool(4))
+				{
+					Dust dust = Dust.NewDustDirect(position, player.width, player.height, DustID.MushroomTorch, 1f, 1f, 200, default, 1.75f);
+					dust.noGravity = true;
+				}
+
+				if (Main.rand.NextBool(4))
+				{
+					Dust dust = Dust.NewDustDirect(player.position - player.velocity, player.width, player.height, DustID.Cloud, Scale: 1.2f);
+					dust.noGravity = true;
+				}
+			}
+
+			player.GetModPlayer<RuneOfFlightPlayer>().isWearingRuneOfFlight = true;
+		}
+
+		public override bool CanAccessoryBeEquippedWith(Item equippedItem, Item incomingItem, Player player)
+		{
+			if(equippedItem.wingSlot == 0)
+			{
+				return false;
+			}
+
+			return base.CanAccessoryBeEquippedWith(equippedItem, incomingItem, player);
+		}
+
+		public override void VerticalWingSpeeds(Player player, ref float ascentWhenFalling, ref float ascentWhenRising, ref float maxCanAscendMultiplier, ref float maxAscentMultiplier, ref float constantAscend)
+		{
+			ascentWhenFalling = 0.85f;
+		}
+
 		public override void AddRecipes()
 		{
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ModContent.ItemType<BlankRune>());
-			recipe.AddIngredient(ModContent.ItemType<MagicEssence>());
+			recipe.AddIngredient(ModContent.ItemType<MagicEssence>(), 10);
 			recipe.AddIngredient(ItemID.SoulofFlight, 20);
 			recipe.AddTile(ModContent.TileType<MagicWorkbenchTile>());
 			recipe.Register();
 		}
+	}
 
-		public override bool WingUpdate(Player player, bool inUse)
+	public class RuneOfFlightPlayer : ModPlayer
+	{
+		public bool isWearingRuneOfFlight;
+
+		public override void ResetEffects()
 		{
-			player.wingsLogic = 22; // The wings will behave like the hover board
-			// Unsure if there is another way to make hover wings easily
-
-			// Only draw and animate the sprite if the player is flying/falling etc
-			if (player.wingTime != 150 || player.velocity.Y != 0)
-			{
-				player.wingFrameCounter++;
-				if (player.wingFrameCounter > 12) // How many frames to spend on each frame
-				{
-					
-					player.wingFrame++;
-					player.wingFrameCounter = 0;
-					if (player.wingFrame > 3)
-					{
-						player.wingFrame = 1;
-					}
-					SoundEngine.PlaySound(SoundID.Item24 with { MaxInstances = 1, Pitch = 0.2f }, player.position);
-				}
-
-				Lighting.AddLight(new Vector2(player.Center.X, player.Center.Y + 20), TorchID.Blue);
-
-				if (Main.rand.NextBool(2))
-				{
-					Dust.NewDustPerfect(new Vector2(player.Center.X, player.Center.Y + 25) - player.velocity, 132, Scale: 0.85f, newColor: Color.SkyBlue);
-				}
-			}
-			else // Frame 0 is empty, it displays when not flying/falling
-			{
-				player.wingFrame = 0;
-				player.wingFrameCounter = 0;
-			}
-
-			return true;
+			isWearingRuneOfFlight = false;
 		}
+	}
+
+	public class StopWingsFromBeingEquippedWithRuneOfFlight : GlobalItem
+	{
+		public override bool AppliesToEntity(Item entity, bool lateInstantiation) => entity.wingSlot > 0 && entity.type != ModContent.ItemType<RuneOfFlight>();
+
+		public override bool CanEquipAccessory(Item item, Player player, int slot, bool modded)
+		{
+			
+			if (player.GetModPlayer<RuneOfFlightPlayer>().isWearingRuneOfFlight)
+			{
+				return false;
+			}
+
+			return base.CanEquipAccessory(item, player, slot, modded);
+		}
+
 	}
 }

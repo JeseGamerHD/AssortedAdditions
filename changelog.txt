@@ -1,8 +1,9 @@
 [B]v0.1.1.4[/B]
 
 [LIST]
-[*] Added 2 new runes to discover
+[*] Added 3 new runes: Rune of Prosperity, Rune of Flight, Rune of Guarding
 [*] Added a notification for when the player is using the Chinese translation mod, but their game language is not set to Chinese. This is to indicate that they can disable the translation mod if they wish the mod to be in English instead.
+[*] Fixed Rune slot unlock networking
 [*] Some internal code cleanup
 [/LIST]
 

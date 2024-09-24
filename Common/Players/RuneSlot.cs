@@ -29,11 +29,21 @@ namespace AssortedAdditions.Common.Players
 
 		public override bool CanAcceptItem(Item checkItem, AccessorySlotType context)
 		{
+			if (Player.wingsLogic > 0 && checkItem.type == ModContent.ItemType<RuneOfFlight>())
+			{
+				return false;
+			}
+
 			return checkItem.ModItem is RuneItem;
 		}
 
 		public override bool ModifyDefaultSwapSlot(Item item, int accSlotToSwapTo)
 		{
+			if (Player.wingsLogic > 0 && item.type == ModContent.ItemType<RuneOfFlight>())
+			{
+				return false;
+			}
+
 			return item.ModItem is RuneItem;
 		}
 
@@ -42,7 +52,7 @@ namespace AssortedAdditions.Common.Players
 			// For some reason GetModPlayer causes an error during loading
 			// Everything would work 99.9% of the time, could very rarely crash
 			// This is how calamity dealt with the issue
-			if (!Player.active) 
+			if (!Player.active)
 			{
 				return false;
 			}
