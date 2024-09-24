@@ -1141,7 +1141,11 @@ Mods: {
 
 			RuneOfHealth: {
 				DisplayName: Rune of Health
-				Tooltip: Enemies are more likely to drop health when killed
+				Tooltip:
+					'''
+					Press {0} to heal
+					Enemies are more likely to drop health when killed
+					'''
 			}
 
 			BlankRune: {
@@ -1154,6 +1158,7 @@ Mods: {
 				Tooltip:
 					'''
 					Increases max mana by 50%
+					Enemies are more likely to drop mana stars when killed
 					Won't stack with similar effects
 					'''
 			}
@@ -1162,6 +1167,7 @@ Mods: {
 				DisplayName: Rune of Shadows
 				Tooltip:
 					'''
+					Press {0} to cast projectiles from the sky
 					Your attacks inflict shadowflames
 					Summons protective orbs
 					'''
@@ -1241,7 +1247,7 @@ Mods: {
 				DisplayName: Rune of Relocation
 				Tooltip:
 					'''
-					Grants the ability to teleport
+					Press {0} to teleport to your cursor
 					Teleport has a cooldown
 					'''
 			}

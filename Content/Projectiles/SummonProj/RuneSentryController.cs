@@ -57,6 +57,13 @@ namespace AssortedAdditions.Content.Projectiles.SummonProj
 				}
 			}
 
+			Vector2 distanceVector = owner.Center - Projectile.Center;
+			float distanceToOwner = distanceVector.Length();
+			if (distanceToOwner > 2000f)
+			{
+				Projectile.Kill(); // Despawn if owner is far away
+			}
+
 			Projectile.velocity.Y = 6f; // Constant gravity
 			Projectile.timeLeft = 120; // Keep it alive
 

@@ -8,6 +8,8 @@ using AssortedAdditions.Content.Projectiles.SummonProj;
 using Terraria.Audio;
 using System.Collections.Generic;
 using System.Linq;
+using AssortedAdditions.Content.Items.Misc;
+using AssortedAdditions.Content.Tiles.CraftingStations;
 
 namespace AssortedAdditions.Content.Items.Accessories.Runes
 {
@@ -24,7 +26,7 @@ namespace AssortedAdditions.Content.Items.Accessories.Runes
 			Item.width = 24;
 			Item.height = 30;
 			Item.value = Item.sellPrice(gold: 6);
-			Item.rare = ItemRarityID.Pink;
+			Item.rare = ItemRarityID.Lime;
 			Item.accessory = true;
 		}
 
@@ -66,6 +68,17 @@ namespace AssortedAdditions.Content.Items.Accessories.Runes
 				ref string text = ref tooltips[index].Text;
 				text = text.Replace("{0}", CustomKeyBinds.RuneAbility.GetAssignedKeys().FirstOrDefault("<Unbound>"));
 			}
+		}
+
+		public override void AddRecipes()
+		{
+			Recipe recipe = CreateRecipe();
+			recipe.AddIngredient(ItemID.LifeFruit, 1);
+			recipe.AddIngredient(ModContent.ItemType<BlankRune>());
+			recipe.AddIngredient(ItemID.HallowedBar, 3);
+			recipe.AddIngredient(ModContent.ItemType<MagicEssence>(), 10);
+			recipe.AddTile(ModContent.TileType<MagicWorkbenchTile>());
+			recipe.Register();
 		}
 	}
 

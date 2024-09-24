@@ -109,9 +109,9 @@ namespace AssortedAdditions.Helpers
 		}
 
 		/// <summary>
-		/// Goes through Main.ActiveNPCs and checks how many of the given type of npc are active.
+		/// Goes through Main.ActiveNPCs and finds the closest NPC to the entityCenter.
 		/// </summary>
-		/// <param name="entityCenter">The center of the entity (Projectile.Center)</param>
+		/// <param name="entityCenter">The center of the entity (e.g. Projectile.Center)</param>
 		/// <param name="range">How far away to look for NPCs</param>
 		/// <returns>The closest NPC or null if none are within the given range</returns>
 		public static NPC FindClosestNPC(Vector2 entityCenter, float range = 0)

@@ -3,7 +3,10 @@
 [LIST]
 [*] Added 3 new runes: Rune of Prosperity, Rune of Flight, Rune of Guarding
 [*] Added a notification for when the player is using the Chinese translation mod, but their game language is not set to Chinese. This is to indicate that they can disable the translation mod if they wish the mod to be in English instead.
-[*] Fixed Rune slot unlock networking
+[*] Rune of Health cooldown increased to 3 minutes (from 2)
+[*] Mana Rune now also increases the drop chance of mana stars from killed enemies
+[*] Updated some rune's descriptions (Localization update)
+[*] Fixed Rune slot unlock networking (Only rune affected was Rune of Shadows)
 [*] Some internal code cleanup
 [/LIST]
 

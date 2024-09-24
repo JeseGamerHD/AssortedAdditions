@@ -3,6 +3,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
 using Terraria.Audio;
+using AssortedAdditions.Helpers;
 
 namespace AssortedAdditions.Content.Projectiles.RangedProj;
 
@@ -69,7 +70,7 @@ internal class GuidedMissileProj : ModProjectile
 		// If the player stops channeling, the projectile tries to home in on a target (if there are none it continues in the direction it was heading)
 		else if (Main.myPlayer == Projectile.owner && Projectile.ai[0] == 1f)
 		{
-			NPC closestNPC = FindClosestNPC(maxDetectRadius);
+			NPC closestNPC = HelperMethods.FindClosestNPC(Projectile.Center, maxDetectRadius);
 
 			if (closestNPC != null) // If no target is found, missile flies off
 			{
@@ -85,35 +86,6 @@ internal class GuidedMissileProj : ModProjectile
         Projectile.rotation = Projectile.velocity.ToRotation();
 		Projectile.netUpdate = true;
 	}
-
-    public NPC FindClosestNPC(float maxDetectDistance)
-    {
-        NPC closestNPC = null;
-
-        // Using squared values in distance checks will let us skip square root calculations, drastically improving Projectile method's speed.
-        float sqrMaxDetectDistance = maxDetectDistance * maxDetectDistance;
-
-        // Loop through all NPCs(max always 200)
-        for (int k = 0; k < Main.maxNPCs; k++)
-        {
-            NPC target = Main.npc[k];
-
-            if (target.CanBeChasedBy())
-            {
-                // The DistanceSquared function returns a squared distance between 2 points, skipping relatively expensive square root calculations
-                float sqrDistanceToTarget = Vector2.DistanceSquared(target.Center, Projectile.Center);
-
-                // Check if it is within the radius
-                if (sqrDistanceToTarget < sqrMaxDetectDistance)
-                {
-                    sqrMaxDetectDistance = sqrDistanceToTarget;
-                    closestNPC = target;
-                }
-            }
-        }
-
-        return closestNPC;
-    }
 
     public override void OnKill(int timeLeft)
     {

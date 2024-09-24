@@ -68,8 +68,13 @@ namespace AssortedAdditions.Content.Items.Accessories.Runes
 		public override void ModifyTooltips(List<TooltipLine> tooltips)
 		{
 			base.ModifyTooltips(tooltips); // Call base so RuneItem can replace the "Equipable" tip with a custom one
-			tooltips.Insert(tooltips.FindLastIndex(tip => tip.Name.StartsWith("Tooltip")) + 1,
-				new(Mod, "Tooltip3", "Press " + CustomKeyBinds.RuneAbility.GetAssignedKeys().FirstOrDefault("<Unbound>") + " to teleport to mouse position"));
+			
+			int index = tooltips.FindIndex(static line => line.Text.Contains("{0}"));
+			if (index >= 0)
+			{
+				ref string text = ref tooltips[index].Text;
+				text = text.Replace("{0}", CustomKeyBinds.RuneAbility.GetAssignedKeys().FirstOrDefault("<Unbound>"));
+			}
 		}
 
 		// The rune icon be too big when dropped and Item.scale did not fix this

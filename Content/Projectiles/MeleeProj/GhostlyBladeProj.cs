@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using AssortedAdditions.Helpers;
+using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
@@ -42,7 +43,7 @@ namespace AssortedAdditions.Content.Projectiles.MeleeProj
 			}
 
 			// Then finds a target and homes in on it
-			NPC closestNPC = FindClosestNPC(1000f);
+			NPC closestNPC = HelperMethods.FindClosestNPC(Projectile.Center, 1000f);
 			if (closestNPC == null)
 			{
 				// If no target is found within 2 seconds then fly off
@@ -59,33 +60,6 @@ namespace AssortedAdditions.Content.Projectiles.MeleeProj
 			float maxTurn = MathHelper.ToRadians(3f); // Lower values mean faster turning
 			Projectile.velocity = Projectile.velocity.RotatedBy(MathHelper.WrapAngle(curve.AngleTowards(target, maxTurn)) - curve);
 			Projectile.rotation = Projectile.velocity.ToRotation() + MathHelper.PiOver2;
-		}
-
-		private NPC FindClosestNPC(float range)
-		{
-			NPC closestNPC = null;
-
-			// Using squared values in distance checks will let us skip square root calculations, drastically improving this method's speed.
-			float sqrMaxDetectDistance = range * range;
-
-			// Loop through all NPCs(max always 200)
-			for (int k = 0; k < Main.maxNPCs; k++)
-			{
-				NPC target = Main.npc[k];
-				if (target.CanBeChasedBy())
-				{
-					// The DistanceSquared function returns a squared distance between 2 points, skipping relatively expensive square root calculations
-					float sqrDistanceToTarget = Vector2.DistanceSquared(target.Center, Projectile.Center);
-
-					// Check if it is within the radius
-					if (sqrDistanceToTarget < sqrMaxDetectDistance)
-					{
-						sqrMaxDetectDistance = sqrDistanceToTarget;
-						closestNPC = target;
-					}
-				}
-			}
-			return closestNPC;
 		}
 
 		public override void OnKill(int timeLeft)
