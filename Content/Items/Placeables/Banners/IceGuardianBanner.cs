@@ -2,12 +2,14 @@
 using Terraria.ModLoader;
 using Terraria;
 using AssortedAdditions.Content.Tiles.Banners;
+using Terraria.Localization;
 
 namespace AssortedAdditions.Content.Items.Placeables.Banners
 {
     internal class IceGuardianBanner : ModItem
     {
-        public override void SetDefaults()
+		public override LocalizedText Tooltip => base.Tooltip.WithFormatArgs(Language.GetTextValue("Mods.AssortedAdditions.NPCs.IceGuardian.DisplayName"));
+		public override void SetDefaults()
         {
             Item.width = 10;
             Item.height = 24;

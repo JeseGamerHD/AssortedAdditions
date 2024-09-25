@@ -34,10 +34,10 @@ namespace AssortedAdditions.Content.Tiles.Banners
             TileID.Sets.DisableSmartCursor[Type] = true;
 
             TileObjectData.newTile.CopyFrom(TileObjectData.Style1x2Top);
-			TileObjectData.newTile.StyleHorizontal = true;
-			TileObjectData.newTile.Height = 3;
+            TileObjectData.newTile.StyleHorizontal = true;
+            TileObjectData.newTile.Height = 3;
             TileObjectData.newTile.CoordinateHeights = new int[] { 16, 16, 16 };
-            TileObjectData.newTile.AnchorTop = new AnchorData(AnchorType.SolidTile | AnchorType.SolidSide | AnchorType.SolidBottom, TileObjectData.newTile.Width, 0);
+            TileObjectData.newTile.AnchorTop = new AnchorData(AnchorType.SolidTile | AnchorType.SolidSide | AnchorType.SolidBottom | AnchorType.Platform, TileObjectData.newTile.Width, 0);
             TileObjectData.newTile.StyleWrapLimit = 111;
             TileObjectData.addTile(Type);
             DustType = -1;
@@ -54,5 +54,18 @@ namespace AssortedAdditions.Content.Tiles.Banners
                 Main.SceneMetrics.NPCBannerBuff[BuffNPC] = true;
             }
         }
-    }
+
+		public override void SetDrawPositions(int i, int j, ref int width, ref int offsetY, ref int height, ref short tileFrameX, ref short tileFrameY)
+		{
+            // Offset for when the banner is placed off of platforms
+			Tile tile = Main.tile[i, j];
+			TileObjectData data = TileObjectData.GetTileData(tile);
+			int topLeftX = i - tile.TileFrameX / 18 % data.Width;
+			int topLeftY = j - tile.TileFrameY / 18 % data.Height;
+			if (WorldGen.IsBelowANonHammeredPlatform(topLeftX, topLeftY))
+			{
+				offsetY -= 8;
+			}
+		}
+	}
 }
