@@ -2,11 +2,13 @@
 using AssortedAdditions.Content.Tiles.Banners;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria.Localization;
 
 namespace AssortedAdditions.Content.Items.Placeables.Banners
 {
 	internal class PhantomMageBanner : ModItem
 	{
+		public override LocalizedText Tooltip => base.Tooltip.WithFormatArgs(Language.GetTextValue("Mods.AssortedAdditions.NPCs.PhantomMage.DisplayName"));
 		public override void SetDefaults()
 		{
 			Item.width = 10;

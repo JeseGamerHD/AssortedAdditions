@@ -2,12 +2,14 @@
 using Terraria.ModLoader;
 using Terraria;
 using AssortedAdditions.Content.Tiles.Banners;
+using Terraria.Localization;
 
 namespace AssortedAdditions.Content.Items.Placeables.Banners
 {
     internal class GrabberPlantBanner : ModItem
     {
-        public override void SetDefaults()
+		public override LocalizedText Tooltip => base.Tooltip.WithFormatArgs(Language.GetTextValue("Mods.AssortedAdditions.NPCs.GrabberPlant.DisplayName"));
+		public override void SetDefaults()
         {
             Item.width = 12;
             Item.height = 28;

@@ -2,11 +2,13 @@
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria;
+using Terraria.Localization;
 
 namespace AssortedAdditions.Content.Items.Placeables.Banners
 {
 	internal class GraniteGruntBanner : ModItem
 	{
+		public override LocalizedText Tooltip => base.Tooltip.WithFormatArgs(Language.GetTextValue("Mods.AssortedAdditions.NPCs.GraniteGrunt.DisplayName"));
 		public override void SetDefaults()
 		{
 			Item.width = 12;

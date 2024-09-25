@@ -139,8 +139,7 @@ These tables show the earliest point when an item can be obtained. Many items ca
 |                  |                |                |                  |  Spore Necklace  |
 |                  |                |                |                  |                  |
 |      Runes       |     Runes      |     Runes      |      Runes       |      Runes       |
-|                  |                |                |                  |Rune of Relocation|
-|                  |                |                |                  |Rune of Guarding  |
+|                  |                |                |Rune of Guarding  |Rune of Relocation|
 |                  |                |                |                  |                  |
 |      Armor       |     Armor      |     Armor      |      Armor       |      Armor       |
 |   Frost Armor    |  Frost Armor   | Mythril Armor  |  Mythril Armor   |                  |

@@ -450,7 +450,7 @@ Mods: {
 
 			NightSlimeBanner: {
 				DisplayName: Night Slime Banner
-				Tooltip: Nearby players get a bonus against: Night Slime
+				Tooltip: "{$CommonItemTooltip.BannerBonus}{0}"
 			}
 
 			StarryWand: {
@@ -660,7 +660,7 @@ Mods: {
 
 			CursedPickaxeBanner: {
 				DisplayName: Cursed Pickaxe Banner
-				Tooltip: Nearby players get a bonus against: Cursed Pickaxe
+				Tooltip: "{$CommonItemTooltip.BannerBonus}{0}"
 			}
 
 			DeathRay: {
@@ -698,7 +698,7 @@ Mods: {
 
 			ShroomlingBanner: {
 				DisplayName: Shroomling Banner
-				Tooltip: Nearby players get a bonus against: Shroomling
+				Tooltip: "{$CommonItemTooltip.BannerBonus}{0}"
 			}
 
 			EchoChamber: {
@@ -771,7 +771,7 @@ Mods: {
 
 			FrostWraithBanner: {
 				DisplayName: Frost Wraith Banner
-				Tooltip: Nearby players get a bonus against: Frost Wraith
+				Tooltip: "{$CommonItemTooltip.BannerBonus}{0}"
 			}
 
 			SteelPlating: {
@@ -892,7 +892,7 @@ Mods: {
 
 			LivingCactusBanner: {
 				DisplayName: Living Cactus Banner
-				Tooltip: Nearby players get a bonus against: Living Cactus
+				Tooltip: "{$CommonItemTooltip.BannerBonus}{0}"
 			}
 
 			CactusFlower: {
@@ -984,7 +984,7 @@ Mods: {
 
 			GrabberPlantBanner: {
 				DisplayName: Grabber Plant Banner
-				Tooltip: Nearby players get a bonus against: Grabber Plant
+				Tooltip: "{$CommonItemTooltip.BannerBonus}{0}"
 			}
 
 			GrabberFlower: {
@@ -998,7 +998,7 @@ Mods: {
 
 			IceGuardianBanner: {
 				DisplayName: Ice Guardian Banner
-				Tooltip: Nearby players get a bonus against: Ice Guardian
+				Tooltip: "{$CommonItemTooltip.BannerBonus}{0}"
 			}
 
 			WardingPotion: {
@@ -1023,7 +1023,7 @@ Mods: {
 
 			GoblinBalloonistBanner: {
 				DisplayName: Goblin Balloonist Banner
-				Tooltip: Nearby players get a bonus against: Goblin Balloonist
+				Tooltip: "{$CommonItemTooltip.BannerBonus}{0}"
 			}
 
 			BagOfBombs: {
@@ -1230,7 +1230,7 @@ Mods: {
 
 			GraniteGruntBanner: {
 				DisplayName: Granite Grunt Banner
-				Tooltip: ""
+				Tooltip: "{$CommonItemTooltip.BannerBonus}{0}"
 			}
 
 			GraniteStaff: {
@@ -1302,7 +1302,7 @@ Mods: {
 
 			PhantomMageBanner: {
 				DisplayName: Phantom Mage Banner
-				Tooltip: ""
+				Tooltip: "{$CommonItemTooltip.BannerBonus}{0}"
 			}
 
 			ShellHorn: {
@@ -1321,7 +1321,7 @@ Mods: {
 
 			GraveFlowers: {
 				DisplayName: Grave Flowers
-				Tooltip: Summons The Haunt
+				Tooltip: Summons The Haunt when in a Graveyard
 			}
 
 			HauntRelic: {
