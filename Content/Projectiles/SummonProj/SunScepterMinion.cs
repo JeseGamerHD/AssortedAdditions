@@ -29,8 +29,10 @@ namespace AssortedAdditions.Content.Projectiles.SummonProj
             Projectile.tileCollide = false;
             Projectile.friendly = true;
             Projectile.minion = true;
+            Projectile.usesLocalNPCImmunity = true;
+            Projectile.localNPCHitCooldown = 15;
 
-			Projectile.DamageType = DamageClass.Summon;
+            Projectile.DamageType = DamageClass.Summon;
             Projectile.aiStyle = 0;
         }
 
@@ -235,11 +237,6 @@ namespace AssortedAdditions.Content.Projectiles.SummonProj
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
             target.AddBuff(BuffID.OnFire, 120);
-        }
-
-        public override void PostDraw(Color lightColor)
-        {
-            base.PostDraw(lightColor);
         }
     }
 }

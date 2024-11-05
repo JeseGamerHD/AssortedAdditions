@@ -1,8 +1,6 @@
-[B]v0.1.1.5[/B]
+[B]v0.1.1.6[/B]
 
 [LIST]
-[*] Fixed banners not being placeable off of platforms
-[*] Added tooltips to banners that were missing it. Banner tooltips now use substitutions for easier translations.
-[*] Updated Grave Flowers' description
+[*] Fixed minions not triggering the Fire Cracker explosion properly
 [/LIST]
 

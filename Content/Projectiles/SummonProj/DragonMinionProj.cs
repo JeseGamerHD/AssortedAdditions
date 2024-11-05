@@ -25,6 +25,8 @@ namespace AssortedAdditions.Content.Projectiles.SummonProj
             Projectile.tileCollide = false;
             Projectile.friendly = true;
             Projectile.minion = true;
+			Projectile.usesLocalNPCImmunity = true;
+			Projectile.localNPCHitCooldown = 15;
 			Projectile.DamageType = DamageClass.Summon;
             Projectile.minionSlots = 1; // Takes one slot
             Projectile.penetrate = -1; // Minion won't despawn upon collision with enemies/tiles
