@@ -24,6 +24,8 @@ namespace AssortedAdditions.Content.Projectiles.SummonProj
 
 			Projectile.friendly = true;
 			Projectile.minion = true;
+			Projectile.usesLocalNPCImmunity = true;
+			Projectile.localNPCHitCooldown = 10;
 
 			Projectile.DamageType = DamageClass.Summon;
 			Projectile.aiStyle = ProjAIStyleID.Pet;
