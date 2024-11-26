@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using Microsoft.Xna.Framework;
 using Terraria;
 
@@ -9,6 +10,17 @@ namespace AssortedAdditions.Helpers
 	/// </summary>
 	public class HelperMethods
 	{
+		/// <summary>
+		/// Checks if at least X amount of booleans are true in the given booleans
+		/// </summary>
+		/// <param name="atLeast">How many booleans should be true at least</param>
+		/// <param name="booleans">The booleans to check</param>
+		/// <returns>True if enough booleans are true, false if not</returns>
+		public static bool AtLeastTrue(int atLeast, params bool[] booleans)
+		{
+			return booleans.Count(b => b) >= atLeast;
+		}
+
 		/// <summary>
 		/// Converts seconds to ticks
 		/// </summary>

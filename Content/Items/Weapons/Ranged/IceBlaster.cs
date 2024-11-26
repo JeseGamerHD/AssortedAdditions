@@ -47,7 +47,7 @@ namespace AssortedAdditions.Content.Items.Weapons.Ranged
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ItemID.FrostCore, 1);
             recipe.AddIngredient(ItemID.PhoenixBlaster, 1);
-            recipe.AddTile(TileID.MythrilAnvil);
+            recipe.AddTile(TileID.Anvils);
             recipe.Register();
         }
     }

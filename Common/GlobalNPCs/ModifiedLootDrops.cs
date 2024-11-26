@@ -56,6 +56,49 @@ namespace AssortedAdditions.Common.GlobalNPCs
 					npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<RuneOfProsperity>(), 15));
 					break;
 
+				// Celestial Pillars
+				case NPCID.SolarCorite:
+				case NPCID.SolarSolenian:
+				case NPCID.SolarSroller:
+					npcLoot.Add(ItemDropRule.Common(ItemID.FragmentSolar, 10, 1, 2));
+					break;
+				case NPCID.SolarSpearman:
+				case NPCID.SolarDrakomire:
+					npcLoot.Add(ItemDropRule.Common(ItemID.FragmentSolar, 6, 2, 3));
+					break;
+				case NPCID.SolarCrawltipedeHead:
+				case NPCID.SolarDrakomireRider:
+					npcLoot.Add(ItemDropRule.Common(ItemID.FragmentSolar, 4, 3, 4));
+					break;
+				case NPCID.VortexHornet:
+				case NPCID.VortexLarva:
+					npcLoot.Add(ItemDropRule.Common(ItemID.FragmentVortex, 10, 1, 2));
+					break;
+				case NPCID.VortexHornetQueen:
+				case NPCID.VortexRifleman:
+					npcLoot.Add(ItemDropRule.Common(ItemID.FragmentVortex, 4, 3, 4));
+					break;
+				case NPCID.VortexSoldier:
+					npcLoot.Add(ItemDropRule.Common(ItemID.FragmentVortex, 6, 2, 3));
+					break;
+				case NPCID.NebulaHeadcrab:
+					npcLoot.Add(ItemDropRule.Common(ItemID.FragmentNebula, 10, 1, 2));
+					break;
+				case NPCID.NebulaBeast:
+				case NPCID.NebulaBrain:
+				case NPCID.NebulaSoldier:
+					npcLoot.Add(ItemDropRule.Common(ItemID.FragmentNebula, 6, 2, 3));
+					break;
+				case NPCID.StardustCellBig:
+				case NPCID.StardustCellSmall:
+				case NPCID.StardustJellyfishBig:
+				case NPCID.StardustSpiderBig:
+				case NPCID.StardustSpiderSmall:
+				case NPCID.StardustSoldier:
+				case NPCID.StardustWormHead:
+					npcLoot.Add(ItemDropRule.Common(ItemID.FragmentStardust, 10, 2, 3));
+					break;
+
 				#endregion
 
 				#region NORMAL ENEMIES

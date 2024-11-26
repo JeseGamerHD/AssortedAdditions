@@ -1,4 +1,6 @@
 ﻿using AssortedAdditions.Common.Configs;
+using AssortedAdditions.Common.Systems;
+using AssortedAdditions.Helpers;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -18,46 +20,19 @@ namespace AssortedAdditions.Common.GlobalTiles
                 switch (type)
                 {
                     case TileID.Mythril:
-                        if (Condition.DownedMechBossAny.IsMet())
-                        {
-                            return true;
-                        }
-                        else
-                        {
-                            return false;
-                        }
+                        return NPC.downedMechBossAny || DownedBossSystem.downedFireDragon;
 
                     case TileID.Orichalcum:
-                        if (Condition.DownedMechBossAny.IsMet())
-                        {
-                            return true;
-                        }
-                        else
-                        {
-                            return false;
-                        }
+                        return NPC.downedMechBossAny || DownedBossSystem.downedFireDragon;
 
                     case TileID.Adamantite:
-                        if (NPC.downedMechBoss1 && NPC.downedMechBoss2)
-                        {
-                            return true;
-                        }
-                        else
-                        {
-                            return false;
-                        }
+						return HelperMethods.AtLeastTrue(2, NPC.downedMechBoss1, NPC.downedMechBoss2, NPC.downedMechBoss3);
 
-                    case TileID.Titanium:
-                        if (NPC.downedMechBoss1 && NPC.downedMechBoss2)
-                        {
-                            return true;
-                        }
-                        else
-                        {
-                            return false;
-                        }
 
-                    default:
+					case TileID.Titanium:
+						return HelperMethods.AtLeastTrue(2, NPC.downedMechBoss1, NPC.downedMechBoss2, NPC.downedMechBoss3);
+
+					default:
                         break;
                 }
             }

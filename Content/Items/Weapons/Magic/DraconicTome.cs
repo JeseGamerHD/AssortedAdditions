@@ -4,6 +4,8 @@ using Terraria.ModLoader;
 using Terraria;
 using Microsoft.Xna.Framework;
 using AssortedAdditions.Content.Projectiles.MagicProj;
+using AssortedAdditions.Content.Items.Misc;
+using AssortedAdditions.Content.Tiles.CraftingStations;
 
 namespace AssortedAdditions.Content.Items.Weapons.Magic
 {
@@ -60,5 +62,15 @@ namespace AssortedAdditions.Content.Items.Weapons.Magic
 
             return true;
         }
+
+        public override void AddRecipes()
+        {
+            Recipe.Create(ModContent.ItemType<DraconicTome>())
+                .AddIngredient(ItemID.SpellTome)
+                .AddIngredient(ModContent.ItemType<MagicEssence>(), 6)
+                .AddIngredient(ModContent.ItemType<DragonScale>(), 6)
+                .AddTile(ModContent.TileType<MagicWorkbenchTile>())
+                .Register();
+		}
     }
 }
