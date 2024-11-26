@@ -1,6 +1,10 @@
-[B]v0.1.1.6[/B]
+[B]v0.1.1.7[/B]
 
 [LIST]
-[*] Fixed minions not triggering the Fire Cracker explosion properly
+[*] Changes to hardmode ore progression: Mythril/Orichalcum can be mined after defeating Fire Dragon or any mech boss, Adamantite/Titanium can be mined after defeating at least two mech bosses. (Can still be toggled off)
+[*] Mech boss summoning items as well as a bunch of early hardmode items can now be crafted at regular anvils
+[*] Celestial Pillar enemies now drop fragments
+[*] Fire Dragon weapon drops can now also be crafted
+[*] Improved Dust Bringer Staff Projectile logic
 [/LIST]
 

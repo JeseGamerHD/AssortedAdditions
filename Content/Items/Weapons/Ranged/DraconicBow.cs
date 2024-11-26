@@ -5,6 +5,7 @@ using Terraria;
 using Microsoft.Xna.Framework;
 using Terraria.DataStructures;
 using AssortedAdditions.Content.Projectiles.RangedProj;
+using AssortedAdditions.Content.Items.Misc;
 
 namespace AssortedAdditions.Content.Items.Weapons.Ranged
 {
@@ -64,5 +65,14 @@ namespace AssortedAdditions.Content.Items.Weapons.Ranged
         {
             type = ModContent.ProjectileType<DraconicBowProj>();
         }
-    }
+
+		public override void AddRecipes()
+		{
+			Recipe.Create(ModContent.ItemType<DraconicBow>())
+				.AddIngredient(ItemID.PalladiumBar, 10)
+				.AddIngredient(ModContent.ItemType<DragonScale>(), 6)
+				.AddTile(TileID.Anvils)
+				.Register();
+		}
+	}
 }

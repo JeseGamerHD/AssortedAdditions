@@ -13,7 +13,7 @@ namespace AssortedAdditions.Common.GlobalItems
     {
         public override void AddRecipes()
         {
-            Recipe torch = Recipe.Create(ItemID.Torch, 10);
+			Recipe torch = Recipe.Create(ItemID.Torch, 10);
             torch.AddIngredient(ModContent.ItemType<CoalChunk>());
             torch.AddRecipeGroup("Wood");
             torch.Register();

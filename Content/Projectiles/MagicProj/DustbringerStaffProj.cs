@@ -16,26 +16,22 @@ namespace AssortedAdditions.Content.Projectiles.MagicProj
         public override void SetDefaults()
         {
             Projectile.width = 64;
-            Projectile.height = 80;
+            Projectile.height = 64;
             Projectile.penetrate = -1;
-            Projectile.stepSpeed = 10; // Projectile moves along ground and steps up blocks
             Projectile.alpha = 50;
 
             Projectile.DamageType = DamageClass.Magic;
 
-            Projectile.ignoreWater = false;
-            Projectile.tileCollide = true;
+            Projectile.ignoreWater = true;
+            Projectile.tileCollide = false;
             Projectile.hostile = false;
             Projectile.friendly = true;
 
             Projectile.aiStyle = 0;
         }
 
-        bool setOnce = false;
         public override void AI()
         {
-            Player player = Main.player[Projectile.owner];
-
             // Loop through the sprite frames
             int frameSpeed = 3;
             Projectile.frameCounter++;
@@ -49,9 +45,6 @@ namespace AssortedAdditions.Content.Projectiles.MagicProj
                     Projectile.frame = 0;
                 }
             }
-
-            Projectile.rotation = Projectile.velocity.X * 0.02f; // Slight lean when moving
-            Projectile.spriteDirection = Projectile.direction; // Faces left/right correctly
 
             // Projectile creates some wind sounds
             if (Projectile.soundDelay == 0)
@@ -81,40 +74,95 @@ namespace AssortedAdditions.Content.Projectiles.MagicProj
                 dust2.noLight = true;
             }
 
-            // Ensures that the projectile will move and not get stuck
-            if (!setOnce)
-            {
-                Projectile.position.Y -= 5;
-
-                if (player.direction == 1)
-                {
-                    Projectile.velocity.X = 7;
-                    setOnce = true;
-                }
-                else
-                {
-                    Projectile.velocity.X = -7;
-                    setOnce = true;
-                }
-            }
-
-            // Constant gravity, projectile moves along ground
-            Projectile.velocity.Y = 5;
-
-            // When encountering a block, the projectile will go over it as long as its just 1 tile tall (for reference look at how the player and NPCs do this in game)
-            Collision.StepUp(ref Projectile.position, ref Projectile.velocity, Projectile.width, Projectile.height, ref Projectile.stepSpeed, ref Projectile.gfxOffY);
+            MovementLogic();
+			Projectile.rotation = Projectile.velocity.X * 0.02f; // Slight lean when moving
+			Projectile.spriteDirection = Projectile.direction; // Faces left/right correctly
         }
 
-        public override bool OnTileCollide(Vector2 oldVelocity)
+        private ref float Timer => ref Projectile.ai[0];
+		private ref float FlightTimer => ref Projectile.ai[1];
+		
+        // Taken from vanilla aiStyle 145
+        // Tried to rename some variables and do some cleanup
+		private void MovementLogic()
         {
-            if (Projectile.velocity.X != oldVelocity.X)
-            {
-                return true;
-            }
+			float maxFlightTime = 300f;
+			if (FlightTimer >= 16f && Timer < maxFlightTime - 15f)
+			{
+				Timer = maxFlightTime - 15f;
+			}
 
-            Projectile.timeLeft = 10;
-            return false;
-        }
+			Timer++;
+			if (Timer >= maxFlightTime)
+			{
+				Projectile.Kill();
+			}
+
+			Vector2 vector2 = new Vector2(0f, Projectile.Bottom.Y - Projectile.Top.Y);
+			vector2.X = vector2.Y * 0.2f;
+			int tileWidth = 16;
+			int maxTileheight = 160;
+
+			Vector2 vector3 = new Vector2(Projectile.Center.X - (tileWidth / 2), Projectile.position.Y + Projectile.height - maxTileheight);
+			if (Collision.SolidCollision(vector3, tileWidth, maxTileheight) || Collision.WetCollision(vector3, tileWidth, maxTileheight))
+			{
+				if (Projectile.velocity.Y > 0f)
+				{
+					Projectile.velocity.Y = 0f;
+				}
+				else if (Projectile.velocity.Y > -4f)
+				{
+					Projectile.velocity.Y -= 2f;
+				}
+				else
+				{
+					Projectile.velocity.Y -= 4f;
+					FlightTimer += 2f;
+				}
+
+				if (Projectile.velocity.Y < -16f)
+				{
+					Projectile.velocity.Y = -16f;
+				}
+				return;
+			}
+
+			// Cant be negative
+			FlightTimer -= 1f;
+			if (FlightTimer < 0f)
+			{
+				FlightTimer = 0f;
+			}
+
+			if (Projectile.velocity.Y < 0f)
+			{
+				Projectile.velocity.Y = 0f;
+			}
+			else if (Projectile.velocity.Y < 4f)
+			{
+				Projectile.velocity.Y += 2f;
+			}
+			else
+			{
+				Projectile.velocity.Y += 4f;
+			}
+
+			if (Projectile.velocity.Y > 16f)
+			{
+				Projectile.velocity.Y = 16f;
+			}
+
+			if (Timer < maxFlightTime - 30f)
+			{
+				for (int j = 0; j < 1; j++)
+				{
+					float amount = Main.rand.NextFloat();
+					Vector2 vector4 = new Vector2(MathHelper.Lerp(0.1f, 1f, Main.rand.NextFloat()), MathHelper.Lerp(-1f, 0.9f, amount));
+					vector4.X *= MathHelper.Lerp(2.2f, 0.6f, amount);
+					vector4.X *= -1f;
+				}
+			}		
+		}
 
         public override void OnKill(int timeLeft)
         {

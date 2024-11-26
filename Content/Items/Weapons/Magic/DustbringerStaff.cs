@@ -32,5 +32,10 @@ namespace AssortedAdditions.Content.Items.Weapons.Magic
         }
 
         public override Vector2? HoldoutOffset() => new(-15, 0); // Alligns the sprite properly
-    }
+
+		public override void ModifyShootStats(Player player, ref Vector2 position, ref Vector2 velocity, ref int type, ref int damage, ref float knockback)
+		{
+            position = new(position.X, position.Y - 20);
+		}
+	}
 }

@@ -265,9 +265,9 @@ namespace AssortedAdditions.Content.NPCs.BossTheHaunt
 					direction.Normalize();
 					direction *= 4f;
 
-					// Spawn up to three, rotate each ones basic velocity
-					float numberProjectiles = 6; // or maybe just 3 and 60 degrees
-					float rotation = MathHelper.ToRadians(180);
+					
+					float numberProjectiles = 6; // Spawn up to X
+					float rotation = MathHelper.ToRadians(180); // rotation for start velocity
 
 					// Spawn the projectiles
 					for (int i = 0; i < numberProjectiles; i++)

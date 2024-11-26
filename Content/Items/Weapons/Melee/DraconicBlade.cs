@@ -1,8 +1,8 @@
-﻿using AssortedAdditions.Content.Projectiles.MeleeProj;
+﻿using AssortedAdditions.Content.Items.Misc;
+using AssortedAdditions.Content.Projectiles.MeleeProj;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
-using Terraria.GameContent.Creative;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -78,5 +78,14 @@ namespace AssortedAdditions.Content.Items.Weapons.Melee
         {
             target.AddBuff(BuffID.OnFire, 120);
         }
-    }
+
+		public override void AddRecipes()
+		{
+			Recipe.Create(ModContent.ItemType<DraconicBlade>())
+	            .AddIngredient(ItemID.PalladiumBar, 10)
+	            .AddIngredient(ModContent.ItemType<DragonScale>(), 6)
+	            .AddTile(TileID.Anvils)
+	            .Register();
+		}
+	}
 }

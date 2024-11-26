@@ -33,13 +33,13 @@ namespace AssortedAdditions.Content.Items.Armor
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ModContent.ItemType<DragonScale>(), 12);
             recipe.AddIngredient(ItemID.PalladiumBar, 24);
-            recipe.AddTile(TileID.MythrilAnvil);
+            recipe.AddTile(TileID.Anvils);
             recipe.Register();
 
             Recipe recipe2 = CreateRecipe();
             recipe2.AddIngredient(ModContent.ItemType<DragonScale>(), 12);
             recipe2.AddIngredient(ItemID.CobaltBar, 24);
-            recipe2.AddTile(TileID.MythrilAnvil);
+            recipe2.AddTile(TileID.Anvils);
             recipe2.Register();
         }
     }
