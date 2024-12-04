@@ -4,7 +4,7 @@
 
 [![Discord](https://img.shields.io/discord/1233667170572177408?style=for-the-badge&logo=discord&label=Discord)](https://discord.gg/TZXJ9yGapC) [![Workshop](https://img.shields.io/steam/downloads/3242730118?style=for-the-badge&logo=steam&color=blue)](https://steamcommunity.com/sharedfiles/filedetails/?id=3242730118)
 
-Assorted Additions is a content mod for Terraria which adds all sorts of things like the name implies. Currently the mod adds around 200 new items, a new category of accessory called "Runes", 13 NPCs, 1 boss and a bunch of tweaks such as improved loot for underground biome chests (mushroon, granite etc.), alternative ways of obtaining some accessories and non-consumable summoning items.  
+Assorted Additions is a content mod for Terraria which adds all sorts of things like the name implies. Currently the mod adds around 200 new items, 15 NPCs, 2 bosses, a new category of accessory called "Runes" and a bunch of other tweaks such as improved loot for underground biome chests (mushroon, granite etc.), alternative ways of obtaining some accessories and Cultist boss loot.  
 
 The mod does not have a proper wiki, however, an overview of the progression / class setups can be found in [ClassSetups.md](ClassSetups.md). This GitHub page also contains information on the different items/things added (see section below).
 
