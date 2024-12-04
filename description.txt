@@ -1,7 +1,7 @@
 Assorted Additions is a content mod which adds all kinds of things like the name implies. These are some of the additions:
 - Over 200 items
 - 15 NPCs
-- 2 Boss
+- 2 Bosses
 - New accessory category "Runes"
 
 Also a bunch of tweaks such as:
