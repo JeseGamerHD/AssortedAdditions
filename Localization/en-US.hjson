@@ -1,5 +1,12 @@
 Mods: {
 	AssortedAdditions: {
+		ChatMessages.Permafrost: The ice caverns get colder...
+
+		PopupMessages: {
+			HardmodeOre: Repelled by a mechanical presence!
+			HardmodeOreAlt: Repelleted by two mechanical presences!
+		}
+
 		Buffs: {
 			DragonStaffBuff: {
 				DisplayName: It's a dragon!
@@ -1593,9 +1600,10 @@ Mods: {
 					Label: Use Modded Hardmode Ore Progression
 					Tooltip:
 						'''
+						Ores can be mined as follows:
 						Palladium/Cobalt: after Wall of Flesh
-						Mythril/Orichalcum: after The Destroyer
-						Adamantite/Titanium: after The Destroyer + Twins
+						Mythril/Orichalcum: after any Mech Boss or The Fire Dragon
+						Adamantite/Titanium: after any two Mech Bosses
 						'''
 				}
 

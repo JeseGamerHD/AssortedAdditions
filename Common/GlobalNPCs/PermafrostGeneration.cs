@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.WorldBuilding;
 
@@ -13,7 +14,9 @@ namespace AssortedAdditions.Common.GlobalNPCs
         public override bool AppliesToEntity(NPC entity, bool lateInstantiation)
         {
             // Check if the entity is one of the mech bosses
-            if (entity.type == NPCID.Retinazer || entity.type == NPCID.Spazmatism || entity.type == NPCID.TheDestroyer || entity.type == NPCID.SkeletronPrime)
+            // TODO: now the permafrost spawns if spazmatism is defeated without killing retinazer
+            // should only spawn after defeating both, removed check for retinazer since then it would spawn twice
+            if (entity.type == NPCID.Spazmatism || entity.type == NPCID.TheDestroyer || entity.type == NPCID.SkeletronPrime)
             {
                 return true;
             }
@@ -40,7 +43,7 @@ namespace AssortedAdditions.Common.GlobalNPCs
                     }
                 }
 
-                Main.NewText("The ice caverns get colder...", Color.Blue);
+                Main.NewText(Language.GetTextValue("Mods.AssortedAdditions.ChatMessages.Permafrost"), Color.Blue);
             }
         }
     }
