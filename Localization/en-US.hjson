@@ -1,10 +1,13 @@
 Mods: {
 	AssortedAdditions: {
-		ChatMessages.Permafrost: The ice caverns get colder...
+		ChatMessages: {
+			Permafrost: The ice caverns get coler...
+			HardmodeOres: "[Assorted Additions] Modded hardmode ore progression active! Check server config for details."
+		}
 
 		PopupMessages: {
-			HardmodeOre: Repelled by a mechanical presence!
-			HardmodeOreAlt: Repelleted by two mechanical presences!
+			HardmodeOre: Protected by a mechanical power!
+			HardmodeOreAlt: Protected by mechanical powers!
 		}
 
 		Buffs: {

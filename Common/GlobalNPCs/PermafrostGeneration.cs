@@ -1,4 +1,5 @@
 ﻿using AssortedAdditions.Content.Tiles;
+using AssortedAdditions.Helpers;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
@@ -14,9 +15,7 @@ namespace AssortedAdditions.Common.GlobalNPCs
         public override bool AppliesToEntity(NPC entity, bool lateInstantiation)
         {
             // Check if the entity is one of the mech bosses
-            // TODO: now the permafrost spawns if spazmatism is defeated without killing retinazer
-            // should only spawn after defeating both, removed check for retinazer since then it would spawn twice
-            if (entity.type == NPCID.Spazmatism || entity.type == NPCID.TheDestroyer || entity.type == NPCID.SkeletronPrime)
+            if (entity.type == NPCID.Retinazer || entity.type == NPCID.Spazmatism || entity.type == NPCID.TheDestroyer || entity.type == NPCID.SkeletronPrime)
             {
                 return true;
             }
@@ -29,6 +28,18 @@ namespace AssortedAdditions.Common.GlobalNPCs
             // If none of the mech bosses have been defeated yet, generate Permafrost
             if (!NPC.downedMechBossAny)
             {
+                // Special check for the twins to prevent permafrost generating twice
+                if(npc.type == NPCID.Retinazer || npc.type == NPCID.Spazmatism)
+                {
+                    // Basically check if the other twin is still alive, works in combination with the downedMechBossAny
+                    int otherTwin = npc.type == NPCID.Retinazer ? NPCID.Spazmatism : NPCID.Retinazer;
+					Main.NewText(otherTwin);
+					if (HelperMethods.CountNPCs(otherTwin, 1) > 0)
+                    {
+                        return;
+                    }
+                }
+
                 int maxtoSpawn = (int)(Main.maxTilesX * Main.maxTilesY * 0.0006); // Adjusting this last number increases/decreases amount
                 for (int i = 0; i < maxtoSpawn; i++)
                 {

@@ -1,7 +1,7 @@
 [B]v0.1.1.8[/B]
 
 [LIST]
-[*] Added popup text related to hardmode ore progression when mining ore
+[*] Added indicators for modded hardmode ore progression
 [*] Banners now sway in the wind + additional fixes to them
 [*] Minor adjustment of afterimage trail drawing
 [*] Fixed permafrost generating twice when killing twins

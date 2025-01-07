@@ -3,6 +3,7 @@ using AssortedAdditions.Common.Systems;
 using AssortedAdditions.Helpers;
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.Chat;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
@@ -15,6 +16,7 @@ namespace AssortedAdditions.Common.GlobalTiles
 	// Adamantite/Titanium after any two mech bosses
 	internal class HardmodeOreProgression : GlobalTile
 	{
+		private int popupMsg = -1;
 		public override bool CanKillTile(int i, int j, int type, ref bool blockDamaged)
 		{
 			// The player can toggle this on/off if they want to use vanilla progression
@@ -30,7 +32,11 @@ namespace AssortedAdditions.Common.GlobalTiles
 						}
 						else
 						{
-							PopupText.NewText(new AdvancedPopupRequest
+							if(popupMsg != -1)
+							{
+								Main.popupText[popupMsg].active = false;
+							}
+							popupMsg = PopupText.NewText(new AdvancedPopupRequest
 							{
 								Text = Language.GetTextValue("Mods.AssortedAdditions.PopupMessages.HardmodeOre"),
 								Color = Color.Red,
@@ -52,8 +58,12 @@ namespace AssortedAdditions.Common.GlobalTiles
 							string message = NPC.downedMechBossAny 
 								? Language.GetTextValue("Mods.AssortedAdditions.PopupMessages.HardmodeOre") 
 								: Language.GetTextValue("Mods.AssortedAdditions.PopupMessages.HardmodeOreAlt");
-							
-							PopupText.NewText(new AdvancedPopupRequest
+
+							if (popupMsg != -1)
+							{
+								Main.popupText[popupMsg].active = false;
+							}
+							popupMsg = PopupText.NewText(new AdvancedPopupRequest
 							{
 								Text = message,
 								Color = Color.Red,
@@ -71,6 +81,19 @@ namespace AssortedAdditions.Common.GlobalTiles
 			}
 
 			return base.CanKillTile(i, j, type, ref blockDamaged);
+		}
+	}
+
+	public class HardmodeOreProgressionMessage : GlobalNPC
+	{
+		public override bool AppliesToEntity(NPC entity, bool lateInstantiation) => entity.type == NPCID.WallofFlesh;
+
+		public override void OnKill(NPC npc)
+		{
+			if(!Main.hardMode && ServerSidedToggles.Instance.HardmodeOreProgressionToggle)
+			{
+				ChatHelper.BroadcastChatMessage(NetworkText.FromKey("Mods.AssortedAdditions.ChatMessages.HardmodeOres"), Color.DarkOrange);
+			}
 		}
 	}
 }
