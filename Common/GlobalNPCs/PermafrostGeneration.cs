@@ -1,7 +1,9 @@
 ﻿using AssortedAdditions.Content.Tiles;
+using AssortedAdditions.Helpers;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.WorldBuilding;
 
@@ -23,9 +25,25 @@ namespace AssortedAdditions.Common.GlobalNPCs
 
         public override void OnKill(NPC npc)
         {
+            if(ModLoader.TryGetMod("UltimateSkyblock", out Mod UltimateSkyblock))
+            {
+                return; // No point in running this in the skyblock mod
+            }
+
             // If none of the mech bosses have been defeated yet, generate Permafrost
             if (!NPC.downedMechBossAny)
             {
+                // Special check for the twins to prevent permafrost generating twice
+                if(npc.type == NPCID.Retinazer || npc.type == NPCID.Spazmatism)
+                {
+                    // Basically check if the other twin is still alive, works in combination with the downedMechBossAny
+                    int otherTwin = npc.type == NPCID.Retinazer ? NPCID.Spazmatism : NPCID.Retinazer;
+					if (HelperMethods.CountNPCs(otherTwin, 1) > 0)
+                    {
+                        return;
+                    }
+                }
+
                 int maxtoSpawn = (int)(Main.maxTilesX * Main.maxTilesY * 0.0006); // Adjusting this last number increases/decreases amount
                 for (int i = 0; i < maxtoSpawn; i++)
                 {
@@ -40,7 +58,7 @@ namespace AssortedAdditions.Common.GlobalNPCs
                     }
                 }
 
-                Main.NewText("The ice caverns get colder...", Color.Blue);
+                Main.NewText(Language.GetTextValue("Mods.AssortedAdditions.ChatMessages.Permafrost"), Color.Blue);
             }
         }
     }

@@ -7,6 +7,8 @@ using Microsoft.Xna.Framework;
 using AssortedAdditions.Content.Items.Misc;
 using AssortedAdditions.Content.Items.Placeables.Banners;
 using AssortedAdditions.Common.Configs;
+using Terraria.ModLoader.Utilities;
+using AssortedAdditions.Content.Items.Placeables.Ores;
 
 namespace AssortedAdditions.Content.NPCs
 {
@@ -49,12 +51,20 @@ namespace AssortedAdditions.Content.NPCs
         // and only in the underground ice biome
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
+            float baseChance = 0.004f;
+			float multiplier = ServerSidedToggles.Instance.NPCSpawnMultiplier == 1f 
+                ? ServerSidedToggles.Instance.CursedPickaxeSpawnMultiplier : ServerSidedToggles.Instance.NPCSpawnMultiplier;
+			
             if (NPC.downedMechBossAny && spawnInfo.Player.ZoneSnow && spawnInfo.Player.ZoneRockLayerHeight)
             {
-                float multiplier = ServerSidedToggles.Instance.NPCSpawnMultiplier == 1f
-                    ? ServerSidedToggles.Instance.CursedPickaxeSpawnMultiplier : ServerSidedToggles.Instance.NPCSpawnMultiplier;
-
-				return 0.004f * multiplier;
+				return baseChance * multiplier;
+            }
+            else if (NPC.downedMechBossAny && spawnInfo.Player.ZoneSnow)
+            {
+                if(ModLoader.TryGetMod("UltimateSkyblock", out Mod UltimateSkyblock))
+                {
+                    return 10 * baseChance * multiplier;
+				}
             }
 
             return 0f;

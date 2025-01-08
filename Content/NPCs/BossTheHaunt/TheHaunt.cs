@@ -642,7 +642,7 @@ namespace AssortedAdditions.Content.NPCs.BossTheHaunt
 
 			// Redraw the projectile with the color not influenced by light
 			Vector2 drawOrigin = new Vector2(texture.Value.Width * 0.5f, NPC.height * 0.5f);
-			for (int k = 0; k < NPC.oldPos.Length; k++)
+			for (int k = NPC.oldPos.Length - 1; k > 0; k--)
 			{
 				Vector2 drawPos = NPC.oldPos[k] - Main.screenPosition + drawOrigin + new Vector2(0f, NPC.gfxOffY);
 				Color color = NPC.GetAlpha(drawColor) * ((NPC.oldPos.Length - k) / (float)NPC.oldPos.Length);

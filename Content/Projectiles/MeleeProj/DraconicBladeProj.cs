@@ -12,7 +12,7 @@ namespace AssortedAdditions.Content.Projectiles.MeleeProj
     {
         public override void SetStaticDefaults()
         {
-            ProjectileID.Sets.TrailCacheLength[Projectile.type] = 5; // The length of old position to be recorded
+            ProjectileID.Sets.TrailCacheLength[Projectile.type] = 7; // The length of old position to be recorded
             ProjectileID.Sets.TrailingMode[Projectile.type] = 3; // The recording mode
             // Actual trail is drawn in PreDraw()
         }
@@ -52,7 +52,7 @@ namespace AssortedAdditions.Content.Projectiles.MeleeProj
 
             // Redraw the projectile with the color not influenced by light
             Vector2 drawOrigin = new Vector2(texture.Value.Width * 0.5f, Projectile.height * 0.5f);
-            for (int k = 0; k < Projectile.oldPos.Length; k++)
+            for (int k = Projectile.oldPos.Length - 1; k > 0; k--)
             {
                 Vector2 drawPos = Projectile.oldPos[k] - Main.screenPosition + drawOrigin + new Vector2(0f, Projectile.gfxOffY);
                 Color color = Projectile.GetAlpha(lightColor) * ((Projectile.oldPos.Length - k) / (float)Projectile.oldPos.Length);

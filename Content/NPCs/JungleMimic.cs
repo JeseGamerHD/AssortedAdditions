@@ -49,6 +49,13 @@ namespace AssortedAdditions.Content.NPCs
             {
                 return SpawnCondition.UndergroundMimic.Chance;
             }
+            else if (NPC.downedMechBossAny && spawnInfo.Player.ZoneJungle)
+            {
+                if(ModLoader.TryGetMod("UltimateSkyblock", out Mod UltimateSkyblock))
+                {
+                    return 0.015f;
+                }
+            }
 
             return 0f;
         }

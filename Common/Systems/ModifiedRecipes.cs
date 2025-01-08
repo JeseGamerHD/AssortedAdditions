@@ -52,6 +52,7 @@ namespace AssortedAdditions.Common.Systems
 				Recipe recipe = Main.recipe[i];
 
 				// The player can disable these changes if they want to in the mod configs
+				// Changes affected by the config could potentially be bad (e.g., frost armor not craftable if permafrost can't generate)
 				if (ModContent.GetInstance<ServerSidedToggles>().ModifiedRecipesToggle)
 				{
 					// If recipe results in FrostHelmet and the recipe used TitaniumBar as an ingredient
@@ -86,6 +87,7 @@ namespace AssortedAdditions.Common.Systems
 					}
 				}
 
+				// Outside of config toggle on purpose, shouldn't cause problems
 				if (earlyHardModeAnvilItems.Contains(recipe.createItem.type))
 				{
 					recipe.RemoveTile(TileID.MythrilAnvil);

@@ -50,12 +50,19 @@ namespace AssortedAdditions.Content.NPCs
         // Should only spawn during hardmode and in the underground desert
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            if (Main.hardMode && spawnInfo.Player.ZoneUndergroundDesert)
+            float baseChance = 0.05f;
+			float multiplier = ServerSidedToggles.Instance.NPCSpawnMultiplier == 1f
+                ? ServerSidedToggles.Instance.SandstoneMimicSpawnMultiplier : ServerSidedToggles.Instance.NPCSpawnMultiplier;
+			if (Main.hardMode && spawnInfo.Player.ZoneUndergroundDesert)
             {
-                float multiplier = ServerSidedToggles.Instance.NPCSpawnMultiplier == 1f
-                    ? ServerSidedToggles.Instance.SandstoneMimicSpawnMultiplier : ServerSidedToggles.Instance.NPCSpawnMultiplier;
-
-				return SpawnCondition.DesertCave.Chance * 0.05f * multiplier;
+				return SpawnCondition.DesertCave.Chance * baseChance * multiplier;
+            }
+            else if(Main.hardMode && spawnInfo.Player.ZoneDesert)
+            {
+                if(ModLoader.TryGetMod("UltimateSkyblock", out Mod UltimateSkyblock))
+                {
+                    return baseChance * multiplier;
+                }
             }
 
             return 0f;

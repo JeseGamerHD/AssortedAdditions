@@ -64,12 +64,20 @@ namespace AssortedAdditions.Content.NPCs
         // and only in the underground ice biome
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            if (NPC.downedMechBossAny && spawnInfo.Player.ZoneSnow && spawnInfo.Player.ZoneRockLayerHeight)
-            {
-				float multiplier = ServerSidedToggles.Instance.NPCSpawnMultiplier == 1f 
-                    ? ServerSidedToggles.Instance.FrostWraithSpawnMultiplier : ServerSidedToggles.Instance.NPCSpawnMultiplier;
+            float baseChance = 0.1f;
+			float multiplier = ServerSidedToggles.Instance.NPCSpawnMultiplier == 1f
+                ? ServerSidedToggles.Instance.FrostWraithSpawnMultiplier : ServerSidedToggles.Instance.NPCSpawnMultiplier;
 
-				return SpawnCondition.Cavern.Chance * 0.1f * multiplier;
+			if (NPC.downedMechBossAny && spawnInfo.Player.ZoneSnow && spawnInfo.Player.ZoneRockLayerHeight)
+            {
+				return SpawnCondition.Cavern.Chance * baseChance * multiplier;
+            }
+            else if(NPC.downedMechBossAny && spawnInfo.Player.ZoneSnow && !Main.dayTime)
+            {
+                if(ModLoader.TryGetMod("UltimateSkyblock", out Mod UltimateSkyblock))
+                {
+                    return 2f * baseChance * multiplier;
+				}
             }
 
             return 0f;
