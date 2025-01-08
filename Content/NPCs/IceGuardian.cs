@@ -10,6 +10,7 @@ using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ModLoader.Utilities;
+using static Terraria.ModLoader.PlayerDrawLayer;
 
 namespace AssortedAdditions.Content.NPCs
 {
@@ -116,15 +117,22 @@ namespace AssortedAdditions.Content.NPCs
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            if (NPC.downedMechBossAny && spawnInfo.Player.ZoneSnow && spawnInfo.Player.ZoneRockLayerHeight)
+            float baseChance = 0.05f;
+			float multiplier = ServerSidedToggles.Instance.NPCSpawnMultiplier == 1f
+                ? ServerSidedToggles.Instance.IceGuardianSpawnMultiplier : ServerSidedToggles.Instance.NPCSpawnMultiplier;
+			if (NPC.downedMechBossAny && spawnInfo.Player.ZoneSnow && spawnInfo.Player.ZoneRockLayerHeight)
             {
-				float multiplier = ServerSidedToggles.Instance.NPCSpawnMultiplier == 1f
-					? ServerSidedToggles.Instance.IceGuardianSpawnMultiplier : ServerSidedToggles.Instance.NPCSpawnMultiplier;
-
-				return (SpawnCondition.Cavern.Chance * 0.05f) * multiplier;
+                return SpawnCondition.Cavern.Chance * baseChance * multiplier;
             }
+			else if (NPC.downedMechBossAny && spawnInfo.Player.ZoneSnow)
+			{
+				if (ModLoader.TryGetMod("UltimateSkyblock", out Mod UltimateSkyblock))
+				{
+					return baseChance * multiplier;
+				}
+			}
 
-            return 0f;
+			return 0f;
         }
 
         public override void ModifyNPCLoot(NPCLoot npcLoot)

@@ -25,6 +25,11 @@ namespace AssortedAdditions.Common.GlobalNPCs
 
         public override void OnKill(NPC npc)
         {
+            if(ModLoader.TryGetMod("UltimateSkyblock", out Mod UltimateSkyblock))
+            {
+                return; // No point in running this in the skyblock mod
+            }
+
             // If none of the mech bosses have been defeated yet, generate Permafrost
             if (!NPC.downedMechBossAny)
             {
@@ -33,7 +38,6 @@ namespace AssortedAdditions.Common.GlobalNPCs
                 {
                     // Basically check if the other twin is still alive, works in combination with the downedMechBossAny
                     int otherTwin = npc.type == NPCID.Retinazer ? NPCID.Spazmatism : NPCID.Retinazer;
-					Main.NewText(otherTwin);
 					if (HelperMethods.CountNPCs(otherTwin, 1) > 0)
                     {
                         return;
