@@ -187,7 +187,7 @@ namespace AssortedAdditions.Common.GlobalNPCs
 					break;
 
 				case NPCID.Dandelion:
-					npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<DandelionFlower>(), 3, 1, 1)); // 33% chance
+					npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<DandelionFlower>(), 6, 1, 1)); // 16% chance
 					break;
 
 				case NPCID.BigMimicCorruption:
@@ -197,7 +197,7 @@ namespace AssortedAdditions.Common.GlobalNPCs
 					break;
 
 				case NPCID.Ghost:
-					npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<GhostlyBlade>(), 12)); // 8% chance																		   
+					npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<GhostlyBlade>(), 40)); // 2.5% chance																		   
 					npcLoot.Add(ItemDropRule.ByCondition(Condition.DownedMechBossAll.ToDropCondition(ShowItemDropInUI.Always), ModContent.ItemType<GraveFlowers>(), 20, 1)); // 5% chance to drop in hardmode
 					break;
 

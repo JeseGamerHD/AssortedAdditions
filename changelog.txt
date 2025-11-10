@@ -1,12 +1,7 @@
-[B]v0.1.1.8[/B]
+[B]v0.1.1.9[/B]
 
 [LIST]
-[*] Improved compatibility with Ultimate Skyblock mod
-[*] Added indicators for modded hardmode ore progression
-[*] Added some chest loot to fishing crates. Also added Desert Mimic and Jungle Mimic loot to respective fishing crates.
-[*] Fixed banners: they now sway in the wind
-[*] Fixed permafrost generating twice when killing twins
-[*] Minor adjustment of afterimage trail drawing
-[*] Updated localization
+[*] Fixed Rune of Death not giving immunity to: Bouncy boulder, Life Crystal Boulder, Poison gas trap and explosives, tnt barrels and landmines. Now also gives immunity against thorns.
+[*] Reduced drop rate of Ghostly Blade and Dandelion Flower.
 [/LIST]
 

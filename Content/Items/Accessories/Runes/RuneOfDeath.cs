@@ -49,8 +49,8 @@ namespace AssortedAdditions.Content.Items.Accessories.Runes
 	{
 		public bool isWearingRuneOfDeath;
 
-		readonly HashSet<int> trapProjectiles = new HashSet<int>() 
-		{ 
+		readonly HashSet<int> trapProjectiles = new HashSet<int>()
+		{
 			ProjectileID.PoisonDart,
 			ProjectileID.GeyserTrap,
 			ProjectileID.PoisonDartTrap,
@@ -59,20 +59,35 @@ namespace AssortedAdditions.Content.Items.Accessories.Runes
 			ProjectileID.FlamethrowerTrap,
 			ProjectileID.FlamesTrap,
 			ProjectileID.Boulder,
-			ProjectileID.Explosives
+			ProjectileID.Explosives,
+			ProjectileID.BouncyBoulder,
+			ProjectileID.LifeCrystalBoulder,
+			ProjectileID.GasTrap,
+			ProjectileID.TNTBarrel,
+			ProjectileID.Landmine,
 		};
+
 
 		public override bool CanBeHitByProjectile(Projectile proj)
 		{
 			if (isWearingRuneOfDeath)
 			{
-				if(trapProjectiles.Contains(proj.type))
+				if (trapProjectiles.Contains(proj.type))
 				{
 					return false;
 				}
 			}
-
 			return true;
+		}
+
+		public override void ModifyHitByProjectile(Projectile proj, ref Player.HurtModifiers modifiers)
+		{
+			// Cancel explosive damage
+			// Probably very scuffed fix:
+			if(trapProjectiles.Contains(modifiers.DamageSource.SourceProjectileType) && isWearingRuneOfDeath)
+			{
+				modifiers.Cancel();
+			}
 		}
 
 		public override void ResetEffects()
@@ -95,13 +110,19 @@ namespace AssortedAdditions.Content.Items.Accessories.Runes
 			if (self.GetModPlayer<RuneOfDeathPlayer>().isWearingRuneOfDeath)
 			{
 				// And the tile is spikes
-				if(tileId == TileID.Spikes || tileId == TileID.WoodenSpikes)
+				if (TileID.Sets.TouchDamageImmediate[tileId] != 0)
 				{
 					return; // Dont call ApplyTouchDamage to skip taking damage
 				}
 			}
-			
+
 			orig(self, tileId, x, y); // otherwise call original method
 		}
+
+		//private static bool IsThorn(int tileId)
+		//{
+		//	;
+		//	return tileId == TileID.CorruptThorns || TileID.CrimsonThorns || TileID.JungleThorns || TileID.PlanteraThorns;
+		//}
 	}
 }
